@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GalaxyCoreServer</name>
+    </assembly>
+    <members>
+        <member name="T:GalaxyCoreServer.Api.ApprovalConnection">
+            <summary>
+            Неавторизированное подключение
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.ApprovalConnection.netConnection">
+            <summary>
+            Реальное соеденение
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Approve(GalaxyCoreCommon.BaseMessage)">
+            <summary>
+            Разрешить подключение к серверу
+            </summary>
+            <param name="baseMessage">Протобуф сообщение</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Approve(System.Byte[])">
+            <summary>
+            Разрешить подключение к серверу
+            </summary>
+            <param name="data">Сообщение (не обязательно)</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Deny(System.Byte,System.String)">
+            <summary>
+            Отправить сообщение без авторизации
+            </summary>
+            <param name="err">код ошибки (пользовательский)</param>
+            <param name="mes">отправляемое клиенту сообщение</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.ClientConnection">
+            <summary>
+            Класс подключения клиента
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.ClientConnection.netConnection">
+            <summary>
+            Реальное соеденение
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.ClientConnection.netPeer">
+            <summary>
+            Дополнительная ссылка на пир
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.ClientConnection.timeConnected">
+            <summary>
+            Время коннекта
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.ClientConnection.statistic">
+            <summary>
+            Статистика
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ClientConnection.SetNetConnection(Lidgren.Network.NetConnection)">
+            <summary>
+            Установка интернет соеденения
+            </summary>
+            <param name="netConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ClientConnection.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение пользователю
+            </summary>
+            <param name="code">Пользовательский код сообщения, для удобной сепарации</param>
+            <param name="message">Сообщение (наследник BaseMessage)</param>
+            <param name="deliveryType">Способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ClientConnection.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить данные пользователю
+            </summary>
+            <param name="code">Пользовательский код сообщения, для удобной сепарации</param>
+            <param name="data">Сообщение (наследник BaseMessage)</param>
+            <param name="deliveryType">Способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ClientConnection.Disconnect">
+            <summary>
+            Отключить пользователя
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyConnect">
+            <summary>
+            Успешное подключение к серверу
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyRegistration">
+            <summary>
+            Клиент запрашивает регистрацию
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyDisconnect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyDisconnect(GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Вызов события дисконекта
+            </summary>
+            <param name="clientConnection">коннект илента</param>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.Statistic.inMessages">
+            <summary>
+            Число входящих сообщений
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.Statistic.outMessages">
+            <summary>
+            Число исходящих сообщений
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.Statistic.inTraffic">
+            <summary>
+            Входящий трафик в байтах
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.Statistic.outTraffic">
+            <summary>
+            Исходящий трафик в байтах
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.Statistic.userOnline">
+            <summary>
+            Число игроков онлайн
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.incomingMessage">
+            <summary>
+            Необходимо указать класс реализующий обработку входящих сообщений
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.SERVER_NAME">
+            <summary>
+            Название сервера
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.LISTEN_PORT">
+            <summary>
+            Порт для подключения клиентов
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.SEND_BUFFER_SIZE">
+            <summary>
+            Размер буфера отправки
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.RECEIVE_BUFFER_SIZE">
+            <summary>
+            Размер буфера приема
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.PING_INTERVAL">
+            <summary>
+            Интервал пинга
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.CONNECTION_TIMEOUT">
+            <summary>
+            Таймаут соединения (сек.)
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.AUTO_FLUSH_SEND">
+            <summary>
+            Аутоматическая отправка очереди сообщений
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.TRANSMISSION_UNIT_MAX">
+            <summary>
+            Максимальное количество байтов для отправки в одном пакете, исключая заголовки ip, udp.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.MTU_AUTO_EXPAND">
+            <summary>
+            Включите, если сервер должен отправлять большие сообщения, чтобы попытаться увеличить максимальный размер блока передачи
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.NET_FRAME_RATE">
+            <summary>
+            Скорость сетевых кадров (в сек) [0, 15, 30, 60]
+            если =0 то выключено
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.GalaxyCore">
+            <summary>
+            Сетевое ядро
+            Network Kernel
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.conf">
+            <summary>
+            Конфигурация сервера
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.networkCore">
+            <summary>
+            Основной экземпляр ядра
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.statistic">
+            <summary>
+            Общая статистика
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyCore.Start(GalaxyCoreServer.Config)">
+            <summary>
+            Запуск сетевого ядра
+            Network Kernel Launch
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyCore.Stop">
+            <summary>
+            Остановка сетевого ядра
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.IIncomingMessage">
+            <summary>
+            Интерфейс для работы с входящим сообщением
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ClientStatistic.GetCount(System.Byte)">
+            <summary>
+            Получить число сообщений по коду
+            </summary>
+            <param name="code">Пользовательский код сообзения</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ClientStatistic.GetBytes(System.Byte)">
+            <summary>
+            Получить количество переданных байт 
+            </summary>
+            <param name="code">Пользовательский код сообзения</param>
+            <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.ConnectionApproval">
+            <summary>
+            Класс отвечающий за пакеты авторизации и регистрации
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.ConnectionsManager">
+            <summary>
+            Менеджер учета клиентских соеденений
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnGalaxyConnect">
+            <summary>
+            Запрос авторизации
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnGalaxyRegistration">
+            <summary>
+            Запрос регистрации
+            </summary>
+            <param name="approvalConnection"></param>
+            <param name="data"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnGalaxyDisconnect">
+            <summary>
+            Дисконект
+            </summary>
+            <param name="clientConnection">подключение клиента</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.IncomingMessage.DataMessage(Lidgren.Network.NetIncomingMessage)">
+            <summary>
+            Пользовательское сообщение
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.NetworkCore">
+            <summary>
+            Класс сетевого ядра
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkCore.netServer">
+            <summary>
+            Экземпляр лидгрен сервера
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkCore.netConfig">
+            <summary>
+            Базовый лидгрен конфигуратор
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkCore.inputStream">
+            <summary>
+            Основной поток входящих сообщений
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkCore.streamWork">
+            <summary>
+            Продолжать ли работу потока
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkCore.networkStream">
+            <summary>
+            экземпляр основного сепаратора
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.NetworkCore.Stop">
+            <summary>
+            Остановка сетевого потока
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.NetworkStream">
+            <summary>
+            Класс входящего потока
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkStream.approval">
+            <summary>
+            Обработчик авторизации / регистрации
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkStream.incomingMessage">
+            <summary>
+            Обработчик входящих пользовательских сообщений
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.NetworkStream.IncomingMessage(Lidgren.Network.NetIncomingMessage)">
+            <summary>
+            Первичная обработка входящих пакетов
+            </summary>
+            <param name="message"></param>
+        </member>
+    </members>
+</doc>

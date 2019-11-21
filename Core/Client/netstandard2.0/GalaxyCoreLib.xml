@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GalaxyCoreLib</name>
+    </assembly>
+    <members>
+        <member name="M:GalaxyCoreLib.Api.Connection.Connect(GalaxyCoreCommon.BaseMessage)">
+            <summary>
+            Подключиться к серверу
+            </summary>
+            <param name="message">пакет с данными авторизации (наследник BaseMessage)</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Connection.Connect(System.Byte[])">
+            <summary>
+            Подключиться к серверу
+            </summary>
+            <param name="message">пакет с данными авторизации</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Connection.Registration(GalaxyCoreCommon.BaseMessage)">
+            <summary>
+            Отправка запроса на регистрацию
+            </summary>
+            <param name="message">Пакет с данными регистрации (наследние BaseMessage)</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Connection.Registration(System.Byte[])">
+            <summary>
+            Отправка запроса на регистрацию
+            </summary>
+            <param name="message">Пакет с данными регистрации</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Connection.Disconnect">
+            <summary>
+            Отключиться от сервера
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyConnect">
+            <summary>
+            Успешное подключение к серверу
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyDisconnect">
+            <summary>
+            Дисконект
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyApprovalResponse">
+            <summary>
+            Статус ответа на deny
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyIncommingMessage">
+            <summary>
+            Новое входящее сообщение
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение на сервер
+            </summary>
+            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
+            <param name="data">Массив байт</param>
+            <param name="deliveryType">Способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение на сервер
+            </summary>
+            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
+            <param name="message">сообщение (наследник BaseMessage)</param>
+            <param name="deliveryType"></param>
+        </member>
+        <member name="P:GalaxyCoreLib.Api.Statistic.inMessages">
+            <summary>
+            Число входящих сообщений
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.Api.Statistic.outMessages">
+            <summary>
+            Число исходящих сообщений
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.Api.Statistic.inTraffic">
+            <summary>
+            Входящий трафик в байтах
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.Api.Statistic.outTraffic">
+            <summary>
+            Исходящий трафик в байтах
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyApi.connection">
+            <summary>
+            Сетевое соеденение
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyApi.send">
+            <summary>
+            Отправка сообщений
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.Config">
+            <summary>
+            Класс конфигурации клиентской части
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.Config.serverIp">
+            <summary>
+            ip сервера
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.Config.serverPort">
+            <summary>
+            порт сервера
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.Config.simulate_latency">
+            <summary>
+            Эмуляция пинга. 0,05 для 50 мс лага
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.Config.simulate_loss">
+            <summary>
+            Эмуляция потерь сообщений. 1 = 100% потери
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.Config.MAX_RATE_SEND_BYTES_IN_SECOND">
+            <summary>
+            Максимально вожможное кол-во отправляемых байт в сек.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.Config.app_name">
+            <summary>
+            Идентификатор приложения. Должен соответствовать имени сервера.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyConnect">
+            <summary>
+            Успешный коннект к серверу
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGallaxyDisconnect">
+            <summary>
+            Разрыв соеденения
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyApprovalResponse">
+            <summary>
+            Ответ пришедший от сервера в deny пакете
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyIncommingMessage">
+            <summary>
+            Входящее сообщение от сервера
+            </summary>
+            <param name="code">пользовательский код сообщения</param>
+            <param name="data">Массив байт</param>
+        </member>
+        <member name="T:GalaxyCoreLib.GalaxyClientCore">
+            <summary>
+            Основной класс ядра клиентской части
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.unityCalls">
+            <summary>
+            Проброска Unity вызовов
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.config">
+            <summary>
+            Конфигурация клиента
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.networkCore">
+            <summary>
+            Сетевое ядро
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.api">
+            <summary>
+            Api сетевого движка
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.statistic">
+            <summary>
+            Статистика
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.GalaxyClientCore.Initialize(GalaxyCoreLib.Config)">
+            <summary>
+            Инициализация сетевого ядра
+            </summary>
+            <param name="config">Конфигурация клиента</param>
+        </member>
+        <member name="T:GalaxyCoreLib.Network.MessageSender">
+            <summary>
+            Освновной класс реализующий отправку сообщений
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.Network.MessageSender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение на сервер
+            </summary>
+            <param name="code">Пользовательский код сообщения, для удобной сепарации</param>
+            <param name="data">Массив байт</param>
+            <param name="deliveryType">Способ доставки</param>
+        </member>
+        <member name="T:GalaxyCoreLib.Network.NetworkCore">
+            <summary>
+            Основной класс сетевого ядра
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.Network.NetworkCore.connected">
+            <summary>
+            Статус подключения к серверу
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.Network.NetworkCore.Connect(System.Byte[])">
+            <summary>
+            Подключение к серверу
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.Network.NetworkCore.Registration(System.Byte[])">
+            <summary>
+            Регистрация
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.UnityCalls">
+            <summary>
+            Входящие вызовы Unity
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.OnEnable">
+            <summary>
+            Объект активен
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.OnDisable">
+            <summary>
+            Объект не активен
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.Awake">
+            <summary>
+            Awake
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.Start">
+            <summary>
+            Start
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.Update(System.Single)">
+            <summary>
+            Вызов каждый фрейм
+            </summary>
+            <param name="deltaTime">время с прошлого фрейма</param>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.LateUpdate(System.Single)">
+            <summary>
+            LateUpdate
+            </summary>
+            <param name="deltaTime"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.FixedUpdate(System.Single)">
+            <summary>
+            FixedUpdate
+            </summary>
+            <param name="fixedDeltaTime"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.OnDestroy">
+            <summary>
+            OnDestroy
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.OnLevelWasLoaded(System.Int32)">
+            <summary>
+            Загружен новый уровень
+            </summary>
+            <param name="level"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.OnApplicationQuit">
+            <summary>
+            Выход из приложения
+            </summary>
+        </member>
+    </members>
+</doc>
