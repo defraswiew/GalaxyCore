@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GalaxyTemplateCommon\GalaxyTemplateCommon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GalaxyCoreCommon">
+      <HintPath>D:\galaxycore\GalaxyCoreCommon\bin\Debug\netstandard2.0\GalaxyCoreCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaxyCoreServer">
+      <HintPath>D:\galaxycore\GalaxyCore\bin\Debug\netstandard2.0\GalaxyCoreServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

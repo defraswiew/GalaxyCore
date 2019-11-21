@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalaxyTemplate", "GalaxyTemplate\GalaxyTemplate.csproj", "{CF1E9CBC-7027-4301-89B6-07BE63F09812}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GalaxyTemplateCommon", "GalaxyTemplateCommon\GalaxyTemplateCommon.csproj", "{A4E8CC46-D8FC-44CA-9112-8C2BBB0DE154}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF1E9CBC-7027-4301-89B6-07BE63F09812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF1E9CBC-7027-4301-89B6-07BE63F09812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF1E9CBC-7027-4301-89B6-07BE63F09812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF1E9CBC-7027-4301-89B6-07BE63F09812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4E8CC46-D8FC-44CA-9112-8C2BBB0DE154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E8CC46-D8FC-44CA-9112-8C2BBB0DE154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E8CC46-D8FC-44CA-9112-8C2BBB0DE154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E8CC46-D8FC-44CA-9112-8C2BBB0DE154}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50072AEB-C02F-409F-886A-6483917598F6}
+	EndGlobalSection
+EndGlobal

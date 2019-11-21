@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="GalaxyCoreCommon">
+      <HintPath>D:\galaxycore\GalaxyCoreCommon\bin\Debug\netstandard2.0\GalaxyCoreCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\GalaxyCore\protobuf-net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
