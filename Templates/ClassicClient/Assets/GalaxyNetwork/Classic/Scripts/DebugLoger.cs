@@ -7,16 +7,16 @@ public class DebugLoger : MonoBehaviour
 {
     private void OnEnable()
     {
-        Events.OnGalaxyLogInfo += OnGalaxyLogInfo;
-        Events.OnGalaxyLogWarnig += OnGalaxyLogWarnig;
-        Events.OnGalaxyLogError += OnGalaxyLogError;
+        GalaxyEvents.OnGalaxyLogInfo += OnGalaxyLogInfo;
+        GalaxyEvents.OnGalaxyLogWarnig += OnGalaxyLogWarnig;
+        GalaxyEvents.OnGalaxyLogError += OnGalaxyLogError;
     }
 
     private void OnDisable()
     {
-        Events.OnGalaxyLogInfo -= OnGalaxyLogInfo;
-        Events.OnGalaxyLogWarnig -= OnGalaxyLogWarnig;
-        Events.OnGalaxyLogError -= OnGalaxyLogError;
+        GalaxyEvents.OnGalaxyLogInfo -= OnGalaxyLogInfo;
+        GalaxyEvents.OnGalaxyLogWarnig -= OnGalaxyLogWarnig;
+        GalaxyEvents.OnGalaxyLogError -= OnGalaxyLogError;
     }
 
     private void OnGalaxyLogError(string publisher, string message)

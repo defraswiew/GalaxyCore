@@ -55,6 +55,11 @@
             Время коннекта
             </summary>
         </member>
+        <member name="P:GalaxyCoreServer.Api.ClientConnection.instanse">
+            <summary>
+            Ссылка на текущий инстант клиента
+            </summary>
+        </member>
         <member name="F:GalaxyCoreServer.Api.ClientConnection.statistic">
             <summary>
             Статистика
@@ -87,6 +92,11 @@
             Отключить пользователя
             </summary>
         </member>
+        <member name="T:GalaxyCoreServer.Api.GalaxyEvents">
+            <summary>
+            Публичные эвенты ядра
+            </summary>
+        </member>
         <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyConnect">
             <summary>
             Успешное подключение к серверу
@@ -107,6 +117,11 @@
             Вызов события дисконекта
             </summary>
             <param name="clientConnection">коннект илента</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.Statistic">
+            <summary>
+            Серверная статистика
+            </summary>
         </member>
         <member name="P:GalaxyCoreServer.Api.Statistic.inMessages">
             <summary>
@@ -131,6 +146,11 @@
         <member name="P:GalaxyCoreServer.Api.Statistic.userOnline">
             <summary>
             Число игроков онлайн
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Config">
+            <summary>
+            Класс конфигурации сервера
             </summary>
         </member>
         <member name="F:GalaxyCoreServer.Config.incomingMessage">
@@ -227,6 +247,72 @@
             Интерфейс для работы с входящим сообщением
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.IIncomingMessage.IncomingMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Входящее сообщение
+            </summary>
+            <param name="code">код сообщения</param>
+            <param name="data">данные от клиента</param>
+            <param name="clientConnection">подключение</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Instance">
+            <summary>
+            Базовый класс инстанса, служит основой для создания комнат, локаций, и тому подобных вещей
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.clients">
+            <summary>
+            Список клиентов находящихся в данном инстансе
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.type">
+            <summary>
+            Тип инстанса
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.name">
+            <summary>
+            Имя инстанса
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.id">
+            <summary>
+            Врунтенний ид по серверу
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Close">
+            <summary>
+            Вызывается при закрытии инстанса
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.AddClient(GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Добавить клиента
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.IncomingClient(GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Вызывается когда игрок входит в инстанс
+            </summary>
+            <param name="clientConnection">коннект игрока</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.ClientStatistic">
+            <summary>
+            Статистика по клиенту
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ClientStatistic.#ctor">
+            <summary>
+            базовый конструктор
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ClientStatistic.SetStatisticMessage(System.Byte,System.UInt32)">
+            <summary>
+            Добавить к статистике
+            </summary>
+            <param name="code">код сообщения</param>
+            <param name="lenght">размер сообщения</param>
+        </member>
         <member name="M:GalaxyCoreServer.Network.ClientStatistic.GetCount(System.Byte)">
             <summary>
             Получить число сообщений по коду
@@ -249,6 +335,11 @@
         <member name="T:GalaxyCoreServer.Network.ConnectionsManager">
             <summary>
             Менеджер учета клиентских соеденений
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates">
+            <summary>
+            Серверные делегаты
             </summary>
         </member>
         <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnGalaxyConnect">

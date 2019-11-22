@@ -4,6 +4,11 @@
         <name>GalaxyCoreLib</name>
     </assembly>
     <members>
+        <member name="T:GalaxyCoreLib.Api.Connection">
+            <summary>
+            Api связанное с сетевым подключением
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.Api.Connection.Connect(GalaxyCoreCommon.BaseMessage)">
             <summary>
             Подключиться к серверу
@@ -33,37 +38,42 @@
             Отключиться от сервера
             </summary>
         </member>
-        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyConnect">
+        <member name="T:GalaxyCoreLib.Api.GalaxyEvents">
+            <summary>
+            Публичные события
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyConnect">
             <summary>
             Успешное подключение к серверу
             </summary>
         </member>
-        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyDisconnect">
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyDisconnect">
             <summary>
             Дисконект
             </summary>
         </member>
-        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyApprovalResponse">
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyApprovalResponse">
             <summary>
             Статус ответа на deny
             </summary>
         </member>
-        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyIncommingMessage">
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyIncommingMessage">
             <summary>
             Новое входящее сообщение
             </summary>
         </member>
-        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyLogInfo">
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyLogInfo">
             <summary>
             Лог ядра
             </summary>
         </member>
-        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyLogWarnig">
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyLogWarnig">
             <summary>
             Лог ядра
             </summary>
         </member>
-        <member name="E:GalaxyCoreLib.Api.Events.OnGalaxyLogError">
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyLogError">
             <summary>
             Лог ядра
             </summary>
@@ -225,6 +235,11 @@
         <member name="F:GalaxyCoreLib.GalaxyClientCore.statistic">
             <summary>
             Статистика
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.init">
+            <summary>
+            Инициализированно ли ядро
             </summary>
         </member>
         <member name="M:GalaxyCoreLib.GalaxyClientCore.Initialize(GalaxyCoreLib.Config)">

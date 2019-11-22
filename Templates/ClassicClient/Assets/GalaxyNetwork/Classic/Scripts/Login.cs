@@ -12,19 +12,21 @@ public class Login : MonoBehaviour
     public Text status;
     private void OnEnable()
     {
-        Events.OnGalaxyApprovalResponse += OnGalaxyApprovalResponse; //подписка на событие об ошибках авторизации
-        Events.OnGalaxyConnect += OnGalaxyConnect; // собыьте успешного коннекта
+        GalaxyEvents.OnGalaxyApprovalResponse += OnGalaxyApprovalResponse; //подписка на событие об ошибках авторизации
+        GalaxyEvents.OnGalaxyConnect += OnGalaxyConnect; // собыьте успешного коннекта
     }
 
     private void OnGalaxyConnect(byte[] message)
     {
+        MessageFirst messageFirst = MessageFirst.Deserialize<MessageFirst>(message); // распаковываем первое ответное сообщение
+        StaticLinks.clientData.myId = messageFirst.id;
         gameObject.SetActive(false);
     }
 
     private void OnDisable()
     {
-        Events.OnGalaxyApprovalResponse -= OnGalaxyApprovalResponse;
-        Events.OnGalaxyConnect -= OnGalaxyConnect;
+        GalaxyEvents.OnGalaxyApprovalResponse -= OnGalaxyApprovalResponse;
+        GalaxyEvents.OnGalaxyConnect -= OnGalaxyConnect;
     }
 
     private void OnGalaxyApprovalResponse(byte code, string message)

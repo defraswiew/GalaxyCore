@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
+using GalaxyTemplateCommon;
+using GalaxyTemplateCommon.Messages;
 
 namespace GalaxyTemplate
 {
@@ -19,7 +21,20 @@ namespace GalaxyTemplate
         /// <param name="clientConnection">Экземпляр подключения клиента</param>
         public void IncomingMessage(byte code, byte[] data, ClientConnection clientConnection)
         {
-           
+        // распределяем сообщения по заданному нами же коду, для удобства используем Enum    
+            switch ((CommandType)code)
+            {
+                case CommandType.roomCreate:
+                    //передаем запрос о создании комнаты менеджер инстансов
+                    Server.instanceManager.CreateRoom(data, clientConnection);
+                    break;
+            }
+
         }
+
+
+       
+
+
     }
 }

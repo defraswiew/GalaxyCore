@@ -5,6 +5,7 @@ using GalaxyCoreServer;
 using GalaxyCoreCommon;
 using GalaxyCoreServer.Api;
 using GalaxyTemplate.Connecting;
+using GalaxyTemplate.Instances;
 
 namespace GalaxyTemplate
 {
@@ -18,8 +19,14 @@ namespace GalaxyTemplate
         /// Конфигурация сервера
         /// </summary>
         Config config = new Config();
-
+        /// <summary>
+        /// Класс получающий входящие сообщения
+        /// </summary>
         InMessages inMessages = new InMessages();
+        /// <summary>
+        /// Менеджер инстансов
+        /// </summary>
+        internal static InstanceManager instanceManager = new InstanceManager();
 
         public Server()
         {
