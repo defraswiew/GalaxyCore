@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>D:\GalaxyCoreGitHub\Templates\ClassicClient\Assets\GalaxyNetwork\Core\Plugins\</OutputPath>
+    <OutputPath>..\..\..\Templates\ClassicClient\Assets\GalaxyNetwork\Core\Plugins\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="GalaxyCoreCommon">
-      <HintPath>D:\galaxycore\GalaxyCoreCommon\bin\Debug\netstandard2.0\GalaxyCoreCommon.dll</HintPath>
+      <HintPath>..\..\..\Core\Server\netstandard2.0\GalaxyCoreCommon.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
       <HintPath>..\..\..\Core\Server\netstandard2.0\protobuf-net.dll</HintPath>
