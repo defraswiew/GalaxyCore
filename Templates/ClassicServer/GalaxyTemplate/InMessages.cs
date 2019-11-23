@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using GalaxyTemplateCommon;
@@ -28,6 +29,18 @@ namespace GalaxyTemplate
                     //передаем запрос о создании комнаты менеджер инстансов
                     Server.instanceManager.CreateRoom(data, clientConnection);
                     break;
+                case CommandType.roomGetList:
+                    //Передаем запрос о получении списка комнат
+                    //По сколько этот запрос может быть довольно долгим, а время его выполнения нас не сильно волнует
+                    //мы вызываем его отдельным таском
+                    Task.Run(() => Server.instanceManager.GetAllRoomsInfo(clientConnection));
+                    break;
+                case CommandType.roomEnter:
+                    MessageRoomEnter message = MessageRoomEnter.Deserialize<MessageRoomEnter>(data);
+                    if (message.id == 0) return;
+                    Server.instanceManager.ClientEnter(message.id, clientConnection);
+                    break;
+
             }
 
         }

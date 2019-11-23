@@ -280,6 +280,11 @@
             Врунтенний ид по серверу
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.Instance.maxClients">
+            <summary>
+            Максимум игроков в инстансе
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.Instance.Close">
             <summary>
             Вызывается при закрытии инстанса

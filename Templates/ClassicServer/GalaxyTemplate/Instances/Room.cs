@@ -15,20 +15,29 @@ namespace GalaxyTemplate.Instances
     /// </summary>
    public class Room: Instance
     {
+        /// <summary>
+        /// Удалить ли комнату когда она пуста
+        /// </summary>
+        public bool delWhenEmpty = false;
+             
         public Room()
         {
-           
+          
         }
-
+        /// <summary>
+        /// Вызывается когда кто то вышел из комнаты
+        /// </summary>
+        /// <param name="clientConnection"></param>
         public override void ClietnExit(ClientConnection clientConnection)
         {
            if (Server.debugLog) { 
             Client client = Server.clientManager.GetClientByConnection(clientConnection);
             Console.WriteLine("Клиент ID:"+ client.id + " покинул комнату ID:"+this.id);
             }
-            if (clients.Count == 0)
+            if (clients.Count == 0 && delWhenEmpty)
             {
-                Server.instanceManager.RemoveRoom(this);
+                //удаляем комнату если в ней не осталось игроков, и если это предусмотрено настройками комнаты
+                Server.instanceManager.RemoveRoom(this); 
             }
         }
 
@@ -36,7 +45,10 @@ namespace GalaxyTemplate.Instances
         {
             
         }
-
+        /// <summary>
+        /// Вызывается когда игрок присоеденился к комнате
+        /// </summary>
+        /// <param name="clientConnection"></param>
         public override void IncomingClient(ClientConnection clientConnection)
         {
             //Для начала оповестим нашего пользователя об успешном входе в комнату
