@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using GalaxyCoreServer.Api;
+using GalaxyTemplate.Clients;
 using GalaxyTemplateCommon.Messages;
 
 namespace GalaxyTemplate.Connecting
@@ -32,8 +33,10 @@ namespace GalaxyTemplate.Connecting
             {
                 MessageFirst response = new MessageFirst(); //Создадим пакет который мы отправим клиенту вместе с разрешением коннекта
                 response.id = DataBaseEmitator.GetNewUserID(); // Получаем ид
-                ClientConnection client; // Раз мы решили авторизировать клиента, то следует создать клиента с которым мы будем в дальнейшем работать
-                client = approvalConnection.Approve(response); // возвращяем данные вместе с разрешением, так же мы получим уже рабочий экземпляр авторизированного соеденения              
+                ClientConnection connection; // Раз мы решили авторизировать клиента, то следует создать уже постоянное соеденение
+                connection = approvalConnection.Approve(response); // возвращяем данные вместе с разрешением, так же мы получим уже рабочий экземпляр авторизированного соеденения 
+                Client client = new Client(connection, response.id);
+                Server.clientManager.AddClient(client);
             } 
             else
             {

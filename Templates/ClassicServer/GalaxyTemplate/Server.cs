@@ -6,6 +6,7 @@ using GalaxyCoreCommon;
 using GalaxyCoreServer.Api;
 using GalaxyTemplate.Connecting;
 using GalaxyTemplate.Instances;
+using GalaxyTemplate.Clients;
 
 namespace GalaxyTemplate
 {
@@ -27,6 +28,13 @@ namespace GalaxyTemplate
         /// Менеджер инстансов
         /// </summary>
         internal static InstanceManager instanceManager = new InstanceManager();
+        /// <summary>
+        /// Показывать ли дебаг сообщения
+        /// </summary>
+        internal static bool debugLog = true;
+
+        internal static ClientManager clientManager = new ClientManager();
+
 
         public Server()
         {

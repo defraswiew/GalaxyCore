@@ -1,6 +1,7 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
+using GalaxyTemplate.Clients;
 using GalaxyTemplateCommon;
 using GalaxyTemplateCommon.Messages;
 using System;
@@ -19,6 +20,18 @@ namespace GalaxyTemplate.Instances
            
         }
 
+        public override void ClietnExit(ClientConnection clientConnection)
+        {
+           if (Server.debugLog) { 
+            Client client = Server.clientManager.GetClientByConnection(clientConnection);
+            Console.WriteLine("Клиент ID:"+ client.id + " покинул комнату ID:"+this.id);
+            }
+            if (clients.Count == 0)
+            {
+                Server.instanceManager.RemoveRoom(this);
+            }
+        }
+
         public override void Close()
         {
             
@@ -30,13 +43,20 @@ namespace GalaxyTemplate.Instances
             SendRoomEnterSusses(clientConnection);
         }
 
-
+        /// <summary>
+        /// Отправляем игроку который хотел войти в комнату ответ с разрешением входа.
+        /// </summary>
+        /// <param name="clientConnection">Коннект клиента</param>
         private void SendRoomEnterSusses(ClientConnection clientConnection)
         {
             MessageRoomEnter message = new MessageRoomEnter(); // создаем новое сообщение
             message.id = this.id; // текущий ид инстанса
             message.name = this.name; //текущее имя инстанса
             clientConnection.SendMessage((byte)CommandType.roomEnter, message, GalaxyDeliveryType.reliable); // отправляем сообщение
+            if (Server.debugLog) { 
+            Client client = Server.clientManager.GetClientByConnection(clientConnection);
+            Console.WriteLine("Клиент ID:"+ client.id + " присоеденился к комнате ID:"+this.id);
+            }
         }
 
     }

@@ -285,16 +285,30 @@
             Вызывается при закрытии инстанса
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.AddClient(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.AddClient(GalaxyCoreServer.Api.ClientConnection,System.Object)">
             <summary>
             Добавить клиента
             </summary>
+            <param name="clientConnection">подключение</param>
+            <param name="obj">Произвольные данные</param>
         </member>
         <member name="M:GalaxyCoreServer.Instance.IncomingClient(GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Вызывается когда игрок входит в инстанс
             </summary>
             <param name="clientConnection">коннект игрока</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.ClietnExit(GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Клиент вышел из комнаты
+            </summary>
+            <param name="clientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.RemoveClient(GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Удаление клиента
+            </summary>
+            <param name="clientConnection"></param>
         </member>
         <member name="T:GalaxyCoreServer.Network.ClientStatistic">
             <summary>
