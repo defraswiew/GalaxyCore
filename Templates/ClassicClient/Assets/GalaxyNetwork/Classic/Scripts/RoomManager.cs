@@ -25,6 +25,7 @@ public class RoomManager : MonoBehaviour
     private void OnEnable()
     {
         ListenEvents(true);
+         
     }
  
     private void ListenEvents(bool active)

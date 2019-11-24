@@ -29,6 +29,10 @@ namespace GalaxyTemplateCommon
         /// Создание сетевого объекта
         /// </summary>
         goInstantiate = 30,
+        /// <summary>
+        /// Поворот / перемещение
+        /// </summary>
+        goTransform = 31,
     }
     /// <summary>
     /// Типы реализаций инстансов

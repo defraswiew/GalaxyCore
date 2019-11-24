@@ -7,6 +7,11 @@ using UnityEngine;
 public static class StaticLinks  
 {
     /// <summary>
+    /// События вызываемые входящими сообщениями
+    /// </summary>
+    public static MessageEvents messageEvents = new MessageEvents();
+
+    /// <summary>
     /// 
     /// </summary>
     public static ClientData clientData = new ClientData();
@@ -14,6 +19,5 @@ public static class StaticLinks
     /// Менеджер сетевых объектов
     /// </summary>
     public static NetGOManager netGoManager = new NetGOManager();
-
-    
+  
 }

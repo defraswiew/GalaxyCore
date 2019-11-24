@@ -323,6 +323,22 @@
             <param name="data"></param>
             <param name="clientConnection"></param>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение всем пользователям в комнате
+            </summary>
+            <param name="code">код сообщения</param>
+            <param name="message">сообщение</param>
+            <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение всем пользователям в комнате
+            </summary>
+            <param name="code">код сообщения</param>
+            <param name="data">данные</param>
+            <param name="deliveryType">способ доставки</param>
+        </member>
         <member name="T:GalaxyCoreServer.Network.ClientStatistic">
             <summary>
             Статистика по клиенту

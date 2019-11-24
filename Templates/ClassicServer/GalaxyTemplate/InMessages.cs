@@ -46,6 +46,11 @@ namespace GalaxyTemplate
                     clientConnection.instanse.TossMessage(code, data, clientConnection);
                     break;
 
+                case CommandType.goTransform:
+                    if (clientConnection.instanse == null) return;
+                    clientConnection.instanse.TossMessage(code, data, clientConnection);
+                    break;
+
             }
 
         }
