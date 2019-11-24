@@ -65,8 +65,11 @@
   <ItemGroup>
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\ClientData.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\DebugLoger.cs" />
+    <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\Extensions.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\Login.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\MainNetworkController.cs" />
+    <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\NetGO.cs" />
+    <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\NetGOManager.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\RoomManager.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\RoomManagerItem.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\StaticLinks.cs" />
@@ -98,6 +101,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/GalaxyCoreGitHub/Templates/ClassicClient/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>D:/GalaxyCoreGitHub/Templates/ClassicClient/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>D:/GalaxyCoreGitHub/Templates/ClassicClient/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -24,7 +24,11 @@ namespace GalaxyTemplateCommon
         /// <summary>
         /// Получить список комнат
         /// </summary>
-        roomGetList = 23
+        roomGetList = 23,
+        /// <summary>
+        /// Создание сетевого объекта
+        /// </summary>
+        goInstantiate = 30,
     }
     /// <summary>
     /// Типы реализаций инстансов

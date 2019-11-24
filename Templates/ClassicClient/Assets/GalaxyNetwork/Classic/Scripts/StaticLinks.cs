@@ -9,7 +9,11 @@ public static class StaticLinks
     /// <summary>
     /// 
     /// </summary>
-   public static ClientData clientData = new ClientData();
-   
+    public static ClientData clientData = new ClientData();
+    /// <summary>
+    /// Менеджер сетевых объектов
+    /// </summary>
+    public static NetGOManager netGoManager = new NetGOManager();
+
     
 }

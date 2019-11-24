@@ -41,6 +41,11 @@ namespace GalaxyTemplate
                     Server.instanceManager.ClientEnter(message.id, clientConnection);
                     break;
 
+                case CommandType.goInstantiate:
+                    if (clientConnection.instanse == null) return;
+                    clientConnection.instanse.TossMessage(code, data, clientConnection);
+                    break;
+
             }
 
         }

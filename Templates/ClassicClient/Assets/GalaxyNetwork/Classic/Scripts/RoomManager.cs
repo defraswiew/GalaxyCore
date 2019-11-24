@@ -6,9 +6,11 @@ using GalaxyCoreLib.Api;
 using GalaxyTemplateCommon.Messages;
 using GalaxyTemplateCommon;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviour
 {
+  
     public GameObject UI;
     public GameObject UICreate;
     public GameObject UISmall;
@@ -88,6 +90,7 @@ public class RoomManager : MonoBehaviour
             UICreate.SetActive(false);
             UI.SetActive(false);
             Active(false);
+            SceneManager.LoadScene("TestLevel");
         }
     }
 

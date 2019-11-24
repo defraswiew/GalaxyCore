@@ -56,6 +56,23 @@ namespace GalaxyTemplate.Instances
         }
 
         /// <summary>
+        /// Сюда попадают проброшенные сообщения
+        /// </summary>
+        /// <param name="code"></param>
+        /// <param name="data"></param>
+        /// <param name="clientConnection"></param>
+        public override void TossMessage(byte code, byte[] data, ClientConnection clientConnection)
+        {
+            switch ((CommandType)code)
+            {
+                case CommandType.goInstantiate:
+
+                    break;
+            }
+        }
+
+
+        /// <summary>
         /// Отправляем игроку который хотел войти в комнату ответ с разрешением входа.
         /// </summary>
         /// <param name="clientConnection">Коннект клиента</param>

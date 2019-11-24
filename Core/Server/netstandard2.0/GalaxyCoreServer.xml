@@ -315,6 +315,14 @@
             </summary>
             <param name="clientConnection"></param>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.TossMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Пользовательская проброска сообщения в инстанс
+            </summary>
+            <param name="code"></param>
+            <param name="data"></param>
+            <param name="clientConnection"></param>
+        </member>
         <member name="T:GalaxyCoreServer.Network.ClientStatistic">
             <summary>
             Статистика по клиенту
