@@ -110,7 +110,7 @@ namespace GalaxyTemplate.Instances
                 case CommandType.goTransform:
                     {
                         MessageTransform message = MessageTransform.Deserialize<MessageTransform>(data);
-                        TransformGO(message);
+                        TransformGO(message, clientConnection);
                     }
                     break;
             }
@@ -138,9 +138,19 @@ namespace GalaxyTemplate.Instances
             SendMessageToAll((byte)CommandType.goInstantiate,message,GalaxyDeliveryType.reliable);
         }
 
-        void TransformGO(MessageTransform message)
+        void TransformGO(MessageTransform message, ClientConnection clientConnection)
         {
+            Client client = Server.clientManager.GetClientByConnection(clientConnection);
+            NetGO go;
+            if (!netObjects.TryGetValue(message.netID, out go)) return; // объект не найден
+            if (go.owner != client.id) return; // объект не пренадлежит игроку
             SendMessageToAll((byte)CommandType.goTransform, message, GalaxyDeliveryType.unreliableNewest);
+        }
+
+
+        void DestroyGO(MessageInstantiate message, ClientConnection clientConnection)
+        {
+
         }
 
         #endregion
