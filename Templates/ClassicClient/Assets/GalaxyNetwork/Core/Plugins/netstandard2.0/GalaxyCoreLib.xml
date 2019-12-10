@@ -9,6 +9,11 @@
             Api связанное с сетевым подключением
             </summary>
         </member>
+        <member name="F:GalaxyCoreLib.Api.Connection.connect">
+            <summary>
+            Установленно ли соеденение с сервером
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.Api.Connection.Connect(GalaxyCoreCommon.BaseMessage)">
             <summary>
             Подключиться к серверу

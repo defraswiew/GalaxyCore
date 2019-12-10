@@ -13,6 +13,8 @@ public class NetGO : MonoBehaviour
     public int netID = 0;
     public bool isMy = false;
     public bool sync = false;
+    private Vector3 oldPosition;
+    private Quaternion oldRotation;
     private void Awake()
     {
         Invoke("Inst", 0.5f);
@@ -31,7 +33,6 @@ public class NetGO : MonoBehaviour
 
     private void OnFrameUpdate()
     {
-        Debug.Log("Frame");
         //Отправляем наши координаты относительно сетевого тика.
         if (isMy) SendMyPosition();
     }
@@ -51,9 +52,21 @@ public class NetGO : MonoBehaviour
     {
         MessageTransform message = new MessageTransform();
         message.netID = netID;
-        message.position = transform.position.NetworkVector3();
-        message.rotation = transform.rotation.NetworkQuaternion();
-        GalaxyApi.send.SendMessageToServer((byte)CommandType.goTransform, message, GalaxyCoreCommon.GalaxyDeliveryType.unreliableNewest);
+        bool send = false;
+        if(oldPosition!= transform.position)
+        {
+            message.position = transform.position.NetworkVector3();
+            oldPosition = transform.position;
+            send = true;
+        }
+        if(oldRotation != transform.rotation)
+        {
+            message.rotation = transform.rotation.NetworkQuaternion();
+            oldRotation = transform.rotation;
+            send = true;
+        }        
+     
+       if(send) GalaxyApi.send.SendMessageToServer((byte)CommandType.goTransform, message, GalaxyCoreCommon.GalaxyDeliveryType.unreliableNewest);
     }
 
     private void OnDestroy()

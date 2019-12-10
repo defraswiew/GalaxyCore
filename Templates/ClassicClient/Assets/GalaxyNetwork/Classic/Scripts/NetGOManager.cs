@@ -45,8 +45,8 @@ public class NetGOManager
         if (!netGOs.ContainsKey(message.netID)) return;
         NetGO go = netGOs[message.netID];
         if (go.isMy) return;
-        go.transform.position = message.position.Vector3();
-        go.transform.rotation = message.rotation.Quaternion();
+        if(message.position!=null) go.transform.position = message.position.Vector3();
+        if (message.rotation != null) go.transform.rotation = message.rotation.Quaternion();
     }
 
     private void OnMessInstantiate(MessageInstantiate message)

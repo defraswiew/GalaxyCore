@@ -31,6 +31,7 @@ public class RoomManager : MonoBehaviour
     private void SceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         //Загрузилась новая сцена, запросим у сервера её состояние
+        if (!GalaxyApi.connection.connect) return;
         GalaxyApi.send.SendMessageToServer((byte)CommandType.worldSync, new byte[0], GalaxyCoreCommon.GalaxyDeliveryType.reliable);
     }
 
