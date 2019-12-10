@@ -9,10 +9,22 @@ using UnityEngine;
 public  class MessageEvents  
 {
     public delegate void DelegateOnMessInstantiate(MessageInstantiate message);
+    /// <summary>
+    /// Событие вызываемое при создании объекта
+    /// </summary>
     public event DelegateOnMessInstantiate OnMessInstantiate;
 
     public delegate void DelegateOnMessTransform(MessageTransform message);
+    /// <summary>
+    /// Событие вызываемое при перемещении объекта
+    /// </summary>
     public event DelegateOnMessTransform OnMessTransform;
+
+    public delegate void DelegateOnMessDestroy(MessageDestroyGO message);
+    /// <summary>
+    /// Событие вызываемое при удалении объекта
+    /// </summary>
+    public event DelegateOnMessDestroy OnMessDestroy;
 
     public MessageEvents()
     {
@@ -35,6 +47,13 @@ public  class MessageEvents
                     OnMessTransform?.Invoke(message);
                 }
                 break;
+            case CommandType.goDestroy:
+                {
+                    MessageDestroyGO message = MessageDestroyGO.Deserialize<MessageDestroyGO>(data);
+                    OnMessDestroy?.Invoke(message);
+                }
+                break;
+
 
         }
     }

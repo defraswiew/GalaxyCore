@@ -16,6 +16,15 @@ public class NetGOManager
     {
         StaticLinks.messageEvents.OnMessInstantiate += OnMessInstantiate;
         StaticLinks.messageEvents.OnMessTransform += OnMessTransform;
+        StaticLinks.messageEvents.OnMessDestroy += OnMessDestroy;
+    }
+
+    private void OnMessDestroy(MessageDestroyGO message)
+    {
+        if (netGOs.ContainsKey(message.netID))
+        {
+            GameObject.Destroy(netGOs[message.netID].gameObject);              
+        }
     }
 
     private void OnMessTransform(MessageTransform message)

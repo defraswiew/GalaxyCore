@@ -13,9 +13,9 @@ namespace GalaxyTemplateCommon.Messages
     public class MessageDestroyGO:BaseMessage
     {
         /// <summary>
-        /// Ид объектов подлежащих удалению
+        /// Ид объекта подлежащего удалению
         /// </summary>
         [ProtoMember(1)]
-        public int[] netID { get; set; }
+        public int netID { get; set; }
     }
 }

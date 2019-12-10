@@ -1,4 +1,5 @@
 ﻿using GalaxyCoreLib;
+using GalaxyCoreLib.Api;
 using GalaxyTemplateCommon;
 using GalaxyTemplateCommon.Messages;
 using System.Collections;
@@ -14,9 +15,27 @@ public class NetGO : MonoBehaviour
     public bool sync = false;
     private void Awake()
     {
-        Invoke("Inst", 1);
+        Invoke("Inst", 0.5f);
     }
-    
+
+    private void OnEnable()
+    {
+        //Подписываемся на сетевой тик
+        GalaxyEvents.OnFrameUpdate += OnFrameUpdate;
+    }
+    private void OnDisable()
+    {
+        GalaxyEvents.OnFrameUpdate -= OnFrameUpdate;
+    }
+
+
+    private void OnFrameUpdate()
+    {
+        Debug.Log("Frame");
+        //Отправляем наши координаты относительно сетевого тика.
+        if (isMy) SendMyPosition();
+    }
+
     void Inst()
     {
         if (netID == 0) StaticLinks.netGoManager.NetInstantiate(this);
@@ -26,11 +45,8 @@ public class NetGO : MonoBehaviour
         
     }
    
-    void FixedUpdate()
-    {
-        if (isMy) SendMyPosition();
-    }
-
+   
+    //Отправка нашей позиции
     void SendMyPosition()
     {
         MessageTransform message = new MessageTransform();
@@ -40,5 +56,13 @@ public class NetGO : MonoBehaviour
         GalaxyApi.send.SendMessageToServer((byte)CommandType.goTransform, message, GalaxyCoreCommon.GalaxyDeliveryType.unreliableNewest);
     }
 
-    
+    private void OnDestroy()
+    {
+        //Сообщяем серверу об удалении сетевого объекта
+        if (!isMy) return;
+        MessageDestroyGO message = new MessageDestroyGO();    
+        message.netID = netID;
+        GalaxyApi.send.SendMessageToServer((byte)CommandType.goDestroy, message, GalaxyCoreCommon.GalaxyDeliveryType.reliable);
+    }
+
 }

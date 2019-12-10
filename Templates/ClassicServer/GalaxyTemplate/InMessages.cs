@@ -50,7 +50,10 @@ namespace GalaxyTemplate
                     if (clientConnection.instanse == null) return;
                     clientConnection.instanse.TossMessage(code, data, clientConnection);
                     break;
-
+                case CommandType.goDestroy:
+                    if (clientConnection.instanse == null) return;
+                    clientConnection.instanse.TossMessage(code, data, clientConnection);
+                    break;
             }
 
         }

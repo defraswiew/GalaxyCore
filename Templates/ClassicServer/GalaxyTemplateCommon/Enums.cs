@@ -33,6 +33,10 @@ namespace GalaxyTemplateCommon
         /// Поворот / перемещение
         /// </summary>
         goTransform = 31,
+        /// <summary>
+        /// Удаление сетевого объекта
+        /// </summary>
+        goDestroy = 32,
     }
     /// <summary>
     /// Типы реализаций инстансов

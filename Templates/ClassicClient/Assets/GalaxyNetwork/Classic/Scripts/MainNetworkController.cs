@@ -22,9 +22,10 @@ public class MainNetworkController : MonoBehaviour
         config.serverIp = serverIP; // задаем указаный ип
         config.serverPort = serverPort; // задаем указанный порт
         config.app_name = "ClassicTemplate"; // должно соответствовать имени сервера
+        config.FrameRate = 20; // Устанавливаем сетевой фреймрейт
         GalaxyClientCore.Initialize(config); // инициализируем сетевое ядро
         GalaxyClientCore.unityCalls.Awake(); // прокидываем Awake
-        DontDestroyOnLoad(gameObject); // Помечаем объект как неразрушаемый при переходах между сценами
+        DontDestroyOnLoad(gameObject); // Помечаем объект как неразрушаемый при переходах между сценами        
     }
     private void Start()
     {

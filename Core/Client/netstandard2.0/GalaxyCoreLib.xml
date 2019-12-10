@@ -78,6 +78,11 @@
             Лог ядра
             </summary>
         </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnFrameUpdate">
+            <summary>
+            Тик сетевого фрейма
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Отправить сообщение на сервер
@@ -159,6 +164,11 @@
             Идентификатор приложения. Должен соответствовать имени сервера.
             </summary>
         </member>
+        <member name="P:GalaxyCoreLib.Config.FrameRate">
+            <summary>
+            Число тиков в секунду
+            </summary>
+        </member>
         <member name="T:GalaxyCoreLib.Delegates">
             <summary>
             Представление делегатов клиента
@@ -206,6 +216,11 @@
             </summary>
             <param name="publisher"></param>
             <param name="message"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnFrameUpdate">
+            <summary>
+            Тик сетевого фрейма
+            </summary>
         </member>
         <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>

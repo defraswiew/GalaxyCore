@@ -6,6 +6,7 @@ using GalaxyTemplateCommon;
 using GalaxyTemplateCommon.Messages;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GalaxyTemplate.Instances
@@ -57,7 +58,12 @@ namespace GalaxyTemplate.Instances
         {
             if (Server.debugLog) {
                 Client client = Server.clientManager.GetClientByConnection(clientConnection);
-                Console.WriteLine("Клиент ID:" + client.id + " покинул комнату ID:" + this.id);
+                Console.WriteLine("Клиент ID:" + client.id + " покинул комнату ID:" + this.id);               
+                var clientGoList = netObjects.Where(x => x.Value.owner == client.id).Select(x => x.Key); // собираем ид всех объектов клиента
+                foreach (var item in clientGoList)
+                {
+                    DestroyGO(item);
+                }
             }
             if (clients.Count == 0 && delWhenEmpty)
             {
@@ -113,6 +119,12 @@ namespace GalaxyTemplate.Instances
                         TransformGO(message, clientConnection);
                     }
                     break;
+                case CommandType.goDestroy:
+                    {
+                        MessageDestroyGO message = MessageDestroyGO.Deserialize<MessageDestroyGO>(data);
+                        DestroyGO(message, clientConnection);
+                    }
+                    break;
             }
         }
         #endregion
@@ -135,24 +147,55 @@ namespace GalaxyTemplate.Instances
             netGO.rotation = message.rotation;            
             message.netID = netGO.netID;
             message.owner = client.id;
+            netObjects.Add(netGO.netID, netGO);
             SendMessageToAll((byte)CommandType.goInstantiate,message,GalaxyDeliveryType.reliable);
+            Console.WriteLine("Был создан NetGO id:" + netGO.netID);
         }
 
+        /// <summary>
+        /// Объект хочет двигаться
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="clientConnection"></param>
         void TransformGO(MessageTransform message, ClientConnection clientConnection)
-        {
+        {          
             Client client = Server.clientManager.GetClientByConnection(clientConnection);
             NetGO go;
             if (!netObjects.TryGetValue(message.netID, out go)) return; // объект не найден
             if (go.owner != client.id) return; // объект не пренадлежит игроку
-            SendMessageToAll((byte)CommandType.goTransform, message, GalaxyDeliveryType.unreliableNewest);
+            SendMessageToAll((byte)CommandType.goTransform, message, GalaxyDeliveryType.unreliableNewest);          
         }
 
-
-        void DestroyGO(MessageInstantiate message, ClientConnection clientConnection)
-        {
-
+        /// <summary>
+        /// Запрос на удаление объекта
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="clientConnection"></param>
+        void DestroyGO(MessageDestroyGO message, ClientConnection clientConnection)
+        {       
+            Client client = Server.clientManager.GetClientByConnection(clientConnection);
+            NetGO go;        
+            if (!netObjects.TryGetValue(message.netID, out go)) return; // объект не найден
+            if (go.owner != client.id) return; // объект не пренадлежит игроку
+            netObjects.Remove(message.netID,out go);
+            SendMessageToAll((byte)CommandType.goDestroy, message, GalaxyDeliveryType.reliable);
+            Console.WriteLine("Был удален NetGO id:" + message.netID);
         }
 
+        /// <summary>
+        /// Удаление объекта по инициативе сервера
+        /// </summary>
+        /// <param name="netID"></param>
+        void DestroyGO(int netID)
+        {           
+            NetGO go;
+            if (!netObjects.TryGetValue(netID, out go)) return; // объект не найден        
+            netObjects.Remove(netID, out go);
+            MessageDestroyGO message = new MessageDestroyGO();
+            message.netID = netID;
+            SendMessageToAll((byte)CommandType.goDestroy, message, GalaxyDeliveryType.reliable);
+            Console.WriteLine("Был удален NetGO id:" + message.netID);
+        }
         #endregion
 
 
