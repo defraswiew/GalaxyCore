@@ -70,6 +70,8 @@
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\MessageEvents.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\NetGO.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\NetGOManager.cs" />
+    <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\Player\ExamplePlayer.cs" />
+    <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\Player\ExampleSpawner.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\RoomManager.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\RoomManagerItem.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\StaticLinks.cs" />

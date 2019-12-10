@@ -66,7 +66,7 @@ public class NetGOManager
         } else
         {
             //а если он не наш, то просто создаем его
-            netGO = GameObject.Instantiate<NetGO>(Resources.Load<NetGO>(message.name.Split(' ')[0]));
+            netGO = GameObject.Instantiate<NetGO>(Resources.Load<NetGO>(message.name.Split(new char[] { ' ', '('})[0]));
             netGO.isMy = false;
             
             netGO.transform.position = message.position.Vector3();
@@ -84,7 +84,7 @@ public class NetGOManager
     }
 
     public void NetInstantiate(NetGO netGO)
-    {
+    {       
         MessageInstantiate message = new MessageInstantiate();
         message.name = netGO.name;
         message.localId = GetNewLocalId();

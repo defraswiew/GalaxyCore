@@ -16,8 +16,8 @@ public class NetGO : MonoBehaviour
     private Vector3 oldPosition;
     private Quaternion oldRotation;
     private void Awake()
-    {
-        Invoke("Inst", 0.5f);
+    {        
+         Invoke("Inst", 0.5f);
     }
 
     private void OnEnable()
