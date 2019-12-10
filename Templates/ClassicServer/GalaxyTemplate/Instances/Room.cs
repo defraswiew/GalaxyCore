@@ -48,8 +48,30 @@ namespace GalaxyTemplate.Instances
         public override void IncomingClient(ClientConnection clientConnection)
         {
             //Для начала оповестим нашего пользователя об успешном входе в комнату
-            SendRoomEnterSusses(clientConnection);
+            SendRoomEnterSusses(clientConnection);       
         }
+        /// <summary>
+        /// Отправка текущего состояния мира
+        /// </summary>
+        private void SendWorld(ClientConnection clientConnection)
+        {
+            NetGO[] netGOs = netObjects.Values.ToArray(); // берем все наши сетевые объекты
+            if (netGOs.Length == 0) return; //раз нет сетевых объектов то выходим
+            MessageWorldSync message = new MessageWorldSync();
+            message.netObjects = new List<MessageInstantiate>();
+            foreach (var item in netGOs)
+            {
+                MessageInstantiate instantiate = new MessageInstantiate();
+                instantiate.name = item.name;
+                instantiate.netID = item.netID;
+                instantiate.owner = item.owner;
+                instantiate.position = item.position;
+                instantiate.rotation = item.rotation;
+                message.netObjects.Add(instantiate);
+            }
+            clientConnection.SendMessage((byte)CommandType.worldSync, message, GalaxyDeliveryType.reliable);
+        }
+
         /// <summary>
         /// Вызывается когда кто то вышел из комнаты
         /// </summary>
@@ -59,7 +81,7 @@ namespace GalaxyTemplate.Instances
             if (Server.debugLog) {
                 Client client = Server.clientManager.GetClientByConnection(clientConnection);
                 Console.WriteLine("Клиент ID:" + client.id + " покинул комнату ID:" + this.id);               
-                var clientGoList = netObjects.Where(x => x.Value.owner == client.id).Select(x => x.Key); // собираем ид всех объектов клиента
+                int[] clientGoList = netObjects.Where(x => x.Value.owner == client.id).Select(x => x.Key).ToArray(); // собираем ид всех объектов клиента
                 foreach (var item in clientGoList)
                 {
                     DestroyGO(item);
@@ -123,6 +145,11 @@ namespace GalaxyTemplate.Instances
                     {
                         MessageDestroyGO message = MessageDestroyGO.Deserialize<MessageDestroyGO>(data);
                         DestroyGO(message, clientConnection);
+                    }
+                    break;
+                case CommandType.worldSync:
+                    {
+                        SendWorld(clientConnection);
                     }
                     break;
             }

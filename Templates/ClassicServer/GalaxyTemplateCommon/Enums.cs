@@ -26,6 +26,10 @@ namespace GalaxyTemplateCommon
         /// </summary>
         roomGetList = 23,
         /// <summary>
+        /// Восстановление состояния мира
+        /// </summary>
+        worldSync = 25,
+        /// <summary>
         /// Создание сетевого объекта
         /// </summary>
         goInstantiate = 30,

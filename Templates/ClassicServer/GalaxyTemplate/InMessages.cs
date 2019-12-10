@@ -41,16 +41,8 @@ namespace GalaxyTemplate
                     Server.instanceManager.ClientEnter(message.id, clientConnection);
                     break;
 
-                case CommandType.goInstantiate:
-                    if (clientConnection.instanse == null) return;
-                    clientConnection.instanse.TossMessage(code, data, clientConnection);
-                    break;
-
-                case CommandType.goTransform:
-                    if (clientConnection.instanse == null) return;
-                    clientConnection.instanse.TossMessage(code, data, clientConnection);
-                    break;
-                case CommandType.goDestroy:
+                    //В остальных случаях отправляем сообщение в инстанс
+                    default:
                     if (clientConnection.instanse == null) return;
                     clientConnection.instanse.TossMessage(code, data, clientConnection);
                     break;

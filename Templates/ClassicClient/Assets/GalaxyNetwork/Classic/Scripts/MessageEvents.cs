@@ -26,6 +26,12 @@ public  class MessageEvents
     /// </summary>
     public event DelegateOnMessDestroy OnMessDestroy;
 
+    public delegate void DelegateOnWorldSync(MessageWorldSync message);
+    /// <summary>
+    /// Событие вызываемое при удалении объекта
+    /// </summary>
+    public event DelegateOnWorldSync OnWorldSync;
+
     public MessageEvents()
     {
         GalaxyEvents.OnGalaxyIncommingMessage += OnGalaxyIncommingMessage;
@@ -51,6 +57,12 @@ public  class MessageEvents
                 {
                     MessageDestroyGO message = MessageDestroyGO.Deserialize<MessageDestroyGO>(data);
                     OnMessDestroy?.Invoke(message);
+                }
+                break;
+            case CommandType.worldSync:
+                {
+                    MessageWorldSync message = MessageWorldSync.Deserialize<MessageWorldSync>(data);
+                    OnWorldSync?.Invoke(message);
                 }
                 break;
 

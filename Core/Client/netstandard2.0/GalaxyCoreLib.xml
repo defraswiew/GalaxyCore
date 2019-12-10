@@ -257,6 +257,11 @@
             Инициализированно ли ядро
             </summary>
         </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.paused">
+            <summary>
+            Пауза передачи сообщений внешнему коду
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.GalaxyClientCore.Initialize(GalaxyCoreLib.Config)">
             <summary>
             Инициализация сетевого ядра
@@ -355,6 +360,16 @@
         <member name="M:GalaxyCoreLib.UnityCalls.OnApplicationQuit">
             <summary>
             Выход из приложения
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.OnSceneChange">
+            <summary>
+            Смена текущей сцены
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.UnityCalls.OnSceneLoaded">
+            <summary>
+            Загрузка сцены успешно завершена
             </summary>
         </member>
     </members>

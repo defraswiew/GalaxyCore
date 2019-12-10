@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
+using UnityEngine.SceneManagement;
+
 public class MainNetworkController : MonoBehaviour
 {
     /// <summary>
@@ -30,8 +32,19 @@ public class MainNetworkController : MonoBehaviour
     private void Start()
     {
         GalaxyClientCore.unityCalls.Start(); // прокидываем Start
+        SceneManager.activeSceneChanged += SceneChanged;
+        SceneManager.sceneLoaded += SceneLoaded;
     }
 
+    private void SceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        GalaxyClientCore.unityCalls.OnSceneLoaded();
+    }
+
+    private void SceneChanged(Scene arg0, Scene arg1)
+    {
+        GalaxyClientCore.unityCalls.OnSceneChange();
+    }
 
     private void Update()
     {

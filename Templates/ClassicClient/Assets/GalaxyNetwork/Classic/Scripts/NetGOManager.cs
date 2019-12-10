@@ -14,9 +14,22 @@ public class NetGOManager
 
     public NetGOManager()
     {
+        //Подписываемся на сообщение о создании нового объекта
         StaticLinks.messageEvents.OnMessInstantiate += OnMessInstantiate;
+        //Подписываемся на сообщение о смене параметров трансформа
         StaticLinks.messageEvents.OnMessTransform += OnMessTransform;
+        //Подписываемся на сообщение о удалении объекта
         StaticLinks.messageEvents.OnMessDestroy += OnMessDestroy;
+        //Подписываемся на сообщение о синхронизации мира
+        StaticLinks.messageEvents.OnWorldSync += OnWorldSync;
+    }
+
+    private void OnWorldSync(MessageWorldSync message)
+    {
+        foreach (var item in message.netObjects)
+        {
+            OnMessInstantiate(item);
+        }
     }
 
     private void OnMessDestroy(MessageDestroyGO message)
