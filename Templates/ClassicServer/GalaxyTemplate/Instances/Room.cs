@@ -152,6 +152,11 @@ namespace GalaxyTemplate.Instances
                         SendWorld(clientConnection);
                     }
                     break;
+                case CommandType.goMessage:
+                    {
+                        SendMessageToAllExcept(clientConnection, (byte)CommandType.goMessage, data, GalaxyDeliveryType.reliable);
+                    }
+                    break;
             }
         }
         #endregion

@@ -339,6 +339,15 @@
             <param name="data">данные</param>
             <param name="deliveryType">способ доставки</param>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAllExcept(GalaxyCoreServer.Api.ClientConnection,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение всем пользователям в комнате кроме выбранного
+            </summary>
+            <param name="clientConnection">Коннект который исключаем из рассылки</param>
+            <param name="code">код сообщения</param>
+            <param name="data">данные</param>
+            <param name="deliveryType">способ доставки</param>
+        </member>
         <member name="T:GalaxyCoreServer.Network.ClientStatistic">
             <summary>
             Статистика по клиенту

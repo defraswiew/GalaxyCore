@@ -41,6 +41,10 @@ namespace GalaxyTemplateCommon
         /// Удаление сетевого объекта
         /// </summary>
         goDestroy = 32,
+        /// <summary>
+        /// Сообщение для конкретного go
+        /// </summary>
+        goMessage = 33,
     }
     /// <summary>
     /// Типы реализаций инстансов

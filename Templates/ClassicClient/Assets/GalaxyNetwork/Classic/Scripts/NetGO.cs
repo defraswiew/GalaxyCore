@@ -1,4 +1,5 @@
-﻿using GalaxyCoreLib;
+﻿using GalaxyCoreCommon;
+using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using GalaxyTemplateCommon;
 using GalaxyTemplateCommon.Messages;
@@ -16,8 +17,8 @@ public class NetGO : MonoBehaviour
     private Vector3 oldPosition;
     private Quaternion oldRotation;
     private void Awake()
-    {        
-         Invoke("Inst", 0.5f);
+    {
+        Invoke("Inst", 0.5f);
     }
 
     private void OnEnable()
@@ -30,11 +31,23 @@ public class NetGO : MonoBehaviour
         GalaxyEvents.OnFrameUpdate -= OnFrameUpdate;
     }
 
+    public delegate void DelegateOnMessageGo(byte code, byte[] data);
+    public event DelegateOnMessageGo OnMessageGo;
+
+    public delegate void DelegateOnGoFrameUpdate();
+    public event DelegateOnGoFrameUpdate OnGoFrameUpdate;
+
+    public void CallOnMessageGo(byte code, byte[] data)
+    {
+        OnMessageGo?.Invoke(code, data);
+    }
+
 
     private void OnFrameUpdate()
     {
         //Отправляем наши координаты относительно сетевого тика.
         if (isMy) SendMyPosition();
+        OnGoFrameUpdate?.Invoke();
     }
 
     void Inst()
@@ -67,6 +80,20 @@ public class NetGO : MonoBehaviour
         }        
      
        if(send) GalaxyApi.send.SendMessageToServer((byte)CommandType.goTransform, message, GalaxyCoreCommon.GalaxyDeliveryType.unreliableNewest);
+    }
+
+    /// <summary>
+    /// Отправка сообщения всем экземплярам этого объекта
+    /// </summary>
+    /// <param name="command">пользовательская команда</param>
+    /// <param name="objData">объект</param>
+    public void SendGoMessage(byte command, BaseMessage data)
+    {
+        MessageGO message = new MessageGO();
+        message.command = command;
+        message.netID = this.netID;
+        message.data = data.Serialize();
+        GalaxyApi.send.SendMessageToServer((byte)CommandType.goMessage, message, GalaxyCoreCommon.GalaxyDeliveryType.reliable);
     }
 
     private void OnDestroy()

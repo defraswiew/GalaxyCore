@@ -22,6 +22,16 @@ public class NetGOManager
         StaticLinks.messageEvents.OnMessDestroy += OnMessDestroy;
         //Подписываемся на сообщение о синхронизации мира
         StaticLinks.messageEvents.OnWorldSync += OnWorldSync;
+        //Подписываемся на сообщение для go
+        StaticLinks.messageEvents.OnGoMessage += OnGoMessage;
+    }
+
+    private void OnGoMessage(MessageGO message)
+    {
+        if (netGOs.ContainsKey(message.netID))
+        {
+            netGOs[message.netID].CallOnMessageGo(message.command,message.data);
+        }
     }
 
     private void OnWorldSync(MessageWorldSync message)

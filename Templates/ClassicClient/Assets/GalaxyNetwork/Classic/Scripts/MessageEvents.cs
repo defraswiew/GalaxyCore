@@ -32,11 +32,23 @@ public  class MessageEvents
     /// </summary>
     public event DelegateOnWorldSync OnWorldSync;
 
+    public delegate void DelegateOnGoMessage(MessageGO message);
+    /// <summary>
+    /// Сообщение для объекта
+    /// </summary>
+    public event DelegateOnGoMessage OnGoMessage;
+
     public MessageEvents()
     {
+        //Подписываемся на все входящие сообщения
         GalaxyEvents.OnGalaxyIncommingMessage += OnGalaxyIncommingMessage;
     }
 
+    /// <summary>
+    /// В этот метод приходят все входящии сообщения (мы на них подписались)
+    /// </summary>
+    /// <param name="code"></param>
+    /// <param name="data"></param>
     private void OnGalaxyIncommingMessage(byte code, byte[] data)
     {
         switch ((CommandType)code)
@@ -65,8 +77,12 @@ public  class MessageEvents
                     OnWorldSync?.Invoke(message);
                 }
                 break;
-
-
+            case CommandType.goMessage:
+                {  
+                MessageGO message = MessageGO.Deserialize<MessageGO>(data);
+                    OnGoMessage?.Invoke(message);
+                }
+                break;
         }
     }
 }
