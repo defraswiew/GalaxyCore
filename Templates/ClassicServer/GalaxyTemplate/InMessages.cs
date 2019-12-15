@@ -40,6 +40,7 @@ namespace GalaxyTemplate
                     if (message.id == 0) return;
                     Server.instanceManager.ClientEnter(message.id, clientConnection);
                     break;
+                   
 
                     //В остальных случаях отправляем сообщение в инстанс
                     default:

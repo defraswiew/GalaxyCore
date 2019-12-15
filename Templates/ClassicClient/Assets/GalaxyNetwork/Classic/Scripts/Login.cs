@@ -50,6 +50,7 @@ public class Login : MonoBehaviour
         messageAuth.login = login.text;
         messageAuth.password = password.text;
         GalaxyApi.connection.Connect(messageAuth); // Отправляем запрос на сервер
+       
     }
     
 }

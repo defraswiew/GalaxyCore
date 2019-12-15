@@ -94,6 +94,7 @@ public class NetGO : MonoBehaviour
         message.netID = this.netID;
         message.data = data.Serialize();
         GalaxyApi.send.SendMessageToServer((byte)CommandType.goMessage, message, GalaxyCoreCommon.GalaxyDeliveryType.reliable);
+     
     }
 
     private void OnDestroy()
