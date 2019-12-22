@@ -7,6 +7,7 @@ using GalaxyCoreServer.Api;
 using GalaxyTemplate.Connecting;
 using GalaxyTemplate.Instances;
 using GalaxyTemplate.Clients;
+using InstanceManager = GalaxyTemplate.Instances.InstanceManager;
 
 namespace GalaxyTemplate
 {

@@ -1,4 +1,5 @@
 ﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon.NetEntity;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using GalaxyTemplate.Clients;
@@ -169,7 +170,7 @@ namespace GalaxyTemplate.Instances
         /// <param name="message"></param>
         /// <param name="clientConnection"></param>
         void InstantiateGO(MessageInstantiate message, ClientConnection clientConnection)
-        {
+        {           
             Client client = Server.clientManager.GetClientByConnection(clientConnection);
             NetGO netGO = new NetGO();
             netGO.name = message.name;
