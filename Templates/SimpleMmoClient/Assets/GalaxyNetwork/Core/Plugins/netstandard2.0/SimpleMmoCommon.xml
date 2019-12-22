@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SimpleMmoCommon</name>
+    </assembly>
+    <members>
+        <member name="T:SimpleMmoCommon.Messages.MessageApproval">
+            <summary>
+            Сообщение успешной авторизации
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.Messages.MessageApproval.name">
+            <summary>
+            Ид клиента
+            </summary>
+        </member>
+        <member name="T:SimpleMmoCommon.Messages.MessageAuth">
+            <summary>
+            Структура пакета авторизации
+            </summary>
+        </member>
+        <member name="P:SimpleMmoCommon.Messages.MessageAuth.login">
+            <summary>
+            Логин пользователя
+            </summary>
+        </member>
+        <member name="P:SimpleMmoCommon.Messages.MessageAuth.password">
+            <summary>
+            Пароль пользователя
+            </summary>
+        </member>
+    </members>
+</doc>
