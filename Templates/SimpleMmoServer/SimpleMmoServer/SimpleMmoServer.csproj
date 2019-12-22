@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleMmoCommon\SimpleMmoCommon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GalaxyCoreCommon">
+      <HintPath>..\..\..\Core\Server\netstandard2.0\GalaxyCoreCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaxyCoreServer">
+      <HintPath>..\..\..\Core\Server\netstandard2.0\GalaxyCoreServer.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\..\Core\Server\netstandard2.0\protobuf-net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
