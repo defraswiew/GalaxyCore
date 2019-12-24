@@ -46,6 +46,7 @@ namespace SimpleMmoServer
         private Instance OnGalaxyInstanceCreate(byte type, byte[] data, ClientConnection clientConnection)
         {
             Location location = new Location();
+            Console.WriteLine("Переопределение Инстанса в локацию");
             return location;
         }
     }

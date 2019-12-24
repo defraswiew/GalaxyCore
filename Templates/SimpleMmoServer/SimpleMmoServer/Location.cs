@@ -10,22 +10,27 @@ namespace SimpleMmoServer
     {
         public override void ClietnExit(ClientConnection clientConnection)
         {
-         //   throw new NotImplementedException();
+            Console.WriteLine("Location ClietnExit");
         }
 
         public override void Close()
         {
-         //   throw new NotImplementedException();
+            Console.WriteLine("Location Close");
         }
 
         public override void IncomingClient(ClientConnection clientConnection)
         {
-          //  throw new NotImplementedException();
+            Console.WriteLine("Location IncomingClient");
+        }
+
+        public override void Start()
+        {
+            Console.WriteLine("Location Start");
         }
 
         public override void TossMessage(byte code, byte[] data, ClientConnection clientConnection)
         {
-          //  throw new NotImplementedException();
+            Console.WriteLine("Location TossMessage");
         }
     }
 }
