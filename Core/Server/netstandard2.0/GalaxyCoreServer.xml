@@ -167,6 +167,12 @@
             </summary>
             <param name="client"></param>
         </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.CloseInstance(GalaxyCoreServer.Instance)">
+            <summary>
+            Закрытие инстанса
+            </summary>
+            <param name="instance"></param>
+        </member>
         <member name="M:GalaxyCoreServer.Api.InstanceManager.Add(GalaxyCoreServer.Instance)">
             <summary>
             добавление инстанса в память
@@ -373,6 +379,11 @@
             Максимум игроков в инстансе
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.Instance.autoClose">
+            <summary>
+            Закрывать ли инстанс когда в нем нет игроков
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.Instance.Close">
             <summary>
             Вызывается при закрытии инстанса
@@ -395,6 +406,11 @@
             Отправка клиенту сообщения об успешном входе в инстанс
             </summary>
             <param name="clientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Start">
+            <summary>
+            Вызывается при создании инстанса
+            </summary>
         </member>
         <member name="M:GalaxyCoreServer.Instance.IncomingClient(GalaxyCoreServer.Api.ClientConnection)">
             <summary>
