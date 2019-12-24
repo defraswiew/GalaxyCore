@@ -1,4 +1,5 @@
 ﻿using GalaxyCoreServer;
+using GalaxyCoreServer.Api;
 using SimpleMmoServer.Connecting;
 using System;
 using System.Collections.Generic;
@@ -28,12 +29,24 @@ namespace SimpleMmoServer
         public Server()
         {
             config.incomingMessage = inMessages; // Регистрируем обработчик входящих сообщений
+            GalaxyEvents.OnGalaxyInstanceCreate += OnGalaxyInstanceCreate; //Отлавливаем событие создания нового инстанса
             //Задаем имя сервера
             //Важно что бы имя сервера совпадало с именем указанным в клиенте
             config.SERVER_NAME = "SimpleMmoServer";
             config.LISTEN_PORT = 30200; // Указываем рабочий порт
             GalaxyCore.Start(config); // Запускаем сервер
         }
-
+        /// <summary>
+        /// Это пример переопределения стандартной реализации инстанса
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="data"></param>
+        /// <param name="clientConnection"></param>
+        /// <returns></returns>
+        private Instance OnGalaxyInstanceCreate(byte type, byte[] data, ClientConnection clientConnection)
+        {
+            Location location = new Location();
+            return location;
+        }
     }
 }

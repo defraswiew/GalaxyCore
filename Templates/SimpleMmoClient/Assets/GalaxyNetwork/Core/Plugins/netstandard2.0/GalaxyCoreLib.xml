@@ -132,6 +132,22 @@
             Ответ придет в событие OnGalaxyInstancesList
             </summary>
         </member>
+        <member name="M:GalaxyCoreLib.Api.Instances.EnterToInstance(System.Int32,System.String,System.Byte[])">
+            <summary>
+            Запрос на вход в инстанс
+            </summary>
+            <param name="istanseId">ид инстанса</param>
+            <param name="password">пароль на вход в инстанс(если нужен)</param>
+            <param name="data">пользовательские данные</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Instances.EnterToInstance(System.Int32,GalaxyCoreCommon.BaseMessage,System.String)">
+            <summary>
+            Запрос на вход в инстанс
+            </summary>
+            <param name="istanseId">ид инстанса</param>
+            <param name="password">пароль на вход в инстанс(если нужен)</param>
+            <param name="message">пользовательское сообщение</param>
+        </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Отправить сообщение на сервер

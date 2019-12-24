@@ -21,11 +21,7 @@ public class RoomManagerItem : MonoBehaviour
 
     public void ConnectRoom()
     {
-        /*
-        MessageRoomEnter message = new MessageRoomEnter();
-        message.id = myId;
-        GalaxyApi.send.SendMessageToServer((byte)CommandType.roomEnter, message, GalaxyCoreCommon.GalaxyDeliveryType.reliable);
-        */
+        GalaxyApi.instances.EnterToInstance(myId);
     }
     
 }

@@ -96,6 +96,12 @@
             <param name="data">Сообщение (наследник BaseMessage)</param>
             <param name="deliveryType">Способ доставки</param>
         </member>
+        <member name="M:GalaxyCoreServer.Api.ClientConnection.SendError(System.Byte)">
+            <summary>
+            Отправить клиенту сообщение об ошибке
+            </summary>
+            <param name="code">код ошибки</param>    
+        </member>
         <member name="M:GalaxyCoreServer.Api.ClientConnection.Disconnect">
             <summary>
             Отключить пользователя
@@ -172,6 +178,13 @@
             удаление инстанса из памяти
             </summary>
             <param name="instance"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.GetInstanceByID(System.Int32)">
+            <summary>
+            Получить инстанс по ид
+            </summary>
+            <param name="id">ид инстанса</param>
+            <returns>Вернет Instance или null если ничего нет</returns>
         </member>
         <member name="T:GalaxyCoreServer.Api.Statistic">
             <summary>
