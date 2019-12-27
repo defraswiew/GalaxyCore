@@ -148,6 +148,37 @@
             <param name="password">пароль на вход в инстанс(если нужен)</param>
             <param name="message">пользовательское сообщение</param>
         </member>
+        <member name="T:GalaxyCoreLib.Api.NetEntityManager">
+            <summary>
+            Менеджер работы с сетевыми сущностями
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.Api.NetEntityManager.awaiting">
+            <summary>
+            Словарь сущностей ожидающих подтверждение на создание
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.Api.NetEntityManager.entitys">
+            <summary>
+            Словарь активный сущностей
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.Instantiate(GalaxyCoreCommon.NetEntity.GalaxyNetEntity)">
+            <summary>
+            Создание новой сетевой сущности
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.RemoteInstantiate">
+            <summary>
+            Команда на создание сущности от сервера
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.Api.Sender">
+            <summary>
+            Отправка сообщений
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Отправить сообщение на сервер
@@ -163,6 +194,22 @@
             <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
             <param name="message">сообщение (наследник BaseMessage)</param>
             <param name="deliveryType"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToInstance(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение в текущий инстанс
+            </summary>
+            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
+            <param name="data">Массив байт</param>
+            <param name="deliveryType">Способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToInstance(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение в текущий инстанс
+            </summary>
+            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
+            <param name="message">Сообщение</param>
+            <param name="deliveryType">Способ доставки</param>
         </member>
         <member name="P:GalaxyCoreLib.Api.Statistic.inMessages">
             <summary>
@@ -207,6 +254,11 @@
         <member name="F:GalaxyCoreLib.GalaxyApi.instances">
             <summary>
             Api связанное с управлением интансами (локации, комнаты)
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyApi.netEntity">
+            <summary>
+            Менеджер сетевых объектов
             </summary>
         </member>
         <member name="T:GalaxyCoreLib.Config">
@@ -380,11 +432,12 @@
             Освновной класс реализующий отправку сообщений
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.Network.MessageSender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Int32)">
+        <member name="M:GalaxyCoreLib.Network.MessageSender.SendMessageToServer(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Int32)">
             <summary>
             Отправить сообщение на сервер
             </summary>
-            <param name="code">Пользовательский код сообщения, для удобной сепарации</param>
+            <param name="internalCode">внутренний код сообщения, для ядра</param>
+            <param name="externalCode">Пользовательский код сообщения, для удобной сепарации</param>
             <param name="data">Массив байт</param>
             <param name="deliveryType">Способ доставки</param>
             <param name="chennal">канал доставки</param>

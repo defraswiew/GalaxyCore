@@ -581,11 +581,12 @@
             </summary>
             <param name="message"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Network.IncomingMessage.InternalMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Network.IncomingMessage.InternalMessage(System.Byte,System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Пришло внутреннее сообщение
             </summary>
-            <param name="code"></param>
+            <param name="internalCode"></param>
+            <param name="externalCode"></param>
             <param name="data"></param>
             <param name="client"></param>
         </member>

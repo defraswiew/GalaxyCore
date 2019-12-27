@@ -66,9 +66,12 @@
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\MessageEvents.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\RoomManager.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\RoomManagerItem.cs" />
+    <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyNetObject.cs" />
     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyNetwork.cs" />
     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyNetworkController.cs" />
     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Login.cs" />
+    <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Test.cs" />
+    <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UnityNetObject.cs" />
     <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\SimpleMmoCommon.xml" />
     <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\protobuf-net.xml" />
     <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\GalaxyCoreLib.xml" />
