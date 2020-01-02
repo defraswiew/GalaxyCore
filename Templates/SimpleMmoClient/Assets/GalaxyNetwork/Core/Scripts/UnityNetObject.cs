@@ -6,4 +6,5 @@ using UnityEngine;
 public class UnityNetObject : GalaxyNetEntity
 {
     
+
 }

@@ -56,7 +56,8 @@ public class RoomManager : MonoBehaviour
         UICreate.SetActive(false);
         UI.SetActive(false);
         Active(false);
-      //  SceneManager.LoadScene("TestLevel");
+        //  SceneManager.LoadScene("TestLevel");
+        GalaxyApi.instances.SyncInstance();
     }
 
     private void OnGalaxyInstancesList(List<GalaxyCoreCommon.InternalMessages.InstanceInfo> instances)

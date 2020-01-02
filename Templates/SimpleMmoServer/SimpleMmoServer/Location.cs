@@ -30,7 +30,7 @@ namespace SimpleMmoServer
 
         public override void TossMessage(byte code, byte[] data, ClientConnection clientConnection)
         {
-            Console.WriteLine("Location TossMessage");
+            Console.WriteLine("Location TossMessage");                   
         }
     }
 }

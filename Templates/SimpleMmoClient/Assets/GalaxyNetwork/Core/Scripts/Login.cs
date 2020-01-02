@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using SimpleMmoCommon.Messages;
+using GalaxyCoreCommon.NetEntity;
 
 public class Login : MonoBehaviour
 {
@@ -21,8 +22,8 @@ public class Login : MonoBehaviour
     {        
         MessageApproval messageApproval = MessageApproval.Deserialize<MessageApproval>(message); // распаковываем первое ответное сообщение   
         Debug.Log("Наше имя " + messageApproval.name);
-    
- 
+
+         
 
         gameObject.SetActive(false);
     }

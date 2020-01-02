@@ -192,6 +192,18 @@
             <param name="id">ид инстанса</param>
             <returns>Вернет Instance или null если ничего нет</returns>
         </member>
+        <member name="T:GalaxyCoreServer.Api.NetEntityManager">
+            <summary>
+            Менеджер работы с сетевыми сущностями
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.CreateNetEntity(GalaxyCoreCommon.NetEntity.GalaxyNetEntity,GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Создание новой сетевой сущности
+            </summary>
+            <param name="entity"></param>
+            <param name="client"></param>
+        </member>
         <member name="T:GalaxyCoreServer.Api.Statistic">
             <summary>
             Серверная статистика
@@ -349,10 +361,10 @@
             Список клиентов находящихся в данном инстансе
             </summary>
         </member>
-        <member name="P:GalaxyCoreServer.Instance.netEntitys">
+        <member name="F:GalaxyCoreServer.Instance.entityManager">
             <summary>
             Коллекция сетевых объектов в инстансе
-            </summary>
+            </summary>      
         </member>
         <member name="F:GalaxyCoreServer.Instance.type">
             <summary>
@@ -430,6 +442,21 @@
             </summary>
             <param name="clientConnection"></param>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.CreateNetEntity(GalaxyCoreCommon.NetEntity.GalaxyNetEntity,GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Создание сетевой сущности, только по вызову от клиента
+            </summary>
+            <param name="entity"></param>
+            <param name="client"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.NetEintityInstantiate(GalaxyCoreCommon.NetEntity.GalaxyNetEntity,GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Метод для переопределения логики создания сетевой сущности
+            </summary>
+            <param name="entity"></param>
+            <param name="client"></param>
+            <returns></returns>
+        </member>
         <member name="M:GalaxyCoreServer.Instance.TossMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Пользовательская проброска сообщения в инстанс
@@ -454,6 +481,15 @@
             <param name="data">данные</param>
             <param name="deliveryType">способ доставки</param>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAll(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Внутреннаяя отправка сообщения
+            </summary>
+            <param name="internalCode"></param>
+            <param name="externalCode"></param>
+            <param name="data"></param>
+            <param name="deliveryType"></param>
+        </member>
         <member name="M:GalaxyCoreServer.Instance.SendMessageToAllExcept(GalaxyCoreServer.Api.ClientConnection,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Отправить сообщение всем пользователям в комнате кроме выбранного
@@ -468,6 +504,12 @@
             Получение пользовательских данных для запроса (список инстансов)
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SyncWorld(GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            отправить клиенту полное текущее состояние инстанса
+            </summary>
+            <param name="clientConnection"></param>
         </member>
         <member name="T:GalaxyCoreServer.InstanceStandart">
             <summary>

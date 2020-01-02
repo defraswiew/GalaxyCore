@@ -1,20 +1,33 @@
-﻿using System.Collections;
+﻿using GalaxyCoreCommon.NetEntity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
  
 public static class Extensions  
 {
-    /*
-    public static MessageVector3 NetworkVector3(this Vector3 vector3)
+
+    public static GalaxyVector3 NetworkVector3(this Vector3 vector3)
     {
-        MessageVector3 mes = new MessageVector3();
+        GalaxyVector3 mes = new GalaxyVector3();
         mes.x = vector3.x;
         mes.y = vector3.y;
         mes.z = vector3.z;
         return mes;
     }
 
-    public static Vector3 Vector3(this MessageVector3 vector)
+    public static GalaxyTransform NetworkTransform(this Transform transform)
+    {
+        GalaxyTransform  galaxyTransform = new GalaxyTransform();
+        galaxyTransform.position = new GalaxyVector3();
+        galaxyTransform.position = transform.position.NetworkVector3();
+        galaxyTransform.rotation = new GalaxyQuaternion();
+        galaxyTransform.rotation = transform.rotation.NetworkQuaternion();
+        return galaxyTransform;
+    }
+    
+    
+
+    public static Vector3 Vector3(this GalaxyVector3 vector)
     {
         Vector3 mes = new Vector3();
         mes.x = vector.x;
@@ -22,16 +35,16 @@ public static class Extensions
         mes.z = vector.z;
         return mes;
     }
-    public static MessageQuaternion NetworkQuaternion(this Quaternion quaternion)
+    public static GalaxyQuaternion NetworkQuaternion(this Quaternion quaternion)
     {
-        MessageQuaternion mes = new MessageQuaternion();
+        GalaxyQuaternion mes = new GalaxyQuaternion();
         mes.x = quaternion.x;
         mes.y = quaternion.y;
         mes.z = quaternion.z;
         mes.w = quaternion.w;
         return mes;
     }
-    public static Quaternion Quaternion(this MessageQuaternion quaternion)
+    public static Quaternion Quaternion(this GalaxyQuaternion quaternion)
     {
         Quaternion mes = new Quaternion();
         mes.x = quaternion.x;
@@ -40,5 +53,8 @@ public static class Extensions
         mes.w = quaternion.w;
         return mes;
     }
-    */
+   
+
+  
+
 }

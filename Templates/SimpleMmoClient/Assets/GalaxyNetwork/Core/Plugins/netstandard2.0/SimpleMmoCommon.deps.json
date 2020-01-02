@@ -11,7 +11,7 @@
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "GalaxyCoreCommon": "1.0.0.0",
-          "protobuf-net": "2.0.0.668"
+          "protobuf-net": "2.4.0.0"
         },
         "runtime": {
           "SimpleMmoCommon.dll": {}
@@ -31,11 +31,11 @@
           }
         }
       },
-      "protobuf-net/2.0.0.668": {
+      "protobuf-net/2.4.0.0": {
         "runtime": {
           "protobuf-net.dll": {
-            "assemblyVersion": "2.0.0.668",
-            "fileVersion": "2.0.0.668"
+            "assemblyVersion": "2.4.0.0",
+            "fileVersion": "2.4.4.9"
           }
         }
       }
@@ -66,7 +66,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "protobuf-net/2.0.0.668": {
+    "protobuf-net/2.4.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

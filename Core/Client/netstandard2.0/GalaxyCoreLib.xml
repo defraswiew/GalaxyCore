@@ -148,6 +148,11 @@
             <param name="password">пароль на вход в инстанс(если нужен)</param>
             <param name="message">пользовательское сообщение</param>
         </member>
+        <member name="M:GalaxyCoreLib.Api.Instances.SyncInstance">
+            <summary>
+            Запрос синхронизации инстанса
+            </summary>
+        </member>
         <member name="T:GalaxyCoreLib.Api.NetEntityManager">
             <summary>
             Менеджер работы с сетевыми сущностями
@@ -169,7 +174,7 @@
             </summary>
             <param name="entity"></param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.NetEntityManager.RemoteInstantiate">
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.RemoteInstantiate(GalaxyCoreCommon.NetEntity.GalaxyNetEntity)">
             <summary>
             Команда на создание сущности от сервера
             </summary>
@@ -380,6 +385,20 @@
             Успешное подключение к инстансу
             </summary>
             <param name="info"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyRemoteInstantiate">
+            <summary>
+            Событие создания netEntity
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyLocalInstantiate">
+            <summary>
+            Событие создания локального netEntity
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
         </member>
         <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>
