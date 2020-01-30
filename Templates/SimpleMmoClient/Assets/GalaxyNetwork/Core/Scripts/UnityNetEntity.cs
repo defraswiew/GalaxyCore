@@ -11,8 +11,9 @@ public class UnityNetEntity : MonoBehaviour
     public bool isMy = false;
     public bool syncPosition;
     public bool syncRotation;
+    public bool syncScale;
     private UnityNetObject netEntity;
-
+     
 
     private Vector3 oldPosition;
     private Quaternion oldRotation;
@@ -41,7 +42,7 @@ public class UnityNetEntity : MonoBehaviour
     private void OnFrameUpdate()
     {
         if (!isMy) return;
-        SyncTransform();
+       ((NetworkTransformUnity)netEntity.transform).SyncTransform(syncPosition, syncRotation, syncScale);
     }
 
     private void OnDisable()
@@ -59,15 +60,7 @@ public class UnityNetEntity : MonoBehaviour
         {
           transform.rotation = netTransform.rotation.Quaternion();          
         }
-    }
-
-    private void SyncTransform()
-    {
-        if (syncPosition)
-        {            
-            netEntity.transform.position = transform.position.NetworkVector3();
-        }
-    }
+    }    
 
     void Init()
     {
@@ -80,17 +73,8 @@ public class UnityNetEntity : MonoBehaviour
             netEntity = new UnityNetObject();
             // убираем все лишнее из имени
             netEntity.name = gameObject.name.Split(new char[] { ' ', '(' })[0];
-            if (syncPosition || syncRotation) netEntity.transform = new GalaxyTransform();
-            if (syncPosition)
-            {
-                netEntity.transform.position = new GalaxyVector3();
-                netEntity.transform.position = transform.position.NetworkVector3();
-            }
-            if (syncRotation)
-            {
-                netEntity.transform.rotation = new GalaxyQuaternion();
-                netEntity.transform.rotation = transform.rotation.NetworkQuaternion();
-            }
+            if (syncPosition || syncRotation) netEntity.transform = new NetworkTransformUnity(transform, netEntity);
+             
             // отправляем запрос на создание сетевого объекта
             GalaxyApi.netEntity.Instantiate(netEntity);
         }

@@ -18,7 +18,7 @@ public class GalaxyNetEntityCreator : MonoBehaviour
         Debug.Log(entity.name);
         UnityNetEntity go = GameObject.Instantiate<UnityNetEntity>(Resources.Load<UnityNetEntity>(entity.name));
         go.netId = entity.netID;
-        Debug.Log(entity.transform.position.Vector3());
+   
         if (entity.transform != null) {  
        // if (entity.transform.position != null)
       //  {

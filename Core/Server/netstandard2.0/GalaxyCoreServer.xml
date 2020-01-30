@@ -204,6 +204,15 @@
             <param name="entity"></param>
             <param name="client"></param>
         </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Входящее сообщение для сетевого объекта
+            </summary>
+            <param name="netId"></param>
+            <param name="externalCode"></param>
+            <param name="data"></param>
+            <param name="client"></param>
+        </member>
         <member name="T:GalaxyCoreServer.Api.Statistic">
             <summary>
             Серверная статистика

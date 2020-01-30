@@ -216,6 +216,24 @@
             <param name="message">Сообщение</param>
             <param name="deliveryType">Способ доставки</param>
         </member>
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение сетевому объекту
+            </summary>
+            <param name="netId">Ид сетевого объекта</param>
+            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
+            <param name="message">Сообщение</param>
+            <param name="deliveryType">Способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить данные сетевому объекту
+            </summary>
+            <param name="netId">Ид сетевого объекта</param>
+            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
+            <param name="data">даныне</param>
+            <param name="deliveryType">Способ доставки</param>
+        </member>
         <member name="P:GalaxyCoreLib.Api.Statistic.inMessages">
             <summary>
             Число входящих сообщений
