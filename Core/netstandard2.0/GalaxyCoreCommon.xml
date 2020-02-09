@@ -60,6 +60,11 @@
             Сообщение с гарантией доставки и гарантией очередности. Сообщения будут гарантированно получены в том же порядке что и были отправленны, подходит для самых важных сообщений, скорость доставки которых не критично важна.
             </summary>
         </member>
+        <member name="T:GalaxyCoreCommon.InternalMessageCodes">
+            <summary>
+            Внутренние коды сообщений
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.routeServer">
             <summary>
             Сообщение пользовательской логики отправленное в базовый серверный сепаратор
@@ -110,6 +115,11 @@
             Сообщение об ошибке
             </summary>
         </member>
+        <member name="T:GalaxyCoreCommon.ErrorCodes">
+            <summary>
+            Встроенные коды ошибок
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.ErrorCodes.Сlient_is_already_in_the_instance">
             <summary>
             Клиент уже в инстансе
@@ -124,6 +134,178 @@
             <summary>
             Нет свободных мест
             </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.GalaxyQuaternion">
+            <summary>
+            Сетевой кватернион
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.x">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.y">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.z">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.w">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.NetEntity.GalaxyVector3">
+            <summary>
+            Сетевая реализация Vector3
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.NetEntity.GalaxyVector3.x">
+            <summary>
+            Х координата
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.NetEntity.GalaxyVector3.y">
+            <summary>
+            Высота
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.NetEntity.GalaxyVector3.z">
+            <summary>
+            Z координата
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.#ctor">
+            <summary>
+            Стандартный конструктор
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.Lerp(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3,System.Single)">
+            <summary>
+            Линейная интерполяция вектора
+            </summary>
+            <param name="a">от куда</param>
+            <param name="b">куда</param>
+            <param name="t">время</param>
+            <returns></returns>
+        </member>
+        <member name="P:GalaxyCoreCommon.NetEntity.GalaxyVector3.Item(System.Int32)">
+            <summary>
+            Доступ по индексу
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.Equals(GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.Distance(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+            <summary>
+            Расчет дистанции (с извлечением из корня)
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.SqrMagnitude(GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+            <summary>
+            Быстрый расчет квадрата дистанции
+            </summary>
+            <param name="vector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Addition(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+            <summary>
+            +
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Subtraction(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+            <summary>
+            -
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_UnaryNegation(GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+            <summary>
+            -
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Multiply(GalaxyCoreCommon.NetEntity.GalaxyVector3,System.Single)">
+            <summary>
+            *
+            </summary>
+            <param name="a"></param>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Multiply(System.Single,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+            <summary>
+            *
+            </summary>
+            <param name="d"></param>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Division(GalaxyCoreCommon.NetEntity.GalaxyVector3,System.Single)">
+            <summary>
+            /
+            </summary>
+            <param name="a"></param>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Equality(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+            <summary>
+            ==
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Inequality(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+            <summary>
+            !=
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns></returns>
         </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessInstanceCreate">
             <summary>
@@ -150,6 +332,11 @@
             Пользовательские данные
             </summary>
         </member>
+        <member name="T:GalaxyCoreCommon.InternalMessages.MessInstanceEnter">
+            <summary>
+            Сообщение запроса на вход в инстанс
+            </summary>
+        </member>
         <member name="P:GalaxyCoreCommon.InternalMessages.MessInstanceEnter.id">
             <summary>
             Ид инсанса в который хотим войти
@@ -165,14 +352,75 @@
             Пользовательские данные
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.Lerp(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3,System.Single)">
+        <member name="T:GalaxyCoreCommon.InternalMessages.MessInstancesList">
             <summary>
-            Линейная интерполяция вектора
+            Сообщение с списком инстансов
             </summary>
-            <param name="a">от куда</param>
-            <param name="b">куда</param>
-            <param name="t">время</param>
-            <returns></returns>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessInstancesList.instances">
+            <summary>
+            Список инстансов
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.InternalMessages.InstanceInfo">
+            <summary>
+            Упрощенные данные о конкретном инстансе
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.name">
+            <summary>
+            Имя инстанса
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.clients">
+            <summary>
+            Текущее число клиентов
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.maxClients">
+            <summary>
+            Максимум клиентов
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.id">
+            <summary>
+            Ид инстанса
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.type">
+            <summary>
+            Тип инстанса
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.customData">
+            <summary>
+            Пользовательские данные
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate">
+            <summary>
+            Сообщение создания новой сетевой сущности
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate.name">
+            <summary>
+            Имя для определения префаба если он нужен
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate.localId">
+            <summary>
+            локальный ид (необходим для корректной инициализации)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate.netID">
+            <summary>
+            Сетевой индификатор сущности (назначается сервером)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate.owner">
+            <summary>
+            Ид владельца объекта
+            </summary>
         </member>
         <member name="M:GalaxyCoreCommon.Tools.GetNewID">
             <summary>
@@ -198,6 +446,33 @@
             </summary>
             <param name="input"></param>
             <returns></returns>
+        </member>
+        <member name="T:Lidgren.Network.NetAESEncryption">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Lidgren.Network.NetAESEncryption.#ctor(Lidgren.Network.NetPeer)">
+            <summary>
+            
+            </summary>
+            <param name="peer"></param>
+        </member>
+        <member name="M:Lidgren.Network.NetAESEncryption.#ctor(Lidgren.Network.NetPeer,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="peer"></param>
+            <param name="key"></param>
+        </member>
+        <member name="M:Lidgren.Network.NetAESEncryption.#ctor(Lidgren.Network.NetPeer,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="peer"></param>
+            <param name="data"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
         </member>
         <member name="T:Lidgren.Network.NetBlockEncryptionBase">
             <summary>

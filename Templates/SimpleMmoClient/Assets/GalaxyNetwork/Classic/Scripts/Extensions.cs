@@ -14,7 +14,7 @@ public static class Extensions
         mes.z = vector3.z;
         return mes;
     }
-
+    /*
     public static GalaxyTransform NetworkTransform(this Transform transform)
     {
         GalaxyTransform  galaxyTransform = new GalaxyTransform();
@@ -24,7 +24,7 @@ public static class Extensions
         galaxyTransform.rotation = transform.rotation.NetworkQuaternion();
         return galaxyTransform;
     }
-    
+    */
     
 
     public static Vector3 Vector3(this GalaxyVector3 vector)
@@ -35,6 +35,7 @@ public static class Extensions
         mes.z = vector.z;
         return mes;
     }
+    /*
     public static GalaxyQuaternion NetworkQuaternion(this Quaternion quaternion)
     {
         GalaxyQuaternion mes = new GalaxyQuaternion();
@@ -53,7 +54,7 @@ public static class Extensions
         mes.w = quaternion.w;
         return mes;
     }
-   
+   */
 
   
 

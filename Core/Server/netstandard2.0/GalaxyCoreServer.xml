@@ -144,6 +144,7 @@
             </summary>
             <param name="type"></param>
             <param name="data"></param>
+            <param name="clientConnection"></param>
             <returns></returns>
         </member>
         <member name="T:GalaxyCoreServer.Api.InstanceManager">
@@ -196,22 +197,6 @@
             <summary>
             Менеджер работы с сетевыми сущностями
             </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.Api.NetEntityManager.CreateNetEntity(GalaxyCoreCommon.NetEntity.GalaxyNetEntity,GalaxyCoreServer.Api.ClientConnection)">
-            <summary>
-            Создание новой сетевой сущности
-            </summary>
-            <param name="entity"></param>
-            <param name="client"></param>
-        </member>
-        <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
-            <summary>
-            Входящее сообщение для сетевого объекта
-            </summary>
-            <param name="netId"></param>
-            <param name="externalCode"></param>
-            <param name="data"></param>
-            <param name="client"></param>
         </member>
         <member name="T:GalaxyCoreServer.Api.Statistic">
             <summary>
@@ -451,21 +436,6 @@
             </summary>
             <param name="clientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.CreateNetEntity(GalaxyCoreCommon.NetEntity.GalaxyNetEntity,GalaxyCoreServer.Api.ClientConnection)">
-            <summary>
-            Создание сетевой сущности, только по вызову от клиента
-            </summary>
-            <param name="entity"></param>
-            <param name="client"></param>
-        </member>
-        <member name="M:GalaxyCoreServer.Instance.NetEintityInstantiate(GalaxyCoreCommon.NetEntity.GalaxyNetEntity,GalaxyCoreServer.Api.ClientConnection)">
-            <summary>
-            Метод для переопределения логики создания сетевой сущности
-            </summary>
-            <param name="entity"></param>
-            <param name="client"></param>
-            <returns></returns>
-        </member>
         <member name="M:GalaxyCoreServer.Instance.TossMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Пользовательская проброска сообщения в инстанс
@@ -525,10 +495,59 @@
             Стандартная реализация инстанса 
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.InstanceStandart.ClietnExit(GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Клиент вышел из инстанса
+            </summary>
+            <param name="clientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.InstanceStandart.Close">
+            <summary>
+            Инстанс был закрыт
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.InstanceStandart.IncomingClient(GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            В инстанс вошел новый клиент
+            </summary>
+            <param name="clientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.InstanceStandart.Start">
+            <summary>
+            Инстанс запустился
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.InstanceStandart.TossMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Пришло новое сообщение в инстанс
+            </summary>
+            <param name="code"></param>
+            <param name="data"></param>
+            <param name="clientConnection"></param>
+        </member>
         <member name="T:GalaxyCoreServer.Log">
             <summary>
             Логирование
             </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Log.DelegateOnLogDebug">
+            <summary>
+            
+            </summary>
+            <param name="publisher"></param>
+            <param name="message"></param>
+        </member>
+        <member name="E:GalaxyCoreServer.Log.OnLogDebug">
+            <summary>
+            Лог Debug
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Log.Debug(System.String,System.String)">
+            <summary>
+            Debug
+            </summary>
+            <param name="publisher">Кто вызвал</param>
+            <param name="message">Сообщение</param>
         </member>
         <member name="T:GalaxyCoreServer.Log.DelegateOnLogInfo">
             <summary>

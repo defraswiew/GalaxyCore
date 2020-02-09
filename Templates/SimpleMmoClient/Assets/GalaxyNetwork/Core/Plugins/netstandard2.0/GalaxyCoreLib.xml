@@ -158,27 +158,6 @@
             Менеджер работы с сетевыми сущностями
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.NetEntityManager.awaiting">
-            <summary>
-            Словарь сущностей ожидающих подтверждение на создание
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreLib.Api.NetEntityManager.entitys">
-            <summary>
-            Словарь активный сущностей
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreLib.Api.NetEntityManager.Instantiate(GalaxyCoreCommon.NetEntity.GalaxyNetEntity)">
-            <summary>
-            Создание новой сетевой сущности
-            </summary>
-            <param name="entity"></param>
-        </member>
-        <member name="M:GalaxyCoreLib.Api.NetEntityManager.RemoteInstantiate(GalaxyCoreCommon.NetEntity.GalaxyNetEntity)">
-            <summary>
-            Команда на создание сущности от сервера
-            </summary>
-        </member>
         <member name="T:GalaxyCoreLib.Api.Sender">
             <summary>
             Отправка сообщений
@@ -216,18 +195,20 @@
             <param name="message">Сообщение</param>
             <param name="deliveryType">Способ доставки</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Отправить сообщение сетевому объекту
             </summary>
+            <param name="netId">Ид сетевого объекта</param>
             <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
             <param name="message">Сообщение</param>
             <param name="deliveryType">Способ доставки</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Отправить данные сетевому объекту
             </summary>
+            <param name="netId">Ид сетевого объекта</param>
             <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
             <param name="data">даныне</param>
             <param name="deliveryType">Способ доставки</param>
@@ -401,20 +382,6 @@
             Успешное подключение к инстансу
             </summary>
             <param name="info"></param>
-        </member>
-        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyRemoteInstantiate">
-            <summary>
-            Событие создания netEntity
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyLocalInstantiate">
-            <summary>
-            Событие создания локального netEntity
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
         </member>
         <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>
