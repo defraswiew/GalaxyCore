@@ -1,4 +1,5 @@
 ﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon.NetEntity;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using GalaxyTemplate.Clients;
@@ -110,7 +111,10 @@ namespace GalaxyTemplate.Instances
             }
         }
         #endregion
+        public override void Start()
+        {
 
+        }
         public override void Close()
         {
             
@@ -169,7 +173,7 @@ namespace GalaxyTemplate.Instances
         /// <param name="message"></param>
         /// <param name="clientConnection"></param>
         void InstantiateGO(MessageInstantiate message, ClientConnection clientConnection)
-        {
+        {           
             Client client = Server.clientManager.GetClientByConnection(clientConnection);
             NetGO netGO = new NetGO();
             netGO.name = message.name;
@@ -228,6 +232,8 @@ namespace GalaxyTemplate.Instances
             SendMessageToAll((byte)CommandType.goDestroy, message, GalaxyDeliveryType.reliable);
             Console.WriteLine("Был удален NetGO id:" + message.netID);
         }
+
+     
         #endregion
 
 

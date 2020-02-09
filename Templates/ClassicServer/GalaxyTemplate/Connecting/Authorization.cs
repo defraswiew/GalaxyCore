@@ -26,6 +26,8 @@ namespace GalaxyTemplate.Connecting
         /// <param name="data">Массив байт, данные присланные вместе с запросом авторизации</param>
         private void OnGalaxyConnect(ApprovalConnection approvalConnection, byte[] data)
         {
+            Console.WriteLine("Авторизация");
+
             MessageAuth message = MessageAuth.Deserialize<MessageAuth>(data); //преобразовывем массив байт в читабельное сообщение            
             //тут нам следовало бы провести какую либо проверку правильности логина и пароля
             //Но сейчас мы не станем этого делать, и просто разрешить соеденение всем в чьих логинах содержится test
@@ -34,7 +36,7 @@ namespace GalaxyTemplate.Connecting
                 MessageFirst response = new MessageFirst(); //Создадим пакет который мы отправим клиенту вместе с разрешением коннекта
                 response.id = DataBaseEmitator.GetNewUserID(); // Получаем ид
                 ClientConnection connection; // Раз мы решили авторизировать клиента, то следует создать уже постоянное соеденение
-                connection = approvalConnection.Approve(response); // возвращяем данные вместе с разрешением, так же мы получим уже рабочий экземпляр авторизированного соеденения 
+                connection = approvalConnection.Approve(response, response.id); // возвращяем данные вместе с разрешением, так же мы получим уже рабочий экземпляр авторизированного соеденения 
                 Client client = new Client(connection, response.id);
                 Server.clientManager.AddClient(client);
             } 

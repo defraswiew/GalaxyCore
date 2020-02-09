@@ -41,7 +41,7 @@ namespace GalaxyTemplate.Instances
             Room room = new Room(); // создаем новый экземпляр комнаты
             room.name = message.name;  // задаем имя комнаты
             room.id = GetNewID(); // задаем уникальный id комнаты, это id серверный, для сохранения в базу следует создать отдельную переменную
-            room.maxClients = message.maxClients;
+            room.maxClients = (int)message.maxClients;
             instances.TryAdd(room,null); // Добавляем инстанс в список
             if (Server.debugLog) Console.WriteLine("Клиент ID:" + Server.clientManager.GetClientByConnection(clientConnection).id + " Создал комнату ID:"+ room.id);
             room.AddClient(clientConnection); // добавляем клиента в созданный инстанс,            
@@ -78,7 +78,7 @@ namespace GalaxyTemplate.Instances
                 info = new RoomInfo();
                 info.clients = (uint)item.clients.Count;
                 info.id = item.id;
-                info.maxClients = item.maxClients;
+                info.maxClients = (uint)item.maxClients;
                 info.name = item.name;
                 messageRoomInfo.rooms.Add(info);
             }

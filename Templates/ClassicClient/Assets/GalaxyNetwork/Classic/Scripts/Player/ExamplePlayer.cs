@@ -87,7 +87,7 @@ public class ExamplePlayer : MonoBehaviour
             send = true;
         }
 
-        netGO.SendGoMessage((byte)CommandType.MessPlayerData,message);
+       if(send) netGO.SendGoMessage((byte)CommandType.MessPlayerData,message);
     }
 
 
