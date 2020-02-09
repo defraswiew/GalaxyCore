@@ -63,14 +63,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_TMP\TPM_Spawn.cs" />
-    <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\DebugLoger.cs" />
-    <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\Extensions.cs" />
-    <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\MessageEvents.cs" />
-    <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\RoomManager.cs" />
-    <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\RoomManagerItem.cs" />
     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyNetwork.cs" />
     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyNetworkController.cs" />
     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Login.cs" />
+    <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\DebugLoger.cs" />
+    <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\Extensions.cs" />
+    <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\MessageEvents.cs" />
+    <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\NetEntity\UnityNetEntity.cs" />
+    <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\RoomManager.cs" />
+    <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\RoomManagerItem.cs" />
     <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\SimpleMmoCommon.xml" />
     <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\protobuf-net.xml" />
     <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\GalaxyCoreLib.xml" />
@@ -101,6 +102,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Unity/2019.2.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

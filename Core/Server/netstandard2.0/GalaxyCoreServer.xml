@@ -147,6 +147,11 @@
             <param name="clientConnection"></param>
             <returns></returns>
         </member>
+        <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnNetEntityInstantiate">
+            <summary>
+            Вызывается при создании любой сетевой сущности
+            </summary>
+        </member>
         <member name="T:GalaxyCoreServer.Api.InstanceManager">
             <summary>
             Менеджер инстансов
@@ -197,6 +202,18 @@
             <summary>
             Менеджер работы с сетевыми сущностями
             </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.#ctor(GalaxyCoreServer.Instance)">
+            <summary>
+            Дефолт конструктор
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.CreateNetEntity(GalaxyCoreServer.NetEntity)">
+            <summary>
+            Создание сетевой сущности со стороны сервера
+            </summary>
+            <param name="netEntity"></param>
         </member>
         <member name="T:GalaxyCoreServer.Api.Statistic">
             <summary>
@@ -606,6 +623,51 @@
             <param name="publisher">Кто вызвал</param>
             <param name="message">Сообщение</param>
         </member>
+        <member name="T:GalaxyCoreServer.NetEntity">
+            <summary>
+            Серверная реализация сетевой сущности
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.name">
+            <summary>
+            Имя сетевой сущности (как правило служит для сопоставления с префабом)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.localId">
+            <summary>
+            Локальный ид (назначается автоматически и служит только для корректности инициализации)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.netID">
+            <summary>
+            Сетевой ид (назначается автоматически)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.owner">
+            <summary>
+            Ид владельца сущьности (если 0 то это серверная сущность)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.position">
+            <summary>
+            Положение сущности в пространстве (не обязательньный параметр)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.rotation">
+            <summary>
+            Оринтация объекта в пространстве  (не обязательньный параметр)
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Start">
+            <summary>
+            Вызывается при полной инициализации объекта
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.NetEntityStandart">
+            <summary>
+            Дефлотная реализация сетевой сущности
+            </summary>
+        </member>
         <member name="T:GalaxyCoreServer.Network.ClientStatistic">
             <summary>
             Статистика по клиенту
@@ -705,6 +767,15 @@
             <param name="type"></param>      
             <param name="data"></param>
             <param name="clientConnection">подключение клиента</param>
+            <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnNetEntityInstantiate">
+            <summary>
+            Создание сетевой сущности
+            </summary>
+            <param name="name"></param>
+            <param name="data"></param>
+            <param name="clientConnection"></param>
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreServer.Network.IncomingMessage.DataMessage(Lidgren.Network.NetIncomingMessage)">

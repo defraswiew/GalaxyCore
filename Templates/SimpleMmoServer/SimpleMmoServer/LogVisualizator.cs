@@ -15,6 +15,12 @@ namespace SimpleMmoServer
             Log.OnLogInfo += OnLogInfo;
             Log.OnLogWarning += OnLogWarning;
             Log.OnLogError += OnLogError;
+            Log.OnLogDebug += OnLogDebug;
+        }
+
+        private void OnLogDebug(string publisher, string message)
+        {
+            Console.WriteLine("Debug-> " + publisher + ": " + message);
         }
 
         private void OnLogError(string publisher, string message)

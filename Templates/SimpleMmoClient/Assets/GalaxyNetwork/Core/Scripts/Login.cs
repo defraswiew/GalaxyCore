@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using SimpleMmoCommon.Messages;
-using GalaxyCoreCommon.NetEntity;
 
 public class Login : MonoBehaviour
 {

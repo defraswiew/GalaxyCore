@@ -160,32 +160,32 @@
             
             </summary>
         </member>
-        <member name="T:GalaxyCoreCommon.NetEntity.GalaxyVector3">
+        <member name="T:GalaxyCoreCommon.GalaxyVector3">
             <summary>
             Сетевая реализация Vector3
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.NetEntity.GalaxyVector3.x">
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.x">
             <summary>
             Х координата
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.NetEntity.GalaxyVector3.y">
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.y">
             <summary>
             Высота
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.NetEntity.GalaxyVector3.z">
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.z">
             <summary>
             Z координата
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.#ctor">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.#ctor">
             <summary>
             Стандартный конструктор
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.#ctor(System.Single,System.Single,System.Single)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.#ctor(System.Single,System.Single,System.Single)">
             <summary>
             
             </summary>
@@ -193,7 +193,7 @@
             <param name="y"></param>
             <param name="z"></param>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.Lerp(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3,System.Single)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Lerp(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3,System.Single)">
             <summary>
             Линейная интерполяция вектора
             </summary>
@@ -202,34 +202,34 @@
             <param name="t">время</param>
             <returns></returns>
         </member>
-        <member name="P:GalaxyCoreCommon.NetEntity.GalaxyVector3.Item(System.Int32)">
+        <member name="P:GalaxyCoreCommon.GalaxyVector3.Item(System.Int32)">
             <summary>
             Доступ по индексу
             </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.Equals(System.Object)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Equals(System.Object)">
             <summary>
             
             </summary>
             <param name="other"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.Equals(GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Equals(GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             
             </summary>
             <param name="other"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.GetHashCode">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.GetHashCode">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.Distance(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Distance(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             Расчет дистанции (с извлечением из корня)
             </summary>
@@ -237,14 +237,14 @@
             <param name="b"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.SqrMagnitude(GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.SqrMagnitude(GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             Быстрый расчет квадрата дистанции
             </summary>
             <param name="vector"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Addition(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Addition(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             +
             </summary>
@@ -252,7 +252,7 @@
             <param name="b"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Subtraction(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Subtraction(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             -
             </summary>
@@ -260,14 +260,14 @@
             <param name="b"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_UnaryNegation(GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_UnaryNegation(GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             -
             </summary>
             <param name="a"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Multiply(GalaxyCoreCommon.NetEntity.GalaxyVector3,System.Single)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Multiply(GalaxyCoreCommon.GalaxyVector3,System.Single)">
             <summary>
             *
             </summary>
@@ -275,7 +275,7 @@
             <param name="d"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Multiply(System.Single,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Multiply(System.Single,GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             *
             </summary>
@@ -283,7 +283,7 @@
             <param name="a"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Division(GalaxyCoreCommon.NetEntity.GalaxyVector3,System.Single)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Division(GalaxyCoreCommon.GalaxyVector3,System.Single)">
             <summary>
             /
             </summary>
@@ -291,7 +291,7 @@
             <param name="d"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Equality(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Equality(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             ==
             </summary>
@@ -299,7 +299,7 @@
             <param name="rhs"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.NetEntity.GalaxyVector3.op_Inequality(GalaxyCoreCommon.NetEntity.GalaxyVector3,GalaxyCoreCommon.NetEntity.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Inequality(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             !=
             </summary>
@@ -420,6 +420,21 @@
         <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate.owner">
             <summary>
             Ид владельца объекта
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate.data">
+            <summary>
+            Пользовательские данные
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate.position">
+            <summary>
+            Положение сущности в пространстве (не обязательньный параметр)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate.rotation">
+            <summary>
+            Оринтация объекта в пространстве  (не обязательньный параметр)
             </summary>
         </member>
         <member name="M:GalaxyCoreCommon.Tools.GetNewID">

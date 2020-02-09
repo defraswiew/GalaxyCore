@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon.NetEntity;
+﻿using GalaxyCoreCommon;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,7 +35,7 @@ public static class Extensions
         mes.z = vector.z;
         return mes;
     }
-    /*
+   
     public static GalaxyQuaternion NetworkQuaternion(this Quaternion quaternion)
     {
         GalaxyQuaternion mes = new GalaxyQuaternion();
@@ -54,7 +54,7 @@ public static class Extensions
         mes.w = quaternion.w;
         return mes;
     }
-   */
+   
 
   
 
