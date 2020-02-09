@@ -22,6 +22,10 @@ namespace SimpleMmoServer
         /// </summary>
         InMessages inMessages = new InMessages();
         /// <summary>
+        /// Класс логирования
+        /// </summary>
+        LogVisualizator logs = new LogVisualizator();
+        /// <summary>
         /// Показывать ли дебаг сообщения
         /// </summary>
         internal static bool debugLog = true;
