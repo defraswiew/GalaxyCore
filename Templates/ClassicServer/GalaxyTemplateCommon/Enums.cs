@@ -55,6 +55,7 @@ namespace GalaxyTemplateCommon
         /// Комната
         /// </summary>
         room = 1,
+
     }
 
 }

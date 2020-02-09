@@ -76,6 +76,7 @@
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\RoomManagerItem.cs" />
     <Compile Include="Assets\GalaxyNetwork\Classic\Scripts\StaticLinks.cs" />
     <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\protobuf-net.xml" />
+    <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\GalaxyCoreCommon.xml" />
     <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\GalaxyCoreLib.xml" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/repos/GalaxyCore/Templates/ClassicClient/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

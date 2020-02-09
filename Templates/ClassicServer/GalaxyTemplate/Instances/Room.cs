@@ -111,7 +111,10 @@ namespace GalaxyTemplate.Instances
             }
         }
         #endregion
+        public override void Start()
+        {
 
+        }
         public override void Close()
         {
             
@@ -229,6 +232,8 @@ namespace GalaxyTemplate.Instances
             SendMessageToAll((byte)CommandType.goDestroy, message, GalaxyDeliveryType.reliable);
             Console.WriteLine("Был удален NetGO id:" + message.netID);
         }
+
+     
         #endregion
 
 

@@ -530,25 +530,6 @@
             Логирование
             </summary>
         </member>
-        <member name="T:GalaxyCoreServer.Log.DelegateOnLogDebug">
-            <summary>
-            
-            </summary>
-            <param name="publisher"></param>
-            <param name="message"></param>
-        </member>
-        <member name="E:GalaxyCoreServer.Log.OnLogDebug">
-            <summary>
-            Лог Debug
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.Log.Debug(System.String,System.String)">
-            <summary>
-            Debug
-            </summary>
-            <param name="publisher">Кто вызвал</param>
-            <param name="message">Сообщение</param>
-        </member>
         <member name="T:GalaxyCoreServer.Log.DelegateOnLogInfo">
             <summary>
             
