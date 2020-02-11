@@ -98,6 +98,11 @@
             Успешный вход в комнату
             </summary>
         </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyNetEntityInstantiate">
+            <summary>
+            Создан новый сетевой объект
+            </summary>
+        </member>
         <member name="T:GalaxyCoreLib.Api.Instances">
             <summary>
             Api связанное с управлением интансами (локации, комнаты)
@@ -181,6 +186,12 @@
             </summary>
             <param name="entity">Базовый экземпляр сетевой сущности</param>
             <param name="message">доволнительное пользовательское сообщение</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.DestroyNetEntity(System.Int32)">
+            <summary>
+            Запрос на удаление сетевой сущности
+            </summary>
+            <param name="netId"></param>
         </member>
         <member name="T:GalaxyCoreLib.Api.Sender">
             <summary>
@@ -407,6 +418,29 @@
             </summary>
             <param name="info"></param>
         </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyNetEntityNetStart">
+            <summary>
+            Событие инициализации netEntity
+            </summary>    
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyNetEntityDestroy">
+            <summary>
+            Удаление netEntity
+            </summary>    
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyNetEntityInstantiate">
+            <summary>
+            Событие создания netEntity
+            </summary>
+            <param name="netEntity"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyNetEntityInMessage">
+            <summary>
+            Входящее сообщение для netEntity 
+            </summary>
+            <param name="code"></param>
+            <param name="data"></param>
+        </member>
         <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>
             Основной класс ядра клиентской части
@@ -497,6 +531,47 @@
             <summary>
             Инициализирован ли объект
             </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.NetEntity.ClientNetEntity.OnNetStart">
+            <summary>
+            Вызывается при успешной сетевой инициализации объекта
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.CallOnNetStart">
+            <summary>
+            Вызов события успешной инициализации
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.NetEntity.ClientNetEntity.OnNetDestroy">
+            <summary>
+            Вызов события удаления сетевой сущности
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.NetEntity.ClientNetEntity.OnInMessage">
+            <summary>
+            Новое входящее сообщение
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.Destroy">
+            <summary>
+            Запрос на удаление объекта
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправка сообщения всем экземплярам данного объекта
+            </summary>
+            <param name="code">пользовательский код</param>
+            <param name="message">Сообщение (наследник BaseMessage)</param>
+            <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправка сообщения всем экземплярам данного объекта
+            </summary>
+            <param name="code">пользовательский код</param>
+            <param name="data">массив байт</param>
+            <param name="deliveryType">способ доставки</param>
         </member>
         <member name="T:GalaxyCoreLib.Network.MessageSender">
             <summary>

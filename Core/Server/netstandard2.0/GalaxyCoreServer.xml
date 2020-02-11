@@ -203,6 +203,11 @@
             Менеджер работы с сетевыми сущностями
             </summary>
         </member>
+        <member name="P:GalaxyCoreServer.Api.NetEntityManager.Count">
+            <summary>
+            Число сетевых сущностей в инстансе
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.Api.NetEntityManager.#ctor(GalaxyCoreServer.Instance)">
             <summary>
             Дефолт конструктор
@@ -214,6 +219,21 @@
             Создание сетевой сущности со стороны сервера
             </summary>
             <param name="netEntity"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.RemoveNetEntity(System.Int32)">
+            <summary>
+            Удаление сетевой сущности
+            </summary>
+            <param name="netId"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Входящее сообщение для сетевого объекта
+            </summary>
+            <param name="netId"></param>
+            <param name="externalCode"></param>
+            <param name="data"></param>
+            <param name="client"></param>
         </member>
         <member name="T:GalaxyCoreServer.Api.Statistic">
             <summary>
@@ -453,6 +473,12 @@
             </summary>
             <param name="clientConnection"></param>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.RemoveClientEntitys(GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Удалить все сетевые сущности клиента
+            </summary>
+            <param name="clientConnection"></param>
+        </member>
         <member name="M:GalaxyCoreServer.Instance.TossMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Пользовательская проброска сообщения в инстанс
@@ -481,6 +507,16 @@
             <summary>
             Внутреннаяя отправка сообщения
             </summary>
+            <param name="internalCode"></param>
+            <param name="externalCode"></param>
+            <param name="data"></param>
+            <param name="deliveryType"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAllExcept(GalaxyCoreServer.Api.ClientConnection,System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Внутреннаяя отправка сообщения всем кроме
+            </summary>
+            <param name="clientConnection"></param>
             <param name="internalCode"></param>
             <param name="externalCode"></param>
             <param name="data"></param>
@@ -658,10 +694,62 @@
             Оринтация объекта в пространстве  (не обязательньный параметр)
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.NetEntity.instance">
+            <summary>
+            Ссылка на текущий инстанс
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.NetEntity.Start">
             <summary>
             Вызывается при полной инициализации объекта
             </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnDestroy">
+            <summary>
+            Вызывается при удаление сущности
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+            <summary>
+            Новое входящее сообщение
+            </summary>
+            <param name="externalCode">пользовательский код сообщений</param>
+            <param name="data">пользовательские данные</param>
+            <param name="client">кто отправил сообщение</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправка сообщения всем экземплярам данного объекта
+            </summary>
+            <param name="code">пользовательский код</param>
+            <param name="message">Сообщение (наследник BaseMessage)</param>
+            <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправка сообщения всем экземплярам данного объекта
+            </summary>
+            <param name="code">пользовательский код</param>
+            <param name="data">массив байт</param>
+            <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.Api.ClientConnection,System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправка сообщения всем экземплярам данного объекта за исключением указанного клиента
+            </summary>
+            <param name="client">клиент исключенный из рассылки</param>
+            <param name="code">пользовательский код</param>
+            <param name="message">Сообщение (наследник BaseMessage)</param>
+            <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.Api.ClientConnection,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправка сообщения всем экземплярам данного объекта за исключением указанного клиента
+            </summary>
+            <param name="client">клиент исключенный из рассылки</param>
+            <param name="code">пользовательский код</param>
+            <param name="data">массив байт</param>
+            <param name="deliveryType">способ доставки</param>
         </member>
         <member name="T:GalaxyCoreServer.NetEntityStandart">
             <summary>

@@ -110,6 +110,11 @@
             Синхронизация сетевого трансформа
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.netEntityDestory">
+            <summary>
+            Удаление сетевой сущности
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.error">
             <summary>
             Сообщение об ошибке
@@ -291,22 +296,6 @@
             <param name="d"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Equality(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            ==
-            </summary>
-            <param name="lhs"></param>
-            <param name="rhs"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Inequality(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            !=
-            </summary>
-            <param name="lhs"></param>
-            <param name="rhs"></param>
-            <returns></returns>
-        </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessInstanceCreate">
             <summary>
             Запрос создания инстанса
@@ -395,6 +384,26 @@
         <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.customData">
             <summary>
             Пользовательские данные
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.InternalMessages.MessInstanceSync">
+            <summary>
+            Сообщение синхронизации состояния сетевых сущностей
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessInstanceSync.netEntitys">
+            <summary>
+            Список сущностей
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.InternalMessages.MessNetEntityDestroy">
+            <summary>
+            Сообщение под удаление сетевой сущности
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityDestroy.netId">
+            <summary>
+            Сетевой ид сущности
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate">

@@ -69,6 +69,8 @@
     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\DebugLoger.cs" />
     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\Extensions.cs" />
     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\MessageEvents.cs" />
+    <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\NetEntity\GalaxyNetworkInstantiator.cs" />
+    <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\NetEntity\NetEntityTransform.cs" />
     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\NetEntity\UnityNetEntity.cs" />
     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\RoomManager.cs" />
     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\RoomManagerItem.cs" />
@@ -81,6 +83,9 @@
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -97,17 +102,14 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-      <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-      <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Unity/2019.2.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
