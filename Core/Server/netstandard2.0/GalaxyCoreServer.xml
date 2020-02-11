@@ -387,6 +387,11 @@
             Базовый класс инстанса, служит основой для создания комнат, локаций, и тому подобных вещей
             </summary>
         </member>
+        <member name="P:GalaxyCoreServer.Instance.frameRate">
+            <summary>
+            Фрейм рейт (число тиков в секунду)
+            </summary>
+        </member>
         <member name="P:GalaxyCoreServer.Instance.clients">
             <summary>
             Список клиентов находящихся в данном инстансе
@@ -436,6 +441,18 @@
             <summary>
             Базовый конструктор
             </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SetFrameRate(System.Int32)">
+            <summary>
+            Установить фрейм рейт
+            </summary>
+            <param name="frameRate">число тиков в секунду</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Update(System.Single)">
+            <summary>
+            Тик сетевого фрейма
+            </summary>
+            <param name="deltaTime"></param>
         </member>
         <member name="M:GalaxyCoreServer.Instance.AddClient(GalaxyCoreServer.Api.ClientConnection,System.Object)">
             <summary>

@@ -8,8 +8,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class RoomManager : MonoBehaviour
-{
-  
+{  
     public GameObject UI;
     public GameObject UICreate;
     public GameObject UISmall;
