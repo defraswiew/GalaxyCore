@@ -40,7 +40,7 @@ namespace SimpleMmoServer
             //Важно что бы имя сервера совпадало с именем указанным в клиенте
             config.SERVER_NAME = "SimpleMmoServer";
             config.LISTEN_PORT = 30200; // Указываем рабочий порт
-            GalaxyCore.Start(config); // Запускаем сервер
+            GalaxyCore.Start(config); // Запускаем сервер     
         }
 
         private NetEntity OnNetEntityInstantiate(string name, byte[] data, ClientConnection clientConnection)

@@ -387,6 +387,11 @@
             Базовый класс инстанса, служит основой для создания комнат, локаций, и тому подобных вещей
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.Instance.Time">
+            <summary>
+            Представление времен
+            </summary>
+        </member>
         <member name="P:GalaxyCoreServer.Instance.frameRate">
             <summary>
             Фрейм рейт (число тиков в секунду)
@@ -394,12 +399,12 @@
         </member>
         <member name="P:GalaxyCoreServer.Instance.clients">
             <summary>
-            Список клиентов находящихся в данном инстансе
+            Список клиентов
             </summary>
         </member>
         <member name="F:GalaxyCoreServer.Instance.entityManager">
             <summary>
-            Коллекция сетевых объектов в инстансе
+            Коллекция сетевых объектов
             </summary>      
         </member>
         <member name="F:GalaxyCoreServer.Instance.type">
@@ -417,7 +422,7 @@
             Врунтенний ид по серверу
             </summary>
         </member>
-        <member name="F:GalaxyCoreServer.Instance.owner">
+        <member name="P:GalaxyCoreServer.Instance.owner">
             <summary>
             владелец комнаты
             </summary>
@@ -448,11 +453,10 @@
             </summary>
             <param name="frameRate">число тиков в секунду</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.Update(System.Single)">
+        <member name="M:GalaxyCoreServer.Instance.Update">
             <summary>
             Тик сетевого фрейма
             </summary>
-            <param name="deltaTime"></param>
         </member>
         <member name="M:GalaxyCoreServer.Instance.AddClient(GalaxyCoreServer.Api.ClientConnection,System.Object)">
             <summary>
@@ -496,7 +500,7 @@
             </summary>
             <param name="clientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.TossMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Пользовательская проброска сообщения в инстанс
             </summary>
@@ -587,13 +591,28 @@
             Инстанс запустился
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandart.TossMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.InstanceStandart.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Пришло новое сообщение в инстанс
             </summary>
             <param name="code"></param>
             <param name="data"></param>
             <param name="clientConnection"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.InstanceTime">
+            <summary>
+            Представление времен инстанса
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.InstanceTime.deltaTime">
+            <summary>
+            Время прошедшее с последнего тика (Update) (в секундах)
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.InstanceTime.time">
+            <summary>
+            Время в секундах с запуска инстанса
+            </summary>
         </member>
         <member name="T:GalaxyCoreServer.Log">
             <summary>

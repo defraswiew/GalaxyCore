@@ -31,6 +31,7 @@ public class NetEntityTransform : MonoBehaviour
                 UpdateTransform(message);
                 break;
         }
+      
     }
 
     private void UpdateTransform(MessageTransform message)

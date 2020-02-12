@@ -37,13 +37,14 @@ namespace SimpleMmoServer
             Console.WriteLine("Location TossMessage");                   
         }
 
-        public override void Update(float deltaTime)
+        public override void Update()
         {
             Console.WriteLine("start");
             frameCount++;
-            Log.Info("Location " + id,"frame " + frameCount);
+            Log.Info("Location " + id,"frame " + frameCount + " Time " + Time.deltaTime);
             Thread.Sleep(rnd.Next(100,2000));
             Console.WriteLine("end");
+            
         }
              
     }
