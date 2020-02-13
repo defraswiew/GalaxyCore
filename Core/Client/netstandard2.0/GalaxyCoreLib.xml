@@ -14,6 +14,11 @@
             Установленно ли соеденение с сервером
             </summary>
         </member>
+        <member name="F:GalaxyCoreLib.Api.Connection.userDisconnect">
+            <summary>
+            Дисконект произошел по инициативе пользователя
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.Api.Connection.Connect(GalaxyCoreCommon.BaseMessage)">
             <summary>
             Подключиться к серверу

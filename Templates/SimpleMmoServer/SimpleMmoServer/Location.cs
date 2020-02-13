@@ -32,7 +32,7 @@ namespace SimpleMmoServer
             Console.WriteLine("Location Start");
         }
 
-        public override void TossMessage(byte code, byte[] data, ClientConnection clientConnection)
+        public override void InMessage(byte code, byte[] data, ClientConnection clientConnection)
         {
             Console.WriteLine("Location TossMessage");                   
         }

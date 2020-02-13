@@ -26,7 +26,7 @@ namespace SimpleMmoServer
                 //В остальных случаях отправляем сообщение в инстанс
                 default:
                     if (clientConnection.instanse == null) return;
-                    clientConnection.instanse.TossMessage(code, data, clientConnection);
+                    clientConnection.instanse.InMessage(code, data, clientConnection);
                     break;
             }
 
