@@ -15,6 +15,7 @@ public class Login : MonoBehaviour
     {
         GalaxyEvents.OnGalaxyApprovalResponse += OnGalaxyApprovalResponse; //подписка на событие об ошибках авторизации
         GalaxyEvents.OnGalaxyConnect += OnGalaxyConnect; // событиеуспешного коннекта
+         
     }
 
     private void OnGalaxyConnect(byte[] message)

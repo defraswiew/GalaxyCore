@@ -9,13 +9,25 @@ using UnityEngine;
 public class NetEntityTransform : MonoBehaviour
 {
     UnityNetEntity unityNetEntity;
+    MessageTransform messageTrandform;
+    public bool sendPosition = true;
+    private Vector3 randPos;
+    public bool debug = false;
+    Vector3 pos;
+    void OnEnable()
+    {
+     //   Init();
+            Invoke("Init", 1);
+        InvokeRepeating("TEST", 5, 5);
+    }
 
-    void Start()
+    private void Init()
     {
         unityNetEntity = GetComponent<UnityNetEntity>();
         unityNetEntity.netEntity.OnInMessage += OnInMessage;
         GalaxyEvents.OnFrameUpdate += OnFrameUpdate;
     }
+ 
 
     private void OnDestroy()
     {
@@ -23,12 +35,13 @@ public class NetEntityTransform : MonoBehaviour
     }
 
     private void OnInMessage(byte code, byte[] data)
-    {
+    {   
         switch ((NetEntityCommand)code)
         {
             case NetEntityCommand.syncTransform:
-                MessageTransform message = BaseMessage.Deserialize<MessageTransform>(data);
-                UpdateTransform(message);
+                messageTrandform = BaseMessage.Deserialize<MessageTransform>(data);
+                 
+                UpdateTransform(messageTrandform);
                 break;
         }
       
@@ -36,8 +49,14 @@ public class NetEntityTransform : MonoBehaviour
 
     private void UpdateTransform(MessageTransform message)
     {
-        if (unityNetEntity.netEntity.isMy) return;
-        if (message.position != null) transform.position = message.position.Vector3();
+        // if (unityNetEntity.netEntity.isMy) return;
+
+        if (message.position != null)
+        {
+            message.position.Vector3(out pos);
+            transform.position = pos;
+        }
+        
         if (message.rotation != null) transform.rotation = message.rotation.Quaternion();
     }
 
@@ -45,11 +64,25 @@ public class NetEntityTransform : MonoBehaviour
     private void OnFrameUpdate()
     {
         if (!unityNetEntity.netEntity.isMy) return;
-        MessageTransform message = new MessageTransform();
-        message.position = transform.position.NetworkVector3();
-        message.rotation = transform.rotation.NetworkQuaternion();
-        unityNetEntity.netEntity.SendMessage((byte)NetEntityCommand.syncTransform, message, GalaxyDeliveryType.unreliableNewest);
+        if (!sendPosition) return;
+        messageTrandform = new MessageTransform();
+        messageTrandform.position = transform.position.NetworkVector3();
+        messageTrandform.rotation = transform.rotation.NetworkQuaternion();
+        unityNetEntity.netEntity.SendMessage((byte)NetEntityCommand.syncTransform, messageTrandform, GalaxyDeliveryType.unreliableNewest);
     }
 
-
+    void TEST()
+    {
+        randPos.x = Random.Range(-5, 5);
+        randPos.z = Random.Range(-5, 5);
+    }
+    /*
+    private void Update()
+    {
+        if (!debug) return;
+        if (!unityNetEntity) return;
+        if(unityNetEntity.netEntity.isMy)
+        transform.position = Vector3.Lerp(transform.position, randPos,Time.deltaTime);
+    }
+    */
 }

@@ -35,7 +35,14 @@ public static class Extensions
         mes.z = vector.z;
         return mes;
     }
-   
+
+    public static void Vector3(this GalaxyVector3 vector,out Vector3 vector3)
+    {
+        vector3.x = vector.x;
+        vector3.y = vector.y;
+        vector3.z = vector.z;        
+    }
+
     public static GalaxyQuaternion NetworkQuaternion(this Quaternion quaternion)
     {
         GalaxyQuaternion mes = new GalaxyQuaternion();
@@ -46,8 +53,9 @@ public static class Extensions
         return mes;
     }
     public static Quaternion Quaternion(this GalaxyQuaternion quaternion)
-    {
+    {      
         Quaternion mes = new Quaternion();
+        if (quaternion == null) return mes;
         mes.x = quaternion.x;
         mes.y = quaternion.y;
         mes.z = quaternion.z;

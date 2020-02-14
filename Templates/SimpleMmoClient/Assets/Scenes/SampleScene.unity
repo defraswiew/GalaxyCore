@@ -369,6 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: {fileID: 6700103659251402083, guid: 911160ad932696b489e32a53bb94a180, type: 3}
+  max: 10
 --- !u!4 &416137286
 Transform:
   m_ObjectHideFlags: 0
@@ -829,6 +830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: {fileID: 6700103659251402083, guid: 911160ad932696b489e32a53bb94a180, type: 3}
+  max: 10
 --- !u!4 &1459237248
 Transform:
   m_ObjectHideFlags: 0

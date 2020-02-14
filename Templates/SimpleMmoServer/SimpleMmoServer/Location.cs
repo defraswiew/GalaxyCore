@@ -1,5 +1,6 @@
 ﻿using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
+using SimpleMmoServer.NetEntitys;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,10 @@ namespace SimpleMmoServer
     {
         int frameCount = 0;
         Random rnd = new Random();
-        public override void ClietnExit(ClientConnection clientConnection)
+        float timer;
+        int moverCount;
+        int moverMax = 300;
+        public override void ClientExit(ClientConnection clientConnection)
         {                     
             Console.WriteLine("Location ClietnExit");
         }
@@ -28,23 +32,39 @@ namespace SimpleMmoServer
 
         public override void Start()
         {
-            SetFrameRate(2);
+            SetFrameRate(30);
             Console.WriteLine("Location Start");
+            /*
+            for (int i = 0; i < 5; i++)
+            {
+                ExampleMonster monster = new ExampleMonster();
+                monster.position.x = rnd.Next(5, 10);
+                monster.position.z = rnd.Next(5, 10);
+                entities.CreateNetEntity(monster);
+            }
+           */
+
         }
 
         public override void InMessage(byte code, byte[] data, ClientConnection clientConnection)
         {
             Console.WriteLine("Location TossMessage");                   
         }
-
+        
         public override void Update()
-        {
-            Console.WriteLine("start");
+        {         
             frameCount++;
-            Log.Info("Location " + id,"frame " + frameCount + " Time " + Time.deltaTime);
-            Thread.Sleep(rnd.Next(100,2000));
-            Console.WriteLine("end");
-            
+            //   Log.Info("Location " + id,"frame " + frameCount + " Time " + Time.deltaTime);
+            //  Thread.Sleep(rnd.Next(100,2000));   
+            timer += Time.deltaTime;
+            if (timer > 1)
+            {
+                if (moverCount > moverMax) return;
+                timer = 0;
+                ExampleRandomMove mover = new ExampleRandomMove();
+                entities.CreateNetEntity(mover);
+                moverCount++;
+            }
         }
              
     }

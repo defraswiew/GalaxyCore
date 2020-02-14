@@ -16,8 +16,16 @@ namespace SimpleMmoServer.NetEntitys
 
         private NetEntity OnNetEntityInstantiate(string name, byte[] data, ClientConnection clientConnection)
         {
-            ExampleNetEntity netEntity = new ExampleNetEntity();
-            return netEntity;
+            switch (name)
+            {
+                case "Pet":
+                    ExamplePet pet = new ExamplePet();
+                    return pet;   
+                default:
+                    ExampleNetEntity netEntity = new ExampleNetEntity();
+                      return netEntity;
+            }
+           // return null;           
         }
 
     }

@@ -47,6 +47,10 @@ public class GalaxyNetworkController : MonoBehaviour
 
     private void Update()
     {
+        if (Time.frameCount % 30 == 0)
+        {
+            System.GC.Collect();
+        }
         GalaxyClientCore.unityCalls.Update(Time.deltaTime); // Прокидываем update
     }
 

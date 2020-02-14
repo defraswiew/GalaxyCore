@@ -1,7 +1,11 @@
-﻿using GalaxyCoreServer;
+﻿using GalaxyCoreCommon;
+using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
+using SimpleMmoCommon;
+using SimpleMmoCommon.Messages;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SimpleMmoServer.NetEntitys
@@ -9,6 +13,9 @@ namespace SimpleMmoServer.NetEntitys
     public class ExamplePet : NetEntity
     {
         private NetEntity target;
+        private ClientConnection ownerConnection;
+        float speed = 2;
+
         public override void InMessage(byte externalCode, byte[] data, ClientConnection client)
         {
        
@@ -21,21 +28,28 @@ namespace SimpleMmoServer.NetEntitys
 
         public override void Start()
         {
-           
+            ownerConnection = instance.GetClientById(owner); 
         }
 
         public override void Update()
         {
             if (target == null)
-            {
+            {        
                 FindTarget();
                 return;
             }
+
+            if (GalaxyVector3.SqrMagnitude(position - target.position) < 2) return;
+            position = GalaxyVector3.Lerp(position, target.position, instance.Time.deltaTime * speed);
+            MessageTransform message = new MessageTransform();
+            message.position = position;           
+            SendMessage((byte)NetEntityCommand.syncTransform, message, GalaxyDeliveryType.unreliableNewest);           
         }
 
         private void FindTarget()
         {
-           
+            if (ownerConnection == null) return;
+            target = ownerConnection.GetUserEntities().Where(x => x.name == "Player").FirstOrDefault();
         }
 
     }

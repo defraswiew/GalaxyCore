@@ -37,8 +37,9 @@ namespace SimpleMmoServer.NetEntitys
             // если позиция не пуста значит обновляем
             if (message.position != null) position = message.position;         
             // если поворот не пуст то обновляем
-            if (message.rotation != null) rotation = message.rotation;       
+            if (message.rotation != null) rotation = message.rotation;
             // сообщяем всем экземплярам объекта что нужно обновить трансформ
+         //   Log.Info("SyncTransform", "SendMessageExcept");
             SendMessageExcept(client, (byte)NetEntityCommand.syncTransform, data, GalaxyDeliveryType.unreliableNewest);               
         }
         public override void OnDestroy()
@@ -48,7 +49,7 @@ namespace SimpleMmoServer.NetEntitys
 
         public override void Update()
         {
-            throw new NotImplementedException();
+         
         }
     }
 }

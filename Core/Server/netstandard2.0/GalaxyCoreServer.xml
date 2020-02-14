@@ -107,6 +107,12 @@
             Отключить пользователя
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.Api.ClientConnection.GetUserEntities">
+            <summary>
+            Получить все сетевые сущности клиента
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:GalaxyCoreServer.Api.GalaxyEvents">
             <summary>
             Публичные эвенты ядра
@@ -201,6 +207,11 @@
         <member name="T:GalaxyCoreServer.Api.NetEntityManager">
             <summary>
             Менеджер работы с сетевыми сущностями
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.NetEntityManager.list">
+            <summary>
+            Список сетевых объектов
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.Api.NetEntityManager.Count">
@@ -402,7 +413,14 @@
             Список клиентов
             </summary>
         </member>
-        <member name="F:GalaxyCoreServer.Instance.entityManager">
+        <member name="M:GalaxyCoreServer.Instance.GetClientById(System.Int32)">
+            <summary>
+            Получение клиента в инстансе по Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.entities">
             <summary>
             Коллекция сетевых объектов
             </summary>      
@@ -482,7 +500,7 @@
             </summary>
             <param name="clientConnection">коннект игрока</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.ClietnExit(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.ClientExit(GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Клиент вышел из комнаты
             </summary>
@@ -494,7 +512,7 @@
             </summary>
             <param name="clientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.RemoveClientEntitys(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.RemoveClientEntities(GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Удалить все сетевые сущности клиента
             </summary>
@@ -569,7 +587,7 @@
             Стандартная реализация инстанса 
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandart.ClietnExit(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.InstanceStandart.ClientExit(GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Клиент вышел из инстанса
             </summary>

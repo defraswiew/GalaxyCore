@@ -30,14 +30,14 @@ public class UnityNetEntity : MonoBehaviour
             // если netEntity все еще null то это явно наш объект
             // и нужно отправлять запрос на создание сетевого экземпляра
             // создаем пустой экземпляр сетевой сущности
-            netEntity = new ClientNetEntity();            
+          //  netEntity = new ClientNetEntity();            
             // убираем все лишнее из имени
             netEntity.name = gameObject.name.Split(new char[] { ' ', '(' })[0];
             // записываем текущую позицию и поворот
             netEntity.position = transform.position.NetworkVector3();
             netEntity.rotation = transform.rotation.NetworkQuaternion();
             // отправляем запрос на создание сетевого объекта
-            GalaxyApi.netEntity.Instantiate(netEntity, data);
+            GalaxyApi.netEntity.Instantiate(netEntity);
             // подписываемся на событие об успешной инициализации
             netEntity.OnNetStart += OnNetStart;           
         }
