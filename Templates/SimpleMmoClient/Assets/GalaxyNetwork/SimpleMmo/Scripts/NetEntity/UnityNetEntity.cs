@@ -10,7 +10,9 @@ public class UnityNetEntity : MonoBehaviour
     /// Ссылка на сетевую сущность в ядре
     /// </summary>
     public ClientNetEntity netEntity = new ClientNetEntity();
-  
+    [HideInInspector]
+    public byte[] data = null;
+
     public int netID = 0;
 
     
@@ -35,7 +37,7 @@ public class UnityNetEntity : MonoBehaviour
             netEntity.position = transform.position.NetworkVector3();
             netEntity.rotation = transform.rotation.NetworkQuaternion();
             // отправляем запрос на создание сетевого объекта
-            GalaxyApi.netEntity.Instantiate(netEntity);
+            GalaxyApi.netEntity.Instantiate(netEntity, data);
             // подписываемся на событие об успешной инициализации
             netEntity.OnNetStart += OnNetStart;           
         }

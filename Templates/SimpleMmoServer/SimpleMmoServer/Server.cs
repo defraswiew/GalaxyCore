@@ -27,6 +27,10 @@ namespace SimpleMmoServer
         /// </summary>
         LogVisualizator logs = new LogVisualizator();
         /// <summary>
+        /// Переопределение сетевых сущностей
+        /// </summary>
+        NetEntityOverrider entityOverrider = new NetEntityOverrider();
+        /// <summary>
         /// Показывать ли дебаг сообщения
         /// </summary>
         internal static bool debugLog = true;
@@ -34,20 +38,14 @@ namespace SimpleMmoServer
         public Server()
         {
             config.incomingMessage = inMessages; // Регистрируем обработчик входящих сообщений
-            GalaxyEvents.OnGalaxyInstanceCreate += OnGalaxyInstanceCreate; //Отлавливаем событие создания нового инстанса
-            GalaxyEvents.OnNetEntityInstantiate += OnNetEntityInstantiate; //Отлавливаем событие создания сетевой сущности для пераназначения логики
+            GalaxyEvents.OnGalaxyInstanceCreate += OnGalaxyInstanceCreate; //Отлавливаем событие создания нового инстанса 
             //Задаем имя сервера
             //Важно что бы имя сервера совпадало с именем указанным в клиенте
             config.SERVER_NAME = "SimpleMmoServer";
             config.LISTEN_PORT = 30200; // Указываем рабочий порт
             GalaxyCore.Start(config); // Запускаем сервер     
         }
-
-        private NetEntity OnNetEntityInstantiate(string name, byte[] data, ClientConnection clientConnection)
-        {
-            ExampleNetEntity netEntity = new ExampleNetEntity();
-            return netEntity;
-        }
+               
 
         /// <summary>
         /// Это пример переопределения стандартной реализации инстанса

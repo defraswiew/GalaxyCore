@@ -745,6 +745,11 @@
             Вызывается при удаление сущности
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Update">
+            <summary>
+            Тик сетевого кадра
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.NetEntity.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
             <summary>
             Новое входящее сообщение

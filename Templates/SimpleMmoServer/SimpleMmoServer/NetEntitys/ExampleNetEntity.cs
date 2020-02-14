@@ -46,6 +46,9 @@ namespace SimpleMmoServer.NetEntitys
             
         }
 
-      
+        public override void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
