@@ -32,6 +32,7 @@ namespace SimpleMmoServer
 
         public override void Start()
         {
+            physics.Activate();
             SetFrameRate(30);
             Console.WriteLine("Location Start");
             /*
