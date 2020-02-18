@@ -1,6 +1,7 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
+using GalaxyCoreServer.Physics;
 using SimpleMmoCommon;
 using SimpleMmoCommon.Messages;
 using System;
@@ -34,12 +35,24 @@ namespace SimpleMmoServer.NetEntitys
 
         public override void Start()
         {
+            ColliderBox collider = new ColliderBox(new GalaxyVector3(0.4f, 0.4f, 0.4f));
+            physics.Activate(collider);           
+            physics.mass = 5f;
             startPosition = position;
+         //   syncType = NetEntityAutoSync.position_and_rotation;
         }
 
         public override void Update()
         {
-            if(target == null)
+            physics.ApplyPhys();
+         
+            MessageTransform message = new MessageTransform();
+            message.position = position;
+            message.rotation = rotation;
+            SendMessage((byte)NetEntityCommand.syncTransform, message, GalaxyDeliveryType.unreliableNewest);
+          
+           /*
+            if (target == null)
             {
                 FindTarget();
                 return;
@@ -54,6 +67,7 @@ namespace SimpleMmoServer.NetEntitys
             MessageTransform message = new MessageTransform();
             message.position = position;
             SendMessage((byte)NetEntityCommand.syncTransform, message, GalaxyDeliveryType.unreliableNewest);
+            */
         }
 
         private void FindTarget()
@@ -64,7 +78,8 @@ namespace SimpleMmoServer.NetEntitys
             }
             if (GalaxyVector3.SqrMagnitude(position - startPosition) < 2) return;
             position = GalaxyVector3.Lerp(position, startPosition, instance.Time.deltaTime);
-            MessageTransform message = new MessageTransform();
+           
+           MessageTransform message = new MessageTransform();
             message.position = position;
             SendMessage((byte)NetEntityCommand.syncTransform, message, GalaxyDeliveryType.unreliableNewest);
         }

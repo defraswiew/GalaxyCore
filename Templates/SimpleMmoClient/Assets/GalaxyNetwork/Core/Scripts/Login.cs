@@ -37,6 +37,7 @@ public class Login : MonoBehaviour
     private void OnGalaxyApprovalResponse(byte code, string message)
     {
         status.text = message;
+
     }
 
     /// <summary>

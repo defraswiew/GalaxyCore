@@ -43,6 +43,8 @@ public static class Extensions
         vector3.z = vector.z;        
     }
 
+ 
+
     public static GalaxyQuaternion NetworkQuaternion(this Quaternion quaternion)
     {
         GalaxyQuaternion mes = new GalaxyQuaternion();

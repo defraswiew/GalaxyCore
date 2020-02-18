@@ -90,8 +90,14 @@
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.MemoryProfiler">
+      <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.MemoryProfiler.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
@@ -110,12 +116,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.MemoryProfiler">
-      <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.MemoryProfiler.dll</HintPath>
     </Reference>
     <Reference Include="Unity.MemoryProfiler.Editor">
       <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.MemoryProfiler.Editor.dll</HintPath>

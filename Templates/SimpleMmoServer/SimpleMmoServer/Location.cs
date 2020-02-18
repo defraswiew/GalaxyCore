@@ -31,19 +31,20 @@ namespace SimpleMmoServer
         }
 
         public override void Start()
-        {
-            physics.Activate();
+        {            
             SetFrameRate(30);
+            physics.Activate();
+            physics.multithread = true;
             Console.WriteLine("Location Start");
             /*
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 10; i++)
             {
                 ExampleMonster monster = new ExampleMonster();
                 monster.position.x = rnd.Next(5, 10);
                 monster.position.z = rnd.Next(5, 10);
                 entities.CreateNetEntity(monster);
             }
-           */
+          */
 
         }
 
@@ -57,15 +58,34 @@ namespace SimpleMmoServer
             frameCount++;
             //   Log.Info("Location " + id,"frame " + frameCount + " Time " + Time.deltaTime);
             //  Thread.Sleep(rnd.Next(100,2000));   
+           
             timer += Time.deltaTime;
-            if (timer > 1)
+            if (timer > 0.6f)
             {
                 if (moverCount > moverMax) return;
                 timer = 0;
-                ExampleRandomMove mover = new ExampleRandomMove();
-                entities.CreateNetEntity(mover);
+                //    ExampleRandomMove mover = new ExampleRandomMove();
+                ExampleMonster monster = new ExampleMonster();
+                monster.position.y = 10;
+                monster.rotation = new GalaxyCoreCommon.GalaxyQuaternion();
+                monster.rotation.x = 40;
+                monster.rotation.y = 10;
+                monster.rotation.z = 5;
+                monster.rotation.w = 0.1f;
+                entities.CreateNetEntity(monster);
+               
+                ExampleMonster monster2 = new ExampleMonster();
+                monster2.position.y = 12;
+                monster2.rotation = new GalaxyCoreCommon.GalaxyQuaternion();
+                monster2.rotation.x = 40;
+                monster2.rotation.y = 10;
+                monster2.rotation.z = 5;
+                monster2.rotation.w = 0.1f;
+                entities.CreateNetEntity(monster2);
+                
                 moverCount++;
             }
+            
         }
              
     }

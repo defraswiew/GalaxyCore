@@ -1,4 +1,7 @@
-﻿using GalaxyCoreLib;
+﻿using GalaxyCoreCommon.InternalMessages;
+using GalaxyCoreLib;
+using ProtoBuf.Meta;
+using SimpleMmoCommon.Messages;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +23,8 @@ public class GalaxyNetworkController : MonoBehaviour
     Config config = new Config();
     private void Awake()
     {
+        
+        
         config.serverIp = serverIP; // задаем указаный ип
         config.serverPort = serverPort; // задаем указанный порт
         config.app_name = "SimpleMmoServer"; // должно соответствовать имени сервера
@@ -33,6 +38,9 @@ public class GalaxyNetworkController : MonoBehaviour
         GalaxyClientCore.unityCalls.Start(); // прокидываем Start
         SceneManager.activeSceneChanged += SceneChanged;
         SceneManager.sceneLoaded += SceneLoaded;
+     //   RuntimeTypeModel.Default[typeof(MessageTransform)].SetFactory("Pool");
+      //  RuntimeTypeModel.Default[typeof(MessRouteNetEntity)].SetFactory("Pool");
+         
     }
 
     private void SceneLoaded(Scene arg0, LoadSceneMode arg1)

@@ -115,6 +115,11 @@
             Удаление сетевой сущности
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.netEntityFrame">
+            <summary>
+            Фрейм сущностей
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.error">
             <summary>
             Сообщение об ошибке

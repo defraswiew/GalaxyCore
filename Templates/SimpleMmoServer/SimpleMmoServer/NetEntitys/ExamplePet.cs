@@ -1,6 +1,7 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
+using GalaxyCoreServer.Physics;
 using SimpleMmoCommon;
 using SimpleMmoCommon.Messages;
 using System;
@@ -28,11 +29,15 @@ namespace SimpleMmoServer.NetEntitys
 
         public override void Start()
         {
+            ColliderBox collider = new ColliderBox(new GalaxyVector3(0.4f, 0.4f, 0.4f));
+            physics.Activate(collider);
+            //physics.isStatic = false;
             ownerConnection = instance.GetClientById(owner); 
         }
 
         public override void Update()
         {
+            physics.SetPhys();
             if (target == null)
             {        
                 FindTarget();

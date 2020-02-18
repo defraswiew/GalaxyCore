@@ -12,6 +12,7 @@ namespace SimpleMmoCommon.Messages
     [ProtoContract]
    public class MessageTransform:BaseMessage
     {
+        private static MessageTransform item;
         /// <summary>
         /// Позиция
         /// </summary>
@@ -22,5 +23,12 @@ namespace SimpleMmoCommon.Messages
         /// </summary>
         [ProtoMember(2)]
         public GalaxyQuaternion rotation { get; set; }
+
+
+        public static MessageTransform Pool()
+        {
+            if (item == null) item = new MessageTransform();
+            return item;
+        }
     }
 }

@@ -476,6 +476,11 @@
             </summary>
             <param name="frameRate">число тиков в секунду</param>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.CallOnUpdate">
+            <summary>
+            Вызывает обвновление всех сетевых сущностей в комнате
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.Instance.Update">
             <summary>
             Тик сетевого фрейма
@@ -753,12 +758,17 @@
             Оринтация объекта в пространстве  (не обязательньный параметр)
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.NetEntity.syncType">
+            <summary>
+            Способ автоматической синхронизации
+            </summary>
+        </member>
         <member name="F:GalaxyCoreServer.NetEntity.instance">
             <summary>
             Ссылка на текущий инстанс
             </summary>
         </member>
-        <member name="F:GalaxyCoreServer.NetEntity.phys">
+        <member name="F:GalaxyCoreServer.NetEntity.physics">
             <summary>
             Физическое представление
             </summary>
@@ -1022,11 +1032,26 @@
             Физическое представление для netEntity
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Physics.PhysEntity.#ctor(GalaxyCoreServer.Physics.ColliderBox,GalaxyCoreServer.NetEntity)">
+        <member name="P:GalaxyCoreServer.Physics.PhysEntity.mass">
             <summary>
-            Конструктор
+            Масса объекта
             </summary>
-            <param name="collider">ColliderBox</param>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysEntity.isStatic">
+            <summary>
+            Статичен ли объект в физическом мире
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysEntity.Activate(GalaxyCoreServer.Physics.ColliderBox)">
+            <summary>
+            Активация физики
+            </summary>
+            <param name="collider">Box collider</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysEntity.ApplyPhys">
+            <summary>
+            Применить физические
+            </summary>
         </member>
         <member name="T:GalaxyCoreServer.Physics.PhysWorld">
             <summary>
