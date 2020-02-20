@@ -63,6 +63,12 @@ public class NetEntityTransform : MonoBehaviour
 
     private void OnFrameUpdate()
     {
+        if (!unityNetEntity.netEntity.isMy)
+        {
+            transform.position = unityNetEntity.netEntity.position.Vector3();
+            transform.rotation = unityNetEntity.netEntity.rotation.Quaternion();
+        }
+       
         if (!unityNetEntity.netEntity.isMy) return;
         if (!sendPosition) return;
         messageTrandform = new MessageTransform();
@@ -76,13 +82,14 @@ public class NetEntityTransform : MonoBehaviour
         randPos.x = Random.Range(-5, 5);
         randPos.z = Random.Range(-5, 5);
     }
-    /*
+     
     private void Update()
     {
-        if (!debug) return;
-        if (!unityNetEntity) return;
-        if(unityNetEntity.netEntity.isMy)
-        transform.position = Vector3.Lerp(transform.position, randPos,Time.deltaTime);
+       // if (!debug) return;
+       // if (!unityNetEntity) return;
+       // if(unityNetEntity.netEntity.isMy)
+       // transform.position = Vector3.Lerp(transform.position, randPos,Time.deltaTime);
+       // transform.position = Vector3.Lerp(transform.position, randPos, Time.deltaTime);
     }
-    */
+    
 }

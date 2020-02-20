@@ -14,7 +14,7 @@ namespace SimpleMmoServer
         Random rnd = new Random();
         float timer;
         int moverCount;
-        int moverMax = 300;
+        int moverMax = 1;
         public override void ClientExit(ClientConnection clientConnection)
         {                     
             Console.WriteLine("Location ClietnExit");
@@ -24,15 +24,21 @@ namespace SimpleMmoServer
         {
             Console.WriteLine("Location Close");
         }
-
+        byte[] data;
         public override void IncomingClient(ClientConnection clientConnection)
         {
+            data = new byte[16024];
+            for (int i = 0; i < data.Length; i++)
+            {
+                data[i] = (byte)rnd.Next(0, 255);
+            }
+          
             Console.WriteLine("Location IncomingClient");
         }
 
         public override void Start()
         {            
-            SetFrameRate(30);
+            SetFrameRate(20);
             physics.Activate();
             physics.multithread = true;
             Console.WriteLine("Location Start");
@@ -56,35 +62,30 @@ namespace SimpleMmoServer
         public override void Update()
         {         
             frameCount++;
+          //  SendMessageToAll(99, data, GalaxyCoreCommon.GalaxyDeliveryType.reliable);
             //   Log.Info("Location " + id,"frame " + frameCount + " Time " + Time.deltaTime);
             //  Thread.Sleep(rnd.Next(100,2000));   
-           
+         //   return;
             timer += Time.deltaTime;
-            if (timer > 0.6f)
+
+            if (timer > 0.05f)
             {
                 if (moverCount > moverMax) return;
                 timer = 0;
                 //    ExampleRandomMove mover = new ExampleRandomMove();
-                ExampleMonster monster = new ExampleMonster();
-                monster.position.y = 10;
-                monster.rotation = new GalaxyCoreCommon.GalaxyQuaternion();
-                monster.rotation.x = 40;
-                monster.rotation.y = 10;
-                monster.rotation.z = 5;
-                monster.rotation.w = 0.1f;
+                ExampleRandomMove monster = new ExampleRandomMove();
+             monster.position.y = 1;
+              monster.rotation = new GalaxyCoreCommon.GalaxyQuaternion();
+              monster.rotation.x = 0;
+                monster.rotation.y = 0;
+               monster.rotation.z = 0;
+             monster.rotation.w = 0.1f;
                 entities.CreateNetEntity(monster);
-               
-                ExampleMonster monster2 = new ExampleMonster();
-                monster2.position.y = 12;
-                monster2.rotation = new GalaxyCoreCommon.GalaxyQuaternion();
-                monster2.rotation.x = 40;
-                monster2.rotation.y = 10;
-                monster2.rotation.z = 5;
-                monster2.rotation.w = 0.1f;
-                entities.CreateNetEntity(monster2);
+                           
                 
                 moverCount++;
             }
+           
             
         }
              

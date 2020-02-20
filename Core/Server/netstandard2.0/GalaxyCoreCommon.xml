@@ -476,6 +476,35 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="F:GalaxyCoreCommon.TransformSerrializator.threshold">
+            <summary>
+            Порог изменений координат для отправки
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.TransformSerrializator.length">
+            <summary>
+            длинна полезной части буфера
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.TransformSerrializator.buffer">
+            <summary>
+            Временный буфер
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerrializator.SetPosition(System.Single,System.Single,System.Single)">
+            <summary>
+            Установить координаты для серриализации
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerrializator.SetPosition(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Установить координаты для серриализации
+            </summary>
+            <param name="vector3"></param>
+        </member>
         <member name="T:Lidgren.Network.NetAESEncryption">
             <summary>
             

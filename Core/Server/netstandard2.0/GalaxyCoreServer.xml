@@ -990,6 +990,11 @@
             экземпляр основного сепаратора
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.Network.NetworkCore.Flush">
+            <summary>
+            ПРинудительная отправка буфера
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.Network.NetworkCore.Stop">
             <summary>
             Остановка сетевого потока

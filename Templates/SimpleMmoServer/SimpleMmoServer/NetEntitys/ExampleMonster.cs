@@ -39,18 +39,19 @@ namespace SimpleMmoServer.NetEntitys
             physics.Activate(collider);           
             physics.mass = 5f;
             startPosition = position;
-         //   syncType = NetEntityAutoSync.position_and_rotation;
+            syncType = NetEntityAutoSync.position_and_rotation;
+         //  syncType = NetEntityAutoSync.position;
         }
 
         public override void Update()
         {
             physics.ApplyPhys();
-         
+        /*
             MessageTransform message = new MessageTransform();
             message.position = position;
             message.rotation = rotation;
             SendMessage((byte)NetEntityCommand.syncTransform, message, GalaxyDeliveryType.unreliableNewest);
-          
+       */
            /*
             if (target == null)
             {

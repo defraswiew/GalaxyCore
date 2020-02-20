@@ -34,7 +34,7 @@ namespace SimpleMmoServer.NetEntitys
 
         public override void Start()
         {
-           
+          syncType = NetEntityAutoSync.position_and_rotation;
         }
 
         public override void Update()
@@ -43,13 +43,16 @@ namespace SimpleMmoServer.NetEntitys
             if (timer > 5)
             {
                 timer = 0;
-                target.x = rnd.Next(-5, 5);
-                target.z = rnd.Next(-5, 5);
+                target.x = rnd.Next(-60, 60);
+                target.z = rnd.Next(-60, 60);
             }
+           position = GalaxyVector3.Lerp(position, target, instance.Time.deltaTime*0.05f);
+            /*
             position = GalaxyVector3.Lerp(position, target, instance.Time.deltaTime);
             MessageTransform message = new MessageTransform();
             message.position = position;
             SendMessage((byte)NetEntityCommand.syncTransform, message, GalaxyDeliveryType.unreliableNewest);
+            */
         }
 
          

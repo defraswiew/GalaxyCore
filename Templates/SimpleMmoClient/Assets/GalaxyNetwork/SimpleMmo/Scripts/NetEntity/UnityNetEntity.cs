@@ -12,8 +12,9 @@ public class UnityNetEntity : MonoBehaviour
     public ClientNetEntity netEntity = new ClientNetEntity();
     [HideInInspector]
     public byte[] data = null;
-
-    public int netID = 0;
+    [HideInInspector]
+    public float initTime;
+   
 
     
 
@@ -49,10 +50,10 @@ public class UnityNetEntity : MonoBehaviour
     }
 
     private void OnNetStart()
-    {
-        netID = netEntity.netID;
+    {      
         //Подписываемся на событие удаления данной сущности
         netEntity.OnNetDestroy += OnNetDestroy;
+        initTime = Time.time;
     }
 
     private void OnNetDestroy()

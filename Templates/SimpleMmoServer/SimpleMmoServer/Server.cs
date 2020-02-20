@@ -43,6 +43,9 @@ namespace SimpleMmoServer
             //Важно что бы имя сервера совпадало с именем указанным в клиенте
             config.SERVER_NAME = "SimpleMmoServer";
             config.LISTEN_PORT = 30200; // Указываем рабочий порт
+            config.MTU_AUTO_EXPAND = false;
+            
+            //    config.MTU_AUTO_EXPAND = true;
             GalaxyCore.Start(config); // Запускаем сервер     
         }
                

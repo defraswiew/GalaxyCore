@@ -16,7 +16,8 @@ namespace SimpleMmoServer.NetEntitys
           
         }
         public override void InMessage(byte externalCode, byte[] data, ClientConnection client)
-        {           
+        {   
+           
             switch ((NetEntityCommand)externalCode)
             {
                 case NetEntityCommand.syncTransform:                  
@@ -28,6 +29,7 @@ namespace SimpleMmoServer.NetEntitys
                     break;
             
             }
+             
         }
 
         private void SyncTransform(byte[] data, ClientConnection client)
@@ -38,8 +40,9 @@ namespace SimpleMmoServer.NetEntitys
             if (message.position != null) position = message.position;         
             // если поворот не пуст то обновляем
             if (message.rotation != null) rotation = message.rotation;
+
             // сообщяем всем экземплярам объекта что нужно обновить трансформ
-         //   Log.Info("SyncTransform", "SendMessageExcept");
+        Log.Info("SyncTransform", "SendMessageExcept");
             SendMessageExcept(client, (byte)NetEntityCommand.syncTransform, data, GalaxyDeliveryType.unreliableNewest);               
         }
         public override void OnDestroy()

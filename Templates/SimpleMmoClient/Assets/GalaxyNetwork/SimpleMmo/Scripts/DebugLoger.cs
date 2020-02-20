@@ -10,6 +10,14 @@ public class DebugLoger : MonoBehaviour
         GalaxyEvents.OnGalaxyLogInfo += OnGalaxyLogInfo;
         GalaxyEvents.OnGalaxyLogWarnig += OnGalaxyLogWarnig;
         GalaxyEvents.OnGalaxyLogError += OnGalaxyLogError;
+
+
+        GalaxyEvents.OnGalaxyIncommingMessage += OnGalaxyIncommingMessage;
+    }
+
+    private void OnGalaxyIncommingMessage(byte code, byte[] data)
+    {
+        Debug.Log("code:"+ code + "  lenght:"+data.Length);
     }
 
     private void OnDisable()

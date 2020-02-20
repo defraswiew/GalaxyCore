@@ -28,7 +28,8 @@ public class GalaxyNetworkController : MonoBehaviour
         config.serverIp = serverIP; // задаем указаный ип
         config.serverPort = serverPort; // задаем указанный порт
         config.app_name = "SimpleMmoServer"; // должно соответствовать имени сервера
-        config.FrameRate = 20; // Устанавливаем сетевой фреймрейт
+        config.FrameRate = 25; // Устанавливаем сетевой фреймрейт
+       
         GalaxyClientCore.Initialize(config); // инициализируем сетевое ядро
         GalaxyClientCore.unityCalls.Awake(); // прокидываем Awake
         DontDestroyOnLoad(gameObject); // Помечаем объект как неразрушаемый при переходах между сценами        

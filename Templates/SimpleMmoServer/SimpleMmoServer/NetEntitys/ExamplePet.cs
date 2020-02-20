@@ -32,7 +32,8 @@ namespace SimpleMmoServer.NetEntitys
             ColliderBox collider = new ColliderBox(new GalaxyVector3(0.4f, 0.4f, 0.4f));
             physics.Activate(collider);
             //physics.isStatic = false;
-            ownerConnection = instance.GetClientById(owner); 
+            ownerConnection = instance.GetClientById(owner);
+            syncType = NetEntityAutoSync.position_and_rotation;
         }
 
         public override void Update()
@@ -45,10 +46,7 @@ namespace SimpleMmoServer.NetEntitys
             }
 
             if (GalaxyVector3.SqrMagnitude(position - target.position) < 2) return;
-            position = GalaxyVector3.Lerp(position, target.position, instance.Time.deltaTime * speed);
-            MessageTransform message = new MessageTransform();
-            message.position = position;           
-            SendMessage((byte)NetEntityCommand.syncTransform, message, GalaxyDeliveryType.unreliableNewest);           
+            position = GalaxyVector3.Lerp(position, target.position, instance.Time.deltaTime * speed);          
         }
 
         private void FindTarget()
