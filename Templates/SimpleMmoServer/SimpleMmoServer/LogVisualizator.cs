@@ -21,6 +21,7 @@ namespace SimpleMmoServer
         private void OnLogDebug(string publisher, string message)
         {
             Console.WriteLine("Debug-> " + publisher + ": " + message);
+            Console.BackgroundColor = ConsoleColor.Black;
         }
 
         private void OnLogError(string publisher, string message)
@@ -44,6 +45,7 @@ namespace SimpleMmoServer
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Info-> " + publisher + ": " + message);
             Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
         }
     }
 }

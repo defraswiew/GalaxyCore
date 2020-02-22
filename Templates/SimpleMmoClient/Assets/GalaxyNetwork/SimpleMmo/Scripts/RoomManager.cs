@@ -138,4 +138,6 @@ public class RoomManager : MonoBehaviour
         GalaxyApi.instances.Create(roomName.text, (int)System.Int32.Parse(maxCount.text));  
     }
     
+
+
 }

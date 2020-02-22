@@ -14,8 +14,8 @@ namespace SimpleMmoServer
         Random rnd = new Random();
         float timer;
         int moverCount;
-        int moverMax = 1;
-        public override void ClientExit(ClientConnection clientConnection)
+        int moverMax = 200;
+        public override void ClientExit(Client client)
         {                     
             Console.WriteLine("Location ClietnExit");
         }
@@ -24,14 +24,10 @@ namespace SimpleMmoServer
         {
             Console.WriteLine("Location Close");
         }
-        byte[] data;
-        public override void IncomingClient(ClientConnection clientConnection)
+        
+        public override void IncomingClient(Client client)
         {
-            data = new byte[16024];
-            for (int i = 0; i < data.Length; i++)
-            {
-                data[i] = (byte)rnd.Next(0, 255);
-            }
+          
           
             Console.WriteLine("Location IncomingClient");
         }
@@ -39,8 +35,8 @@ namespace SimpleMmoServer
         public override void Start()
         {            
             SetFrameRate(20);
-            physics.Activate();
-            physics.multithread = true;
+         //   physics.Activate();
+          //  physics.multithread = true;
             Console.WriteLine("Location Start");
             /*
             for (int i = 0; i < 10; i++)
@@ -53,41 +49,44 @@ namespace SimpleMmoServer
           */
 
         }
-
-        public override void InMessage(byte code, byte[] data, ClientConnection clientConnection)
+        public override void InMessage(byte code, byte[] data, Client client)
         {
             Console.WriteLine("Location TossMessage");                   
         }
         
         public override void Update()
-        {         
+        {
+         //   SendMessageToAll(99, data, GalaxyCoreCommon.GalaxyDeliveryType.unreliableNewest);
             frameCount++;
-          //  SendMessageToAll(99, data, GalaxyCoreCommon.GalaxyDeliveryType.reliable);
+            //  SendMessageToAll(99, data, GalaxyCoreCommon.GalaxyDeliveryType.reliable);
             //   Log.Info("Location " + id,"frame " + frameCount + " Time " + Time.deltaTime);
             //  Thread.Sleep(rnd.Next(100,2000));   
-         //   return;
+            //   return;
+            
             timer += Time.deltaTime;
 
-            if (timer > 0.05f)
+            if (timer > 0.5f)
             {
                 if (moverCount > moverMax) return;
                 timer = 0;
-                //    ExampleRandomMove mover = new ExampleRandomMove();
-                ExampleRandomMove monster = new ExampleRandomMove();
-             monster.position.y = 1;
-              monster.rotation = new GalaxyCoreCommon.GalaxyQuaternion();
-              monster.rotation.x = 0;
-                monster.rotation.y = 0;
-               monster.rotation.z = 0;
-             monster.rotation.w = 0.1f;
-                entities.CreateNetEntity(monster);
-                           
-                
+              
+                    ExampleRandomMove monster = new ExampleRandomMove();
+                    monster.position.y = 1;
+                    monster.rotation = new GalaxyCoreCommon.GalaxyQuaternion();
+                    monster.rotation.x = 0;
+                    monster.rotation.y = 0;
+                    monster.rotation.z = 0;
+                    monster.rotation.w = 0.1f;
+                    entities.CreateNetEntity(monster);
                 moverCount++;
             }
-           
+                          
+                
+              
+            }
+             }
             
         }
              
-    }
-}
+ 
+ 

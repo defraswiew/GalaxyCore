@@ -67,6 +67,7 @@
     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyNetworkController.cs" />
     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Login.cs" />
     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\DebugLoger.cs" />
+    <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExampleRoomCreate.cs" />
     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\Extensions.cs" />
     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\MessageEvents.cs" />
     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\NetEntity\GalaxyNetworkInstantiator.cs" />

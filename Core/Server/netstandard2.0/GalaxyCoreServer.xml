@@ -14,7 +14,7 @@
             Реальное соеденение
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Approve(GalaxyCoreCommon.BaseMessage,System.Int32,System.Object)">
+        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Approve(GalaxyCoreCommon.BaseMessage,System.Int32,GalaxyCoreServer.Client,System.Object)">
             <summary>
             Разрешить подключение к серверу
             </summary>
@@ -23,7 +23,7 @@
             <param name="customClient">Дополнительная пользовательская реализация клиента</param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Approve(System.Int32,System.Byte[],System.Object)">
+        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Approve(System.Int32,System.Byte[],GalaxyCoreServer.Client,System.Object)">
             <summary>
             Разрешить подключение к серверу
             </summary>
@@ -38,80 +38,6 @@
             </summary>
             <param name="err">код ошибки (пользовательский)</param>
             <param name="mes">отправляемое клиенту сообщение</param>
-        </member>
-        <member name="T:GalaxyCoreServer.Api.ClientConnection">
-            <summary>
-            Класс подключения клиента
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreServer.Api.ClientConnection.id">
-            <summary>
-            Ид клиента, задается в Approval
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.Api.ClientConnection.netConnection">
-            <summary>
-            Реальное соеденение
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.Api.ClientConnection.netPeer">
-            <summary>
-            Дополнительная ссылка на пир
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.Api.ClientConnection.timeConnected">
-            <summary>
-            Время коннекта
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreServer.Api.ClientConnection.instanse">
-            <summary>
-            Ссылка на текущий инстант клиента
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.Api.ClientConnection.statistic">
-            <summary>
-            Статистика
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.Api.ClientConnection.SetNetConnection(Lidgren.Network.NetConnection)">
-            <summary>
-            Установка интернет соеденения
-            </summary>
-            <param name="netConnection"></param>
-        </member>
-        <member name="M:GalaxyCoreServer.Api.ClientConnection.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
-            <summary>
-            Отправить сообщение пользователю
-            </summary>
-            <param name="code">Пользовательский код сообщения, для удобной сепарации</param>
-            <param name="message">Сообщение (наследник BaseMessage)</param>
-            <param name="deliveryType">Способ доставки</param>
-        </member>
-        <member name="M:GalaxyCoreServer.Api.ClientConnection.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
-            <summary>
-            Отправить данные пользователю
-            </summary>
-            <param name="code">Пользовательский код сообщения, для удобной сепарации</param>
-            <param name="data">Сообщение (наследник BaseMessage)</param>
-            <param name="deliveryType">Способ доставки</param>
-        </member>
-        <member name="M:GalaxyCoreServer.Api.ClientConnection.SendError(System.Byte)">
-            <summary>
-            Отправить клиенту сообщение об ошибке
-            </summary>
-            <param name="code">код ошибки</param>    
-        </member>
-        <member name="M:GalaxyCoreServer.Api.ClientConnection.Disconnect">
-            <summary>
-            Отключить пользователя
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.Api.ClientConnection.GetUserEntities">
-            <summary>
-            Получить все сетевые сущности клиента
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:GalaxyCoreServer.Api.GalaxyEvents">
             <summary>
@@ -133,7 +59,7 @@
             
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyDisconnect(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyDisconnect(GalaxyCoreServer.Client)">
             <summary>
             Вызов события дисконекта
             </summary>
@@ -144,7 +70,7 @@
             Вызывается при создании нового инстанса с целью переопределения логики
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyInstanceCreate(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyInstanceCreate(System.Byte,System.Byte[],GalaxyCoreServer.Client)">
             <summary>
             Вызов события переопределения инстанса
             </summary>
@@ -163,7 +89,7 @@
             Менеджер инстансов
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Api.InstanceManager.Create(System.String,System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.Create(System.String,System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.Client)">
             <summary>
             Создание нового инстанса
             </summary>
@@ -173,7 +99,7 @@
             <param name="data">Пользовательские данные</param>
             <param name="client">Клиент запросивший создание инстанса, может быть null если запрос был создан не клиентом а к примеру сервером</param>
         </member>
-        <member name="M:GalaxyCoreServer.Api.InstanceManager.InstancesList(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.InstancesList(GalaxyCoreServer.Client)">
             <summary>
             Запрос информации о всех активных инстансах
             </summary>
@@ -237,7 +163,7 @@
             </summary>
             <param name="netId"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.Client)">
             <summary>
             Входящее сообщение для сетевого объекта
             </summary>
@@ -275,6 +201,80 @@
             <summary>
             Число игроков онлайн
             </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Client">
+            <summary>
+            Класс подключения клиента
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Client.id">
+            <summary>
+            Ид клиента, задается в Approval
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Client.netConnection">
+            <summary>
+            Реальное соеденение
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Client.netPeer">
+            <summary>
+            Дополнительная ссылка на пир
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Client.timeConnected">
+            <summary>
+            Время коннекта
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Client.instanse">
+            <summary>
+            Ссылка на текущий инстант клиента
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Client.statistic">
+            <summary>
+            Статистика
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Client.SetNetConnection(Lidgren.Network.NetConnection)">
+            <summary>
+            Установка интернет соеденения
+            </summary>
+            <param name="netConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Client.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение пользователю
+            </summary>
+            <param name="code">Пользовательский код сообщения, для удобной сепарации</param>
+            <param name="message">Сообщение (наследник BaseMessage)</param>
+            <param name="deliveryType">Способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Client.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить данные пользователю
+            </summary>
+            <param name="code">Пользовательский код сообщения, для удобной сепарации</param>
+            <param name="data">Сообщение (наследник BaseMessage)</param>
+            <param name="deliveryType">Способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Client.SendError(System.Byte)">
+            <summary>
+            Отправить клиенту сообщение об ошибке
+            </summary>
+            <param name="code">код ошибки</param>    
+        </member>
+        <member name="M:GalaxyCoreServer.Client.Disconnect">
+            <summary>
+            Отключить пользователя
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Client.GetUserEntities">
+            <summary>
+            Получить все сетевые сущности клиента
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:GalaxyCoreServer.Config">
             <summary>
@@ -385,7 +385,7 @@
             Интерфейс для работы с входящим сообщением
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.IIncomingMessage.IncomingMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.IIncomingMessage.IncomingMessage(System.Byte,System.Byte[],GalaxyCoreServer.Client)">
             <summary>
             Входящее сообщение
             </summary>
@@ -486,14 +486,14 @@
             Тик сетевого фрейма
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.AddClient(GalaxyCoreServer.Api.ClientConnection,System.Object)">
+        <member name="M:GalaxyCoreServer.Instance.AddClient(GalaxyCoreServer.Client,System.Object)">
             <summary>
             Добавить клиента
             </summary>
             <param name="clientConnection">подключение</param>
             <param name="obj">Произвольные данные</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SussesIncoming(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.SussesIncoming(GalaxyCoreServer.Client)">
             <summary>
             Отправка клиенту сообщения об успешном входе в инстанс
             </summary>
@@ -504,31 +504,31 @@
             Вызывается при создании инстанса
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.IncomingClient(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.IncomingClient(GalaxyCoreServer.Client)">
             <summary>
             Вызывается когда игрок входит в инстанс
             </summary>
             <param name="clientConnection">коннект игрока</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.ClientExit(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.ClientExit(GalaxyCoreServer.Client)">
             <summary>
             Клиент вышел из комнаты
             </summary>
             <param name="clientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.RemoveClient(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.RemoveClient(GalaxyCoreServer.Client)">
             <summary>
             Удаление клиента
             </summary>
             <param name="clientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.RemoveClientEntities(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.RemoveClientEntities(GalaxyCoreServer.Client)">
             <summary>
             Удалить все сетевые сущности клиента
             </summary>
             <param name="clientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Client)">
             <summary>
             Пользовательская проброска сообщения в инстанс
             </summary>
@@ -561,7 +561,7 @@
             <param name="data"></param>
             <param name="deliveryType"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAllExcept(GalaxyCoreServer.Api.ClientConnection,System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAllExcept(GalaxyCoreServer.Client,System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Внутреннаяя отправка сообщения всем кроме
             </summary>
@@ -571,7 +571,7 @@
             <param name="data"></param>
             <param name="deliveryType"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SendMessageToAllExcept(GalaxyCoreServer.Api.ClientConnection,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAllExcept(GalaxyCoreServer.Client,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Отправить сообщение всем пользователям в комнате кроме выбранного
             </summary>
@@ -586,7 +586,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SyncWorld(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Instance.SyncWorld(GalaxyCoreServer.Client)">
             <summary>
             отправить клиенту полное текущее состояние инстанса
             </summary>
@@ -597,7 +597,7 @@
             Стандартная реализация инстанса 
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandart.ClientExit(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.InstanceStandart.ClientExit(GalaxyCoreServer.Client)">
             <summary>
             Клиент вышел из инстанса
             </summary>
@@ -608,7 +608,7 @@
             Инстанс был закрыт
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandart.IncomingClient(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.InstanceStandart.IncomingClient(GalaxyCoreServer.Client)">
             <summary>
             В инстанс вошел новый клиент
             </summary>
@@ -619,7 +619,7 @@
             Инстанс запустился
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandart.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.InstanceStandart.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Client)">
             <summary>
             Пришло новое сообщение в инстанс
             </summary>
@@ -788,7 +788,7 @@
             Тик сетевого кадра
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.NetEntity.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Client)">
             <summary>
             Новое входящее сообщение
             </summary>
@@ -812,7 +812,7 @@
             <param name="data">массив байт</param>
             <param name="deliveryType">способ доставки</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.Api.ClientConnection,System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.Client,System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Отправка сообщения всем экземплярам данного объекта за исключением указанного клиента
             </summary>
@@ -821,7 +821,7 @@
             <param name="message">Сообщение (наследник BaseMessage)</param>
             <param name="deliveryType">способ доставки</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.Api.ClientConnection,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.Client,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Отправка сообщения всем экземплярам данного объекта за исключением указанного клиента
             </summary>
@@ -886,14 +886,14 @@
             Базовый конструктор
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Network.ConnectionManager.Add(GalaxyCoreServer.Api.ClientConnection,System.Object)">
+        <member name="M:GalaxyCoreServer.Network.ConnectionManager.Add(GalaxyCoreServer.Client,System.Object)">
             <summary>
             Добавить пользовательское подключение
             </summary>
             <param name="connection"></param>
             <param name="customData"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Network.ConnectionManager.Remove(GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Network.ConnectionManager.Remove(GalaxyCoreServer.Client)">
             <summary>
             Удалить пользовательсвое подключение
             </summary>
@@ -951,7 +951,7 @@
             </summary>
             <param name="message"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Network.IncomingMessage.InternalMessage(System.Byte,System.Byte,System.Byte[],GalaxyCoreServer.Api.ClientConnection)">
+        <member name="M:GalaxyCoreServer.Network.IncomingMessage.InternalMessage(System.Byte,System.Byte,System.Byte[],GalaxyCoreServer.Client)">
             <summary>
             Пришло внутреннее сообщение
             </summary>

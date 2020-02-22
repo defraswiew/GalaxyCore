@@ -6,6 +6,7 @@ using UnityEngine;
 [CustomEditor(typeof(UnityNetEntity))]
 public class EditorUnityNetId : Editor
 {
+
   
 
     // OnInspector GUI

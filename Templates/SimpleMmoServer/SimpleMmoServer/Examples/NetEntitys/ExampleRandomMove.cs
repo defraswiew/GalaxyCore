@@ -22,7 +22,7 @@ namespace SimpleMmoServer.NetEntitys
             //   rotation = new GalaxyQuaternion();
         }
 
-        public override void InMessage(byte externalCode, byte[] data, ClientConnection client)
+        public override void InMessage(byte externalCode, byte[] data, Client client)
         {
           
         }
@@ -40,13 +40,15 @@ namespace SimpleMmoServer.NetEntitys
         public override void Update()
         {
             timer += instance.Time.deltaTime;
-            if (timer > 5)
+                       
+            if (timer > rnd.Next(10, 30))
             {
                 timer = 0;
-                target.x = rnd.Next(-60, 60);
-                target.z = rnd.Next(-60, 60);
+                target.x = rnd.Next(-80, 80);
+                target.z = rnd.Next(-80, 80);
             }
-           position = GalaxyVector3.Lerp(position, target, instance.Time.deltaTime*0.05f);
+             
+            GalaxyVector3.LerpOptimize(position, target, instance.Time.deltaTime*0.04f);
             /*
             position = GalaxyVector3.Lerp(position, target, instance.Time.deltaTime);
             MessageTransform message = new MessageTransform();

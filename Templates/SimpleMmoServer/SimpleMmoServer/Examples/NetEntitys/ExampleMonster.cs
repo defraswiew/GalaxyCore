@@ -23,7 +23,7 @@ namespace SimpleMmoServer.NetEntitys
          //   rotation = new GalaxyQuaternion();
         }
 
-        public override void InMessage(byte externalCode, byte[] data, ClientConnection client)
+        public override void InMessage(byte externalCode, byte[] data, Client client)
         {
           
         }
@@ -35,9 +35,9 @@ namespace SimpleMmoServer.NetEntitys
 
         public override void Start()
         {
-            ColliderBox collider = new ColliderBox(new GalaxyVector3(0.4f, 0.4f, 0.4f));
-            physics.Activate(collider);           
-            physics.mass = 5f;
+          //  ColliderBox collider = new ColliderBox(new GalaxyVector3(0.4f, 0.4f, 0.4f));
+          //  physics.Activate(collider);           
+          //  physics.mass = 5f;
             startPosition = position;
             syncType = NetEntityAutoSync.position_and_rotation;
          //  syncType = NetEntityAutoSync.position;

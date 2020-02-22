@@ -43,8 +43,8 @@ namespace SimpleMmoServer
             //Важно что бы имя сервера совпадало с именем указанным в клиенте
             config.SERVER_NAME = "SimpleMmoServer";
             config.LISTEN_PORT = 30200; // Указываем рабочий порт
-            config.MTU_AUTO_EXPAND = false;
-            
+            config.AUTO_FLUSH_SEND = true;
+
             //    config.MTU_AUTO_EXPAND = true;
             GalaxyCore.Start(config); // Запускаем сервер     
         }
@@ -57,12 +57,16 @@ namespace SimpleMmoServer
         /// <param name="data"></param>
         /// <param name="clientConnection"></param>
         /// <returns></returns>
-        private Instance OnGalaxyInstanceCreate(byte type, byte[] data, ClientConnection clientConnection)
+        private Instance OnGalaxyInstanceCreate(byte type, byte[] data, Client client)
         {
-            Location location = new Location();
-            
-            Console.WriteLine("Переопределение Инстанса в локацию");
-            return location;
+            switch (type)
+            {
+                case 1:                  
+                    return new Examples.ExampleRoomPhys();
+                default:
+                    return new Location();
+
+            }           
         }
     }
 }

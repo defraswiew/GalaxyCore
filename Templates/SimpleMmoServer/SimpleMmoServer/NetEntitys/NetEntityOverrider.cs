@@ -14,7 +14,7 @@ namespace SimpleMmoServer.NetEntitys
         }
 
 
-        private NetEntity OnNetEntityInstantiate(string name, byte[] data, ClientConnection clientConnection)
+        private NetEntity OnNetEntityInstantiate(string name, byte[] data, Client client)
         {
             switch (name)
             {

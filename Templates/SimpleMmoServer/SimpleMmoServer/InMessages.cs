@@ -17,7 +17,7 @@ namespace SimpleMmoServer
         /// <param name="code">Код сообщения который мы приложили со стороны клиента</param>
         /// <param name="data">Массив байт (сообщение)</param>
         /// <param name="clientConnection">Экземпляр подключения клиента</param>
-        public void IncomingMessage(byte code, byte[] data, ClientConnection clientConnection)
+        public void IncomingMessage(byte code, byte[] data, Client client)
         {         
             // распределяем сообщения по заданному нами же коду, для удобства используем Enum    
             switch (code)
@@ -25,8 +25,8 @@ namespace SimpleMmoServer
 
                 //В остальных случаях отправляем сообщение в инстанс
                 default:
-                    if (clientConnection.instanse == null) return;
-                    clientConnection.instanse.InMessage(code, data, clientConnection);
+                    if (client.instanse == null) return;
+                    client.instanse.InMessage(code, data, client);
                     break;
             }
 

@@ -14,10 +14,10 @@ namespace SimpleMmoServer.NetEntitys
     public class ExamplePet : NetEntity
     {
         private NetEntity target;
-        private ClientConnection ownerConnection;
+        private Client ownerConnection;
         float speed = 2;
 
-        public override void InMessage(byte externalCode, byte[] data, ClientConnection client)
+        public override void InMessage(byte externalCode, byte[] data, Client client)
         {
        
         }

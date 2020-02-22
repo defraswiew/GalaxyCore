@@ -19,6 +19,11 @@
             Дисконект произошел по инициативе пользователя
             </summary>
         </member>
+        <member name="F:GalaxyCoreLib.Api.Connection.statistic">
+            <summary>
+            Сетевая статистика
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.Api.Connection.Connect(GalaxyCoreCommon.BaseMessage)">
             <summary>
             Подключиться к серверу
@@ -258,19 +263,19 @@
             Число входящих сообщений
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.Api.Statistic.outMessages">
-            <summary>
-            Число исходящих сообщений
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreLib.Api.Statistic.inTraffic">
+        <member name="P:GalaxyCoreLib.Api.Statistic.outTraffic">
             <summary>
             Входящий трафик в байтах
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.Api.Statistic.outTraffic">
+        <member name="P:GalaxyCoreLib.Api.Statistic.lossMessages">
             <summary>
-            Исходящий трафик в байтах
+            Число потерянных сообщений
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.Api.Statistic.ping">
+            <summary>
+            Пинг
             </summary>
         </member>
         <member name="T:GalaxyCoreLib.GalaxyApi">
@@ -469,11 +474,6 @@
         <member name="F:GalaxyCoreLib.GalaxyClientCore.api">
             <summary>
             Api сетевого движка
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreLib.GalaxyClientCore.statistic">
-            <summary>
-            Статистика
             </summary>
         </member>
         <member name="F:GalaxyCoreLib.GalaxyClientCore.init">

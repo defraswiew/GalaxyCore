@@ -2817,6 +2817,12 @@
             Returns a string that represents this object
             </summary>
         </member>
+        <member name="M:Lidgren.Network.NetServer.Recycle(Lidgren.Network.NetOutgoingMessage)">
+            <summary>
+            Упокоить сообщение
+            </summary>
+            <param name="msg"></param>
+        </member>
         <member name="T:Lidgren.Network.NetSRP">
             <summary>
             Helper methods for implementing SRP authentication
