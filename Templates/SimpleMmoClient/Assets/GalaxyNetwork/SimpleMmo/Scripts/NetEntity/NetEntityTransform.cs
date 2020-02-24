@@ -1,95 +1,54 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreLib.Api;
+using GalaxyCoreLib;
 using SimpleMmoCommon;
 using SimpleMmoCommon.Messages;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GalaxyCoreLib.NetEntity;
 
 public class NetEntityTransform : MonoBehaviour
 {
-    UnityNetEntity unityNetEntity;
-    MessageTransform messageTrandform;
-    public bool sendPosition = true;
-    private Vector3 randPos;
-    public bool debug = false;
-    Vector3 pos;
-    void OnEnable()
+    /// <summary>
+    ///  Ссылка на сетевую сущность в ядре
+    /// </summary>
+    ClientNetEntity netEntity;
+    public bool sendMyPosition;
+    public bool sendMyRotation;
+
+    private void Awake()
     {
-     //   Init();
-            Invoke("Init", 1);
-        InvokeRepeating("TEST", 5, 5);
+        netEntity = GetComponent<UnityNetEntity>().netEntity;
     }
 
-    private void Init()
+    private void OnEnable()
     {
-        unityNetEntity = GetComponent<UnityNetEntity>();
-        unityNetEntity.netEntity.OnInMessage += OnInMessage;
         GalaxyEvents.OnFrameUpdate += OnFrameUpdate;
     }
- 
-
-    private void OnDestroy()
+    private void OnDisable()
     {
         GalaxyEvents.OnFrameUpdate -= OnFrameUpdate;
     }
-
-    private void OnInMessage(byte code, byte[] data)
-    {   
-        switch ((NetEntityCommand)code)
-        {
-            case NetEntityCommand.syncTransform:
-                messageTrandform = BaseMessage.Deserialize<MessageTransform>(data);
-                 
-                UpdateTransform(messageTrandform);
-                break;
-        }
-      
-    }
-
-    private void UpdateTransform(MessageTransform message)
-    {
-        // if (unityNetEntity.netEntity.isMy) return;
-
-        if (message.position != null)
-        {
-            message.position.Vector3(out pos);
-            transform.position = pos;
-        }
-        
-        if (message.rotation != null) transform.rotation = message.rotation.Quaternion();
-    }
-
-
     private void OnFrameUpdate()
     {
-        if (!unityNetEntity.netEntity.isMy)
-        {
-            transform.position = unityNetEntity.netEntity.position.Vector3();
-            transform.rotation = unityNetEntity.netEntity.rotation.Quaternion();
-        }
-       
-        if (!unityNetEntity.netEntity.isMy) return;
-        if (!sendPosition) return;
-        messageTrandform = new MessageTransform();
-        messageTrandform.position = transform.position.NetworkVector3();
-        messageTrandform.rotation = transform.rotation.NetworkQuaternion();
-        unityNetEntity.netEntity.SendMessage((byte)NetEntityCommand.syncTransform, messageTrandform, GalaxyDeliveryType.unreliableNewest);
+        if (!netEntity.isMy) return;
+        if (sendMyPosition) netEntity.SendPosition(transform.position.NetworkVector3());
+        if (sendMyRotation) netEntity.SendRotation(transform.rotation.NetworkQuaternion());   
     }
 
-    void TEST()
+    public void Update()
     {
-        randPos.x = Random.Range(-5, 5);
-        randPos.z = Random.Range(-5, 5);
+        if (!netEntity.isMy)        
+        {
+            transform.position = Vector3.Lerp(transform.position, netEntity.position.Vector3(), GalaxyApi.lerpDelta);
+           if(!netEntity.rotation.isZero()) transform.rotation = Quaternion.Lerp(transform.rotation, netEntity.rotation.Quaternion(), GalaxyApi.lerpDelta);
+        }      
     }
-     
-    private void Update()
-    {
-       // if (!debug) return;
-       // if (!unityNetEntity) return;
-       // if(unityNetEntity.netEntity.isMy)
-       // transform.position = Vector3.Lerp(transform.position, randPos,Time.deltaTime);
-       // transform.position = Vector3.Lerp(transform.position, randPos, Time.deltaTime);
-    }
-    
+
+   
+
+
+ 
+      
 }

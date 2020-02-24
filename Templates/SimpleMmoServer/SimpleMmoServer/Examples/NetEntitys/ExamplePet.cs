@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SimpleMmoServer.NetEntitys
+namespace SimpleMmoServer.Examples.NetEntitys
 {
     public class ExamplePet : NetEntity
     {

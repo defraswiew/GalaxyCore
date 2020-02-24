@@ -728,6 +728,11 @@
             Серверная реализация сетевой сущности
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.NetEntity.autoApplyRemoteTransform">
+            <summary>
+            Автомитически применять координаты полученные от клиента
+            </summary>
+        </member>
         <member name="P:GalaxyCoreServer.NetEntity.name">
             <summary>
             Имя сетевой сущности (как правило служит для сопоставления с префабом)
@@ -748,12 +753,12 @@
             Ид владельца сущьности (если 0 то это серверная сущность)
             </summary>
         </member>
-        <member name="P:GalaxyCoreServer.NetEntity.position">
+        <member name="F:GalaxyCoreServer.NetEntity.position">
             <summary>
             Положение сущности в пространстве (не обязательньный параметр)
             </summary>
         </member>
-        <member name="P:GalaxyCoreServer.NetEntity.rotation">
+        <member name="F:GalaxyCoreServer.NetEntity.rotation">
             <summary>
             Оринтация объекта в пространстве  (не обязательньный параметр)
             </summary>
@@ -786,6 +791,11 @@
         <member name="M:GalaxyCoreServer.NetEntity.Update">
             <summary>
             Тик сетевого кадра
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.ApplyRemoteTransform">
+            <summary>
+            Применить значения трансформа полученные от клиента в рамках текущего фрейма
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Client)">

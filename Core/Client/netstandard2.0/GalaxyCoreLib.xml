@@ -578,6 +578,16 @@
             <param name="data">массив байт</param>
             <param name="deliveryType">способ доставки</param>
         </member>
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendPosition(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Отправить позицию объекта на сервер ближайшим фреймом
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendRotation(GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>
+            Отправить поворот объекта на сервер ближайшим фреймом
+            </summary>
+        </member>
         <member name="T:GalaxyCoreLib.Network.MessageSender">
             <summary>
             Освновной класс реализующий отправку сообщений

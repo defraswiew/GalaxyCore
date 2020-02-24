@@ -381,6 +381,11 @@
             Ид инстанса
             </summary>
         </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.frameRate">
+            <summary>
+            Фреймрейт
+            </summary>
+        </member>
         <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.type">
             <summary>
             Тип инстанса

@@ -1,7 +1,5 @@
 ﻿using GalaxyCoreLib;
 using GalaxyCoreLib.NetEntity;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnityNetEntity : MonoBehaviour
@@ -10,22 +8,28 @@ public class UnityNetEntity : MonoBehaviour
     /// Ссылка на сетевую сущность в ядре
     /// </summary>
     public ClientNetEntity netEntity = new ClientNetEntity();
+    /// <summary>
+    /// буфер дополнительный данных который можно приложить при инициализации
+    /// </summary>
     [HideInInspector]
     public byte[] data = null;
+    /// <summary>
+    /// Время инициализации объекта
+    /// </summary>
     [HideInInspector]
-    public float initTime;
-   
-
-    
+    public float initTime;    
 
     void Start()
     {
         // Init необходимо вызывать именно в Start т.к внутренняя инициализация не успевает сработать к Awake или OnEnable
         Init();
+       
     }
 
     void Init()
     {
+        netEntity.OnNetStart += OnNetStart;
+        netEntity.OnNetDestroy += OnNetDestroy;
         if (!netEntity.isInit)
         {
             // если netEntity все еще null то это явно наш объект
@@ -38,21 +42,13 @@ public class UnityNetEntity : MonoBehaviour
             netEntity.position = transform.position.NetworkVector3();
             netEntity.rotation = transform.rotation.NetworkQuaternion();
             // отправляем запрос на создание сетевого объекта
-            GalaxyApi.netEntity.Instantiate(netEntity);
-            // подписываемся на событие об успешной инициализации
-            netEntity.OnNetStart += OnNetStart;           
-        }
-        else
-        {
-            OnNetStart();
-        }
-        
+            GalaxyApi.netEntity.Instantiate(netEntity);                  
+        }              
     }
 
     private void OnNetStart()
     {      
-        //Подписываемся на событие удаления данной сущности
-        netEntity.OnNetDestroy += OnNetDestroy;
+        //задаем время инициализации
         initTime = Time.time;
     }
 

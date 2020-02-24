@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleMmoServer.Examples
+namespace SimpleMmoServer.Examples.NetEntitys
 {
     /// <summary>
     /// Сетевой объект показывающий пример работы бокс коллайдера

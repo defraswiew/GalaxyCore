@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: 
-  netID: 0
+  initTime: 0
 --- !u!114 &2201955651195249791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,5 +151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41de5af4a5abb8d4f9e2c84b454c5560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sendPosition: 1
-  debug: 1
+  sendMyPosition: 1
+  sendMyRotation: 1

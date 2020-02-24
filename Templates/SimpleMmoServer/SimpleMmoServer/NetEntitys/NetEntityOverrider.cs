@@ -1,10 +1,8 @@
 ﻿using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
-using System;
-using System.Collections.Generic;
-using System.Text;
+ 
 
-namespace SimpleMmoServer.NetEntitys
+namespace SimpleMmoServer
 {
    public class NetEntityOverrider
     {
@@ -19,13 +17,15 @@ namespace SimpleMmoServer.NetEntitys
             switch (name)
             {
                 case "Pet":
-                    ExamplePet pet = new ExamplePet();
-                    return pet;   
-                default:
-                    ExampleNetEntity netEntity = new ExampleNetEntity();
-                      return netEntity;
+                   Examples.NetEntitys.ExamplePet pet = new Examples.NetEntitys.ExamplePet();
+                    return pet;
+                case "Player":
+                    Examples.NetEntitys.ExamplePlayer player = new Examples.NetEntitys.ExamplePlayer();
+                    return player;
+                default:                    
+                      return null;
             }
-           // return null;           
+         
         }
 
     }

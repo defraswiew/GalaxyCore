@@ -23,8 +23,6 @@ public class GalaxyNetworkController : MonoBehaviour
     Config config = new Config();
     private void Awake()
     {
-        
-        
         config.serverIp = serverIP; // задаем указаный ип
         config.serverPort = serverPort; // задаем указанный порт
         config.app_name = "SimpleMmoServer"; // должно соответствовать имени сервера
@@ -38,9 +36,7 @@ public class GalaxyNetworkController : MonoBehaviour
     {
         GalaxyClientCore.unityCalls.Start(); // прокидываем Start
         SceneManager.activeSceneChanged += SceneChanged;
-        SceneManager.sceneLoaded += SceneLoaded;
-     //   RuntimeTypeModel.Default[typeof(MessageTransform)].SetFactory("Pool");
-      //  RuntimeTypeModel.Default[typeof(MessRouteNetEntity)].SetFactory("Pool");
+        SceneManager.sceneLoaded += SceneLoaded;  
          
     }
 
@@ -55,11 +51,7 @@ public class GalaxyNetworkController : MonoBehaviour
     }
 
     private void Update()
-    {
-        if (Time.frameCount % 30 == 0)
-        {
-            System.GC.Collect();
-        }
+    {    
         GalaxyClientCore.unityCalls.Update(Time.deltaTime); // Прокидываем update
     }
 

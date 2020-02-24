@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleMmoServer.Examples
+namespace SimpleMmoServer.Examples.Instances
 {
     /// <summary>
     /// Комната демонстрирующая работу с физикой.
@@ -12,7 +12,7 @@ namespace SimpleMmoServer.Examples
     {
         float timer; // 
         int boxCount; // текущее число боксов
-        int boxMax = 100; // целевое число боксов
+        int boxMax = 500; // целевое число боксов
 
 
         public override void ClientExit(Client clientConnection)
@@ -52,10 +52,10 @@ namespace SimpleMmoServer.Examples
         {
             timer += Time.deltaTime;
 
-            if (timer > 1)
+            if (timer > 0.1f)
             {               
                 timer = 0;
-                    ExamplePhysBox box = new ExamplePhysBox();
+                    Examples.NetEntitys.ExamplePhysBox box = new Examples.NetEntitys.ExamplePhysBox();
                     box.position = new GalaxyCoreCommon.GalaxyVector3();
                     box.position.y = 10;
                     box.rotation = new GalaxyCoreCommon.GalaxyQuaternion();

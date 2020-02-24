@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleMmoServer.Connecting
+namespace SimpleMmoServer
 {
     /// <summary>
     /// Пример реализации авторизации

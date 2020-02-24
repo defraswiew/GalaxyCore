@@ -1,13 +1,11 @@
 ﻿using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
-using SimpleMmoServer.Connecting;
-using SimpleMmoServer.NetEntitys;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SimpleMmoServer
 {
+    /// <summary>
+    /// Основной пользовательский класс сервера
+    /// </summary>
    public class Server
     {
         /// <summary>
@@ -43,29 +41,27 @@ namespace SimpleMmoServer
             //Важно что бы имя сервера совпадало с именем указанным в клиенте
             config.SERVER_NAME = "SimpleMmoServer";
             config.LISTEN_PORT = 30200; // Указываем рабочий порт
-            config.AUTO_FLUSH_SEND = true;
-
-            //    config.MTU_AUTO_EXPAND = true;
-            GalaxyCore.Start(config); // Запускаем сервер     
+            config.AUTO_FLUSH_SEND = true; // включаем авто управление буфером отправки сообщений
+            GalaxyCore.Start(config); // Запускаем сервер         
         }
-               
 
         /// <summary>
-        /// Это пример переопределения стандартной реализации инстанса
+        /// Это пример переопределения стандартной реализации инстанса по пользовательскому коду типа
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="data"></param>
-        /// <param name="clientConnection"></param>
-        /// <returns></returns>
+        /// <param name="type">пользовательский код типа инстанса</param>
+        /// <param name="data">массив байт дополнительной информации приложеной к запросу создания</param>
+        /// <param name="client">клиент отправивший запрос</param>
+        /// <returns>Вернуть любого наследника класса Inctance</returns>
         private Instance OnGalaxyInstanceCreate(byte type, byte[] data, Client client)
         {
             switch (type)
             {
-                case 1:                  
-                    return new Examples.ExampleRoomPhys();
+                case 1: // запрос на комнату пример работы физики
+                    return new Examples.Instances.ExampleRoomPhys();                
+                case 2: // запрос на создание комнаты с бегунками
+                    return new Examples.Instances.ExampleRoomMovers();
                 default:
-                    return new Location();
-
+                    return null; // если не нужно ничего переопределять, то возвращяем null (будет использоваться стандартная комната)
             }           
         }
     }

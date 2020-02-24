@@ -5,7 +5,8 @@ using UnityEngine;
  
 public static class Extensions  
 {
-
+    static Vector3 tmp = new Vector3();
+    static Quaternion tmpQ = new Quaternion();
     public static GalaxyVector3 NetworkVector3(this Vector3 vector3)
     {
         GalaxyVector3 mes = new GalaxyVector3();
@@ -29,12 +30,13 @@ public static class Extensions
 
     public static Vector3 Vector3(this GalaxyVector3 vector)
     {
-        Vector3 mes = new Vector3();
-        mes.x = vector.x;
-        mes.y = vector.y;
-        mes.z = vector.z;
-        return mes;
+        tmp.x = vector.x;
+        tmp.y = vector.y;
+        tmp.z = vector.z;
+        return tmp;
     }
+
+
 
     public static void Vector3(this GalaxyVector3 vector,out Vector3 vector3)
     {
@@ -55,17 +57,25 @@ public static class Extensions
         return mes;
     }
     public static Quaternion Quaternion(this GalaxyQuaternion quaternion)
-    {      
-        Quaternion mes = new Quaternion();
-        if (quaternion == null) return mes;
-        mes.x = quaternion.x;
-        mes.y = quaternion.y;
-        mes.z = quaternion.z;
-        mes.w = quaternion.w;
-        return mes;
+    {              
+        if (quaternion == null) return UnityEngine.Quaternion.identity;
+        tmpQ.x = quaternion.x;
+        tmpQ.y = quaternion.y;
+        tmpQ.z = quaternion.z;
+        tmpQ.w = quaternion.w;
+        return tmpQ;
     }
    
-
+    public static void GalaxyInstantiate(this MonoBehaviour gameObject, GameObject prefab, Vector3 position, Quaternion rotation)
+    {
+       var go = GameObject.Instantiate(prefab,position,rotation);
+        go.GetComponent<UnityNetEntity>();
+        if (!go)
+        {
+            Debug.LogError("Префаб не имеет признаков сетевого объекта");
+            GameObject.Destroy(go);
+        }
+    }
   
 
 }

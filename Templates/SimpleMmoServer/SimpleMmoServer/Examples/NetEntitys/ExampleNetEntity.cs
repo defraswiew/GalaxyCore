@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleMmoServer.NetEntitys
+namespace SimpleMmoServer.Examples.NetEntitys
 {
     public class ExampleNetEntity : NetEntity
     {
