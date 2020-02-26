@@ -11,8 +11,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
     /// Сетевой объект показывающий пример работы бокс коллайдера
     /// </summary>
     public class ExamplePhysBox : NetEntity
-    {
-      
+    {  
 
         public ExamplePhysBox()
         {
@@ -39,7 +38,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
         public override void Update()
         {
             // применяем физические расчеты к объекту
-            physics.ApplyPhys();
+            physics.ApplyPhys();           
         }
 
 

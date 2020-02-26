@@ -163,6 +163,12 @@
             </summary>
             <param name="netId"></param>
         </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.RemoveNetEntity(GalaxyCoreServer.NetEntity)">
+            <summary>
+            Удаление сетевой сущности
+            </summary>
+            <param name="entity">целевая сущность</param>
+        </member>
         <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.Client)">
             <summary>
             Входящее сообщение для сетевого объекта
@@ -211,6 +217,11 @@
             <summary>
             Ид клиента, задается в Approval
             </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Client.name">
+            <summary>
+            Публичное имя клиента
+            </summary>             
         </member>
         <member name="F:GalaxyCoreServer.Client.netConnection">
             <summary>
@@ -273,6 +284,12 @@
         <member name="M:GalaxyCoreServer.Client.GetUserEntities">
             <summary>
             Получить все сетевые сущности клиента
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Client.GetBaseData">
+            <summary>
+            Дополнительные данные в baseInfoClient
             </summary>
             <returns></returns>
         </member>
@@ -408,6 +425,11 @@
             Физическое представление
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.Instance.autoUpdateClientsInfo">
+            <summary>
+            Автоматическое обновление информации на клиентах о других клиентах
+            </summary>
+        </member>
         <member name="P:GalaxyCoreServer.Instance.frameRate">
             <summary>
             Фрейм рейт (число тиков в секунду)
@@ -510,7 +532,7 @@
             </summary>
             <param name="clientConnection">коннект игрока</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.ClientExit(GalaxyCoreServer.Client)">
+        <member name="M:GalaxyCoreServer.Instance.OutcomingClient(GalaxyCoreServer.Client)">
             <summary>
             Клиент вышел из комнаты
             </summary>
@@ -521,6 +543,12 @@
             Удаление клиента
             </summary>
             <param name="clientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.GetUsersBaseInfo(GalaxyCoreServer.Client)">
+            <summary>
+            Ответ на запрос списка пользователей в инстансе
+            </summary>
+            <param name="client"></param>
         </member>
         <member name="M:GalaxyCoreServer.Instance.RemoveClientEntities(GalaxyCoreServer.Client)">
             <summary>
@@ -597,7 +625,7 @@
             Стандартная реализация инстанса 
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandart.ClientExit(GalaxyCoreServer.Client)">
+        <member name="M:GalaxyCoreServer.InstanceStandart.OutcomingClient(GalaxyCoreServer.Client)">
             <summary>
             Клиент вышел из инстанса
             </summary>

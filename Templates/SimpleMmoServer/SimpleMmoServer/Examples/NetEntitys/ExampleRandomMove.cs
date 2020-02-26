@@ -44,7 +44,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
                 randTime = GRand.NextInt(10, 25);                 
                 target.x = GRand.NextInt(-80, 80);
                 target.z = GRand.NextInt(-80, 80);
-            }           
+            }
             GalaxyVector3.LerpOptimize(position, target, instance.Time.deltaTime*0.04f);   // лерпим текущую позицию к целевой раз в кадр         
         }
 

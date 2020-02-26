@@ -45,7 +45,6 @@ public class RoomManager : MonoBehaviour
             GalaxyEvents.OnGalaxyConnect -= OnGalaxyConnect;
             GalaxyEvents.OnGalaxyInstancesList -= OnGalaxyInstancesList;
             GalaxyEvents.OnGalaxyEnterInInstance -= OnGalaxyEnterInInstance;
-
         }
     }
 
@@ -135,7 +134,8 @@ public class RoomManager : MonoBehaviour
    public void CreateRoom()
     {       
         createButton.interactable = false;      
-        GalaxyApi.instances.Create(roomName.text, (int)System.Int32.Parse(maxCount.text));  
+        GalaxyApi.instances.Create(roomName.text, (int)System.Int32.Parse(maxCount.text));
+       
     }
     
 

@@ -113,6 +113,21 @@
             Создан новый сетевой объект
             </summary>
         </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyIncomingClient">
+            <summary>
+            Клиент вошел в инстанс
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyOutcomingClient">
+            <summary>
+            Клиент вышел из инстанса
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyClientsUpdate">
+            <summary>
+            Пришло полное обновление списка клиентов в инстансе
+            </summary>
+        </member>
         <member name="T:GalaxyCoreLib.Api.Instances">
             <summary>
             Api связанное с управлением интансами (локации, комнаты)
@@ -121,6 +136,16 @@
         <member name="P:GalaxyCoreLib.Api.Instances.current">
             <summary>
             Состояние текущего инстанса на момент входа в него
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.Api.Instances.clients">
+            <summary>
+            Словарь клиентов в текущем инстансе (ид/клиент) работает если данная опция включена на стороне сервера
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Instances.ClientsUpdate">
+            <summary>
+            Запросить информацию о клиентах внутри текущего инстанса
             </summary>
         </member>
         <member name="M:GalaxyCoreLib.Api.Instances.Create(System.String,System.Int32,System.Byte,GalaxyCoreCommon.BaseMessage)">
@@ -451,6 +476,23 @@
             <param name="code"></param>
             <param name="data"></param>
         </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyIncomingClient">
+            <summary>
+            Новый клиент вошел в инстанс
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyOutcomingClient">
+            <summary>
+            Клиент покинул инстанс
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyClientsUpdate">
+            <summary>
+            Пришла обновленная информация о списках клиентов в инстансе
+            </summary>
+        </member>
         <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>
             Основной класс ядра клиентской части
@@ -624,6 +666,21 @@
             Регистрация
             </summary>
             <param name="message"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.RemoteClient">
+            <summary>
+            Класс описывающих клиентов рядом с нами
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.RemoteClient.name">
+            <summary>
+            имя / ник пользователя
+            </summary>        
+        </member>
+        <member name="P:GalaxyCoreLib.RemoteClient.data">
+            <summary>
+            Пользовательские данные
+            </summary>        
         </member>
         <member name="T:GalaxyCoreLib.UnityCalls">
             <summary>

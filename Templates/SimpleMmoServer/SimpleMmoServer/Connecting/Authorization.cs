@@ -38,6 +38,7 @@ namespace SimpleMmoServer
              
                // ClientConnection connection; // Раз мы решили авторизировать клиента, то следует создать уже постоянное соеденение
                 ExampleClient client = new ExampleClient(); // Создаем собственную реализацию клиента
+                client.name = message.login;
                 // возвращяем данные вместе с разрешением, так же мы получим уже рабочий экземпляр авторизированного соеденения 
                 // так же приклепляем собственную реализацию клиента, для того что бы в бущем, можно было её оперативно получить из коннекшена
                 approvalConnection.Approve(response, clientID, client);

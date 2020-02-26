@@ -1,6 +1,4 @@
 ﻿using GalaxyCoreServer; 
-using System;
-
 
 namespace SimpleMmoServer.Examples.Instances
 {
@@ -9,7 +7,7 @@ namespace SimpleMmoServer.Examples.Instances
         float timer;
         int moverCount;
         int moverMax = 1000;
-        public override void ClientExit(Client client)
+        public override void OutcomingClient(Client client)
         {                     
            
         }
@@ -20,20 +18,20 @@ namespace SimpleMmoServer.Examples.Instances
         }
         
         public override void IncomingClient(Client client)
-        {  
-
+        {
+           
         }
 
         public override void Start()
         {            
-            SetFrameRate(5);         
-            
+            SetFrameRate(5);   
         }
         public override void InMessage(byte code, byte[] data, Client client)
         {
           
         }
-        
+
+      
         public override void Update()
         {                 
             timer += Time.deltaTime;

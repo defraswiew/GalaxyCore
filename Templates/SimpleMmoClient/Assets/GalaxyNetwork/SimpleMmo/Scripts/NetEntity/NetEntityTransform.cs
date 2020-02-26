@@ -19,7 +19,7 @@ public class NetEntityTransform : MonoBehaviour
 
     private void Awake()
     {
-        netEntity = GetComponent<UnityNetEntity>().netEntity;
+        netEntity = GetComponent<UnityNetEntity>().netEntity;        
     }
 
     private void OnEnable()

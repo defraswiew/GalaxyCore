@@ -22,8 +22,7 @@ public class UnityNetEntity : MonoBehaviour
     void Start()
     {
         // Init необходимо вызывать именно в Start т.к внутренняя инициализация не успевает сработать к Awake или OnEnable
-        Init();
-       
+        Init();       
     }
 
     void Init()

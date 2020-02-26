@@ -100,6 +100,21 @@
             Список инстансов
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.updateClientsInInctance">
+            <summary>
+            Обновление информации о клиентах в инстансе
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.IncomingClient">
+            <summary>
+            Новый вошедший игрок
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.OutcomingClient">
+            <summary>
+            Клиент вышел
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.netEntityInstantiate">
             <summary>
             Создание сетевого объекта
@@ -118,6 +133,11 @@
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.netEntityFrame">
             <summary>
             Фрейм сущностей
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.netEntityFrameTransform">
+            <summary>
+            трансформ фрейм
             </summary>
         </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.error">
@@ -300,6 +320,26 @@
             <param name="a"></param>
             <param name="d"></param>
             <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreCommon.InternalMessages.MessClientBaseInfo">
+            <summary>
+            Базовая информация о клиенте
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessClientBaseInfo.id">
+            <summary>
+            Ид пользователя
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessClientBaseInfo.name">
+            <summary>
+            имя / ник пользователя
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessClientBaseInfo.data">
+            <summary>
+            Пользовательские данные
+            </summary>
         </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessInstanceCreate">
             <summary>

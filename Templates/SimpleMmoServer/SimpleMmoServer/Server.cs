@@ -42,6 +42,7 @@ namespace SimpleMmoServer
             config.SERVER_NAME = "SimpleMmoServer";
             config.LISTEN_PORT = 30200; // Указываем рабочий порт
             config.AUTO_FLUSH_SEND = true; // включаем авто управление буфером отправки сообщений
+            config.NET_FRAME_RATE = 20;
             GalaxyCore.Start(config); // Запускаем сервер         
         }
 

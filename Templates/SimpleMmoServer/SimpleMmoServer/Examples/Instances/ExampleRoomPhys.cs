@@ -15,7 +15,7 @@ namespace SimpleMmoServer.Examples.Instances
         int boxMax = 500; // целевое число боксов
 
 
-        public override void ClientExit(Client clientConnection)
+        public override void OutcomingClient(Client clientConnection)
         {
           
         }
