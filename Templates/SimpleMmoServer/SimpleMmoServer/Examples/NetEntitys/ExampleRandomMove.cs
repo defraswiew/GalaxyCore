@@ -14,10 +14,11 @@ namespace SimpleMmoServer.Examples.NetEntitys
         private GalaxyVector3 target = new GalaxyVector3(); // точка к которой будем двигаться       
         private float timer; // текущий таймер шага
         private int randTime; // время ожидания шага
+               
 
-        public ExampleRandomMove()
+        public ExampleRandomMove(Instance instance, GalaxyVector3 position = null, GalaxyQuaternion rotation = null, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
-            name = "Move"; // задаем имя, что бы клиент знал какой префаб отображать                   
+            prefabName = "Move"; // задаем имя, что бы клиент знал какой префаб отображать     
         }
 
         public override void InMessage(byte externalCode, byte[] data, Client client)
@@ -32,7 +33,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
 
         public override void Start()
         {
-            syncType = NetEntityAutoSync.position_and_rotation; // указывем тип автоматической синхронизации   
+           transform.syncType = NetEntityAutoSync.position_and_rotation; // указывем тип автоматической синхронизации   
         }
 
         public override void Update()
@@ -45,7 +46,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
                 target.x = GRand.NextInt(-80, 80);
                 target.z = GRand.NextInt(-80, 80);
             }
-            GalaxyVector3.LerpOptimize(position, target, instance.Time.deltaTime*0.04f);   // лерпим текущую позицию к целевой раз в кадр         
+            GalaxyVector3.LerpOptimize(transform.position, target, instance.Time.deltaTime*0.04f);   // лерпим текущую позицию к целевой раз в кадр         
         }
 
          

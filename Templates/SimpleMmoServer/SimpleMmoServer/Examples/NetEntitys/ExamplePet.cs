@@ -10,10 +10,13 @@ namespace SimpleMmoServer.Examples.NetEntitys
     public class ExamplePet : NetEntity
     {
         public NetEntity player;
-        public ExamplePet()
+        
+
+        public ExamplePet(Instance instance, GalaxyVector3 position = null, GalaxyQuaternion rotation = null, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
-            name = "Pet";
+            prefabName = "Pet";          
         }
+              
 
         public override void InMessage(byte externalCode, byte[] data, Client client)
         {
@@ -27,13 +30,13 @@ namespace SimpleMmoServer.Examples.NetEntitys
 
         public override void Start()
         {
-            syncType = NetEntityAutoSync.position_and_rotation;
+            transform.syncType = NetEntityAutoSync.position_and_rotation;
         }
 
         public override void Update()
         {
-            if (GalaxyVector3.Distance(position, player.position) < 2) return;
-            GalaxyVector3.LerpOptimize(position, player.position, instance.Time.deltaTime * 0.7f);
+            if (GalaxyVector3.Distance(transform.position, player.transform.position) < 2) return;
+            GalaxyVector3.LerpOptimize(transform.position, player.transform.position, instance.Time.deltaTime * 0.7f);
         }
     }
 }

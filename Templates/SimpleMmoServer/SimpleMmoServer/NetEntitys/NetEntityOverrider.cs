@@ -17,7 +17,7 @@ namespace SimpleMmoServer
             switch (name)
             {              
                 case "Player":
-                    Examples.NetEntitys.ExamplePlayer player = new Examples.NetEntitys.ExamplePlayer();
+                    Examples.NetEntitys.ExamplePlayer player = new Examples.NetEntitys.ExamplePlayer(client.instanse);
                     return player;
                 default:                    
                       return null;

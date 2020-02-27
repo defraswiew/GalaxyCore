@@ -33,16 +33,16 @@ public class NetEntityTransform : MonoBehaviour
     private void OnFrameUpdate()
     {
         if (!netEntity.isMy) return;
-        if (sendMyPosition) netEntity.SendPosition(transform.position.NetworkVector3());
-        if (sendMyRotation) netEntity.SendRotation(transform.rotation.NetworkQuaternion());   
+        if (sendMyPosition) netEntity.transform.SendPosition(transform.position.NetworkVector3());
+        if (sendMyRotation) netEntity.transform.SendRotation(transform.rotation.NetworkQuaternion());   
     }
 
     public void Update()
     {
         if (!netEntity.isMy)        
         {
-            transform.position = Vector3.Lerp(transform.position, netEntity.position.Vector3(), GalaxyApi.lerpDelta);
-           if(!netEntity.rotation.isZero()) transform.rotation = Quaternion.Lerp(transform.rotation, netEntity.rotation.Quaternion(), GalaxyApi.lerpDelta);
+            transform.position = Vector3.Lerp(transform.position, netEntity.transform.position.Vector3(), GalaxyApi.lerpDelta);
+           if(!netEntity.transform.rotation.isZero()) transform.rotation = Quaternion.Lerp(transform.rotation, netEntity.transform.rotation.Quaternion(), GalaxyApi.lerpDelta);
         }      
     }
 

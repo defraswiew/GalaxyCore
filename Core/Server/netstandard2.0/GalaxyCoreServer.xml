@@ -756,12 +756,7 @@
             Серверная реализация сетевой сущности
             </summary>
         </member>
-        <member name="F:GalaxyCoreServer.NetEntity.autoApplyRemoteTransform">
-            <summary>
-            Автомитически применять координаты полученные от клиента
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreServer.NetEntity.name">
+        <member name="P:GalaxyCoreServer.NetEntity.prefabName">
             <summary>
             Имя сетевой сущности (как правило служит для сопоставления с префабом)
             </summary>
@@ -776,24 +771,9 @@
             Сетевой ид (назначается автоматически)
             </summary>
         </member>
-        <member name="P:GalaxyCoreServer.NetEntity.owner">
+        <member name="P:GalaxyCoreServer.NetEntity.ownerClientId">
             <summary>
             Ид владельца сущьности (если 0 то это серверная сущность)
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.NetEntity.position">
-            <summary>
-            Положение сущности в пространстве (не обязательньный параметр)
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.NetEntity.rotation">
-            <summary>
-            Оринтация объекта в пространстве  (не обязательньный параметр)
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.NetEntity.syncType">
-            <summary>
-            Способ автоматической синхронизации
             </summary>
         </member>
         <member name="F:GalaxyCoreServer.NetEntity.instance">
@@ -806,6 +786,17 @@
             Физическое представление
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.NetEntity.transform">
+            <summary>
+            Transform
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreServer.NetEntityAutoSync)">
+            <summary>
+            Создание сетевой сущности
+            </summary>
+            <param name="instance">целевой инстанс</param>
+        </member>
         <member name="M:GalaxyCoreServer.NetEntity.Start">
             <summary>
             Вызывается при полной инициализации объекта
@@ -816,14 +807,14 @@
             Вызывается при удаление сущности
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Destory">
+            <summary>
+            Удалить сетевой объект
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.NetEntity.Update">
             <summary>
             Тик сетевого кадра
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.NetEntity.ApplyRemoteTransform">
-            <summary>
-            Применить значения трансформа полученные от клиента в рамках текущего фрейма
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Client)">
@@ -832,7 +823,7 @@
             </summary>
             <param name="externalCode">пользовательский код сообщений</param>
             <param name="data">пользовательские данные</param>
-            <param name="client">кто отправил сообщение</param>
+            <param name="clientSender">кто отправил сообщение</param>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
@@ -1114,6 +1105,36 @@
         <member name="M:GalaxyCoreServer.Physics.PhysWorld.Activate">
             <summary>
             Активация физического движка
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Transform">
+            <summary>
+            Transform
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Transform.autoApplyRemoteTransform">
+            <summary>
+            Автомитически применять координаты полученные от клиента
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Transform.position">
+            <summary>
+            Положение сущности в пространстве (не обязательньный параметр)
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Transform.rotation">
+            <summary>
+            Оринтация объекта в пространстве  (не обязательньный параметр)
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Transform.syncType">
+            <summary>
+            Способ автоматической синхронизации
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Transform.ApplyRemoteTransform">
+            <summary>
+            Применить значения трансформа полученные от клиента в рамках текущего фрейма
             </summary>
         </member>
         <member name="T:Jitter.Collision.CollisionIsland">

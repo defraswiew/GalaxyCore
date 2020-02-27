@@ -65,8 +65,8 @@ public class old_NetEntityTransform : MonoBehaviour
     {
         if (!unityNetEntity.netEntity.isMy)
         {
-            transform.position = unityNetEntity.netEntity.position.Vector3();
-            transform.rotation = unityNetEntity.netEntity.rotation.Quaternion();
+            transform.position = unityNetEntity.netEntity.transform.position.Vector3();
+            transform.rotation = unityNetEntity.netEntity.transform.rotation.Quaternion();
         }
        
         if (!unityNetEntity.netEntity.isMy) return;

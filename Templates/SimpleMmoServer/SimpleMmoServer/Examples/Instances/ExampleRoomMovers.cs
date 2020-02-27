@@ -1,4 +1,5 @@
-﻿using GalaxyCoreServer; 
+﻿using GalaxyCoreCommon;
+using GalaxyCoreServer; 
 
 namespace SimpleMmoServer.Examples.Instances
 {
@@ -39,9 +40,8 @@ namespace SimpleMmoServer.Examples.Instances
             {
                 if (moverCount > moverMax) return;
                 timer = 0;              
-                Examples.NetEntitys.ExampleRandomMove mover = new Examples.NetEntitys.ExampleRandomMove();
-                mover.position.y = 1;              
-                entities.CreateNetEntity(mover);
+                Examples.NetEntitys.ExampleRandomMove mover = new Examples.NetEntitys.ExampleRandomMove(this,new GalaxyVector3(0,1,0));
+                mover.Init();
                 moverCount++;
             }              
               

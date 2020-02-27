@@ -24,12 +24,12 @@ public class EditorUnityNetId : Editor
                 GUILayout.Label("Owner: You", EditorStyles.largeLabel);
             } else
             {
-                if(item.netEntity.owner == 0)
+                if(item.netEntity.ownerClientId == 0)
                 {
                     GUILayout.Label("Owner: Server", EditorStyles.largeLabel);
                 } else
                 {
-                    GUILayout.Label("Owner: client:" + item.netEntity.owner, EditorStyles.largeLabel);
+                    GUILayout.Label("Owner: client:" + item.netEntity.ownerClientId, EditorStyles.largeLabel);
                 }
             }
         }

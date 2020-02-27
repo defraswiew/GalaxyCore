@@ -10,7 +10,11 @@ namespace SimpleMmoServer.Examples.NetEntitys
     {
 
         ExamplePet pet;
-      
+
+        public ExamplePlayer(Instance instance, GalaxyVector3 position = null, GalaxyQuaternion rotation = null, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        {
+        }
+
         public override void InMessage(byte externalCode, byte[] data, Client client)
         {
          
@@ -24,11 +28,10 @@ namespace SimpleMmoServer.Examples.NetEntitys
         public override void Start()
         {
             Log.Info("ExamplePlayer", "Start");
-            autoApplyRemoteTransform = true;
-            syncType = NetEntityAutoSync.position_and_rotation;
-            pet = new ExamplePet();
+            transform.autoApplyRemoteTransform = true;         
+            pet = new ExamplePet(instance, transform.position + new GalaxyVector3(1,0,1));
             pet.player = this;
-            instance.entities.CreateNetEntity(pet);
+            pet.Init();
         }
 
         public override void Update()

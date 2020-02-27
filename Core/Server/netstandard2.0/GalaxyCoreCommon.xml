@@ -476,7 +476,7 @@
             Сетевой индификатор сущности (назначается сервером)
             </summary>
         </member>
-        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate.owner">
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate.ownerClientId">
             <summary>
             Ид владельца объекта
             </summary>

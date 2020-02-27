@@ -143,7 +143,7 @@
             Словарь клиентов в текущем инстансе (ид/клиент) работает если данная опция включена на стороне сервера
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Instances.GetClientsInInstance">
+        <member name="M:GalaxyCoreLib.Api.Instances.ClientsUpdate">
             <summary>
             Запросить информацию о клиентах внутри текущего инстанса
             </summary>
@@ -534,12 +534,19 @@
             </summary>
             <param name="config">Конфигурация клиента</param>
         </member>
+        <member name="M:GalaxyCoreLib.NetEntity.AnimatorSync.#ctor(GalaxyCoreLib.NetEntity.ClientNetEntity,System.Byte,GalaxyCoreLib.NetEntity.IAnimatorSync)">
+            <summary>
+            
+            </summary>
+            <param name="netEntity">сетевой объект служащий транспортом для аниматора</param>
+            <param name="count">число переменных</param>
+        </member>
         <member name="T:GalaxyCoreLib.NetEntity.ClientNetEntity">
             <summary>
             Реализация сетевой сущности на стороне клиента
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.name">
+        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.prefabName">
             <summary>
             Имя сетевой сущности (как правило служит для сопоставления с префабом)
             </summary>
@@ -554,19 +561,14 @@
             Сетевой ид (назначается автоматически)
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.owner">
+        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.ownerClientId">
             <summary>
             Ид владельца сущьности (если 0 то это серверная сущность)
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.position">
+        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.transform">
             <summary>
-            Положение сущности в пространстве (не обязательньный параметр)
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.rotation">
-            <summary>
-            Оринтация объекта в пространстве  (не обязательньный параметр)
+            
             </summary>
         </member>
         <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.isMy">
@@ -620,12 +622,27 @@
             <param name="data">массив байт</param>
             <param name="deliveryType">способ доставки</param>
         </member>
-        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendPosition(GalaxyCoreCommon.GalaxyVector3)">
+        <member name="T:GalaxyCoreLib.NetEntity.Transform">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.NetEntity.Transform.position">
+            <summary>
+            Положение сущности в пространстве (не обязательньный параметр)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.NetEntity.Transform.rotation">
+            <summary>
+            Оринтация объекта в пространстве  (не обязательньный параметр)
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.Transform.SendPosition(GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             Отправить позицию объекта на сервер ближайшим фреймом
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendRotation(GalaxyCoreCommon.GalaxyQuaternion)">
+        <member name="M:GalaxyCoreLib.NetEntity.Transform.SendRotation(GalaxyCoreCommon.GalaxyQuaternion)">
             <summary>
             Отправить поворот объекта на сервер ближайшим фреймом
             </summary>

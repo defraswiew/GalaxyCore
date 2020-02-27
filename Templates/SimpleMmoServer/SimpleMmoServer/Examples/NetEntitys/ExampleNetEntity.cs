@@ -9,6 +9,7 @@ using System.Text;
 
 namespace SimpleMmoServer.Examples.NetEntitys
 {
+    /*
     public class ExampleNetEntity : NetEntity
     {
         public override void Start()
@@ -55,4 +56,6 @@ namespace SimpleMmoServer.Examples.NetEntitys
          
         }
     }
+
+    */
 }
