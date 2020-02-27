@@ -1,39 +1,39 @@
-﻿using GalaxyCoreServer;
-using GalaxyCoreCommon;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GalaxyCoreServer;
+using GalaxyCoreCommon;
+
 
 namespace SimpleMmoServer.Examples.NetEntitys
 {
-    public class ExamplePlayer : NetEntity
+    public class ExamplePet : NetEntity
     {
+        public NetEntity player;
+        public ExamplePet()
+        {
+            name = "Pet";
+        }
 
-        ExamplePet pet;
-      
         public override void InMessage(byte externalCode, byte[] data, Client client)
         {
-         
+           
         }
 
         public override void OnDestroy()
         {
-            instance.entities.RemoveNetEntity(pet);  
+          
         }
 
         public override void Start()
         {
-            Log.Info("ExamplePlayer", "Start");
-            autoApplyRemoteTransform = true;
             syncType = NetEntityAutoSync.position_and_rotation;
-            pet = new ExamplePet();
-            pet.player = this;
-            instance.entities.CreateNetEntity(pet);
         }
 
         public override void Update()
         {
-           
+            if (GalaxyVector3.Distance(position, player.position) < 2) return;
+            GalaxyVector3.LerpOptimize(position, player.position, instance.Time.deltaTime * 0.7f);
         }
     }
 }
