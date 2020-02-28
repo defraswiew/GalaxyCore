@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\_TMP\EnityBase.cs" />
      <Compile Include="Assets\_TMP\TPM_Spawn.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyAnimSync.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyColliderBox.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyNetworkController.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Login.cs" />
