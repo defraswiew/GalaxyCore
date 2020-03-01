@@ -28,15 +28,17 @@ namespace SimpleMmoServer.Examples.NetEntitys
         public override void Start()
         {
             Log.Info("ExamplePlayer", "Start");
-            transform.autoApplyRemoteTransform = true;         
-            pet = new ExamplePet(instance, transform.position + new GalaxyVector3(1,0,1));
+            transform.autoApplyRemoteTransform = true;
+            pet = new ExamplePet(instance, transform.position + new GalaxyVector3(1, 0, 1));
             pet.player = this;
             pet.Init();
+            physics.Activate(new GalaxyCoreServer.Physics.ColliderBox(new GalaxyVector3(1, 1, 1)));          
         }
+       
 
         public override void Update()
         {
-           
+            physics.SetPhys();
         }
     }
 }

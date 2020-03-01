@@ -48,7 +48,6 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
 
         }
 
-
     }
 
 

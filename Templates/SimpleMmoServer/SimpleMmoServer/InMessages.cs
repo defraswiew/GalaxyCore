@@ -21,7 +21,7 @@ namespace SimpleMmoServer
         {         
             // распределяем сообщения по заданному нами же коду, для удобства используем Enum    
             switch (code)
-            {                
+            {              
                 //В остальных случаях отправляем сообщение в инстанс
                 default:
                     if (client.instanse == null) return;

@@ -59,8 +59,11 @@
      <Compile Include="Assets\_TMP\TPM_Spawn.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyAnimSync.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyColliderBox.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyColliderSphere.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyNetworkController.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Login.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIChat.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIChatMessage.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\DebugLoger.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExampleRoomCreate.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\Extensions.cs" />
@@ -83,6 +86,9 @@
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+ <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
@@ -97,6 +103,9 @@
  </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.AddOns.Editor">
+ <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

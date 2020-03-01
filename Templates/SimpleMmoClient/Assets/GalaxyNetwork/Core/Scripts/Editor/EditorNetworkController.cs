@@ -29,7 +29,7 @@ public class EditorNetworkController : Editor
 
         GUILayout.Space(10);
         if (GalaxyApi.connection != null) {
-            if (GalaxyApi.connection.connect) {  
+            if (GalaxyApi.connection.isConnected) {  
         GUILayout.Label("Statictic", EditorStyles.boldLabel);
 
 

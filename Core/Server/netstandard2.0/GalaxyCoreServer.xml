@@ -39,6 +39,14 @@
             <param name="err">код ошибки (пользовательский)</param>
             <param name="mes">отправляемое клиенту сообщение</param>
         </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyChat.SendToInstanse(GalaxyCoreServer.Instance,System.String,System.Int32)">
+            <summary>
+            Отправить сообщение чата всем в инстансе
+            </summary>
+            <param name="instance"></param>
+            <param name="text"></param>
+            <param name="sender"></param>
+        </member>
         <member name="T:GalaxyCoreServer.Api.GalaxyEvents">
             <summary>
             Публичные эвенты ядра
@@ -1061,6 +1069,12 @@
             </summary>
             <param name="size">размер коллайдера</param>
         </member>
+        <member name="M:GalaxyCoreServer.Physics.ColliderSphere.#ctor(System.Single)">
+            <summary>
+            Создание коллайдера
+            </summary>
+            <param name="radius">радиус</param>
+        </member>
         <member name="T:GalaxyCoreServer.Physics.PhysEntity">
             <summary>
             Физическое представление для netEntity
@@ -1071,7 +1085,7 @@
             Масса объекта
             </summary>
         </member>
-        <member name="P:GalaxyCoreServer.Physics.PhysEntity.isStatic">
+        <member name="P:GalaxyCoreServer.Physics.PhysEntity.isKinematic">
             <summary>
             Статичен ли объект в физическом мире
             </summary>
@@ -1081,6 +1095,12 @@
             Активация физики
             </summary>
             <param name="collider">Box collider</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysEntity.Activate(GalaxyCoreServer.Physics.ColliderSphere)">
+            <summary>
+            Активация физики
+            </summary>
+            <param name="collider">ColliderSphere</param>
         </member>
         <member name="M:GalaxyCoreServer.Physics.PhysEntity.ApplyPhys">
             <summary>
@@ -1102,7 +1122,7 @@
             Дефолт конструктор
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Physics.PhysWorld.Activate">
+        <member name="M:GalaxyCoreServer.Physics.PhysWorld.Activate(System.String)">
             <summary>
             Активация физического движка
             </summary>

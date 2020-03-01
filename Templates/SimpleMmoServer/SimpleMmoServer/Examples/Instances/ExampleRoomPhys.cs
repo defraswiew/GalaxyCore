@@ -11,10 +11,9 @@ namespace SimpleMmoServer.Examples.Instances
     /// </summary>
     public class ExampleRoomPhys : Instance
     {
-        float timer; // 
-        int boxCount; // текущее число боксов
-        int boxMax = 500; // целевое число боксов
-          
+        float timer = -3; // 
+        int bodyCount; // текущее число боксов
+        int bodyMax = 200; // целевое число боксов       
 
         public override void OutcomingClient(Client clientConnection)
         {
@@ -40,13 +39,13 @@ namespace SimpleMmoServer.Examples.Instances
         {
             Log.Info("ExampleRoomPhys", "instance id:"+id);// выводим в консоль тип комнаты
             SetFrameRate(20); // устанавливаем подходящий врейм рейт
-            physics.Activate(); // активизуем физику в рамках данной комнаты 
-
+                              // physics.Activate("phys/ExamplePhys.phys"); // активизуем физику в рамках данной комнаты      
+            physics.Activate();
         }
 
         public override void Update()
         {
-            if (boxCount < boxMax) BoxSpawn();
+            if (bodyCount < bodyMax) BoxSpawn();
         }
 
 
@@ -57,9 +56,16 @@ namespace SimpleMmoServer.Examples.Instances
             if (timer > 0.1f)
             {               
                 timer = 0;
-                    Examples.NetEntitys.ExamplePhysBox box = new Examples.NetEntitys.ExamplePhysBox(this, new GalaxyVector3(0, 10, 0),new GalaxyQuaternion(4, 10, 20, 0.5f));
+                if(bodyCount % 2 == 0) {
+
+                    Examples.NetEntitys.ExampleSphere sphere = new Examples.NetEntitys.ExampleSphere(this, new GalaxyVector3(0.36f, 15, 17.5f), new GalaxyQuaternion(4, 10, 20, 0.5f));
+                    sphere.Init();
+                    bodyCount++;
+                    return;
+                }
+                    Examples.NetEntitys.ExamplePhysBox box = new Examples.NetEntitys.ExamplePhysBox(this, new GalaxyVector3(0.36f, 15, 17.5f),new GalaxyQuaternion(4, 10, 20, 0.5f));
                     box.Init();
-                   boxCount++;
+                   bodyCount++;
             }
         }
     }

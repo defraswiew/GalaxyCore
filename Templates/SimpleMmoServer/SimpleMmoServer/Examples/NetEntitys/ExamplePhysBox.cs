@@ -26,7 +26,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
             // создаем рабочий коллайдер. Без коллайдера объект не может учавствовать в физическом представлении
             ColliderBox collider = new ColliderBox(new GalaxyVector3(0.4f, 0.4f, 0.4f));  
             physics.Activate(collider); // активируем физику     
-            physics.mass = 5f; // устанавливае вес объекта в кг
+            physics.mass = 1f; // устанавливае вес объекта в кг
             transform.syncType = NetEntityAutoSync.position_and_rotation; // указываем способ синхронизации 
         }
 

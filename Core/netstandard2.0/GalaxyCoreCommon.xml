@@ -80,6 +80,16 @@
             Сообщение пользовательской логики отправленное сетевой сущности
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.routeNetEntityAnim">
+            <summary>
+            роутинг аниматора
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.chat">
+            <summary>
+            Сообщение чата
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.instanceCreate">
             <summary>
             Создание нового инстанса
@@ -163,6 +173,11 @@
         <member name="F:GalaxyCoreCommon.ErrorCodes.Instance_is_full">
             <summary>
             Нет свободных мест
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.ChatMessageType">
+            <summary>
+            Тип сообщения
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.GalaxyQuaternion">
@@ -320,6 +335,41 @@
             <param name="a"></param>
             <param name="d"></param>
             <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreCommon.InternalMessages.MessChat">
+            <summary>
+            Класс сообщения
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessChat.Type">
+            <summary>
+            Тип сообщения (роутинг)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessChat.recipient">
+            <summary>
+            Ид получателя по роутингу
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessChat.text">
+            <summary>
+            текст сообщений
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessChat.sender">
+            <summary>
+            отправитель сообщения
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessChat.name">
+            <summary>
+            Имя для отображения
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.InternalMessages.MessChat.Clear">
+            <summary>
+            очистка сообщения
+            </summary>
         </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessClientBaseInfo">
             <summary>

@@ -9,7 +9,7 @@
             Api связанное с сетевым подключением
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.Connection.connect">
+        <member name="F:GalaxyCoreLib.Api.Connection.isConnected">
             <summary>
             Установленно ли соеденение с сервером
             </summary>
@@ -51,6 +51,11 @@
         <member name="M:GalaxyCoreLib.Api.Connection.Disconnect">
             <summary>
             Отключиться от сервера
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyChat.OnChatMessage">
+            <summary>
+            Входящее сообщение в чате
             </summary>
         </member>
         <member name="T:GalaxyCoreLib.Api.GalaxyEvents">
@@ -333,6 +338,16 @@
             Менеджер сетевых объектов
             </summary>
         </member>
+        <member name="F:GalaxyCoreLib.GalaxyApi.chat">
+            <summary>
+            Работа с чатом
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyApi.lerpDelta">
+            <summary>
+            Расчетная дельта для интерполяции
+            </summary>
+        </member>
         <member name="T:GalaxyCoreLib.Config">
             <summary>
             Класс конфигурации клиентской части
@@ -492,6 +507,12 @@
             <summary>
             Пришла обновленная информация о списках клиентов в инстансе
             </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnChatMessage">
+            <summary>
+            Пришло сообщение в чат
+            </summary>
+            <param name="message"></param>
         </member>
         <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>

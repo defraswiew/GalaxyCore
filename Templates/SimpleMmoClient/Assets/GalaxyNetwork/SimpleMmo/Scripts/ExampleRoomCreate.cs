@@ -10,6 +10,6 @@ public class ExampleRoomCreate : MonoBehaviour
     public void Create()
     {
         GalaxyApi.instances.Create(room_name, 100, type);
-        GameObject.Find("ExampleRooms").SetActive(false);
+        GameObject.Find("ExampleRooms").SetActive(false); 
     }
 }
