@@ -18,6 +18,7 @@ public class RoomManager : MonoBehaviour
     public Text count;
     public InputField roomName;
     public InputField maxCount;
+    public GameObject exit;
     private Vector2 contentSize;
     private List<GameObject> items = new List<GameObject>();
     private void OnEnable()
@@ -40,12 +41,27 @@ public class RoomManager : MonoBehaviour
             GalaxyEvents.OnGalaxyConnect += OnGalaxyConnect;
             GalaxyEvents.OnGalaxyInstancesList += OnGalaxyInstancesList;
             GalaxyEvents.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
+            GalaxyEvents.OnExitInstance += OnExitInstance;
         } else
         {
             GalaxyEvents.OnGalaxyConnect -= OnGalaxyConnect;
             GalaxyEvents.OnGalaxyInstancesList -= OnGalaxyInstancesList;
             GalaxyEvents.OnGalaxyEnterInInstance -= OnGalaxyEnterInInstance;
+            GalaxyEvents.OnExitInstance -= OnExitInstance;
         }
+    }
+
+    private void OnExitInstance()
+    {
+        Debug.Log("Выход из инстанса");
+        exit.SetActive(false);
+    }
+
+    public void ExitInstance()
+    {
+        GalaxyApi.instances.ExitInstance();
+         
+        GetRoomList();
     }
 
     private void OnGalaxyEnterInInstance(GalaxyCoreCommon.InternalMessages.InstanceInfo info)
@@ -56,6 +72,7 @@ public class RoomManager : MonoBehaviour
         Active(false);
         //  SceneManager.LoadScene("TestLevel");
         GalaxyApi.instances.SyncInstance();
+        exit.SetActive(true);
     }
 
     private void OnGalaxyInstancesList(List<GalaxyCoreCommon.InternalMessages.InstanceInfo> instances)

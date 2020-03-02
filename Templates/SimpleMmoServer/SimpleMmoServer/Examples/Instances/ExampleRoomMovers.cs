@@ -15,7 +15,7 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void Close()
         {
-           
+            
         }
         
         public override void IncomingClient(Client client)

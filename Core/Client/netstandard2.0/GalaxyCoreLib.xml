@@ -133,6 +133,11 @@
             Пришло полное обновление списка клиентов в инстансе
             </summary>
         </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnExitInstance">
+            <summary>
+            Выход из инстанса
+            </summary>
+        </member>
         <member name="T:GalaxyCoreLib.Api.Instances">
             <summary>
             Api связанное с управлением интансами (локации, комнаты)
@@ -192,6 +197,11 @@
             <param name="istanseId">ид инстанса</param>
             <param name="password">пароль на вход в инстанс(если нужен)</param>
             <param name="message">пользовательское сообщение</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Instances.ExitInstance">
+            <summary>
+            Покинуть текущий инстанс
+            </summary>
         </member>
         <member name="M:GalaxyCoreLib.Api.Instances.SyncInstance">
             <summary>
@@ -513,6 +523,11 @@
             Пришло сообщение в чат
             </summary>
             <param name="message"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnExitInstance">
+            <summary>
+            Выход из инстанса
+            </summary>
         </member>
         <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>

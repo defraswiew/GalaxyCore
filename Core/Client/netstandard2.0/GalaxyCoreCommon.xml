@@ -125,6 +125,11 @@
             Клиент вышел
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.OutInstance">
+            <summary>
+            Выход из текущего инстанса
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.netEntityInstantiate">
             <summary>
             Создание сетевого объекта
