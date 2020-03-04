@@ -1090,6 +1090,28 @@
             Статичен ли объект в физическом мире
             </summary>
         </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysEntity.velocity">
+            <summary>
+            Линейное ускорение объекта
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysEntity.useGravity">
+            <summary>
+            Действует ли гравитация на объект
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysEntity.AddForсe(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Приложить направленную силу
+            </summary>
+            <param name="vector3"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysEntity.AddTorque(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Физическое вращение
+            </summary>
+            <param name="vector3"></param>
+        </member>
         <member name="M:GalaxyCoreServer.Physics.PhysEntity.Activate(GalaxyCoreServer.Physics.ColliderBox)">
             <summary>
             Активация физики

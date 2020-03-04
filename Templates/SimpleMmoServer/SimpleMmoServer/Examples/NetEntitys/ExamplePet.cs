@@ -30,13 +30,13 @@ namespace SimpleMmoServer.Examples.NetEntitys
 
         public override void Start()
         {
-            transform.syncType = NetEntityAutoSync.position_and_rotation;
+            transform.syncType = NetEntityAutoSync.position_and_rotation;           
         }
 
         public override void Update()
-        {
-            if (GalaxyVector3.Distance(transform.position, player.transform.position) < 2) return;
-            GalaxyVector3.LerpOptimize(transform.position, player.transform.position, instance.Time.deltaTime * 0.7f);
+        {      
+                if (GalaxyVector3.Distance(transform.position, player.transform.position) < 2) return;
+                GalaxyVector3.LerpOptimize(transform.position, player.transform.position, instance.Time.deltaTime * 0.7f);
         }
     }
 }

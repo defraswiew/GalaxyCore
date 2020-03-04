@@ -13,7 +13,12 @@ namespace SimpleMmoServer.Examples.Instances
     {
         float timer = -3; // 
         int bodyCount; // текущее число боксов
-        int bodyMax = 200; // целевое число боксов       
+        int bodyMax = 100; // целевое число боксов       
+        int bodyForseCount;
+        int bodyForseMax = 200;
+        public GalaxyVector3 forseTarget = new GalaxyVector3(10, 10, 10);
+        int frameCount;
+
 
         public override void OutcomingClient(Client clientConnection)
         {
@@ -45,17 +50,26 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void Update()
         {
-            if (bodyCount < bodyMax) BoxSpawn();
+            timer += Time.deltaTime;
+
+            if (timer > 0.1f)
+            {
+                timer = 0;
+                if (bodyCount < bodyMax) BoxSpawn();
+                if (bodyForseCount < bodyForseMax) BodyForseSpawn();
+            }
+
+            frameCount++;
+            if (frameCount % 300 == 0)
+            {
+                forseTarget = new GalaxyVector3(GRand.NextInt(0, 100), GRand.NextInt(0, 100), GRand.NextInt(0, 100));
+            }
         }
 
 
         private void BoxSpawn()
-        {
-            timer += Time.deltaTime;
+        {          
 
-            if (timer > 0.1f)
-            {               
-                timer = 0;
                 if(bodyCount % 2 == 0) {
 
                     Examples.NetEntitys.ExampleSphere sphere = new Examples.NetEntitys.ExampleSphere(this, new GalaxyVector3(0.36f, 15, 17.5f), new GalaxyQuaternion(4, 10, 20, 0.5f));
@@ -66,7 +80,14 @@ namespace SimpleMmoServer.Examples.Instances
                     Examples.NetEntitys.ExamplePhysBox box = new Examples.NetEntitys.ExamplePhysBox(this, new GalaxyVector3(0.36f, 15, 17.5f),new GalaxyQuaternion(4, 10, 20, 0.5f));
                     box.Init();
                    bodyCount++;
-            }
+        }
+
+        private void BodyForseSpawn()
+        {
+            Examples.NetEntitys.ExampleForse entity = new Examples.NetEntitys.ExampleForse(this, new GalaxyVector3(GRand.NextInt(5, 10), GRand.NextInt(5, 10), GRand.NextInt(5, 10)), new GalaxyQuaternion(0, 0, 0, 0));
+            entity.room = this;
+            entity.Init();
+            bodyForseCount++;
         }
     }
 }

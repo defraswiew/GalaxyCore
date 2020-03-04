@@ -18,7 +18,8 @@ namespace SimpleMmoServer
         /// <param name="data">Массив байт (сообщение)</param>
         /// <param name="client">Экземпляр клиента</param>
         public void IncomingMessage(byte code, byte[] data, Client client)
-        {         
+        {
+          
             // распределяем сообщения по заданному нами же коду, для удобства используем Enum    
             switch (code)
             {              
