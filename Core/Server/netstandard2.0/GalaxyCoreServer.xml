@@ -1139,7 +1139,7 @@
             Использовать ли многопоточный режим
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Physics.PhysWorld.#ctor">
+        <member name="M:GalaxyCoreServer.Physics.PhysWorld.#ctor(GalaxyCoreServer.Instance)">
             <summary>
             Дефолт конструктор
             </summary>
@@ -1148,6 +1148,47 @@
             <summary>
             Активация физического движка
             </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysWorld.RayCast(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreServer.Physics.RaycastHit@)">
+            <summary>
+            Рейкаст бесконечной длинны
+            </summary>
+            <param name="start">от куда начинается луч</param>
+            <param name="direction">направление луча (цель-точка старта) </param>
+            <param name="hit">Класс информации о результатах каста</param>
+            <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.RaycastHit">
+            <summary>
+            Результат работы RayCast
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.RaycastHit.entity">
+            <summary>
+            Сетевая сущность в которую уперся луч, может быть null если луч попал в статический коллайдер
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.RaycastHit.point">
+            <summary>
+            Точка в которой остановился луч
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.RaycastHit.hitNormal">
+            <summary>
+            Нормаль луча и объекта
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.RaycastHit.SqlDistanse">
+            <summary>
+            Квадрат длинны луча
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.RaycastHit.Distanse">
+            <summary>
+            Длинна луча
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:GalaxyCoreServer.Transform">
             <summary>

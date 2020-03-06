@@ -30,7 +30,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
 
         public override void Start()
         {
-            transform.syncType = NetEntityAutoSync.position_and_rotation;
+            transform.syncType = NetEntityAutoSync.position_and_rotation; 
             physics.Activate(new GalaxyCoreServer.Physics.ColliderSphere(0.5f));
             physics.useGravity = false;
         }

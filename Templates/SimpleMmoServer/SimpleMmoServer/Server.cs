@@ -36,13 +36,14 @@ namespace SimpleMmoServer
         public Server()
         {
             config.incomingMessage = inMessages; // Регистрируем обработчик входящих сообщений
-            GalaxyEvents.OnGalaxyInstanceCreate += OnGalaxyInstanceCreate; //Отлавливаем событие создания нового инстанса 
+            GalaxyEvents.OnGalaxyInstanceCreate += OnGalaxyInstanceCreate; //Отлавливаем событие создания нового инстанса
+           
             //Задаем имя сервера
             //Важно что бы имя сервера совпадало с именем указанным в клиенте
             config.SERVER_NAME = "SimpleMmoServer";
             config.LISTEN_PORT = 30200; // Указываем рабочий порт
             config.AUTO_FLUSH_SEND = true; // включаем авто управление буфером отправки сообщений
-            config.NET_FRAME_RATE = 20;
+            config.NET_FRAME_RATE = 20;         
             GalaxyCore.Start(config); // Запускаем сервер         
         }
 
