@@ -1069,6 +1069,12 @@
             </summary>
             <param name="size">размер коллайдера</param>
         </member>
+        <member name="M:GalaxyCoreServer.Physics.ColliderCapsule.#ctor(System.Single,System.Single)">
+            <summary>
+            Создание коллайдера
+            </summary>
+            <param name="radius">радиус</param>
+        </member>
         <member name="M:GalaxyCoreServer.Physics.ColliderSphere.#ctor(System.Single)">
             <summary>
             Создание коллайдера
@@ -1124,6 +1130,12 @@
             </summary>
             <param name="collider">ColliderSphere</param>
         </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysEntity.Activate(GalaxyCoreServer.Physics.ColliderCapsule)">
+            <summary>
+            Активация физики
+            </summary>
+            <param name="collider">ColliderCapsule</param>
+        </member>
         <member name="M:GalaxyCoreServer.Physics.PhysEntity.ApplyPhys">
             <summary>
             Применить физические
@@ -1166,6 +1178,11 @@
         <member name="F:GalaxyCoreServer.Physics.RaycastHit.entity">
             <summary>
             Сетевая сущность в которую уперся луч, может быть null если луч попал в статический коллайдер
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.RaycastHit.tag">
+            <summary>
+            Тег объекта которого коснулся луч
             </summary>
         </member>
         <member name="F:GalaxyCoreServer.Physics.RaycastHit.point">

@@ -16,9 +16,9 @@ namespace SimpleMmoServer.Examples.Instances
     {
         float timer = -3; // 
         int bodyCount; // текущее число боксов
-        int bodyMax = 300; // целевое число боксов       
+        int bodyMax = 500; // целевое число боксов       
         int bodyForseCount;
-        int bodyForseMax = 10;
+        int bodyForseMax = 1;
         public GalaxyVector3 forseTarget = new GalaxyVector3(10, 10, 10);
         int frameCount;
         //////// RayCast TEST //////
@@ -50,8 +50,8 @@ namespace SimpleMmoServer.Examples.Instances
         public override void Start()
         {
             Log.Info("ExampleRoomPhys", "instance id:"+id);// выводим в консоль тип комнаты
-            SetFrameRate(30); // устанавливаем подходящий врейм рейт
-          // physics.Activate("phys/ExamplePhys.phys"); // активизуем физику c указанием пути на файл запеченой сцены    
+            SetFrameRate(20); // устанавливаем подходящий врейм рейт
+            // physics.Activate("phys/ExamplePhys.phys"); // активизуем физику c указанием пути на файл запеченой сцены    
              physics.Activate();
         }
 
@@ -59,7 +59,7 @@ namespace SimpleMmoServer.Examples.Instances
         {
             timer += Time.deltaTime;
 
-            if (timer > 0.1f)
+            if (timer > 0.2f)
             {
                 timer = 0;
                 if (bodyCount < bodyMax) BoxSpawn();
@@ -102,6 +102,7 @@ namespace SimpleMmoServer.Examples.Instances
             else
             {
                 player.SendRayCastResult(false);
+                Log.Info("Tag: ", raycastHit.tag);
             }         
         }
 
@@ -109,14 +110,22 @@ namespace SimpleMmoServer.Examples.Instances
         private void BoxSpawn()
         {          
 
-                if(bodyCount % 2 == 0) {
+                if(bodyCount % 3 == 0) {
 
                     Examples.NetEntitys.ExampleSphere sphere = new Examples.NetEntitys.ExampleSphere(this, new GalaxyVector3(0.36f, 15, 17.5f), new GalaxyQuaternion(4, 10, 20, 0.5f));
                     sphere.Init();
                     bodyCount++;
                     return;
                 }
-                    Examples.NetEntitys.ExamplePhysBox box = new Examples.NetEntitys.ExamplePhysBox(this, new GalaxyVector3(0.36f, 15, 17.5f),new GalaxyQuaternion(4, 10, 20, 0.5f));
+            if (bodyCount % 4 == 0)
+            {
+
+                Examples.NetEntitys.ExamplePhysCapsule capsule = new Examples.NetEntitys.ExamplePhysCapsule(this, new GalaxyVector3(0.36f, 15, 17.5f), new GalaxyQuaternion(4, 10, 20, 0.5f));
+                capsule.Init();
+                bodyCount++;
+                return;
+            }
+            Examples.NetEntitys.ExamplePhysBox box = new Examples.NetEntitys.ExamplePhysBox(this, new GalaxyVector3(0.36f, 15, 17.5f),new GalaxyQuaternion(4, 10, 20, 0.5f));
                     box.Init();
                    bodyCount++;
         }

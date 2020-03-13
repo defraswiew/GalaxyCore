@@ -7,8 +7,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class EditorGalaxyPhys : EditorWindow
 {
-    
 
+    bool showTerrains = true;
     static int boxColleders;
     [MenuItem("Galaxy Network / Physics")]
     public static void ShowWindow()
@@ -39,15 +39,35 @@ public class EditorGalaxyPhys : EditorWindow
         if (GUILayout.Button("Remove", EditorStyles.miniButtonMid)) RemoveSphereColliders(false);
         GUILayout.EndHorizontal();
 
-        /*
-        GUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Triggers");
-        if (GUILayout.Button("Add", EditorStyles.miniButtonMid)) AddBoxColliders(true);
-        if (GUILayout.Button("Remove", EditorStyles.miniButtonMid)) RemoveBoxColliders(true);
-        GUILayout.EndHorizontal();
-        */
-        GUILayout.Space(20);
+  
+
+        showTerrains = EditorGUILayout.Foldout(showTerrains, "Terrains", EditorStyles.foldoutHeader);
+        if (showTerrains)
+        {
+            foreach (var item in FindObjectsOfType<GalaxyColliderTerrain>())
+            {
+                GUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField(item.name);
+                EditorGUILayout.LabelField("Quality:" + item.quality.ToString());
+
+                GUILayout.EndHorizontal();
+            }
+
+        }
+            /*
+            GUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Triggers");
+            if (GUILayout.Button("Add", EditorStyles.miniButtonMid)) AddBoxColliders(true);
+            if (GUILayout.Button("Remove", EditorStyles.miniButtonMid)) RemoveBoxColliders(true);
+            GUILayout.EndHorizontal();
+            */
+            GUILayout.Space(20);
         if (GUILayout.Button("Запечь физику сцены в файл")) Bake();
+
+
+       
+            
+
     }
 
         static void AddBoxColliders(bool triggers)
@@ -98,7 +118,7 @@ public class EditorGalaxyPhys : EditorWindow
     {
         string name = SceneManager.GetActiveScene().name;
         var path = EditorUtility.SaveFilePanel(
-          "Save texture as PNG",
+          "Bake colliders",
           "",
           name,
           "phys");
@@ -116,7 +136,15 @@ public class EditorGalaxyPhys : EditorWindow
         {
             bakeData.sphereColliders.Add(item.Bake());
         }
-
+         
+        bakeData.terrainColliders = new List<PhysTerrain>();
+        foreach (var item in FindObjectsOfType<GalaxyColliderTerrain>())
+        {
+            Texture2D map = (Texture2D)item.GetImage();
+            TextureScale.Bilinear(map, (int)item.quality, (int)item.quality);
+            bakeData.terrainColliders.Add(item.Bake(map));
+        }
+        
 
         File.WriteAllBytes(path, bakeData.Serialize());
         

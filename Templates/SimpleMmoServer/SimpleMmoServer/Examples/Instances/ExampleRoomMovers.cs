@@ -10,7 +10,7 @@ namespace SimpleMmoServer.Examples.Instances
         int moverMax = 1000;
         public override void OutcomingClient(Client client)
         {                     
-           
+            
         }
 
         public override void Close()

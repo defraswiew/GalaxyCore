@@ -21,6 +21,10 @@ public class GalaxyUIChat : MonoBehaviour
     private Dictionary<string, ChenallItem> chenalls = new Dictionary<string, ChenallItem>();
     private ChenallItem currentChenall;
 
+
+
+
+
     void OnEnable()
     { 
         GalaxyApi.chat.OnChatMessage += OnChatMessage;

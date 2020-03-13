@@ -303,11 +303,6 @@
             Число входящих сообщений
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.Api.Statistic.outTraffic">
-            <summary>
-            Входящий трафик в байтах
-            </summary>
-        </member>
         <member name="P:GalaxyCoreLib.Api.Statistic.lossMessages">
             <summary>
             Число потерянных сообщений

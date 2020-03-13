@@ -551,6 +551,36 @@
             Оринтация объекта в пространстве  (не обязательньный параметр)
             </summary>
         </member>
+        <member name="T:GalaxyCoreCommon.PhysBake">
+            <summary>
+            Данные запекания коллизий
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.PhysBake.boxColliders">
+            <summary>
+            boxColliders
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.PhysBake.sphereColliders">
+            <summary>
+            sphereColliders
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.PhysBake.capsuleColliders">
+            <summary>
+            capsuleColliders
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.PhysBake.terrainColliders">
+            <summary>
+            terrainColliders
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.PhysBakeBoxCollider">
+            <summary>
+            Запеченный BoxCollider
+            </summary>
+        </member>
         <member name="M:GalaxyCoreCommon.Tools.GetNewID">
             <summary>
             Возвращяем ид пользователя

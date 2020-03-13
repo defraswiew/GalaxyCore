@@ -10,6 +10,7 @@ public class GalaxyColliderBox : MonoBehaviour
     private BoxCollider boxCollider;
     private Vector3 position;
     private Vector3 size;
+    public string physTag = "";
     public bool isTrigger = false;
     Matrix4x4 parentMatrix;
     private void OnDrawGizmos()
@@ -41,6 +42,8 @@ public class GalaxyColliderBox : MonoBehaviour
         bake.rotation = boxCollider.transform.rotation.NetworkQuaternion();
         bake.size = size.NetworkVector3();
         bake.trigger = isTrigger;
+        bake.tag = physTag;
+        if (physTag == "") bake.tag = transform.name;
         return bake;
     }
     

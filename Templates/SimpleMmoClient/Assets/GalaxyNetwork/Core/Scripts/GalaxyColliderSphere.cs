@@ -8,7 +8,7 @@ public class GalaxyColliderSphere : MonoBehaviour
 {
     private SphereCollider collider;
     float size = 1;
-
+    public string physTag = "";
     private void OnDrawGizmos()
     {
         if (collider == null) collider = GetComponent<SphereCollider>();
@@ -22,6 +22,8 @@ public class GalaxyColliderSphere : MonoBehaviour
        
         bake.position = transform.position.NetworkVector3();
         bake.radius = size;
+        bake.tag = physTag;
+        if (physTag == "") bake.tag = transform.name;
         return bake;
     }
 
