@@ -1,5 +1,4 @@
 ﻿using GalaxyCoreCommon;
-using GalaxyCoreCommon.NetEntity;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using GalaxyTemplate.Clients;

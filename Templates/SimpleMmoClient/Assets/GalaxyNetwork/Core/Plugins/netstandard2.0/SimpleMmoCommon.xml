@@ -29,5 +29,30 @@
             Пароль пользователя
             </summary>
         </member>
+        <member name="T:SimpleMmoCommon.Messages.MessageTransform">
+            <summary>
+            Пример синхронизации трансформа
+            </summary>
+        </member>
+        <member name="P:SimpleMmoCommon.Messages.MessageTransform.position">
+            <summary>
+            Позиция
+            </summary>
+        </member>
+        <member name="P:SimpleMmoCommon.Messages.MessageTransform.rotation">
+            <summary>
+            Поворот
+            </summary>
+        </member>
+        <member name="T:SimpleMmoCommon.NetEntityCommand">
+            <summary>
+            Типы команд для сетевой сущности
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.NetEntityCommand.syncTransform">
+            <summary>
+            синхронизация позиции
+            </summary>
+        </member>
     </members>
 </doc>
