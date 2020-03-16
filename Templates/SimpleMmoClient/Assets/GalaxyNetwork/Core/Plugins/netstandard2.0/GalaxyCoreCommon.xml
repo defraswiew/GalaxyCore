@@ -341,6 +341,19 @@
             <param name="d"></param>
             <returns></returns>
         </member>
+        <member name="T:GalaxyCoreCommon.GalaxyVersion">
+            <summary>
+            Версионность
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVersion.#ctor(System.Single,System.Int32,System.String)">
+            <summary>
+            конструктор
+            </summary>
+            <param name="major"></param>
+            <param name="monor"></param>
+            <param name="type"></param>
+        </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessChat">
             <summary>
             Класс сообщения

@@ -559,6 +559,11 @@
             Пауза передачи сообщений внешнему коду
             </summary>
         </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.version">
+            <summary>
+            Версия ядра
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.GalaxyClientCore.Initialize(GalaxyCoreLib.Config)">
             <summary>
             Инициализация сетевого ядра

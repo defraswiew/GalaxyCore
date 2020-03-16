@@ -368,6 +368,11 @@
             Network Kernel
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.version">
+            <summary>
+            Версия ядра
+            </summary>
+        </member>
         <member name="F:GalaxyCoreServer.GalaxyCore.conf">
             <summary>
             Конфигурация сервера
@@ -1026,6 +1031,15 @@
             <summary>
             экземпляр основного сепаратора
             </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.NetworkCore.SendGroupMessage(Lidgren.Network.NetBuffer,System.Collections.Generic.IList{Lidgren.Network.NetConnection},GalaxyCoreCommon.GalaxyDeliveryType,System.Int32)">
+            <summary>
+            Отправка группового сообщения
+            </summary>
+            <param name="buffer"></param>
+            <param name="clients"></param>
+            <param name="deliveryMethod"></param>
+            <param name="chennal"></param>
         </member>
         <member name="M:GalaxyCoreServer.Network.NetworkCore.Flush">
             <summary>
