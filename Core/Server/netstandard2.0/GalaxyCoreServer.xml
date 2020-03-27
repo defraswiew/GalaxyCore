@@ -810,6 +810,12 @@
             </summary>
             <param name="instance">целевой инстанс</param>
         </member>
+        <member name="M:GalaxyCoreServer.NetEntity.ChangeOwner(GalaxyCoreServer.Client)">
+            <summary>
+            Сменить владельца сущности
+            </summary>
+            <param name="client">новый владелец (может быть null)</param>
+        </member>
         <member name="M:GalaxyCoreServer.NetEntity.Start">
             <summary>
             Вызывается при полной инициализации объекта
