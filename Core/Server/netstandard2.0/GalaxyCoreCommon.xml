@@ -100,14 +100,14 @@
             Список инстансов
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.InternalMessageCodes.instanceSync">
-            <summary>
-            Синхронизация инстанса
-            </summary>
-        </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.enterInInstance">
             <summary>
             Список инстансов
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.instanceSync">
+            <summary>
+            Синхронизация инстанса
             </summary>
         </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.updateClientsInInctance">
@@ -128,6 +128,11 @@
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.OutInstance">
             <summary>
             Выход из текущего инстанса
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.instanceChangeOwner">
+            <summary>
+            Смена владельца инстанса
             </summary>
         </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.netEntityInstantiate">
@@ -502,6 +507,11 @@
         <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.customData">
             <summary>
             Пользовательские данные
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.owner">
+            <summary>
+            владелец комнаты (он же может работать как виртуальный host
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessInstanceSync">

@@ -138,6 +138,11 @@
             Выход из инстанса
             </summary>
         </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnChangeOwner">
+            <summary>
+            Изменился виртуальный host инстанса
+            </summary>    
+        </member>
         <member name="T:GalaxyCoreLib.Api.Instances">
             <summary>
             Api связанное с управлением интансами (локации, комнаты)
@@ -353,6 +358,11 @@
             Расчетная дельта для интерполяции
             </summary>
         </member>
+        <member name="P:GalaxyCoreLib.GalaxyApi.isHost">
+            <summary>
+            Является ли клиент хостом для не авторитарной логики
+            </summary>
+        </member>
         <member name="T:GalaxyCoreLib.Config">
             <summary>
             Класс конфигурации клиентской части
@@ -523,6 +533,12 @@
             <summary>
             Выход из инстанса
             </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnChangeOwner">
+            <summary>
+            Изменился виртуальный host инстанса
+            </summary>
+            <param name="owner"></param>
         </member>
         <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>

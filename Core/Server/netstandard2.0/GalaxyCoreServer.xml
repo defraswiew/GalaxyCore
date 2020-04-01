@@ -448,6 +448,11 @@
             Фрейм рейт (число тиков в секунду)
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.Instance.autoChangeOwner">
+            <summary>
+            Автоматическое назначение нового owner
+            </summary>
+        </member>
         <member name="P:GalaxyCoreServer.Instance.clients">
             <summary>
             Список клиентов
