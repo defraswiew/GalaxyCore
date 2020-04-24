@@ -49,6 +49,7 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void Start()
         {
+            autoClose = false;
             Log.Info("ExampleRoomPhys", "instance id:"+id);// выводим в консоль тип комнаты
             SetFrameRate(20); // устанавливаем подходящий врейм рейт
             // physics.Activate("phys/ExamplePhys.phys"); // активизуем физику c указанием пути на файл запеченой сцены    

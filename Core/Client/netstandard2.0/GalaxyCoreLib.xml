@@ -253,21 +253,23 @@
             Отправка сообщений
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean)">
             <summary>
             Отправить сообщение на сервер
             </summary>
             <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
             <param name="data">Массив байт</param>
             <param name="deliveryType">Способ доставки</param>
+            <param name="encrypt">Шифровать ли сообщение</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean)">
             <summary>
             Отправить сообщение на сервер
             </summary>
             <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
             <param name="message">сообщение (наследник BaseMessage)</param>
             <param name="deliveryType"></param>
+            <param name="encrypt">Шифровать ли сообщение</param>
         </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToInstance(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
@@ -704,7 +706,7 @@
             Освновной класс реализующий отправку сообщений
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.Network.MessageSender.SendMessageToServer(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Int32)">
+        <member name="M:GalaxyCoreLib.Network.MessageSender.SendMessageToServer(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Int32,System.Boolean)">
             <summary>
             Отправить сообщение на сервер
             </summary>
@@ -713,6 +715,7 @@
             <param name="data">Массив байт</param>
             <param name="deliveryType">Способ доставки</param>
             <param name="chennal">канал доставки</param>
+            <param name="encrypt">Шифровать ли сообщение</param>
         </member>
         <member name="T:GalaxyCoreLib.Network.NetworkCore">
             <summary>

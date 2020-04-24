@@ -138,6 +138,11 @@
             Выход из инстанса
             </summary>
         </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnChangeOwner">
+            <summary>
+            Изменился виртуальный host инстанса
+            </summary>    
+        </member>
         <member name="T:GalaxyCoreLib.Api.Instances">
             <summary>
             Api связанное с управлением интансами (локации, комнаты)
@@ -248,21 +253,23 @@
             Отправка сообщений
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean)">
             <summary>
             Отправить сообщение на сервер
             </summary>
             <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
             <param name="data">Массив байт</param>
             <param name="deliveryType">Способ доставки</param>
+            <param name="encrypt">Шифровать ли сообщение</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean)">
             <summary>
             Отправить сообщение на сервер
             </summary>
             <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
             <param name="message">сообщение (наследник BaseMessage)</param>
             <param name="deliveryType"></param>
+            <param name="encrypt">Шифровать ли сообщение</param>
         </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToInstance(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
@@ -301,11 +308,6 @@
         <member name="P:GalaxyCoreLib.Api.Statistic.inMessages">
             <summary>
             Число входящих сообщений
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreLib.Api.Statistic.outTraffic">
-            <summary>
-            Входящий трафик в байтах
             </summary>
         </member>
         <member name="P:GalaxyCoreLib.Api.Statistic.lossMessages">
@@ -356,6 +358,11 @@
         <member name="F:GalaxyCoreLib.GalaxyApi.lerpDelta">
             <summary>
             Расчетная дельта для интерполяции
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.GalaxyApi.isHost">
+            <summary>
+            Является ли клиент хостом для не авторитарной логики
             </summary>
         </member>
         <member name="T:GalaxyCoreLib.Config">
@@ -529,6 +536,12 @@
             Выход из инстанса
             </summary>
         </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnChangeOwner">
+            <summary>
+            Изменился виртуальный host инстанса
+            </summary>
+            <param name="owner"></param>
+        </member>
         <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>
             Основной класс ядра клиентской части
@@ -562,6 +575,11 @@
         <member name="F:GalaxyCoreLib.GalaxyClientCore.paused">
             <summary>
             Пауза передачи сообщений внешнему коду
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.version">
+            <summary>
+            Версия ядра
             </summary>
         </member>
         <member name="M:GalaxyCoreLib.GalaxyClientCore.Initialize(GalaxyCoreLib.Config)">
@@ -688,7 +706,7 @@
             Освновной класс реализующий отправку сообщений
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.Network.MessageSender.SendMessageToServer(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Int32)">
+        <member name="M:GalaxyCoreLib.Network.MessageSender.SendMessageToServer(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Int32,System.Boolean)">
             <summary>
             Отправить сообщение на сервер
             </summary>
@@ -697,6 +715,7 @@
             <param name="data">Массив байт</param>
             <param name="deliveryType">Способ доставки</param>
             <param name="chennal">канал доставки</param>
+            <param name="encrypt">Шифровать ли сообщение</param>
         </member>
         <member name="T:GalaxyCoreLib.Network.NetworkCore">
             <summary>

@@ -20,7 +20,7 @@
             </summary>
             <param name="baseMessage">Протобуф сообщение</param>
             <param name="id">Ид пользователя</param>
-            <param name="customClient">Дополнительная пользовательская реализация клиента</param>
+            <param name="client"></param>
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Approve(System.Int32,System.Byte[],GalaxyCoreServer.Client,System.Object)">
@@ -29,7 +29,6 @@
             </summary>
             <param name="data">Сообщение (не обязательно)</param>
             <param name="id">Ид клиента</param>
-            <param name="customClient">Дополнительная пользовательская реализация клиента</param>
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Deny(System.Byte,System.String)">
@@ -254,6 +253,11 @@
         <member name="F:GalaxyCoreServer.Client.statistic">
             <summary>
             Статистика
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Client.key">
+            <summary>
+            Сетевой ключик
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.Client.SetNetConnection(Lidgren.Network.NetConnection)">

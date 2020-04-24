@@ -22,7 +22,10 @@ namespace SimpleMmoServer
           
             // распределяем сообщения по заданному нами же коду, для удобства используем Enum    
             switch (code)
-            {              
+            {
+                case 211:
+                    Log.Debug("IncomingMessage", "Encrypt test");
+                    break;
                 //В остальных случаях отправляем сообщение в инстанс
                 default:
                     if (client.instanse == null) return;
