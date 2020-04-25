@@ -6,6 +6,7 @@ using GalaxyCoreLib.Api;
 
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using GalaxyCoreCommon.InternalMessages;
 
 public class RoomManager : MonoBehaviour
 {  
@@ -149,7 +150,8 @@ public class RoomManager : MonoBehaviour
 
 
    public void CreateRoom()
-    {       
+    {
+        MessInstanceCreate message = new MessInstanceCreate();
         createButton.interactable = false;      
         GalaxyApi.instances.Create(roomName.text, (int)System.Int32.Parse(maxCount.text));
        

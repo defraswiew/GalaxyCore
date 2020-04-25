@@ -566,6 +566,17 @@
             </summary>
             <param name="clientConnection"></param>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.ChangeOwner">
+            <summary>
+            Смена владельца инстанса на случайного
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.ChangeOwner(GalaxyCoreServer.Client)">
+            <summary>
+            Передать права владельца
+            </summary>
+            <param name="client"></param>
+        </member>
         <member name="M:GalaxyCoreServer.Instance.GetUsersBaseInfo(GalaxyCoreServer.Client)">
             <summary>
             Ответ на запрос списка пользователей в инстансе
@@ -778,6 +789,11 @@
             Серверная реализация сетевой сущности
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.NetEntity.lossOwner">
+            <summary>
+            Логика при потере владельца
+            </summary>
+        </member>
         <member name="P:GalaxyCoreServer.NetEntity.prefabName">
             <summary>
             Имя сетевой сущности (как правило служит для сопоставления с префабом)
@@ -823,7 +839,7 @@
             <summary>
             Сменить владельца сущности
             </summary>
-            <param name="client">новый владелец (может быть null)</param>
+            <param name="client">новый владелец (если null, то владельцем становится сервер)</param>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.Start">
             <summary>
@@ -886,6 +902,26 @@
             <param name="code">пользовательский код</param>
             <param name="data">массив байт</param>
             <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="T:GalaxyCoreServer.NetEntityLossOwnerLogic">
+            <summary>
+            Логика при потере владельца
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntityLossOwnerLogic.destroy">
+            <summary>
+            Уничтожить при потере владельца
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntityLossOwnerLogic.setServer">
+            <summary>
+            Сменить владельца на сервер
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntityLossOwnerLogic.setRandomClient">
+            <summary>
+            Передать случайному клиенту
+            </summary>
         </member>
         <member name="T:GalaxyCoreServer.NetEntityStandart">
             <summary>

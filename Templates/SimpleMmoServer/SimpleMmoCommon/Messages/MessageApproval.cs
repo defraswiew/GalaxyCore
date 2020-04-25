@@ -17,5 +17,20 @@ namespace SimpleMmoCommon.Messages
         /// </summary>
         [ProtoMember(1)]
         public string name; 
+        /// <summary>
+        /// 
+        /// </summary>
+        public MessageApproval()
+        {
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        public MessageApproval(string name)
+        {
+            this.name = name;
+        }
     }
 }

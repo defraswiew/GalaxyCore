@@ -160,6 +160,11 @@
             трансформ фрейм
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.netEntityChangeOwner">
+            <summary>
+            Смена владельца объекта
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.error">
             <summary>
             Сообщение об ошибке
@@ -522,6 +527,21 @@
         <member name="P:GalaxyCoreCommon.InternalMessages.MessInstanceSync.netEntitys">
             <summary>
             Список сущностей
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.InternalMessages.MessNetEntityChangeOwner">
+            <summary>
+            Сообщение о смене владельца
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityChangeOwner.netId">
+            <summary>
+            Ид сущности
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessNetEntityChangeOwner.owner">
+            <summary>
+            новый владелец
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessNetEntityDestroy">

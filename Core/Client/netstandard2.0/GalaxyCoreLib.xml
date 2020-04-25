@@ -542,6 +542,12 @@
             </summary>
             <param name="owner"></param>
         </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnNetEntityChangeOwner">
+            <summary>
+            Сетевая сущность сменила владельца
+            </summary>
+            <param name="owner">новый владелец</param>
+        </member>
         <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>
             Основной класс ядра клиентской части
@@ -653,6 +659,11 @@
         <member name="E:GalaxyCoreLib.NetEntity.ClientNetEntity.OnInMessage">
             <summary>
             Новое входящее сообщение
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreLib.NetEntity.ClientNetEntity.OnChangeOwner">
+            <summary>
+            Сменился владелец сущности
             </summary>
         </member>
         <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.Destroy">

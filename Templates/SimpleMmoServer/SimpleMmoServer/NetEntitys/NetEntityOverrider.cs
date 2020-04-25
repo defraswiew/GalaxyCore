@@ -19,6 +19,9 @@ namespace SimpleMmoServer
                 case "Player":
                     Examples.NetEntitys.ExamplePlayer player = new Examples.NetEntitys.ExamplePlayer(client.instanse);
                     return player;
+                case "ExampleChangeOwner":
+                    Examples.NetEntitys.ExampleChangeOwner exampleChangeOwner = new Examples.NetEntitys.ExampleChangeOwner(client.instanse);
+                    return exampleChangeOwner;
                 default:                    
                       return null;
             }

@@ -14,6 +14,17 @@
             Ид клиента
             </summary>
         </member>
+        <member name="M:SimpleMmoCommon.Messages.MessageApproval.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SimpleMmoCommon.Messages.MessageApproval.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
         <member name="T:SimpleMmoCommon.Messages.MessageAuth">
             <summary>
             Структура пакета авторизации

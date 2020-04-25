@@ -1,0 +1,7 @@
+<linker>
+   <assembly fullname="ProtoBuf" preserve="all"/>
+   <assembly fullname="DataModelBindings" preserve="all"/>
+    <assembly fullname="GalaxyCoreCommon" preserve="all"/>
+	<assembly fullname="GalaxyCoreLib" preserve="all"/>
+    
+</linker>

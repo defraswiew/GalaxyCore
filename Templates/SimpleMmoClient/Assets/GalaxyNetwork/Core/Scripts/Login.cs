@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using SimpleMmoCommon.Messages;
+using GalaxyCoreCommon;
 
 public class Login : MonoBehaviour
 {
@@ -18,8 +19,10 @@ public class Login : MonoBehaviour
     }
 
     private void OnGalaxyConnect(byte[] message)
-    {        
-        MessageApproval messageApproval = MessageApproval.Deserialize<MessageApproval>(message); // распаковываем первое ответное сообщение   
+    {
+        Debug.Log(message.Length);
+        MessageApproval messageApproval = new MessageApproval();
+        messageApproval = BaseMessage.Deserialize<MessageApproval>(message); // распаковываем первое ответное сообщение   
         Debug.Log("Наше имя " + messageApproval.name);
         gameObject.SetActive(false);
     }
@@ -50,7 +53,9 @@ public class Login : MonoBehaviour
         status.text = "Подключение...";
         messageAuth.login = login.text;
         messageAuth.password = password.text;
-        GalaxyApi.connection.Connect(messageAuth); // Отправляем запрос на сервер    
+        byte[] data = messageAuth.Serialize();
+        Debug.Log("data.Length " + data.Length);
+        GalaxyApi.connection.Connect(data); // Отправляем запрос на сервер    
          
     }
 
