@@ -1,5 +1,9 @@
 ﻿using GalaxyCoreLib;
 using GalaxyCoreLib.NetEntity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public class UnityNetEntity : MonoBehaviour
@@ -17,18 +21,27 @@ public class UnityNetEntity : MonoBehaviour
     /// Время инициализации объекта
     /// </summary>
     [HideInInspector]
-    public float initTime;    
+    public float initTime;
 
+    private Component[] components;
+
+    void Awake()
+    {
+        netEntity.OnNetStart += OnNetStart;
+        netEntity.OnNetDestroy += OnNetDestroy;
+    }
     void Start()
     {
+        components = GetComponents<Component>();
         // Init необходимо вызывать именно в Start т.к внутренняя инициализация не успевает сработать к Awake или OnEnable
         Init();       
     }
 
     void Init()
     {
-        netEntity.OnNetStart += OnNetStart;
-        netEntity.OnNetDestroy += OnNetDestroy;
+     //   netEntity.OnNetStart += OnNetStart;
+     //   netEntity.OnNetDestroy += OnNetDestroy; 
+       
         if (!netEntity.isInit)
         {
             // если netEntity все еще null то это явно наш объект
@@ -46,7 +59,8 @@ public class UnityNetEntity : MonoBehaviour
     }
 
     private void OnNetStart()
-    {      
+    {
+        Debug.Log(gameObject.name + " OnNetStart");
         //задаем время инициализации
         initTime = Time.time;
     }
@@ -59,7 +73,25 @@ public class UnityNetEntity : MonoBehaviour
 
     private void OnDestroy()
     {
+        netEntity.OnNetStart -= OnNetStart;
+        netEntity.OnNetDestroy -= OnNetDestroy;
         // если же мы удаляем объект по своей инициативе то сообщяем об этом сетевой сущности
-        if(netEntity!=null) netEntity.Destroy();
+        if (netEntity!=null) netEntity.Destroy();
+    }
+#if UNITY_EDITOR
+    void OnDrawGizmos()
+    {
+        if (GalaxyNetworkController.api == null) return;
+        if(GalaxyNetworkController.api.drawLables) UnityEditor.Handles.Label(transform.position + Vector3.up, "NetEntity: " + netEntity.netID);
+    }
+#endif
+
+
+
+    void LoadRPC()
+    {
+        List<MemberInfo> options_rpc = new List<MemberInfo>();
+        options_rpc = components.GetType().GetMembers(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+            .Where(n => Attribute.IsDefined(n, typeof(NetEntityRPC))).ToList();
     }
 }

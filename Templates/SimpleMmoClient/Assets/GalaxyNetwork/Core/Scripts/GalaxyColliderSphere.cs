@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GalaxyColliderSphere : MonoBehaviour
 {
-    private SphereCollider collider;
+    SphereCollider collider;
     float size = 1;
     public string physTag = "";
     private void OnDrawGizmos()

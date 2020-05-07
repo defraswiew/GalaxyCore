@@ -8,6 +8,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using GalaxyCoreLib.NetEntity;
 
+namespace GalaxyCoreLib
+{
+
+ 
+[RequireComponent(typeof(UnityNetEntity))]
 public class NetEntityTransform : MonoBehaviour
 {
     /// <summary>
@@ -25,6 +30,7 @@ public class NetEntityTransform : MonoBehaviour
     private void OnEnable()
     {
         GalaxyEvents.OnFrameUpdate += OnFrameUpdate;
+
     }
     private void OnDisable()
     {
@@ -44,11 +50,6 @@ public class NetEntityTransform : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, netEntity.transform.position.Vector3(), GalaxyApi.lerpDelta);
            if(!netEntity.transform.rotation.isZero()) transform.rotation = Quaternion.Lerp(transform.rotation, netEntity.transform.rotation.Quaternion(), GalaxyApi.lerpDelta);
         }      
-    }
-
-   
-
-
- 
-      
+    }      
+}
 }

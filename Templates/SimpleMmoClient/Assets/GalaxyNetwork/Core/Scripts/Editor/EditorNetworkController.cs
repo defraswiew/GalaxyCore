@@ -56,8 +56,19 @@ public class EditorNetworkController : Editor
                 GUILayout.EndHorizontal();
 
                 GUILayout.Label("Ping: " + GalaxyApi.connection.statistic.ping);
+
+
+              
             }
         }
+
+
+        GUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Отображать NetEntity");
+        item.drawLables = GUILayout.Toggle(item.drawLables, "");
+
+        GUILayout.EndHorizontal();
+
     }
 
 }

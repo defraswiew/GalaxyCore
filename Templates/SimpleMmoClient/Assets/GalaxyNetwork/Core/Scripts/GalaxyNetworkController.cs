@@ -21,14 +21,25 @@ public class GalaxyNetworkController : MonoBehaviour
     /// Конфигурация клиента
     /// </summary>
     Config config = new Config();
+
+    public bool drawLables = true;
+
+    public static GalaxyNetworkController api;
     private void Awake()
     {
+        if (api != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        api = this;
         config.serverIp = serverIP; // задаем указаный ип
         config.serverPort = serverPort; // задаем указанный порт
         config.app_name = "SimpleMmoServer"; // должно соответствовать имени сервера
         config.FrameRate = 25; // Устанавливаем сетевой фреймрейт
        
         GalaxyClientCore.Initialize(config); // инициализируем сетевое ядро
+        
         GalaxyClientCore.unityCalls.Awake(); // прокидываем Awake
         DontDestroyOnLoad(gameObject); // Помечаем объект как неразрушаемый при переходах между сценами        
     }
