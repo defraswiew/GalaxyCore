@@ -75,7 +75,6 @@
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExamplePlayer.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExampleRoomCreate.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\Extensions.cs" />
-     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\MessageEvents.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\RoomManager.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\RoomManagerItem.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\UiClientItem.cs" />

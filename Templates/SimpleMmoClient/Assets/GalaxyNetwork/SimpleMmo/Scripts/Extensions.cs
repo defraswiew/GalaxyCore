@@ -15,6 +15,8 @@ public static class Extensions
         mes.z = vector3.z;
         return mes;
     }
+
+  
     /*
     public static GalaxyTransform NetworkTransform(this Transform transform)
     {
@@ -58,7 +60,7 @@ public static class Extensions
     }
     public static Quaternion Quaternion(this GalaxyQuaternion quaternion)
     {              
-        if (quaternion == null) return UnityEngine.Quaternion.identity;
+        //if (quaternion == null) return UnityEngine.Quaternion.identity;
         tmpQ.x = quaternion.x;
         tmpQ.y = quaternion.y;
         tmpQ.z = quaternion.z;
@@ -79,3 +81,4 @@ public static class Extensions
   
 
 }
+ 

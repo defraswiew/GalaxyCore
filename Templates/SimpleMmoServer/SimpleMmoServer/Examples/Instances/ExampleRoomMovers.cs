@@ -7,7 +7,7 @@ namespace SimpleMmoServer.Examples.Instances
     {       
         float timer;
         int moverCount;
-        int moverMax = 1000;
+        int moverMax = 50000;
         public override void OutcomingClient(Client client)
         {                     
             
@@ -38,11 +38,15 @@ namespace SimpleMmoServer.Examples.Instances
             timer += Time.deltaTime;
             if (timer > 0.1f)
             {
-                if (moverCount > moverMax) return;
-                timer = 0;              
-                Examples.NetEntitys.ExampleRandomMove mover = new Examples.NetEntitys.ExampleRandomMove(this,new GalaxyVector3(0,1,0));
-                mover.Init();
-                moverCount++;
+                for (int i = 0; i < 5; i++)
+                {
+                    if (moverCount > moverMax) return;
+                    timer = 0;
+                    Examples.NetEntitys.ExampleRandomMove mover = new Examples.NetEntitys.ExampleRandomMove(this, new GalaxyVector3(0, 1, 0));
+                    mover.Init();
+                    moverCount++;
+                }
+               
             }              
               
         }

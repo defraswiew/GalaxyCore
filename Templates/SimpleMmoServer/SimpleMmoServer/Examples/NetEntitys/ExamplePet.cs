@@ -12,7 +12,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
         public NetEntity player;
         
 
-        public ExamplePet(Instance instance, GalaxyVector3 position = null, GalaxyQuaternion rotation = null, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public ExamplePet(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
             prefabName = "Pet";          
         }
@@ -36,7 +36,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
         public override void Update()
         {      
                 if (GalaxyVector3.Distance(transform.position, player.transform.position) < 2) return;
-                GalaxyVector3.LerpOptimize(transform.position, player.transform.position, instance.Time.deltaTime * 0.7f);
+            transform.position = GalaxyVector3.Lerp(transform.position, player.transform.position, instance.Time.deltaTime * 0.7f);
         }
     }
 }

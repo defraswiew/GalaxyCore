@@ -12,7 +12,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
         public ExampleRoomPhys room;
         float distanse;
 
-        public ExampleForse(Instance instance, GalaxyVector3 position = null, GalaxyQuaternion rotation = null, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public ExampleForse(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
             prefabName = "ExampleSphere";
         }

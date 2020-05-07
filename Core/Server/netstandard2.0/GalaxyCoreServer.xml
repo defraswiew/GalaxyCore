@@ -1161,7 +1161,7 @@
             Статичен ли объект в физическом мире
             </summary>
         </member>
-        <member name="P:GalaxyCoreServer.Physics.PhysEntity.velocity">
+        <member name="F:GalaxyCoreServer.Physics.PhysEntity.tmp_velosity">
             <summary>
             Линейное ускорение объекта
             </summary>

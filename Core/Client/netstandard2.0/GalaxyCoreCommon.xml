@@ -240,11 +240,6 @@
             Z координата
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.#ctor">
-            <summary>
-            Стандартный конструктор
-            </summary>
-        </member>
         <member name="M:GalaxyCoreCommon.GalaxyVector3.#ctor(System.Single,System.Single,System.Single)">
             <summary>
             

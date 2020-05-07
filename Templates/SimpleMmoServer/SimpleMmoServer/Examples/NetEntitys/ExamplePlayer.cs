@@ -12,7 +12,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
         ExamplePet pet;
         public int test;
         bool old_res = false;
-        public ExamplePlayer(Instance instance, GalaxyVector3 position = null, GalaxyQuaternion rotation = null, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public ExamplePlayer(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
             prefabName = "Player";
         }

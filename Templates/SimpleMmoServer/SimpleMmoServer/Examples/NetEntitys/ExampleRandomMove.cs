@@ -16,7 +16,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
         private int randTime; // время ожидания шага
                
 
-        public ExampleRandomMove(Instance instance, GalaxyVector3 position = null, GalaxyQuaternion rotation = null, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public ExampleRandomMove(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
             prefabName = "Move"; // задаем имя, что бы клиент знал какой префаб отображать     
         }
@@ -46,7 +46,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
                 target.x = GRand.NextInt(-80, 80);
                 target.z = GRand.NextInt(-80, 80);
             }
-            GalaxyVector3.LerpOptimize(transform.position, target, instance.Time.deltaTime*0.04f);   // лерпим текущую позицию к целевой раз в кадр         
+            transform.position = GalaxyVector3.Lerp(transform.position, target, instance.Time.deltaTime*0.04f);   // лерпим текущую позицию к целевой раз в кадр         
         }
 
          

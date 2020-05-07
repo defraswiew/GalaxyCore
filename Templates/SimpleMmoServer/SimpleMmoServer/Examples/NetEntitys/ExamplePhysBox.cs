@@ -14,7 +14,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
     {  
           
 
-        public ExamplePhysBox(Instance instance, GalaxyVector3 position = null, GalaxyQuaternion rotation = null, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public ExamplePhysBox(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
             //Задаем имя префаба соответствующего данному объекту
             prefabName = "ExampleBox";           

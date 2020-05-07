@@ -50,7 +50,7 @@ public class old_NetEntityTransform : MonoBehaviour
     private void UpdateTransform(MessageTransform message)
     {
         // if (unityNetEntity.netEntity.isMy) return;
-
+        /*
         if (message.position != null)
         {
             message.position.Vector3(out pos);
@@ -58,6 +58,7 @@ public class old_NetEntityTransform : MonoBehaviour
         }
         
         if (message.rotation != null) transform.rotation = message.rotation.Quaternion();
+        */
     }
 
 
