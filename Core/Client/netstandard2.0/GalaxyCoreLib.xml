@@ -163,7 +163,7 @@
             Запросить информацию о клиентах внутри текущего инстанса
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Instances.Create(System.String,System.Int32,System.Byte,GalaxyCoreCommon.BaseMessage)">
+        <member name="M:GalaxyCoreLib.Api.Instances.Create(System.String,System.Int32,System.Byte,GalaxyCoreCommon.BaseMessage,System.String,System.Boolean)">
             <summary>
             Запрос на создание инстанса
             </summary>
@@ -172,7 +172,17 @@
             <param name="type">пользовательский тип инстанса (для удобства)</param>
             <param name="message">Пользовательские данные (сообщение в виде наследника BaseMessage)</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Instances.Create(System.String,System.Int32,System.Byte,System.Byte[])">
+        <member name="M:GalaxyCoreLib.Api.Instances.Create(System.String,System.Int32,System.Byte,System.String,System.Boolean)">
+            <summary>
+            Запрос на создание инстанса
+            </summary>
+            <param name="name">Имя инстанса (не обязательно уникальное)</param>
+            <param name="maxClients">Максимум клиентов (если 0, то без ограничений)</param>
+            <param name="type">пользовательский тип инстанса (для удобства)</param>
+            <param name="password">пароль на инстанс</param>
+            <param name="visible">виден ли другим пользователям</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.Instances.Create(System.String,System.Int32,System.Byte,System.Byte[],System.String,System.Boolean)">
             <summary>
             Запрос на создание инстанса
             </summary>
@@ -216,6 +226,11 @@
         <member name="T:GalaxyCoreLib.Api.NetEntityManager">
             <summary>
             Менеджер работы с сетевыми сущностями
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreLib.Api.NetEntityManager.Count">
+            <summary>
+            Число активных сетевых объектов
             </summary>
         </member>
         <member name="F:GalaxyCoreLib.Api.NetEntityManager.awaiting">

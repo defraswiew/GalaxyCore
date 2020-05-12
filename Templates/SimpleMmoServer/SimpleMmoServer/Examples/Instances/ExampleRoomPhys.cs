@@ -18,7 +18,7 @@ namespace SimpleMmoServer.Examples.Instances
         int bodyCount; // текущее число боксов
         int bodyMax = 500; // целевое число боксов       
         int bodyForseCount;
-        int bodyForseMax = 1;
+        int bodyForseMax = 1000;
         public GalaxyVector3 forseTarget = new GalaxyVector3(10, 10, 10);
         int frameCount;
         //////// RayCast TEST //////
@@ -50,10 +50,11 @@ namespace SimpleMmoServer.Examples.Instances
         public override void Start()
         {
           //  autoClose = false;
-            Log.Info("ExampleRoomPhys", "instance id:"+id);// выводим в консоль тип комнаты
-            SetFrameRate(20); // устанавливаем подходящий врейм рейт
-            // physics.Activate("phys/ExamplePhys.phys"); // активизуем физику c указанием пути на файл запеченой сцены    
-             physics.Activate();
+             Log.Info("ExampleRoomPhys", "instance id:"+id);// выводим в консоль тип комнаты
+             SetFrameRate(20); // устанавливаем подходящий врейм рейт
+        //     physics.Activate("phys/ExamplePhys.phys"); // активизуем физику c указанием пути на файл запеченой сцены    
+             
+            physics.Activate();
         }
 
         public override void Update()
@@ -63,7 +64,7 @@ namespace SimpleMmoServer.Examples.Instances
             if (timer > 0.2f)
             {
                 timer = 0;
-                if (bodyCount < bodyMax) BoxSpawn();
+            //    if (bodyCount < bodyMax) BoxSpawn();
                 if (bodyForseCount < bodyForseMax) BodyForseSpawn();
             }
 
@@ -107,7 +108,7 @@ namespace SimpleMmoServer.Examples.Instances
             }         
         }
 
-
+        /*
         private void BoxSpawn()
         {          
 
@@ -130,6 +131,7 @@ namespace SimpleMmoServer.Examples.Instances
                     box.Init();
                    bodyCount++;
         }
+        */
 
         private void BodyForseSpawn()
         {

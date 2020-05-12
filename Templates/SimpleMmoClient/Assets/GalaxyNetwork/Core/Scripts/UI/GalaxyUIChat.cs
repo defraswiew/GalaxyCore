@@ -75,7 +75,7 @@ public class GalaxyUIChat : MonoBehaviour
     public void Draw(bool visible)
     {
         window.SetActive(visible);
-        mini.SetActive(!visible);
+    //    mini.SetActive(!visible);
     }
 
     private void OnGalaxyIncomingClient(RemoteClient client)

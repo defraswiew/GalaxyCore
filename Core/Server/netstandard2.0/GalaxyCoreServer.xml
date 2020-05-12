@@ -96,7 +96,7 @@
             Менеджер инстансов
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Api.InstanceManager.Create(System.String,System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.Client)">
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.Create(System.String,System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.Client,System.String,System.Boolean)">
             <summary>
             Создание нового инстанса
             </summary>
@@ -105,6 +105,8 @@
             <param name="type">Пользовательский тип (может быть 0)</param>
             <param name="data">Пользовательские данные</param>
             <param name="client">Клиент запросивший создание инстанса, может быть null если запрос был создан не клиентом а к примеру сервером</param>
+            <param name="password">Пароль на вход</param>
+            <param name="visible">виден ли другим пользователям</param>
         </member>
         <member name="M:GalaxyCoreServer.Api.InstanceManager.InstancesList(GalaxyCoreServer.Client)">
             <summary>
@@ -502,6 +504,16 @@
         <member name="F:GalaxyCoreServer.Instance.autoClose">
             <summary>
             Закрывать ли инстанс когда в нем нет игроков
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.password">
+            <summary>
+            Пароль на вход
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.visible">
+            <summary>
+            Выводить ли инстанс в клиентских списках
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.Instance.Close">

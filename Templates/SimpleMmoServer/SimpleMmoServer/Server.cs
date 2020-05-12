@@ -13,6 +13,10 @@ namespace SimpleMmoServer
         /// </summary>
         Authorization authorization = new Authorization();
         /// <summary>
+        /// Пример регистрации
+        /// </summary>
+        ExampleRegistration exampleRegistration = new ExampleRegistration();
+        /// <summary>
         /// Конфигурация сервера
         /// </summary>
         Config config = new Config();

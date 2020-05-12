@@ -190,9 +190,39 @@
             Нет свободных мест
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.ErrorCodes.Instance_password_not_correct">
+            <summary>
+            Не подходит пароль к инстансу
+            </summary>
+        </member>
         <member name="T:GalaxyCoreCommon.ChatMessageType">
             <summary>
             Тип сообщения
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.ChatMessageType.none">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.ChatMessageType.all">
+            <summary>
+            всем
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.ChatMessageType.privateMessage">
+            <summary>
+            приватное
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.ChatMessageType.instance">
+            <summary>
+            в инстанс
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.ChatMessageType.group">
+            <summary>
+            групповое
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.GalaxyQuaternion">
@@ -439,6 +469,16 @@
             Пользовательские данные
             </summary>
         </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessInstanceCreate.password">
+            <summary>
+            Пароль на вход в инстанс (не обязателен)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.MessInstanceCreate.visible">
+            <summary>
+            Видим ли инстанс в списке
+            </summary>
+        </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessInstanceEnter">
             <summary>
             Сообщение запроса на вход в инстанс
@@ -512,6 +552,11 @@
         <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.owner">
             <summary>
             владелец комнаты (он же может работать как виртуальный host
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.password">
+            <summary>
+            есть ли пароль на вход в комнату
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessInstanceSync">

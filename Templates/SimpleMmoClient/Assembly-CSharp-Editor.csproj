@@ -89,6 +89,9 @@
  <Reference Include="Unity.Rider.Editor">
  <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.ProBuilder.AddOns.Editor">
  <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
  </Reference>
