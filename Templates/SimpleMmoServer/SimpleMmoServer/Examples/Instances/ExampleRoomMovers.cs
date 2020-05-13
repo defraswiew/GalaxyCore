@@ -38,7 +38,7 @@ namespace SimpleMmoServer.Examples.Instances
             timer += Time.deltaTime;
             if (timer > 0.1f)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 1; i++)
                 {
                     if (moverCount > moverMax) return;
                     timer = 0;

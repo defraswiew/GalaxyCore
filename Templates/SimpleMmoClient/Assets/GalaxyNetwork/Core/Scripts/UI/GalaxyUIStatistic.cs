@@ -30,6 +30,6 @@ public class GalaxyUIStatistic : MonoBehaviour
         outTraffic.text = System.Math.Round((GalaxyApi.connection.statistic.outTraffic / 1024f) / 1024f, 2) + " MB";
         outSpeed.text = System.Math.Round(GalaxyApi.connection.statistic.outTrafficInSecond / 1024f, 2) + " KB";
         entity.text = GalaxyApi.netEntity.Count.ToString();
-        ping.text = System.Math.Round(GalaxyApi.connection.statistic.ping, 2).ToString();
+        ping.text = System.Math.Round(GalaxyApi.connection.statistic.ping * 1000, 2) + " ms";
     }
 }
