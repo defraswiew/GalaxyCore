@@ -14,7 +14,10 @@ public class GalaxyUIReg : MonoBehaviour
     public Text status;
     public GameObject progress;
    
-
+    void Start()
+    {
+        if (active) status.text = "";
+    }
 
     public void Reg()
     {

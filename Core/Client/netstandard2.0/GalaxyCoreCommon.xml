@@ -322,13 +322,6 @@
             <param name="b"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.SqrMagnitude(GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            Быстрый расчет квадрата дистанции
-            </summary>
-            <param name="vector"></param>
-            <returns></returns>
-        </member>
         <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Addition(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             +
@@ -375,6 +368,57 @@
             <param name="a"></param>
             <param name="d"></param>
             <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.ToString">
+            <summary>
+            Returns a nicely formatted string for this vector.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.ToString(System.String)">
+            <summary>
+            Returns a nicely formatted string for this vector.
+            </summary>
+            <param name="format">The format for each coordinate.</param>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.Zero">
+            <summary>
+            Shorthand for writing Point(0, 0, 0).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.One">
+            <summary>
+            Shorthand for writing Point(1, 1, 1).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.Forward">
+            <summary>
+            Shorthand for writing Point(0, 0, 1).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.Back">
+            <summary>
+            Shorthand for writing Point(0, 0, -1).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.Up">
+            <summary>
+            Shorthand for writing Point(0, 1, 0).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.Down">
+            <summary>
+            Shorthand for writing Point(0, -1, 0).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.Left">
+            <summary>
+            Shorthand for writing Point(-1, 0, 0).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVector3.Right">
+            <summary>
+            Shorthand for writing Point(1, 0, 0).
+            </summary>
         </member>
         <member name="T:GalaxyCoreCommon.GalaxyVersion">
             <summary>

@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\GalaxyNetwork\_TMP\EnityBase.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\ProtoTest.cs" />
+     <Compile Include="Assets\GalaxyNetwork\_TMP\test_send_to_instance.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TestEntity.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TPM_Spawn.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\GalaxyDragWindow.cs" />
