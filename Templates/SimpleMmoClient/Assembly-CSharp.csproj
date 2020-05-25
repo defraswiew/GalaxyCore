@@ -61,6 +61,8 @@
      <Compile Include="Assets\GalaxyNetwork\_TMP\TestEntity.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TPM_Spawn.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\GalaxyDragWindow.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\DebugLoger.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Extensions.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyAnimSync.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyColliderBox.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyColliderSphere.cs" />
@@ -83,10 +85,8 @@
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUiRoomInfo.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUiRoomItem.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIStatistic.cs" />
-     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\DebugLoger.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExamplePlayer.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExampleRoomCreate.cs" />
-     <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\Extensions.cs" />
      <None Include="Assets\GalaxyNetwork\Resources\link.xml" />
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\SimpleMmoCommon.xml" />
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\protobuf-net.xml" />

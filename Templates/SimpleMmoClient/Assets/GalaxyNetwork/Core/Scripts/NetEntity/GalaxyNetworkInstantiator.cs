@@ -23,8 +23,9 @@ public class GalaxyNetworkInstantiator : MonoBehaviour
         //Debug.Log(netEntity.prefabName);
         // если нет имени у сетевой сущности, значит не нужно создавать для неё go
         if (netEntity.prefabName == "") return null;
+      //  Debug.Log(netEntity.transform.position.Vector3());
         UnityNetEntity go = Instantiate(Resources.Load<UnityNetEntity>(netEntity.prefabName), netEntity.transform.position.Vector3(), netEntity.transform.rotation.Quaternion());
-    
+        go.netEntity.transform.position = netEntity.transform.position;
         // возвращяем целевой экземпляр ClientNetEntity из нового go
         return go.netEntity;   
     }

@@ -2453,6 +2453,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ddb1ef9a6c993954ca016d40dd206615, type: 2}
   - {fileID: 11400000, guid: 8b17b7e4d44c3b5418ea36266af837a8, type: 2}
   - {fileID: 11400000, guid: f8f238ccbf2a5ab408d3cc02a15f3ed2, type: 2}
+  - {fileID: 11400000, guid: 1afcc6c6283f5474ba79c13fadeb3c8f, type: 2}
   roomList: {fileID: 1830764011}
   roomCreate: {fileID: 231636273}
   exitBtn: {fileID: 295975403}

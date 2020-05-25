@@ -66,6 +66,8 @@ namespace SimpleMmoServer
                     return new Examples.Instances.ExampleRoomPhys();                
                 case 2: // запрос на создание комнаты с бегунками
                     return new Examples.Instances.ExampleRoomMovers();
+                case 3: // Пример комнаты с октодревом
+                    return new Examples.Instances.ExampleOctoRoom();
                 default:
                     return null; // если не нужно ничего переопределять, то возвращяем null (будет использоваться стандартная комната)
             }           

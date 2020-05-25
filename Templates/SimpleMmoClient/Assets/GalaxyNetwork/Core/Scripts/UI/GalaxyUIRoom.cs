@@ -39,10 +39,12 @@ namespace GalaxyCoreLib
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            GalaxyApi.instances.SyncInstance();
+            Debug.Log("OnSceneLoaded");         
             SceneManager.sceneLoaded -= OnSceneLoaded;
+            GalaxyApi.instances.SyncInstance();
         }
 
+      
         void OnDisable()
         {
             GalaxyEvents.OnGalaxyConnect -= OnGalaxyConnect;
@@ -90,7 +92,7 @@ namespace GalaxyCoreLib
                 if (target.sceneName != "")
                 {
                     SceneManager.LoadSceneAsync(target.sceneName);
-                    SceneManager.sceneLoaded += OnSceneLoaded;
+                    SceneManager.sceneLoaded += OnSceneLoaded;                
                 } else
                 {
                     GalaxyApi.instances.SyncInstance();

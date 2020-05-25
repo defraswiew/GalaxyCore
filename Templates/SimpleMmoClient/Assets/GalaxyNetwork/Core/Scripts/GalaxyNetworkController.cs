@@ -27,11 +27,13 @@ public class GalaxyNetworkController : MonoBehaviour
     public static GalaxyNetworkController api;
     private void Awake()
     {      
+        /*
         if (GalaxyApi.connection.isConnected)
         {
             Destroy(gameObject);
             return;
         }     
+        */
         if (api != null)
         {
             Destroy(gameObject);

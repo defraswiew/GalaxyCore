@@ -91,6 +91,43 @@
             Вызывается при создании любой сетевой сущности
             </summary>
         </member>
+        <member name="T:GalaxyCoreServer.Api.GalaxyOctree">
+            <summary>
+            Октодрево для быстрого поиска ближайших объектов
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.GalaxyOctree.inited">
+            <summary>
+            инициализированно ли древо
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyOctree.Init(System.Single,System.Single)">
+            <summary>
+            Инициализация древа
+            </summary>
+            <param name="startSize">Стартовый размер древа</param>
+            <param name="minNodeSize">Минимальный размер нода</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyOctree.GetNearby(GalaxyCoreCommon.GalaxyVector3,System.Single)">
+            <summary>
+            Получить NetEntity в пределах указанной дистанции от точки
+            </summary>
+            <param name="pos">точка поиска</param>
+            <param name="distance">дистанция</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyOctree.AddEntity(GalaxyCoreServer.NetEntity)">
+            <summary>
+            Добавить сущность
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyOctree.RemoveEntity(GalaxyCoreServer.NetEntity)">
+            <summary>
+            Добавить сущность
+            </summary>
+            <param name="entity"></param>
+        </member>
         <member name="T:GalaxyCoreServer.Api.InstanceManager">
             <summary>
             Менеджер инстансов
@@ -107,6 +144,12 @@
             <param name="client">Клиент запросивший создание инстанса, может быть null если запрос был создан не клиентом а к примеру сервером</param>
             <param name="password">Пароль на вход</param>
             <param name="visible">виден ли другим пользователям</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.Create(GalaxyCoreServer.Instance)">
+            <summary>
+            Прямое создание инстанса
+            </summary>
+            <param name="instance"></param>
         </member>
         <member name="M:GalaxyCoreServer.Api.InstanceManager.InstancesList(GalaxyCoreServer.Client)">
             <summary>
@@ -159,6 +202,14 @@
             Дефолт конструктор
             </summary>
             <param name="instance"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.GetNearby(GalaxyCoreCommon.GalaxyVector3,System.Single)">
+            <summary>
+            Получение массива NetEntity в радиусе от указанной точки
+            </summary>
+            <param name="pos">точка поиска</param>
+            <param name="distance">Радиус</param>
+            <returns></returns>
         </member>
         <member name="M:GalaxyCoreServer.Api.NetEntityManager.CreateNetEntity(GalaxyCoreServer.NetEntity)">
             <summary>
@@ -260,6 +311,11 @@
         <member name="F:GalaxyCoreServer.Client.key">
             <summary>
             Сетевой ключик
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Client.synk">
+            <summary>
+            Синхронизировал ли клиент картину мира в текущем инстансе
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.Client.SetNetConnection(Lidgren.Network.NetConnection)">
@@ -464,13 +520,6 @@
             Список клиентов
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.GetClientById(System.Int32)">
-            <summary>
-            Получение клиента в инстансе по Id
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
         <member name="F:GalaxyCoreServer.Instance.entities">
             <summary>
             Коллекция сетевых объектов
@@ -520,6 +569,13 @@
             <summary>
             Вызывается при закрытии инстанса
             </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.GetClientById(System.Int32)">
+            <summary>
+            Получение клиента в инстансе по Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="M:GalaxyCoreServer.Instance.SetFrameRate(System.Int32)">
             <summary>
@@ -844,6 +900,11 @@
         <member name="F:GalaxyCoreServer.NetEntity.transform">
             <summary>
             Transform
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.initData">
+            <summary>
+            Расширенные данные инициализации
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreServer.NetEntityAutoSync)">

@@ -60,7 +60,7 @@ public class UnityNetEntity : MonoBehaviour
 
     private void OnNetStart()
     {
-        Debug.Log(gameObject.name + " OnNetStart");
+     //   Debug.Log(gameObject.name + " OnNetStart");
         //задаем время инициализации
         initTime = Time.time;
     }
