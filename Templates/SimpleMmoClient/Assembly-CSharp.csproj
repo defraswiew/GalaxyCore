@@ -85,6 +85,7 @@
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUiRoomInfo.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUiRoomItem.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIStatistic.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Examples\Scripts\ExampleBitGalaxy.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExamplePlayer.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExampleRoomCreate.cs" />
      <None Include="Assets\GalaxyNetwork\Resources\link.xml" />
