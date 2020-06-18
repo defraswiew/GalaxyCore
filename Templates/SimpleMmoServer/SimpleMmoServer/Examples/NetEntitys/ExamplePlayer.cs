@@ -51,7 +51,8 @@ namespace SimpleMmoServer.Examples.NetEntitys
 
         public override void Update()
         {            
-          physics.SetPhys();             
+          physics.SetPhys();
+           // physics.ApplyPhys();
         }
     }
 }

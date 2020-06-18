@@ -243,6 +243,20 @@
             Словарь активный сущностей
             </summary>
         </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.GetById(System.Int32)">
+            <summary>
+            Получить сущность по ид
+            </summary>
+            <param name="netID">netID</param>
+            <returns>вернет ClientNetEntity или Null</returns>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.GetByClientId(System.Int32)">
+            <summary>
+            Получить списко сущностей указанного клиента
+            </summary>
+            <param name="clientId">ид целевого клиента</param>
+            <returns></returns>
+        </member>
         <member name="M:GalaxyCoreLib.Api.NetEntityManager.Instantiate(GalaxyCoreLib.NetEntity.ClientNetEntity,System.Byte[])">
             <summary>
             Создание новой сетевой сущности

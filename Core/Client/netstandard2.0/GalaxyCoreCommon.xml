@@ -30,6 +30,216 @@
             <param name="data">Массив байт</param>
             <returns></returns>
         </member>
+        <member name="T:GalaxyCoreCommon.BitGalaxy">
+            <summary>
+            Класс контейнера для битовой серриализации
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.BitGalaxy.data">
+            <summary>
+            Результирующий массив байт
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.BitGalaxy.LengthBits">
+            <summary>
+            Размер данных в битах
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.BitGalaxy.LengthBytes">
+            <summary>
+            Размер данных в байтах
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.BitGalaxy.position">
+            <summary>
+            Текущая позиция считывания в байтах
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.BitGalaxy.netBuffer">
+            <summary>
+            Основной буфер
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.#ctor">
+            <summary>
+            Стандартный конструктор
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.#ctor(System.Byte[])">
+            <summary>
+            Создать контейнер на основе имеющегося массива байт
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.Boolean)">
+            <summary>
+            Записать bool
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadBool">
+            <summary>
+            Прочитать bool
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.Byte)">
+            <summary>
+            Записать byte
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadByte">
+            <summary>
+            Прочитать byte
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.Byte[])">
+            <summary>
+            Записать массив byte
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadBytes(System.Int32)">
+            <summary>
+            Прочитать заданное число байт
+            </summary>
+            <param name="count">сколько байт читать</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.Int16)">
+            <summary>
+            Записать short
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadShort">
+            <summary>
+            Прочитать short
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.UInt16)">
+            <summary>
+            Записать ushort
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadUshort">
+            <summary>
+            Прочитать ushort
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.Int32)">
+            <summary>
+            Записать Int
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadInt">
+            <summary>
+            Прочитать Int
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.UInt32)">
+            <summary>
+            Записать uint
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadUint">
+            <summary>
+            Прочитать uint
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.Int64)">
+            <summary>
+            Записать long
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadLong">
+            <summary>
+            Прочитать long
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.UInt64)">
+            <summary>
+            Записать ulong
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadUlong">
+            <summary>
+            Прочитать ulong
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.Single)">
+            <summary>
+            Записать float
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadFloat">
+            <summary>
+            Прочитать float
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.Double)">
+            <summary>
+            Записать double
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadDouble">
+            <summary>
+            Прочитать double
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(System.String)">
+            <summary>
+            Записать string
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadString">
+            <summary>
+            Прочитать string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Записать GalaxyVector3
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadGalaxyVector3">
+            <summary>
+            Прочитать string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>
+            Записать GalaxyQuaternion
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadGalaxyQuaternion">
+            <summary>
+            Прочитать string
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:GalaxyCoreCommon.GalaxyDeliveryType">
             <summary>
             Способ доставки сообщения
