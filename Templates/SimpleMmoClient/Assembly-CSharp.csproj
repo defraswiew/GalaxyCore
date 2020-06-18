@@ -91,6 +91,7 @@
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\SimpleMmoCommon.xml" />
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\protobuf-net.xml" />
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\GalaxyCoreCommon.xml" />
+     <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\GalaxyCoreCommon 1.xml" />
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\GalaxyCoreLib.xml" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/repos/GalaxyCore/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
