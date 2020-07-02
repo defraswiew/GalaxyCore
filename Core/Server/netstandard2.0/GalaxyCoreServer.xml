@@ -293,9 +293,9 @@
             Дополнительная ссылка на пир
             </summary>
         </member>
-        <member name="F:GalaxyCoreServer.Client.timeConnected">
+        <member name="P:GalaxyCoreServer.Client.timeConnected">
             <summary>
-            Время коннекта
+            Онлайн в секундах
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.Client.instanse">
@@ -564,6 +564,29 @@
             <summary>
             Выводить ли инстанс в клиентских списках
             </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Invoke(System.String,System.Single,System.Object[])">
+            <summary>
+            Вызов публичного метода через указанное время
+            </summary>
+            <param name="name">Имя метода</param>
+            <param name="time">время</param>
+            <param name="list">набор параметров</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.InvokeRepeating(System.String,System.Single,System.Single,System.Object[])">
+            <summary>
+            Вызов метода через указанное время с указанным повторением
+            </summary>
+            <param name="name">Имя метода</param>
+            <param name="time">время</param>
+            <param name="repeat">время повторения</param>
+            <param name="list">набор параметров</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.CancelInvoke(System.String)">
+            <summary>
+            Удалить задачу вызова метода по имени
+            </summary>
+            <param name="name">имя метода</param>
         </member>
         <member name="M:GalaxyCoreServer.Instance.Close">
             <summary>
@@ -857,6 +880,16 @@
             <param name="publisher">Кто вызвал</param>
             <param name="message">Сообщение</param>
         </member>
+        <member name="T:GalaxyCoreServer.Managers.InvokeManager">
+            <summary>
+            Менеджер отложенных задач
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Managers.InvokeManager.tasks">
+            <summary>
+            список задач
+            </summary>
+        </member>
         <member name="T:GalaxyCoreServer.NetEntity">
             <summary>
             Серверная реализация сетевой сущности
@@ -919,6 +952,11 @@
             </summary>
             <param name="client">новый владелец (если null, то владельцем становится сервер)</param>
         </member>
+        <member name="M:GalaxyCoreServer.NetEntity.ChangeOwnerRandom">
+            <summary>
+            Замена владельца на клиента с наименьшим числом активных сущностей
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.NetEntity.Start">
             <summary>
             Вызывается при полной инициализации объекта
@@ -980,6 +1018,29 @@
             <param name="code">пользовательский код</param>
             <param name="data">массив байт</param>
             <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Invoke(System.String,System.Single,System.Object[])">
+            <summary>
+            Вызов публичного метода через указанное время
+            </summary>
+            <param name="name">Имя метода</param>
+            <param name="time">время</param>
+            <param name="list">набор параметров</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.InvokeRepeating(System.String,System.Single,System.Single,System.Object[])">
+            <summary>
+            Вызов метода через указанное время с указанным повторением
+            </summary>
+            <param name="name">Имя метода</param>
+            <param name="time">время</param>
+            <param name="repeat">время повторения</param>
+            <param name="list">набор параметров</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.CancelInvoke(System.String)">
+            <summary>
+            Удалить задачу вызова метода по имени
+            </summary>
+            <param name="name">имя метода</param>
         </member>
         <member name="T:GalaxyCoreServer.NetEntityLossOwnerLogic">
             <summary>

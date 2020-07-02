@@ -28,11 +28,18 @@ namespace SimpleMmoServer.Examples.NetEntitys
         public override void Start()
         {
             oldOwner = instance.GetClientById(ownerClientId);
+            InvokeRepeating("Test", 10, 2, 5);
+        }
+
+        public void Test(int num)
+        {
+            Log.Info("Invoke", "test");
+            //CancelInvoke("Test");
         }
 
         public override void Update()
         {
-
+/*
             timer++;
             if (timer == 100) ChangeOwner();
             if (timer == 200)
@@ -40,6 +47,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
                 ChangeOwner(oldOwner);
                 timer = 0;
             }
+            */
         }
     }
 }

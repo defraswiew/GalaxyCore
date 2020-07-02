@@ -630,6 +630,11 @@
             <param name="netEntity">сетевой объект служащий транспортом для аниматора</param>
             <param name="count">число переменных</param>
         </member>
+        <member name="M:GalaxyCoreLib.NetEntity.AnimatorSync.FullSend">
+            <summary>
+            Отправить полный пакет данных
+            </summary>
+        </member>
         <member name="T:GalaxyCoreLib.NetEntity.ClientNetEntity">
             <summary>
             Реализация сетевой сущности на стороне клиента

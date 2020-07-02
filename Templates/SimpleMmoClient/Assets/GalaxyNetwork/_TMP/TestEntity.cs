@@ -12,7 +12,7 @@ public class TestEntity : MonoBehaviour
         netEntity.OnNetStart += OnNetStart;
         netEntity.prefabName = "Player";
 
-
+         
         GalaxyApi.netEntity.Instantiate(netEntity);
     }
 

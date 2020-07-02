@@ -37,6 +37,12 @@ namespace SimpleMmoServer.Examples.Instances
                 test.transform.position = new GalaxyVector3(random.Next(-10, 10), 0, random.Next(-10, 10));
                 test.Init();
             }
+            Invoke("TestInvoke", 5,10,"привет");
+        }
+
+        private void TestInvoke(int num, string name)
+        {
+            Log.Info("TestInvoke", "Complete " + num +  "  " +name);
         }
 
         public override void InMessage(byte code, byte[] data, Client clientConnection)
