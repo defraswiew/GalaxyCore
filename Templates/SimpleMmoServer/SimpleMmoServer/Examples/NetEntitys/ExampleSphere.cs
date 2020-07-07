@@ -29,7 +29,13 @@ namespace SimpleMmoServer.Examples.NetEntitys
             ColliderSphere collider = new ColliderSphere(0.5f);
             physics.Activate(collider); // активируем физику     
             physics.mass = 1f; // устанавливае вес объекта в кг
-            transform.syncType = NetEntityAutoSync.position_and_rotation; // указываем способ синхронизации 
+            transform.syncType = NetEntityAutoSync.position_and_rotation; // указываем способ синхронизации           
+            physics.OnCollisionEnter += OnCollisionEnter;
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {          
+            Log.Info("OnCollisionEnter", collision.tag);
         }
 
         public override void Update()

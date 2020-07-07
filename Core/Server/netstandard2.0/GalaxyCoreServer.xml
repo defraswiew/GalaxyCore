@@ -1177,6 +1177,13 @@
             <param name="clientConnection"></param>
             <returns></returns>
         </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegatOnCollisionEnter">
+            <summary>
+            Collision of two bodies
+            Произошло столкновение
+            </summary>
+            <param name="collision"></param>
+        </member>
         <member name="M:GalaxyCoreServer.Network.IncomingMessage.DataMessage(Lidgren.Network.NetIncomingMessage)">
             <summary>
             Пользовательское сообщение
@@ -1285,28 +1292,74 @@
             </summary>
             <param name="radius">радиус</param>
         </member>
+        <member name="T:GalaxyCoreServer.Physics.Collision">
+            <summary>
+            Description of the collision of two physical bodies
+            Описание столкновения двух физических тел
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.Collision.point">
+            <summary>
+            Collision Point in World Space
+            Точка столкновения в мировом пространстве
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.Collision.normal">
+            <summary>
+            Collision direction
+            Направление столкновения
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.Collision.tag">
+            <summary>
+            Collider tag
+            Тег коллайдера
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.Collision.netEntity">
+            <summary>
+            The entity with which the collision occurred. It may be null if a collision occurred with a static collider.
+            Сущность с которой произошло столкновение. Может быть null если столкновение произошло с статическим коллайдером.
+            </summary>
+        </member>
         <member name="T:GalaxyCoreServer.Physics.PhysEntity">
             <summary>
+            Physical representation for netEntity
             Физическое представление для netEntity
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Physics.PhysEntity.OnCollisionEnter">
+            <summary>
+            Collision of two bodies
+            Произошло столкновение
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.Physics.PhysEntity.mass">
             <summary>
+            Mass
             Масса объекта
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.Physics.PhysEntity.isKinematic">
             <summary>
+            Is the object static in the physical world
             Статичен ли объект в физическом мире
             </summary>
         </member>
-        <member name="F:GalaxyCoreServer.Physics.PhysEntity.tmp_velosity">
+        <member name="P:GalaxyCoreServer.Physics.PhysEntity.isCollisionListener">
             <summary>
+            Есть ли подписчики на коллизию
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysEntity.velocity">
+            <summary>
+            Linear acceleration of an object
             Линейное ускорение объекта
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.Physics.PhysEntity.useGravity">
             <summary>
+            Does gravity affect an object
             Действует ли гравитация на объект
             </summary>
         </member>
@@ -1321,6 +1374,12 @@
             Физическое вращение
             </summary>
             <param name="vector3"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysEntity.CallOnCollisionEnter(GalaxyCoreServer.Physics.Collision)">
+            <summary>
+            Вызвать событие коллизии
+            </summary>
+            <param name="collision"></param>
         </member>
         <member name="M:GalaxyCoreServer.Physics.PhysEntity.Activate(GalaxyCoreServer.Physics.ColliderBox)">
             <summary>
@@ -1347,16 +1406,19 @@
         </member>
         <member name="T:GalaxyCoreServer.Physics.PhysWorld">
             <summary>
-            Представление физического мира внутри инстанса
+            Представление физического мира внутри инстанса.
+            Representation of the real world inside an instance.
             </summary>
         </member>
         <member name="F:GalaxyCoreServer.Physics.PhysWorld.multithread">
             <summary>
+            Whether to use multithreaded mode
             Использовать ли многопоточный режим
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.Physics.PhysWorld.#ctor(GalaxyCoreServer.Instance)">
             <summary>
+            Default constructor
             Дефолт конструктор
             </summary>
         </member>

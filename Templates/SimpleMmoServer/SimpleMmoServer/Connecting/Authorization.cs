@@ -27,7 +27,7 @@ namespace SimpleMmoServer
         /// <param name="data">Массив байт, данные присланные вместе с запросом авторизации</param>
         private void OnGalaxyConnect(ApprovalConnection approvalConnection, byte[] data)
         {
-            Log.Debug("OnGalaxyConnect", data.Length.ToString());
+            
             MessageAuth message = MessageAuth.Deserialize<MessageAuth>(data); //преобразовывем массив байт в читабельное сообщение            
             //тут нам следовало бы провести какую либо проверку правильности логина и пароля
             //Но сейчас мы не станем этого делать, и просто разрешить соеденение всем в чьих логинах содержится test
@@ -43,7 +43,7 @@ namespace SimpleMmoServer
                 // возвращяем данные вместе с разрешением, так же мы получим уже рабочий экземпляр авторизированного соеденения 
                 // так же приклепляем собственную реализацию клиента, для того что бы в бущем, можно было её оперативно получить из коннекшена
                 approvalConnection.Approve(response, clientID, client);
-                
+                Log.Debug("OnGalaxyConnect", "Client " + clientID + " connected");
             }
             else
             {
@@ -52,6 +52,7 @@ namespace SimpleMmoServer
                 // первый это код ошибки, вы можете указать его любым, от вернется клиенту для дайнейшей обработки
                 // второй это читабельное сообщение об ошибки, впрочим это не обязательно
                 approvalConnection.Deny(1, "Нам не нравится ваш логин");
+                Log.Debug("OnGalaxyConnect", "неудачный коннект");
             }
         }
     }

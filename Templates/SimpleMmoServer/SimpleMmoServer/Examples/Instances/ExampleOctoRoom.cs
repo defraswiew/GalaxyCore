@@ -1,5 +1,6 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
+ 
 using SimpleMmoServer.Examples.NetEntitys;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace SimpleMmoServer.Examples.Instances
         
         public ExampleOctoRoom()
         {
+          
         }
 
         public override void Close()
@@ -30,21 +32,22 @@ namespace SimpleMmoServer.Examples.Instances
         }   
 
         public override void Start()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                ExampleEntityTest test = new ExampleEntityTest(this);
-                test.transform.position = new GalaxyVector3(random.Next(-10, 10), 0, random.Next(-10, 10));
-                test.Init();
-            }
-            Invoke("TestInvoke", 5,10,"привет");
+        {          
+            Invoke("TestInvoke", 5, 10,"привет");
+            InvokeRepeating("TestInvokeRepeating", 5, 1, "Я повторяюсь раз в секунду","и еще текста");
         }
 
-        private void TestInvoke(int num, string name)
+        public void TestInvoke(int num, string name)
         {
             Log.Info("TestInvoke", "Complete " + num +  "  " +name);
         }
 
+        public void TestInvokeRepeating(string message, string test)
+        {
+            Log.Info("TestInvokeRepeating", "Complete " + name + " " + test);
+        }
+
+         
         public override void InMessage(byte code, byte[] data, Client clientConnection)
         {
 
