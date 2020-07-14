@@ -1,7 +1,7 @@
 Galaxy Network это сетевое решение предназначенное в первую очередь, для применения в игровых движках таких как Unity, Unigine, Stride (Xenko). Однако возможно использование в любых других средах поддерживающих c# net Standart 2.0+.  
 Решение состоит из клиентской и серверной части, обе представлены в виде подключаемого к проекту набора библиотек.  Galaxy network способен работать как в авторитарном режиме, так и в режиме ретранслятора.  Ниже представлен набор поддерживаемого на данный момент функционала.
 
-
+Инструкция по установке https://youtu.be/eo6nW2DM0TE
 
 Сеть:
 Авторизация / регистрация.
@@ -83,7 +83,8 @@ iOS.
 
 
 
-
+Installation Instructions 
+https://youtu.be/sDxyENBw77E
 
 Galaxy Network is a network solution designed primarily for use in game engines such as Unity, Unigine, Stride (Xenko). However, it is possible to use in any other environment supporting c # net Standart 2.0+.
 The solution consists of client and server parts, both are presented as a set of libraries connected to the project. Galaxy network is able to work both in authoritarian mode and in repeater mode. Below is a set of currently supported features.
