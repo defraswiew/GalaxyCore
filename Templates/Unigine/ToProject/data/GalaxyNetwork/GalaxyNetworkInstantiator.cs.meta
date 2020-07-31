@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.11.0.0">
+	<guid>27688c4297125eb97a2c78c4f3f32d53f0f25296</guid>
+	<type>component</type>
+	<hash>51bd2831</hash>
+	<runtimes>
+		<runtime id="27688c4297125eb97a2c78c4f3f32d53f0f25296" name="GalaxyNetworkInstantiator.cs" link="0"/>
+		<runtime id="164ae8fdf7c696389cd6e4371ba5742ae8389581" name="GalaxyNetworkInstantiator.prop" link="1"/>
+	</runtimes>
+</asset>

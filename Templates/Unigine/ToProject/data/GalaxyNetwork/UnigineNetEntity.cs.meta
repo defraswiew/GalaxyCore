@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.11.0.0">
+	<guid>8c04b395c1c66ff0128c428f900a4ea2561b7d99</guid>
+	<type>component</type>
+	<hash>58c187ff</hash>
+	<runtimes>
+		<runtime id="8c04b395c1c66ff0128c428f900a4ea2561b7d99" name="UnigineNetEntity.cs" link="0"/>
+		<runtime id="d3d04a2439110f336a560af6fd3185dde5ddcd98" name="UnigineNetEntity.prop" link="1"/>
+	</runtimes>
+</asset>

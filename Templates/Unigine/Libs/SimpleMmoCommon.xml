@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SimpleMmoCommon</name>
+    </assembly>
+    <members>
+        <member name="T:SimpleMmoCommon.Messages.MessageApproval">
+            <summary>
+            Сообщение успешной авторизации
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.Messages.MessageApproval.name">
+            <summary>
+            Ид клиента
+            </summary>
+        </member>
+        <member name="M:SimpleMmoCommon.Messages.MessageApproval.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SimpleMmoCommon.Messages.MessageApproval.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="T:SimpleMmoCommon.Messages.MessageAuth">
+            <summary>
+            Структура пакета авторизации
+            </summary>
+        </member>
+        <member name="P:SimpleMmoCommon.Messages.MessageAuth.login">
+            <summary>
+            Логин пользователя
+            </summary>
+        </member>
+        <member name="P:SimpleMmoCommon.Messages.MessageAuth.password">
+            <summary>
+            Пароль пользователя
+            </summary>
+        </member>
+        <member name="T:SimpleMmoCommon.Messages.MessageTransform">
+            <summary>
+            Пример синхронизации трансформа
+            </summary>
+        </member>
+        <member name="P:SimpleMmoCommon.Messages.MessageTransform.position">
+            <summary>
+            Позиция
+            </summary>
+        </member>
+        <member name="P:SimpleMmoCommon.Messages.MessageTransform.rotation">
+            <summary>
+            Поворот
+            </summary>
+        </member>
+        <member name="T:SimpleMmoCommon.NetEntityCommand">
+            <summary>
+            Типы команд для сетевой сущности
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.NetEntityCommand.syncTransform">
+            <summary>
+            синхронизация позиции
+            </summary>
+        </member>
+    </members>
+</doc>

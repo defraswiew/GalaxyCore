@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodes version="2.11.0.0">
+	<node type="ObjectMeshStatic" id="1016751433" name="Move">
+		<mesh_name>guid://ebff47daf35075711e58f01ca95a4ccb5070bbae</mesh_name>
+		<surface name="sphere" material="401e90ccd85f4f2bb97c19ab9e1351325c4012eb"/>
+		<transform>0.99999994 0 0 0.0 0 0.99999994 0 0.0 0 0 0.99999994 0.0 0 0 0 1.0</transform>
+	</node>
+</nodes>
