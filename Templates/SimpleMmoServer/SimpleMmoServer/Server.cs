@@ -71,7 +71,7 @@ namespace SimpleMmoServer
                 case 4: // Пример физики
                     return new Examples.Instances.ExampleRoomPhys2();
                 default:
-                    return null; // если не нужно ничего переопределять, то возвращяем null (будет использоваться стандартная комната)
+                    return new Examples.Instances.ExampleEmtyInstance(); // если не нужно ничего переопределять, то возвращяем null (будет использоваться стандартная комната)
             }           
         }
     }

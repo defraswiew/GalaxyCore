@@ -1,6 +1,6 @@
 ﻿using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
- 
+using SimpleMmoServer.Examples.NetEntitys;
 
 namespace SimpleMmoServer
 {
@@ -22,6 +22,9 @@ namespace SimpleMmoServer
                 case "ExampleChangeOwner":
                     Examples.NetEntitys.ExampleChangeOwner exampleChangeOwner = new Examples.NetEntitys.ExampleChangeOwner(client.instanse);
                     return exampleChangeOwner;
+                case "ExampleVideo":
+                    ExampleVideo exampleVideo = new ExampleVideo(client.instanse);
+                    return exampleVideo;
                 default:                    
                       return null;
             }

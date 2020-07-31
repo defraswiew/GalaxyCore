@@ -20,7 +20,7 @@ public class GalaxyNetworkInstantiator : MonoBehaviour
 
     private ClientNetEntity OnGalaxyNetEntityInstantiate(ClientNetEntity netEntity)
     {
-        //Debug.Log(netEntity.prefabName);
+        Debug.Log(netEntity.prefabName);
         // если нет имени у сетевой сущности, значит не нужно создавать для неё go
         if (netEntity.prefabName == "") return null;
       //  Debug.Log(netEntity.transform.position.Vector3());

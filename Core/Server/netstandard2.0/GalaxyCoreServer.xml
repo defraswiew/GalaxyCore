@@ -1334,6 +1334,12 @@
             Произошло столкновение
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.Physics.PhysEntity.material">
+            <summary>
+            Physical material
+            Физический материал
+            </summary>
+        </member>
         <member name="P:GalaxyCoreServer.Physics.PhysEntity.mass">
             <summary>
             Mass
@@ -1402,6 +1408,55 @@
         <member name="M:GalaxyCoreServer.Physics.PhysEntity.ApplyPhys">
             <summary>
             Применить физические
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysMaterial.dynamicFriction">
+            <summary>
+            Dynamic Friction
+            Динамические трение
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysMaterial.staticFriction">
+            <summary>
+            Static Friction
+            трение в покое
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysMaterial.bounciness">
+            <summary>
+            Bounciness
+            отскок
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysMaterial.SetPresset(GalaxyCoreServer.Physics.PhysMaterialPresset)">
+            <summary>
+            Set material presset
+            Установить настройки из прессета
+            </summary>
+            <param name="presset"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysMaterialPresset">
+            <summary>
+            Physical material
+            Физический материал
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.PhysMaterialPresset.dynamicFriction">
+            <summary>
+            Dynamic Friction
+            Динамические трение
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.PhysMaterialPresset.staticFriction">
+            <summary>
+            Static Friction
+            трение в покое
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.PhysMaterialPresset.bounciness">
+            <summary>
+            Bounciness
+            отскок
             </summary>
         </member>
         <member name="T:GalaxyCoreServer.Physics.PhysWorld">

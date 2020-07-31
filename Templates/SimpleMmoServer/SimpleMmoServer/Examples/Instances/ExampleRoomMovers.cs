@@ -10,7 +10,7 @@ namespace SimpleMmoServer.Examples.Instances
         int moverMax = 50000;
         public override void OutcomingClient(Client client)
         {                     
-            
+           
         }
 
         public override void Close()
@@ -25,7 +25,7 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void Start()
         {            
-            SetFrameRate(5);   
+            SetFrameRate(20);   
         }
         public override void InMessage(byte code, byte[] data, Client client)
         {
