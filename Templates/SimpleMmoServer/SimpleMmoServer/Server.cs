@@ -4,71 +4,85 @@ using GalaxyCoreServer.Api;
 namespace SimpleMmoServer
 {
     /// <summary>
+    /// Main custom server class
     /// Основной пользовательский класс сервера
     /// </summary>
-   public class Server
+    public class Server
     {
         /// <summary>
-        /// Пример реализации авторизации
+        /// An example of authorization implementation
         /// </summary>
         Authorization authorization = new Authorization();
         /// <summary>
-        /// Пример регистрации
+        /// Registration example
         /// </summary>
         ExampleRegistration exampleRegistration = new ExampleRegistration();
         /// <summary>
-        /// Конфигурация сервера
+        /// Server configuration
         /// </summary>
         Config config = new Config();
         /// <summary>
-        /// Класс получающий входящие сообщения
+        /// The class that receives incoming messages
+        /// Класс, который получает входящие сообщения
         /// </summary>
         InMessages inMessages = new InMessages();
         /// <summary>
+        /// Logging class
         /// Класс логирования
         /// </summary>
         LogVisualizator logs = new LogVisualizator();
         /// <summary>
+        /// Overriding network entities
         /// Переопределение сетевых сущностей
         /// </summary>
         NetEntityOverrider entityOverrider = new NetEntityOverrider();
         /// <summary>
+        /// Whether to show debug messages
         /// Показывать ли дебаг сообщения
         /// </summary>
         internal static bool debugLog = true;
 
         public Server()
         {
-            config.incomingMessage = inMessages; // Регистрируем обработчик входящих сообщений
+            // Registering an incoming message handler
+            // Регистрируем обработчик входящих сообщений
+            config.incomingMessage = inMessages;
             GalaxyEvents.OnGalaxyInstanceCreate += OnGalaxyInstanceCreate; //Отлавливаем событие создания нового инстанса
-           
-            //Задаем имя сервера
-            //Важно что бы имя сервера совпадало с именем указанным в клиенте
+
+            // It is important that the server name matches the name specified in the client
+            // Важно что бы имя сервера совпадало с именем указанным в клиенте
             config.SERVER_NAME = "SimpleMmoServer";
-            config.LISTEN_PORT = 30200; // Указываем рабочий порт
-            config.AUTO_FLUSH_SEND = true; // включаем авто управление буфером отправки сообщений
-            config.NET_FRAME_RATE = 20;         
-            GalaxyCore.Start(config); // Запускаем сервер         
+            // Указываем рабочий порт
+            // Specify the working port
+            config.LISTEN_PORT = 30200;
+            // enable auto control of the message sending buffer
+            // включаем авто управление буфером отправки сообщений
+            config.AUTO_FLUSH_SEND = true;
+            config.NET_FRAME_RATE = 20;
+            // We start the server
+            // Запускаем сервер      
+            GalaxyCore.Start(config);     
         }
 
         /// <summary>
+        /// This is an example of overriding the default instance implementation by custom code like
         /// Это пример переопределения стандартной реализации инстанса по пользовательскому коду типа
         /// </summary>
-        /// <param name="type">пользовательский код типа инстанса</param>
-        /// <param name="data">массив байт дополнительной информации приложеной к запросу создания</param>
-        /// <param name="client">клиент отправивший запрос</param>
-        /// <returns>Вернуть любого наследника класса Inctance</returns>
+        /// <param name="type">custom instance type code</param>
+        /// <param name="data">an array of bytes of additional information attached to the creation request</param>
+        /// <param name="client">the client who sent the request</param>
+        /// <returns>Return any inheritor of the Inctance class</returns>
         private Instance OnGalaxyInstanceCreate(byte type, byte[] data, Client client)
         {
             switch (type)
             {
-                case 1: // запрос на комнату пример работы физики
+                case 1:  
                     return new Examples.Instances.ExampleRoomPhys();                
-                case 2: // запрос на создание комнаты с бегунками
+                case 2:  
                     return new Examples.Instances.ExampleRoomMovers();
-                case 3: // Пример комнаты с октодревом
+                case 3: 
                     return new Examples.Instances.ExampleOctoRoom();
-                case 4: // Пример физики
+                case 4:  
                     return new Examples.Instances.ExampleRoomPhys2();
                 default:
                     return new Examples.Instances.ExampleEmtyInstance(); // если не нужно ничего переопределять, то возвращяем null (будет использоваться стандартная комната)

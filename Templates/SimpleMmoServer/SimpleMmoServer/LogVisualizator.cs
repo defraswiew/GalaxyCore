@@ -6,6 +6,7 @@ using System.Text;
 namespace SimpleMmoServer
 {
     /// <summary>
+    /// Kernel log tracking class
     /// Класс для отслеживания логов ядра
     /// </summary>
     public class LogVisualizator

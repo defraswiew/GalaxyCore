@@ -29,8 +29,10 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void Start()
         {
-            Log.Info("ExampleEmtyInstance", "instance id:" + id);// выводим в консоль тип комнаты
-            SetFrameRate(30); // устанавливаем подходящий врейм рейт
+             
+            Log.Info("ExampleEmtyInstance", "instance id:" + id);
+            // set a suitable frame rate
+            SetFrameRate(30);  
         }
 
         public override void Update()

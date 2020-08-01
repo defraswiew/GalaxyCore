@@ -18,29 +18,31 @@ namespace SimpleMmoServer
         private void OnGalaxyRegistration(ApprovalConnection approvalConnection, byte[] data)
         {
             Log.Debug("OnGalaxyRegistration", data.Length.ToString());
-            MessageAuth message = MessageAuth.Deserialize<MessageAuth>(data); //преобразовывем массив байт в читабельное сообщение            
-            //тут нам следовало бы провести какую либо проверку правильности логина и пароля
-            //тут стоит делать проверку в базу, на наличие такого же аккаунта, и тому подобные проверки, (вместо  if (true))
+            // преобразовывем массив байт в читабельное сообщение      
+            // converting the byte array into a readable message
+            MessageAuth message = MessageAuth.Deserialize<MessageAuth>(data);
+            // here it is worth doing a check in the database, for the presence of the same account, and similar checks, (instead of if (true))
+            // тут стоит делать проверку в базу, на наличие такого же аккаунта, и тому подобные проверки, (вместо  if (true))
             if (true)
             {
-                MessageApproval response = new MessageApproval(); //Создадим пакет который мы отправим клиенту вместе с разрешением коннекта
+                // Let's create a package that we will send to the client along with the connection permission
+                // Создадим пакет который мы отправим клиенту вместе с разрешением коннекта
+                MessageApproval response = new MessageApproval();
                 response.name = message.login;
-                int clientID = Tools.GetNewID(); // Вместо Tools.GetNewID нужно подставить реальный ид из базы, полученный после регистрации.
+                // Instead of Tools.GetNewID, you need to substitute the real ID from the database, obtained after registration.
+                // Вместо Tools.GetNewID нужно подставить реальный ид из базы, полученный после регистрации.
+                int clientID = Tools.GetNewID();
 
-                // ClientConnection connection; // Раз мы решили авторизировать клиента, то следует создать уже постоянное соеденение
-                ExampleClient client = new ExampleClient(); // Создаем собственную реализацию клиента
+             
+                ExampleClient client = new ExampleClient();  
                 client.name = message.login;
-                // возвращяем данные вместе с разрешением, так же мы получим уже рабочий экземпляр авторизированного соеденения 
-                // так же приклепляем собственную реализацию клиента, для того что бы в бущем, можно было её оперативно получить из коннекшена
+           
                 approvalConnection.Approve(response, clientID, client);
 
             }
             else
             {
-                //Ну а раз test в логине не нашлось, то соеденение не разрешаем
-                //Тут нам нужно отправить два оргумента
-                // первый это код ошибки, вы можете указать его любым, от вернется клиенту для дайнейшей обработки
-                // второй это читабельное сообщение об ошибки, впрочим это не обязательно
+                
                 approvalConnection.Deny(1, "Нам не нравится ваш логин");
             }
         }
