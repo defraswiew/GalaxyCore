@@ -22,7 +22,7 @@ public class UnityNetEntity : MonoBehaviour
     /// </summary>
     [HideInInspector]
     public float initTime;
-
+    
     private Component[] components;
 
     void Awake()
@@ -33,6 +33,10 @@ public class UnityNetEntity : MonoBehaviour
     void Start()
     {
         components = GetComponents<Component>();
+        foreach (var item in components)
+        {
+            netEntity.galaxyVars.RegistrationClass(item);
+        }
         // Init необходимо вызывать именно в Start т.к внутренняя инициализация не успевает сработать к Awake или OnEnable
         Init();       
     }

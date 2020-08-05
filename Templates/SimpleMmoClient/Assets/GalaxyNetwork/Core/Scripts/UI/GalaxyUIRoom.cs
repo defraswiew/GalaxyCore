@@ -1,4 +1,5 @@
-﻿using GalaxyCoreCommon.InternalMessages;
+﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon.InternalMessages;
 using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using System;

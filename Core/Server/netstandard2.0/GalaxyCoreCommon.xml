@@ -375,6 +375,11 @@
             Смена владельца объекта
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.netEntityGalaxyVars">
+            <summary>
+            Синхронизация переменных
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.error">
             <summary>
             Сообщение об ошибке
@@ -459,6 +464,18 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.GalaxyVar">
+            <summary>
+            Synchronized variable attribute
+            Атрибут для синхронизации переменной
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVar.#ctor(System.Byte)">
+            <summary>
+            Synchronized variable attribute
+            </summary>
+            <param name="id">unique variable id for the entity</param>
         </member>
         <member name="T:GalaxyCoreCommon.GalaxyVector3">
             <summary>
@@ -643,6 +660,66 @@
             <param name="monor"></param>
             <param name="type"></param>
         </member>
+        <member name="T:GalaxyCoreCommon.InstanceInfo">
+            <summary>
+            Simplified instance-specific data
+            Упрощенные данные о конкретном инстансе
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InstanceInfo.name">
+            <summary>
+            Instance name
+            Имя инстанса
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InstanceInfo.clients">
+            <summary>
+            Current number of clients
+            Текущее число клиентов
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InstanceInfo.maxClients">
+            <summary>
+            Maximum clients
+            Максимум клиентов
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InstanceInfo.id">
+            <summary>
+            Instance ID
+            Ид инстанса
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InstanceInfo.frameRate">
+            <summary>
+            Frame rate
+            Фреймрейт
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InstanceInfo.type">
+            <summary>
+            Instance type
+            Тип инстанса
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InstanceInfo.customData">
+            <summary>
+            User data
+            Пользовательские данные
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InstanceInfo.owner">
+            <summary>
+            the owner of the room (he can also act as a virtual host)
+            владелец комнаты (он же может работать как виртуальный host)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.InstanceInfo.password">
+            <summary>
+            is there a password to enter the room
+            есть ли пароль на вход в комнату
+            </summary>
+        </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessChat">
             <summary>
             Класс сообщения
@@ -755,62 +832,14 @@
         </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessInstancesList">
             <summary>
+            instance list message
             Сообщение с списком инстансов
             </summary>
         </member>
         <member name="P:GalaxyCoreCommon.InternalMessages.MessInstancesList.instances">
             <summary>
+            List instances
             Список инстансов
-            </summary>
-        </member>
-        <member name="T:GalaxyCoreCommon.InternalMessages.InstanceInfo">
-            <summary>
-            Упрощенные данные о конкретном инстансе
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.name">
-            <summary>
-            Имя инстанса
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.clients">
-            <summary>
-            Текущее число клиентов
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.maxClients">
-            <summary>
-            Максимум клиентов
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.id">
-            <summary>
-            Ид инстанса
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.frameRate">
-            <summary>
-            Фреймрейт
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.type">
-            <summary>
-            Тип инстанса
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.customData">
-            <summary>
-            Пользовательские данные
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.owner">
-            <summary>
-            владелец комнаты (он же может работать как виртуальный host
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreCommon.InternalMessages.InstanceInfo.password">
-            <summary>
-            есть ли пароль на вход в комнату
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.InternalMessages.MessInstanceSync">
@@ -887,6 +916,39 @@
             <summary>
             Оринтация объекта в пространстве  (не обязательньный параметр)
             </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.NetVars">
+            <summary>
+            Variable Synchronization Kernel
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreCommon.NetVars.OnChangedValue">
+            <summary>
+            variable change event
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetVars.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetVars.Reg(System.Object)">
+            <summary>
+            Зарегистрировать класс для работы с netVars
+            </summary>
+            <param name="objects"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetVars.Update">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetVars.GetSendData">
+            <summary>
+            receiving data to send
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:GalaxyCoreCommon.PhysBake">
             <summary>

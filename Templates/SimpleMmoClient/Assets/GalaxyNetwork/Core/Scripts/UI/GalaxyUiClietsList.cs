@@ -1,4 +1,5 @@
-﻿using GalaxyCoreLib;
+﻿using GalaxyCoreCommon;
+using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ public class GalaxyUiClietsList : MonoBehaviour
 
     private void OnGalaxyClientsUpdate()
     {
-        Debug.Log("OnGalaxyClientsUpdate");
+     
         Clear();
         foreach (var item in GalaxyApi.instances.clients)
         {
@@ -42,7 +43,7 @@ public class GalaxyUiClietsList : MonoBehaviour
         }
     }
 
-    private void OnGalaxyEnterInInstance(GalaxyCoreCommon.InternalMessages.InstanceInfo info)
+    private void OnGalaxyEnterInInstance(InstanceInfo info)
     {        
         Clear();
         GalaxyApi.instances.ClientsUpdate();

@@ -472,6 +472,44 @@
             Остановка сетевого ядра
             </summary>
         </member>
+        <member name="T:GalaxyCoreServer.GalaxyVars">
+            <summary>
+            Synchronizing Variables
+            Класс синхронизации переменных
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreServer.GalaxyVars.OnChangedValue">
+            <summary>
+            Variable value changed
+            Изменилось значение переменной
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyVars.GetData(System.Byte)">
+            <summary>
+            Get a variable by id
+            Получить переменную по ид
+            </summary>
+            <param name="varID">variable id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyVars.GetAllVars">
+            <summary>
+            Получить полный список переменных для отправки
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyVars.RegistrationClass(System.Object)">
+            <summary>
+            Registering a class to work with GalaxyVars
+            Регистрация класса для работы с GalaxyVars
+            </summary>
+            <param name="target">class</param>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyVars.Update">
+            <summary>
+            проверка на изменение переменных со стороны сервера
+            </summary>
+        </member>
         <member name="T:GalaxyCoreServer.IIncomingMessage">
             <summary>
             Интерфейс для работы с входящим сообщением
@@ -892,41 +930,49 @@
         </member>
         <member name="T:GalaxyCoreServer.NetEntity">
             <summary>
+            Server-side implementation of a network entity
             Серверная реализация сетевой сущности
             </summary>
         </member>
         <member name="F:GalaxyCoreServer.NetEntity.lossOwner">
             <summary>
+            Loss of owner logic
             Логика при потере владельца
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.NetEntity.prefabName">
             <summary>
+            Network entity name (usually used to match with a prefab)
             Имя сетевой сущности (как правило служит для сопоставления с префабом)
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.NetEntity.localId">
             <summary>
+            Local id (assigned automatically and serves only for correct initialization)
             Локальный ид (назначается автоматически и служит только для корректности инициализации)
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.NetEntity.netID">
             <summary>
+            Network ID (assigned automatically)
             Сетевой ид (назначается автоматически)
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.NetEntity.ownerClientId">
             <summary>
+            Entity owner id (if 0 then this is a server entity)
             Ид владельца сущьности (если 0 то это серверная сущность)
             </summary>
         </member>
         <member name="F:GalaxyCoreServer.NetEntity.instance">
             <summary>
+            Link to the current instance
             Ссылка на текущий инстанс
             </summary>
         </member>
         <member name="F:GalaxyCoreServer.NetEntity.physics">
             <summary>
+            Physical representation
             Физическое представление
             </summary>
         </member>
@@ -937,48 +983,62 @@
         </member>
         <member name="F:GalaxyCoreServer.NetEntity.initData">
             <summary>
+            Extended initialization data
             Расширенные данные инициализации
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.galaxyVars">
+            <summary>
+             Synchronizing Variables
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreServer.NetEntityAutoSync)">
             <summary>
+            Creating a network entity
             Создание сетевой сущности
             </summary>
-            <param name="instance">целевой инстанс</param>
+            <param name="instance">target instance</param>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.ChangeOwner(GalaxyCoreServer.Client)">
             <summary>
+            Change entity owner
             Сменить владельца сущности
             </summary>
-            <param name="client">новый владелец (если null, то владельцем становится сервер)</param>
+            <param name="client">new owner (if null, the server becomes the owner)</param>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.ChangeOwnerRandom">
             <summary>
+            Replacing the owner with the client with the fewest active entities
             Замена владельца на клиента с наименьшим числом активных сущностей
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.Start">
             <summary>
+            Called when the object is fully initialized
             Вызывается при полной инициализации объекта
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.OnDestroy">
             <summary>
+            Called when an entity is deleted
             Вызывается при удаление сущности
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.Destory">
             <summary>
+            Delete network object
             Удалить сетевой объект
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.Update">
             <summary>
+            Network frame tick
             Тик сетевого кадра
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.Client)">
             <summary>
+            New incoming message
             Новое входящее сообщение
             </summary>
             <param name="externalCode">пользовательский код сообщений</param>

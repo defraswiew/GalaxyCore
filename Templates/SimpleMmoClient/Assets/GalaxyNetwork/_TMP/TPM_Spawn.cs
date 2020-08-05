@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GalaxyCoreLib.Api;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,13 @@ public class TPM_Spawn : MonoBehaviour
     private int count;
     void Start()
     {
-        InvokeRepeating("Spawn", 10, 1);
+        GalaxyEvents.OnGalaxyEnterInInstance += GalaxyEvents_OnGalaxyEnterInInstance;
+    
+    }
+
+    private void GalaxyEvents_OnGalaxyEnterInInstance(GalaxyCoreCommon.InstanceInfo info)
+    {
+        InvokeRepeating("Spawn", 5, 5);
     }
 
     void Spawn()
