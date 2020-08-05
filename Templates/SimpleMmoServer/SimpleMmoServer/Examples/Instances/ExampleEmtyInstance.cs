@@ -19,7 +19,7 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void InMessage(byte code, byte[] data, Client clientConnection)
         {
-        
+            if (owner == clientConnection.id) ChangeOwner();
         }
 
         public override void OutcomingClient(Client clientConnection)
