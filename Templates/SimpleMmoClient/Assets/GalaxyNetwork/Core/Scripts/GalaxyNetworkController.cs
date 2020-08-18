@@ -1,5 +1,6 @@
 ﻿using GalaxyCoreCommon.InternalMessages;
 using GalaxyCoreLib;
+using GalaxyCoreLib.Api;
 using ProtoBuf.Meta;
 using SimpleMmoCommon.Messages;
 using System.Collections;
@@ -54,7 +55,14 @@ public class GalaxyNetworkController : MonoBehaviour
     {       
         GalaxyClientCore.unityCalls.Start(); // прокидываем Start
         SceneManager.activeSceneChanged += SceneChanged;
-        SceneManager.sceneLoaded += SceneLoaded;           
+        SceneManager.sceneLoaded += SceneLoaded;
+        GalaxyEvents.OnGalaxyIncommingMessage += OnGalaxyIncommingMessage;
+   
+    }
+
+    private void OnGalaxyIncommingMessage(byte code, byte[] data)
+    {
+        Debug.Log("OnGalaxyIncommingMessage " + code);
     }
 
     private void SceneLoaded(Scene arg0, LoadSceneMode arg1)

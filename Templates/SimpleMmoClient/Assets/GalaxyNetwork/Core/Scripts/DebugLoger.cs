@@ -17,6 +17,7 @@ public class DebugLoger : MonoBehaviour
 
     private void OnGalaxyIncommingMessage(byte code, byte[] data)
     {
+        if(data!=null)
         Debug.Log("code:"+ code + "  lenght:"+data.Length);
     }
 

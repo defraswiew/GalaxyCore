@@ -1,4 +1,5 @@
 ﻿using GalaxyCoreLib;
+using GalaxyCoreLib.Api;
 using GalaxyCoreLib.NetEntity;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,14 @@ public class UnityNetEntity : MonoBehaviour
     {
         netEntity.OnNetStart += OnNetStart;
         netEntity.OnNetDestroy += OnNetDestroy;
+     //   GalaxyEvents.OnGalaxyIncommingMessage += OnGalaxyIncommingMessage;
     }
+
+    private void OnGalaxyIncommingMessage(byte code, byte[] data)
+    {
+ 
+    }
+
     void Start()
     {
         components = GetComponents<Component>();
