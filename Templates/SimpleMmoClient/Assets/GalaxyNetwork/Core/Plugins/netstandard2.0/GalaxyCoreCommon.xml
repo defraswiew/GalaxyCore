@@ -295,6 +295,11 @@
             роутинг аниматора
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.routeClient">
+            <summary>
+            роутинг клиента
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.chat">
             <summary>
             Сообщение чата

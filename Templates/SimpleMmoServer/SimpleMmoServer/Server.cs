@@ -1,5 +1,6 @@
 ﻿using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
+using SimpleMmoServer.Examples.Instances;
 
 namespace SimpleMmoServer
 {
@@ -61,7 +62,8 @@ namespace SimpleMmoServer
             config.NET_FRAME_RATE = 20;
             // We start the server
             // Запускаем сервер      
-            GalaxyCore.Start(config);     
+            GalaxyCore.Start(config);
+            //GalaxyCore.instances.Create(new ExampleInvoke());
         }
 
         /// <summary>

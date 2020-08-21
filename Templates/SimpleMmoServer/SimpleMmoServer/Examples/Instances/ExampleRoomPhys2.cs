@@ -34,8 +34,14 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void IncomingClient(Client clientConnection)
         {
-           
+            InvokeRepeating("Test", 3, 3, clientConnection);
         }
+
+        public void Test(Client clientConnection)
+        {
+            clientConnection.SendMessage((byte)GRand.NextInt(0, 250), new byte[0],GalaxyDeliveryType.reliable);
+        }
+
 
         public override void InMessage(byte code, byte[] data, Client clientConnection)
         {
