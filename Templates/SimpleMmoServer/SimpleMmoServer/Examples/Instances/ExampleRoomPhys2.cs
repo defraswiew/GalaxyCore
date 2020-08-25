@@ -1,5 +1,6 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
+using SimpleMmoServer.Examples.NetEntitys;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,14 +34,19 @@ namespace SimpleMmoServer.Examples.Instances
         }
 
         public override void IncomingClient(Client clientConnection)
+        {          
+            Invoke("TestEntity", 2, clientConnection);
+        }
+        public void TestEntity(Client clientConnection)
         {
-            InvokeRepeating("Test", 3, 3, clientConnection);
+            ExampleEntityTest entity = new ExampleEntityTest(this);
+            entity.prefabName = "ExampleEntityTest";
+            entity.ChangeOwner(clientConnection);
+            entity.lossOwner = NetEntityLossOwnerLogic.destroy;
+            entity.Init();
         }
 
-        public void Test(Client clientConnection)
-        {
-            clientConnection.SendMessage((byte)GRand.NextInt(0, 250), new byte[0],GalaxyDeliveryType.reliable);
-        }
+     
 
 
         public override void InMessage(byte code, byte[] data, Client clientConnection)

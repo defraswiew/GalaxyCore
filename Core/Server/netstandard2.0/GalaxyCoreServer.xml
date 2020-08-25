@@ -182,6 +182,13 @@
             <param name="id">ид инстанса</param>
             <returns>Вернет Instance или null если ничего нет</returns>
         </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.GetAllInstances">
+            <summary>
+            Get All Instances
+            Получить все инстансы
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:GalaxyCoreServer.Api.NetEntityManager">
             <summary>
             Менеджер работы с сетевыми сущностями
