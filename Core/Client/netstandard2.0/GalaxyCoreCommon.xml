@@ -939,6 +939,7 @@
         </member>
         <member name="M:GalaxyCoreCommon.NetVars.Reg(System.Object)">
             <summary>
+            Register a class to work with netVars
             Зарегистрировать класс для работы с netVars
             </summary>
             <param name="objects"></param>
@@ -954,6 +955,12 @@
             receiving data to send
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetVars.InData(GalaxyCoreCommon.InternalMessages.MessNetvars)">
+            <summary>
+            
+            </summary>
+            <param name="inMessage"></param>
         </member>
         <member name="T:GalaxyCoreCommon.PhysBake">
             <summary>
@@ -988,6 +995,12 @@
         <member name="M:GalaxyCoreCommon.Tools.GetNewID">
             <summary>
             Возвращяем ид пользователя
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.Tools.GetUnixTime">
+            <summary>
+            get the current time in unix format
             </summary>
             <returns></returns>
         </member>
@@ -2079,6 +2092,16 @@
         <member name="M:Lidgren.Network.NetConnection.ToString">
             <summary>
             Returns a string that represents this object
+            </summary>
+        </member>
+        <member name="T:Lidgren.Network.NetConnection.DelegateDisconnected">
+            <summary>
+            делегат дисконекта
+            </summary>
+        </member>
+        <member name="E:Lidgren.Network.NetConnection.OnDisconnected">
+            <summary>
+            Событие вызываемое при дисконекте
             </summary>
         </member>
         <member name="P:Lidgren.Network.NetConnection.RemoteHailMessage">

@@ -277,16 +277,19 @@
         </member>
         <member name="T:GalaxyCoreServer.Client">
             <summary>
+            Client connection class
             Класс подключения клиента
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.Client.id">
             <summary>
+            Client ID, set in Approval
             Ид клиента, задается в Approval
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.Client.name">
             <summary>
+            Client's public name
             Публичное имя клиента
             </summary>             
         </member>
@@ -302,11 +305,13 @@
         </member>
         <member name="P:GalaxyCoreServer.Client.timeConnected">
             <summary>
+            Online in seconds
             Онлайн в секундах
             </summary>
         </member>
         <member name="P:GalaxyCoreServer.Client.instanse">
             <summary>
+            Link to the current client instance
             Ссылка на текущий инстант клиента
             </summary>
         </member>
@@ -327,48 +332,71 @@
         </member>
         <member name="M:GalaxyCoreServer.Client.SetNetConnection(Lidgren.Network.NetConnection)">
             <summary>
+            Internet connection installation
             Установка интернет соеденения
             </summary>
             <param name="netConnection"></param>
         </member>
         <member name="M:GalaxyCoreServer.Client.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
+            Send data to user
             Отправить сообщение пользователю
             </summary>
-            <param name="code">Пользовательский код сообщения, для удобной сепарации</param>
+            <param name="code">Custom message code, for easy separation</param>
             <param name="message">Сообщение (наследник BaseMessage)</param>
-            <param name="deliveryType">Способ доставки</param>
+            <param name="deliveryType">Delivery Type</param>
         </member>
         <member name="M:GalaxyCoreServer.Client.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
+            Send data to user
             Отправить данные пользователю
             </summary>
-            <param name="code">Пользовательский код сообщения, для удобной сепарации</param>
-            <param name="data">Сообщение (наследник BaseMessage)</param>
-            <param name="deliveryType">Способ доставки</param>
+            <param name="code">Custom message code, for easy separation</param>
+            <param name="data">byte array</param>
+            <param name="deliveryType">Delivery Type</param>
         </member>
         <member name="M:GalaxyCoreServer.Client.SendError(System.Byte)">
             <summary>
+            Send an error message to the client
             Отправить клиенту сообщение об ошибке
             </summary>
-            <param name="code">код ошибки</param>    
+            <param name="code">error code</param>    
         </member>
         <member name="M:GalaxyCoreServer.Client.Disconnect">
             <summary>
+            Disable user
             Отключить пользователя
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.Client.GetUserEntities">
             <summary>
+            Get all client network entities
             Получить все сетевые сущности клиента
             </summary>
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreServer.Client.GetBaseData">
             <summary>
+            Additional data in baseInfoClient
             Дополнительные данные в baseInfoClient
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Client.OnDisconnected">
+            <summary>
+            Called when the client disconnects
+            Вызывается при отключении клиента
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.ClientStandart">
+            <summary>
+            Standart client
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.ClientStandart.OnDisconnected">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:GalaxyCoreServer.Config">
             <summary>
@@ -515,6 +543,12 @@
         <member name="M:GalaxyCoreServer.GalaxyVars.Update">
             <summary>
             проверка на изменение переменных со стороны сервера
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyVars.ForceSync">
+            <summary>
+            Force full data upload
+            Принудительная отправка данных
             </summary>
         </member>
         <member name="T:GalaxyCoreServer.IIncomingMessage">

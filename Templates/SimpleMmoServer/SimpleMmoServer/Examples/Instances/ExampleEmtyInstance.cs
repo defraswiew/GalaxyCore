@@ -32,7 +32,8 @@ namespace SimpleMmoServer.Examples.Instances
              
             Log.Info("ExampleEmtyInstance", "instance id:" + id);
             // set a suitable frame rate
-            SetFrameRate(30);  
+            SetFrameRate(30);
+            
         }
 
         public override void Update()

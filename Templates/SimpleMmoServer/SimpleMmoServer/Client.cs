@@ -14,5 +14,9 @@ namespace SimpleMmoServer
 
         }
 
+        public override void OnDisconnected()
+        {
+         
+        }
     }
 }

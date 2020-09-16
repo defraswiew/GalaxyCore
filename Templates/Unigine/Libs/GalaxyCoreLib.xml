@@ -772,6 +772,16 @@
             Инициализирован ли объект
             </summary>
         </member>
+        <member name="F:GalaxyCoreLib.NetEntity.ClientNetEntity.galaxyVars">
+            <summary>
+            Synchronizing Variables
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="E:GalaxyCoreLib.NetEntity.ClientNetEntity.OnNetStart">
             <summary>
             Вызывается при успешной сетевой инициализации объекта
@@ -817,6 +827,19 @@
             <param name="code">пользовательский код</param>
             <param name="data">массив байт</param>
             <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.GalaxyVars.RegistrationClass(System.Object)">
+            <summary>
+            Registering a class to work with GalaxyVars
+            Регистрация класса для работы с GalaxyVars
+            </summary>
+            <param name="target">class</param>
+        </member>
+        <member name="E:GalaxyCoreLib.NetEntity.GalaxyVars.OnChangedValue">
+            <summary>
+            Variable value changed
+            Изменилось значение переменной
+            </summary>
         </member>
         <member name="T:GalaxyCoreLib.NetEntity.Transform">
             <summary>

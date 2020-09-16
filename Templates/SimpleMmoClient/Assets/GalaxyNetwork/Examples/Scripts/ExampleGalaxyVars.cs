@@ -10,6 +10,8 @@ public class ExampleGalaxyVars : MonoBehaviour
 {
     [GalaxyVar(1)]
     public string text;
+    [GalaxyVar(2)]
+    public int hp;
     public TextMesh textMesh;
     public Test test = new Test();
     void Start()

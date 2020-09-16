@@ -311,6 +311,12 @@
             <param name="entity">Базовый экземпляр сетевой сущности</param>
             <param name="message">доволнительное пользовательское сообщение</param>
         </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.EntityNotFound(System.Int32)">
+            <summary>
+            Вызвать в случае если энтити не найден
+            </summary>
+            <param name="netID"></param>
+        </member>
         <member name="M:GalaxyCoreLib.Api.NetEntityManager.DestroyNetEntity(System.Int32)">
             <summary>
             Request to delete a network entity
@@ -462,6 +468,12 @@
             порт сервера
             </summary>
         </member>
+        <member name="F:GalaxyCoreLib.Config.autoSyncInstance">
+            <summary>
+            automatic call of instance synchronization in case of data conflict
+            Автоматическая синхронизация инстанса в случае обнаружения не совпадения данных
+            </summary>
+        </member>
         <member name="P:GalaxyCoreLib.Config.simulate_latency">
             <summary>
             Ping emulation. 0.05 for 50ms lag
@@ -472,11 +484,6 @@
             <summary>
             Emulation of message loss. 1 = 100% loss
             Эмуляция потерь сообщений. 1 = 100% потери
-            </summary>
-        </member>
-        <member name="P:GalaxyCoreLib.Config.MAX_RATE_SEND_BYTES_IN_SECOND">
-            <summary>
-            Максимально вожможное кол-во отправляемых байт в сек.
             </summary>
         </member>
         <member name="P:GalaxyCoreLib.Config.app_name">
@@ -839,6 +846,12 @@
             <summary>
             Variable value changed
             Изменилось значение переменной
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.GalaxyVars.ForceSync">
+            <summary>
+            Force full data upload
+            Принудительная отправка данных
             </summary>
         </member>
         <member name="T:GalaxyCoreLib.NetEntity.Transform">

@@ -39,10 +39,10 @@ namespace SimpleMmoServer.Examples.Instances
         }
         public void TestEntity(Client clientConnection)
         {
-            ExampleEntityTest entity = new ExampleEntityTest(this);
-            entity.prefabName = "ExampleEntityTest";
-            entity.ChangeOwner(clientConnection);
-            entity.lossOwner = NetEntityLossOwnerLogic.destroy;
+            ExampleVideo entity = new ExampleVideo(this);
+            entity.prefabName = "ExampleVideo";
+          //  entity.ChangeOwner(clientConnection);
+            //entity.lossOwner = NetEntityLossOwnerLogic.destroy;
             entity.Init();
         }
 

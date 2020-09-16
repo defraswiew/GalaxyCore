@@ -155,6 +155,7 @@ namespace GalaxyCoreLib
         public void GetRoomList()
         {
             GalaxyApi.instances.InstanceList();
+            
         }
         /// <summary>
         /// Выход из инстанса

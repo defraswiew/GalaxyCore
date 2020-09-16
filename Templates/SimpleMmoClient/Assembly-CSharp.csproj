@@ -89,6 +89,7 @@
      <Compile Include="Assets\GalaxyNetwork\_TMP\TPM_Spawn.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TestEntity.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TestGalaxyVars.cs" />
+     <Compile Include="Assets\GalaxyNetwork\_TMP\TestNetVarVector3.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\test_send_to_instance.cs" />
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\protobuf-net.xml" />
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\SimpleMmoCommon.xml" />
