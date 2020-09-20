@@ -3,7 +3,7 @@ using GalaxyCoreServer;
 
 namespace SimpleMmoServer.Examples.Instances
 {
-    public class ExampleRoomMovers : InstanceOpenWorld
+    public class ExampleRoomMovers : Instance
     {       
         float timer;
         int moverCount;
@@ -25,7 +25,8 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void Start()
         {            
-            SetFrameRate(20);   
+            SetFrameRate(10);
+           // visibleDistance = 50;
         }
         public override void InMessage(byte code, byte[] data, Client client)
         {

@@ -1052,6 +1052,20 @@
             </summary>
             <param name="vector3"></param>
         </member>
+        <member name="M:GalaxyCoreCommon.TransformSerrializator.Serrialize(Lidgren.Network.NetBuffer)">
+            <summary>
+            Сереаллизация изменений
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerrializator.FullSerrialize(Lidgren.Network.NetBuffer)">
+            <summary>
+            Полная серриализация
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
         <member name="T:Lidgren.Network.NetAESEncryption">
             <summary>
             

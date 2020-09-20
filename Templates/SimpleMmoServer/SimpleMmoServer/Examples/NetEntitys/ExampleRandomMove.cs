@@ -34,6 +34,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
         public override void Start()
         {
            transform.syncType = NetEntityAutoSync.position_and_rotation; // указывем тип автоматической синхронизации   
+            
         }
 
         public override void Update()
@@ -42,11 +43,11 @@ namespace SimpleMmoServer.Examples.NetEntitys
             if (timer > randTime)
             {
                 timer = 0;
-                randTime = GRand.NextInt(10, 25);                 
-                target.x = GRand.NextInt(-80, 80);
-                target.z = GRand.NextInt(-80, 80);
+                randTime = GRand.NextInt(20, 45);                 
+                target.x = GRand.NextInt(-180, 180);
+                target.z = GRand.NextInt(-180, 180);
             }
-            transform.position = GalaxyVector3.Lerp(transform.position, target, instance.Time.deltaTime*0.04f);   // лерпим текущую позицию к целевой раз в кадр         
+            transform.position = GalaxyVector3.Lerp(transform.position, target, instance.Time.deltaTime*0.03f);   // лерпим текущую позицию к целевой раз в кадр         
         }
 
          

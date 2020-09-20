@@ -47,7 +47,8 @@ public class NetEntityTransform : MonoBehaviour
     {
         if (!netEntity.isMy)        
         {
-            transform.position = Vector3.Lerp(transform.position, netEntity.transform.position.Vector3(), GalaxyApi.lerpDelta);
+                if (netEntity.transform.position == GalaxyVector3.Zero) return;
+                transform.position = Vector3.Lerp(transform.position, netEntity.transform.position.Vector3(), GalaxyApi.lerpDelta);
            if(!netEntity.transform.rotation.isZero()) transform.rotation = Quaternion.Lerp(transform.rotation, netEntity.transform.rotation.Quaternion(), GalaxyApi.lerpDelta);
         }      
     }      

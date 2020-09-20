@@ -1,6 +1,7 @@
 ﻿using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using SimpleMmoServer.Examples.NetEntitys;
+using SimpleMmoServer.RPGTemplate;
 
 namespace SimpleMmoServer
 {
@@ -25,6 +26,10 @@ namespace SimpleMmoServer
                 case "ExampleVideo":
                     ExampleVideo exampleVideo = new ExampleVideo(client.instanse);
                     return exampleVideo;
+                case "RPGTemplatePlayer":
+                    RPGTemplatePlayer rPGTemplatePlayer = new RPGTemplatePlayer(client.instanse);
+                    return rPGTemplatePlayer;
+                     
                 default:                    
                       return null;
             }

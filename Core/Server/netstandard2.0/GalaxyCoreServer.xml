@@ -218,6 +218,18 @@
             <param name="distance">Радиус</param>
             <returns></returns>
         </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.AddIgnoreList(GalaxyCoreServer.NetEntity)">
+            <summary>
+            добавляем энтити в список игнора сетевой видимости
+            </summary>
+            <param name="netEntity"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.RemoveIgnoreList(GalaxyCoreServer.NetEntity)">
+            <summary>
+            Удаляем энтити из списка игнора сетевой видимости
+            </summary>
+            <param name="netEntity"></param>
+        </member>
         <member name="M:GalaxyCoreServer.Api.NetEntityManager.CreateNetEntity(GalaxyCoreServer.NetEntity)">
             <summary>
             Создание сетевой сущности со стороны сервера
@@ -330,12 +342,34 @@
             Синхронизировал ли клиент картину мира в текущем инстансе
             </summary>
         </member>
+        <member name="P:GalaxyCoreServer.Client.entities">
+            <summary>
+            Client-managed entity list
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Client.visibleEntitiesLastFrame">
+            <summary>
+            видимые энтити в данный момент
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Client.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.Client.SetNetConnection(Lidgren.Network.NetConnection)">
             <summary>
             Internet connection installation
             Установка интернет соеденения
             </summary>
             <param name="netConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Client.IsVisibleEntity(System.Int32)">
+            <summary>
+            Видит ли клиент эту сущность
+            </summary>
+            <param name="netID"></param>
+            <returns></returns>
         </member>
         <member name="M:GalaxyCoreServer.Client.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
@@ -511,6 +545,11 @@
             <summary>
             Synchronizing Variables
             Класс синхронизации переменных
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyVars.autoApplyRemoteData">
+            <summary>
+            Автоматически доверять данным от клиента
             </summary>
         </member>
         <member name="E:GalaxyCoreServer.GalaxyVars.OnChangedValue">
@@ -818,6 +857,11 @@
             </summary>
             <param name="clientConnection"></param>
         </member>
+        <member name="M:GalaxyCoreServer.InstanceFramerOctree.GenerateTransformMessageByIgnoreVisible">
+            <summary>
+            генерация фрейма для объектов игнорирующих сетевую видимость
+            </summary>
+        </member>
         <member name="T:GalaxyCoreServer.InstanceOpenWorld">
             <summary>
             Реализация инстанса для больших миров
@@ -826,6 +870,16 @@
         <member name="M:GalaxyCoreServer.InstanceOpenWorld.#ctor">
             <summary>
             базовый конструктор
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.InstanceOpenWorldOctree">
+            <summary>
+            Инстанс с сетевой видимостью
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.InstanceOpenWorldOctree.visibleDistance">
+            <summary>
+            Максимальная сетевая видимость
             </summary>
         </member>
         <member name="T:GalaxyCoreServer.InstanceStandart">
@@ -975,6 +1029,11 @@
             Серверная реализация сетевой сущности
             </summary>
         </member>
+        <member name="P:GalaxyCoreServer.NetEntity.ownerClient">
+            <summary>
+            Ссылка на класс клиента владельца (может быть null)
+            </summary>
+        </member>
         <member name="F:GalaxyCoreServer.NetEntity.lossOwner">
             <summary>
             Loss of owner logic
@@ -1031,6 +1090,12 @@
         <member name="F:GalaxyCoreServer.NetEntity.galaxyVars">
             <summary>
              Synchronizing Variables
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.ignoreNetVisible">
+            <summary>
+            The entity ignores network visibility (always visible)
+            Сущность игнорирует сетевую видимость (виден всегда)
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreServer.NetEntityAutoSync)">
@@ -1118,6 +1183,22 @@
             <param name="client">клиент исключенный из рассылки</param>
             <param name="code">пользовательский код</param>
             <param name="data">массив байт</param>
+            <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение всем пользователям которые видят данную сущность
+            </summary>
+            <param name="code">код сообщения</param>
+            <param name="message">сообщение</param>
+            <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Отправить сообщение всем пользователям которые видят данную сущность
+            </summary>
+            <param name="code">код сообщения</param>
+            <param name="data">данные</param>
             <param name="deliveryType">способ доставки</param>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.Invoke(System.String,System.Single,System.Object[])">

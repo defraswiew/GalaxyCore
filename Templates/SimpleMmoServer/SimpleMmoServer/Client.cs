@@ -9,7 +9,7 @@ namespace SimpleMmoServer
    public class ExampleClient:Client
     {
       
-       public ExampleClient()
+        public ExampleClient()
         {
 
         }
