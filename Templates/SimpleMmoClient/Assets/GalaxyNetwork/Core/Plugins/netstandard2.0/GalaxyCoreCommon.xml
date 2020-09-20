@@ -476,11 +476,22 @@
             Атрибут для синхронизации переменной
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVar.#ctor(System.Byte)">
+        <member name="F:GalaxyCoreCommon.GalaxyVar.sendChanges">
+            <summary>
+            Отправлять ли изменения переменной
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVar.id">
+            <summary>
+            Ид переменной в рамках сущности
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVar.#ctor(System.Byte,System.Boolean)">
             <summary>
             Synchronized variable attribute
             </summary>
             <param name="id">unique variable id for the entity</param>
+            <param name="sendChanges">Whether to send changes to a variable</param>
         </member>
         <member name="T:GalaxyCoreCommon.GalaxyVector3">
             <summary>
