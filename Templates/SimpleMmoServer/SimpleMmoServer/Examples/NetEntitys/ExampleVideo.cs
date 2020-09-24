@@ -25,9 +25,9 @@ namespace SimpleMmoServer.Examples.NetEntitys
 
         public override void Start()
         {
-          
-            galaxyVars.RegistrationClass(this);
-            Invoke("Test", 5f);
+            
+           
+        //    Invoke("Test", 1f);
        
         }
         public void Test()
@@ -39,7 +39,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
 
         public override void Update()
         {
-          
+      
         }
 
        
@@ -47,6 +47,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
         {
             text = "sfgsaassgfg";
             hp = 1234;
+            galaxyVars.RegistrationClass(this);
         }
     }
 }

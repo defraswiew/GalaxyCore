@@ -29,8 +29,21 @@ namespace SimpleMmoServer
                 case "RPGTemplatePlayer":
                     RPGTemplatePlayer rPGTemplatePlayer = new RPGTemplatePlayer(client.instanse);
                     return rPGTemplatePlayer;
+                case "Box":
+                    ExampleBox exampleBox = new ExampleBox(client.instanse);
+                    return exampleBox;
+                    
                      
-                default:                    
+
+
+                default:
+                    if (name.Contains("Bld_"))
+                    {
+                        NetEntityStandart netEntity = new NetEntityStandart(client.instanse);                      
+                        netEntity.isStatic = true;
+                        netEntity.lossOwner = NetEntityLossOwnerLogic.setServer;
+                        return netEntity;
+                    }
                       return null;
             }
          

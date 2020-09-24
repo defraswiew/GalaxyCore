@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SimpleMmoServer.Examples.Instances
 {
-    public class ExampleRoomPhys2 : Instance
+    public class ExampleRoomPhys2 : InstanceOpenWorld
     {
         int max = 1;
         public override void Start()

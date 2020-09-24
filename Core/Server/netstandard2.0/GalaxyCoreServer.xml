@@ -1029,6 +1029,11 @@
             Серверная реализация сетевой сущности
             </summary>
         </member>
+        <member name="P:GalaxyCoreServer.NetEntity.isStatic">
+            <summary>
+            Статичен ли объект
+            </summary>
+        </member>
         <member name="P:GalaxyCoreServer.NetEntity.ownerClient">
             <summary>
             Ссылка на класс клиента владельца (может быть null)
