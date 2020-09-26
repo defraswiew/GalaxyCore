@@ -55,7 +55,9 @@ namespace SimpleMmoServer.RPGTemplate
             if ((transform.position - movePoint).SqrMagnitude > 2)
             {
                 state = (byte)MobState.move;
-                transform.position = GalaxyVector3.Lerp(transform.position, movePoint, instance.Time.deltaTime * moveSpeed);
+               
+                //      transform.position = GalaxyVector3.Lerp(transform.position, movePoint, instance.Time.deltaTime * moveSpeed);
+                transform.position = GalaxyVector3.Move(transform.position, movePoint, 1, instance.Time.deltaTime);
             } else
             {
                 state = (byte)MobState.idle;

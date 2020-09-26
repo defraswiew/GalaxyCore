@@ -1103,6 +1103,12 @@
             Сущность игнорирует сетевую видимость (виден всегда)
             </summary>
         </member>
+        <member name="F:GalaxyCoreServer.NetEntity.searchRangeVisible">
+            <summary>
+            search range of visible objects
+            дальность поиска видимых объектов
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreServer.NetEntityAutoSync)">
             <summary>
             Creating a network entity

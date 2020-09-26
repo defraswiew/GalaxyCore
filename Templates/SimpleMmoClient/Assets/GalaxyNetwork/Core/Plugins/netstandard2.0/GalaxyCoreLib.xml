@@ -486,6 +486,12 @@
             Эмуляция потерь сообщений. 1 = 100% потери
             </summary>
         </member>
+        <member name="F:GalaxyCoreLib.Config.smoofInstantiate">
+            <summary>
+            Distribution of object creation by frames
+            Распределение создания объектов по кадрам
+            </summary>
+        </member>
         <member name="P:GalaxyCoreLib.Config.app_name">
             <summary>
             Application ID.Must match the server name.
@@ -734,10 +740,57 @@
             <param name="netEntity">сетевой объект служащий транспортом для аниматора</param>
             <param name="count">число переменных</param>
         </member>
+        <member name="M:GalaxyCoreLib.NetEntity.AnimatorSync.SetValue(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.AnimatorSync.SetTrigger(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.AnimatorSync.Sync">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.NetEntity.AnimatorSync.FullSend">
             <summary>
             Отправить полный пакет данных
             </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.IAnimatorSync.SetFloat(System.Int32,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.IAnimatorSync.SetInt(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.IAnimatorSync.SetBool(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.IAnimatorSync.SetTrigger(System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
         </member>
         <member name="T:GalaxyCoreLib.NetEntity.ClientNetEntity">
             <summary>
@@ -777,6 +830,11 @@
         <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.isInit">
             <summary>
             Инициализирован ли объект
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.ClientNetEntity.initData">
+            <summary>
+            cascum init data
             </summary>
         </member>
         <member name="F:GalaxyCoreLib.NetEntity.ClientNetEntity.galaxyVars">
@@ -835,6 +893,11 @@
             <param name="data">массив байт</param>
             <param name="deliveryType">способ доставки</param>
         </member>
+        <member name="T:GalaxyCoreLib.NetEntity.GalaxyVars">
+            <summary>
+            GalaxyVars client version
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.NetEntity.GalaxyVars.RegistrationClass(System.Object)">
             <summary>
             Registering a class to work with GalaxyVars
@@ -852,6 +915,11 @@
             <summary>
             Force full data upload
             Принудительная отправка данных
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.NetEntity.NetEntityRPC">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:GalaxyCoreLib.NetEntity.Transform">

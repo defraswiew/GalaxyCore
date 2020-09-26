@@ -9,8 +9,7 @@ namespace SimpleMmoServer.Examples.Instances
     public class ExampleNetvisible : InstanceOpenWorldOctree
     {
         public MapSaver mapSaver = new MapSaver();
-        int sizeX = 20;
-        int sizeZ = 20;
+ 
         public override void Close()
         {
           
@@ -30,7 +29,7 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void OutcomingClient(Client clientConnection)
         {
-            if (clients.Count == 0) mapSaver.SaveInstance(this, name);
+            if (clients.Count == 0) mapSaver.SaveInstance(this, "cs_mansion");
         }
 
         public override void Start()
@@ -39,25 +38,7 @@ namespace SimpleMmoServer.Examples.Instances
             autoClose = false;
             visibleDistance = 40;
             name = "Building example";
-            mapSaver.Load(this,name);
-            /*
-          
-
-            for (int x = 0; x < sizeX; x+=2)
-            {
-                for (int z = 0; z < sizeZ; z += 2)
-                {
-                    NetEntityStandart netEntity = new NetEntityStandart(this);
-                    netEntity.prefabName = "Bld_wall_1";
-                    netEntity.isStatic = true;
-                    netEntity.lossOwner = NetEntityLossOwnerLogic.setServer;
-                    netEntity.transform.position.x = x;
-                    netEntity.transform.position.z = z;
-                    netEntity.Init();
-                }
-            }
-            */
-      
+            mapSaver.Load(this, "cs_mansion");    
         }
       
         public override void Update()

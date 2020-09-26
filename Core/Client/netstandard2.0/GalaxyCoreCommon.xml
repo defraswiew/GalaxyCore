@@ -479,7 +479,7 @@
         <member name="F:GalaxyCoreCommon.GalaxyVar.sendChanges">
             <summary>
             Отправлять ли изменения переменной
-            </summary>
+            </summary>        
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVar.id">
             <summary>

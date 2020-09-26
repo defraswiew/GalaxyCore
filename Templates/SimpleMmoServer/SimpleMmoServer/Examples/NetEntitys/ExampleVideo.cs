@@ -8,7 +8,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
 {
     public class ExampleVideo : NetEntity
     {
-        [GalaxyVar(1)]
+        [GalaxyVar(1,false)]
         public string text;
         [GalaxyVar(2)]
         public int hp;

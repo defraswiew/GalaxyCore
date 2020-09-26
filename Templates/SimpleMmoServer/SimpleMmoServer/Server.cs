@@ -65,8 +65,8 @@ namespace SimpleMmoServer
             // Запускаем сервер      
             GalaxyCore.Start(config);
              
-           //   GalaxyCore.instances.Create(new ExampleNetvisible());
-          //  GalaxyCore.instances.Create(new SimpleMmoServer.RPGTemplate.Location());
+          //   GalaxyCore.instances.Create(new ExampleNetvisible());
+          //   GalaxyCore.instances.Create(new SimpleMmoServer.RPGTemplate.Location());
         }
 
         /// <summary>
