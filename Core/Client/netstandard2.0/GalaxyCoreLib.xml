@@ -311,6 +311,41 @@
             <param name="entity">Базовый экземпляр сетевой сущности</param>
             <param name="message">доволнительное пользовательское сообщение</param>
         </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.RemoteDestroy(System.Int32)">
+            <summary>
+            Запрос на удаление сущности с стороны сервера
+            </summary>
+            <param name="netId">ид</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.QueueWorkerDestroy(System.Int32)">
+            <summary>
+            Обработка очереди удаления объекта
+            </summary>
+            <param name="netId">кого удалять</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.InMessage(System.Byte,GalaxyCoreCommon.InternalMessages.MessRouteNetEntity)">
+            <summary>
+            Входящиее сообщение роутинга
+            </summary>
+            <param name="code">код сообщения</param>
+            <param name="mess">структура роутинга</param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.AnimMessage(GalaxyCoreCommon.InternalMessages.MessRouteNetEntity)">
+            <summary>
+            Сообщение для аниматора
+            </summary>
+            <param name="mess"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.SendTransforms">
+            <summary>
+            формирование фрейма позиций и нетваров
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.ClearAll">
+            <summary>
+            Удалить все энтити
+            </summary>
+        </member>
         <member name="M:GalaxyCoreLib.Api.NetEntityManager.EntityNotFound(System.Int32)">
             <summary>
             Вызвать в случае если энтити не найден
@@ -323,6 +358,23 @@
             Запрос на удаление сетевой сущности
             </summary>
             <param name="netId"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.Api.QueueInstantiateDestroy">
+            <summary>
+            Класс очереди команд удаления / создания
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.QueueInstantiateDestroy.#ctor(GalaxyCoreCommon.InternalMessages.MessNetEntityInstantiate)">
+            <summary>
+            Конструктор создания сущности
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.QueueInstantiateDestroy.#ctor(System.Int32)">
+            <summary>
+            конструктор удаления сущности
+            </summary>
+            <param name="netID"></param>
         </member>
         <member name="T:GalaxyCoreLib.Api.Sender">
             <summary>
