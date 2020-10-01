@@ -1109,6 +1109,12 @@
             дальность поиска видимых объектов
             </summary>
         </member>
+        <member name="P:GalaxyCoreServer.NetEntity.octreeThreshold">
+            <summary>
+            Range threshold causing coordinates update in the search tree
+            Порог дальности вызывающий обновлении координат в древе поиска
+            </summary>
+        </member>
         <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreServer.NetEntityAutoSync)">
             <summary>
             Creating a network entity
