@@ -1,42 +1,19 @@
 ﻿using GalaxyCoreServer;
-using System;
-using System.Collections.Generic;
-using System.Text;
+ 
 
 namespace SimpleMmoServer.Examples.Instances
 {
+    /// <summary>
+    /// Инстанс пример работы с серверными инвойками
+    /// Серверный инвойк способен принимать любое число доп аргументов
+    /// </summary>
     public class ExampleInvoke : Instance
     {
-        public override void Close()
-        {
-           
-        }
-
-        public override void IncomingClient(Client clientConnection)
-        {
-           
-        }
-
-        public override void InMessage(byte code, byte[] data, Client clientConnection)
-        {
-            
-        }
-
-        public override void OutcomingClient(Client clientConnection)
-        {
-            
-        }
-
+    
         public override void Start()
         {
             Invoke("TestInvoke1", 2);
         }
-
-        public override void Update()
-        {
-             
-        }
-
 
         public void TestInvoke1()
         {
@@ -66,6 +43,33 @@ namespace SimpleMmoServer.Examples.Instances
             CancelInvoke("TestInvokeRepeating1");
             Log.Debug("Cancel", "TestInvokeRepeating1");
         }
+
+
+        public override void Update()
+        {
+
+        }
+
+        public override void Close()
+        {
+
+        }
+
+        public override void IncomingClient(Client clientConnection)
+        {
+
+        }
+
+        public override void InMessage(byte code, byte[] data, Client clientConnection)
+        {
+
+        }
+
+        public override void OutcomingClient(Client clientConnection)
+        {
+
+        }
+
 
     }
 }

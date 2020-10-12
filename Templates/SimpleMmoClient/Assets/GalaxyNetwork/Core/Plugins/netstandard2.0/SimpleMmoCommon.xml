@@ -16,18 +16,18 @@
         </member>
         <member name="M:SimpleMmoCommon.Messages.MessageApproval.#ctor">
             <summary>
-            
+            Базовый конструктор
             </summary>
         </member>
         <member name="M:SimpleMmoCommon.Messages.MessageApproval.#ctor(System.String)">
             <summary>
-            
+            Конструктор с именем
             </summary>
             <param name="name"></param>
         </member>
         <member name="T:SimpleMmoCommon.Messages.MessageAuth">
             <summary>
-            Структура пакета авторизации
+             Сообщение авторизации
             </summary>
         </member>
         <member name="P:SimpleMmoCommon.Messages.MessageAuth.login">
@@ -40,21 +40,6 @@
             Пароль пользователя
             </summary>
         </member>
-        <member name="T:SimpleMmoCommon.Messages.MessageTransform">
-            <summary>
-            Пример синхронизации трансформа
-            </summary>
-        </member>
-        <member name="P:SimpleMmoCommon.Messages.MessageTransform.position">
-            <summary>
-            Позиция
-            </summary>
-        </member>
-        <member name="P:SimpleMmoCommon.Messages.MessageTransform.rotation">
-            <summary>
-            Поворот
-            </summary>
-        </member>
         <member name="T:SimpleMmoCommon.NetEntityCommand">
             <summary>
             Типы команд для сетевой сущности
@@ -63,6 +48,56 @@
         <member name="F:SimpleMmoCommon.NetEntityCommand.syncTransform">
             <summary>
             синхронизация позиции
+            </summary>
+        </member>
+        <member name="T:SimpleMmoCommon.RPGTemplate.DropList">
+            <summary>
+            Пример отправки списка ид итемов
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.RPGTemplate.DropList.items">
+            <summary>
+            список ид итемов
+            </summary>
+        </member>
+        <member name="T:SimpleMmoCommon.RPGTemplate.MobState">
+            <summary>
+            Состояние моба
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.RPGTemplate.MobState.none">
+            <summary>
+            нет состояния
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.RPGTemplate.MobState.idle">
+            <summary>
+            Ожидание
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.RPGTemplate.MobState.move">
+            <summary>
+            Куда то ползет
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.RPGTemplate.MobState.moveBack">
+            <summary>
+            ползет задом
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.RPGTemplate.MobState.follow">
+            <summary>
+            Преследует
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.RPGTemplate.MobState.attack">
+            <summary>
+            Атакует
+            </summary>
+        </member>
+        <member name="F:SimpleMmoCommon.RPGTemplate.MobState.death">
+            <summary>
+            Помер
             </summary>
         </member>
     </members>

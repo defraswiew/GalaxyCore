@@ -1,11 +1,11 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SimpleMmoServer.RPGTemplate
 {
+    /// <summary>
+    /// Пример игрока
+    /// </summary>
     public class RPGTemplatePlayer : NetEntity
     {
         /// <summary>

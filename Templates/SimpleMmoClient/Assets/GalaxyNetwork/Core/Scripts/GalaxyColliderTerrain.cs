@@ -4,6 +4,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+/// <summary>
+/// Сетевой коллайдер для террейна
+/// </summary>
 public class GalaxyColliderTerrain : MonoBehaviour
 {
 
@@ -51,7 +54,6 @@ public class GalaxyColliderTerrain : MonoBehaviour
         terrain = GetComponent<Terrain>();
         var data = terrain.terrainData;
         int resolusion = map.width;
-        //     var heights = data.GetHeights(0, 0, map.width, map.height);
         float[,] heights = new float[map.width, map.height];
         float verticalScale = data.size.y;
         for (int x = 0; x < map.width; x++)
@@ -59,9 +61,7 @@ public class GalaxyColliderTerrain : MonoBehaviour
             for (int y = 0; y < map.height; y++)
             {
                 heights[x, y] = map.GetPixel(x, y).r * verticalScale;
-                //     img.SetPixel(x, y, Color.Lerp(Color.black, Color.white, heights[x, y]));                
             }
-            //     Debug.Log(heights[x, 5]* verticalScale);
         }
         for (int x = 0; x < resolusion - 1; x++)
         {
@@ -88,36 +88,19 @@ public class GalaxyColliderTerrain : MonoBehaviour
 
     public Texture GetImage()
     {
-        //   if(img) return img;
-
         if (!terrain) terrain = GetComponent<Terrain>();
         var data = terrain.terrainData;
         int resolusion = data.heightmapResolution;
         var heights = data.GetHeights(0, 0, resolusion, resolusion);
-        //   return TextureFromHeightMap(heights);
-        // return terrain.terrainData.heightmapTexture;
         img = new Texture2D(terrain.terrainData.heightmapResolution, terrain.terrainData.heightmapResolution, TextureFormat.RGBA32, false);
-
-
         float verticalScale = data.size.y;
-        //  terrain.terrainData.heightmapTexture
-        /*
-          for (int x = 0; x < resolusion; x++)
-          {
-              for (int z = 0; z < resolusion; z++)
-                  img.SetPixel(0, 0, new Color(heights[x, z], heights[x, z], heights[x, z]));
-            //  heights[x, z] *= verticalScale;
-          }
-         */
 
         for (int x = 0; x < img.width; x++)
         {
             for (int y = 0; y < img.height; y++)
             {
                 img.SetPixel(x, y, new Color(heights[x, y], heights[x, y], heights[x, y], 1));
-                //     img.SetPixel(x, y, Color.Lerp(Color.black, Color.white, heights[x, y]));                
             }
-            //     Debug.Log(heights[x, 5]* verticalScale);
         }
         img.Apply();
         return img;
@@ -146,15 +129,17 @@ public class GalaxyColliderTerrain : MonoBehaviour
         return TextureFromColourMap(colourMap, width, height);
     }
 }
+/// <summary>
+/// Качество запекания
+/// </summary>
 public enum BakeTerrainQuality
 {
-
     shit = 28,
     veryLow = 32,
     low = 48,
     normal = 64,
     good = 80,
     great = 100,
-    perfect = 128 
+    perfect = 128
 }
 #endif

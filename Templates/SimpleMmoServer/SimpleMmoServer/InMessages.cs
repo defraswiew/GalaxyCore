@@ -1,14 +1,12 @@
 ﻿using GalaxyCoreServer;
-using GalaxyCoreServer.Api;
-using System;
-using System.Collections.Generic;
-using System.Text;
+ 
 
 namespace SimpleMmoServer
 {
     /// <summary>
     /// Main receiver of incoming packets
     /// Главный приемщик входящих пакетов
+    /// Сюда попадают собщения отправленные через  GalaxyApi.send.SendMessageToServer
     /// </summary>
     public class InMessages : IIncomingMessage
     {
@@ -20,7 +18,6 @@ namespace SimpleMmoServer
         /// <param name="client">Client instance</param>
         public void IncomingMessage(byte code, byte[] data, Client client)
         {
-
             // we distribute messages according to the code we specified, for convenience we use Enum   
             switch (code)
             {
@@ -35,10 +32,5 @@ namespace SimpleMmoServer
             }
 
         }
-
-
-
-
-
     }
 }

@@ -14,9 +14,7 @@ namespace SimpleMmoServer.Examples.Instances
     /// </summary>
     public class ExampleRoomPhys : Instance
     {
-        float timer = -3; // 
-        int bodyCount; // текущее число боксов
-        int bodyMax = 500; // целевое число боксов       
+        float timer = -3;        
         int bodyForseCount;
         int bodyForseMax = 1000;
         public GalaxyVector3 forseTarget = new GalaxyVector3(10, 10, 10);
@@ -108,30 +106,7 @@ namespace SimpleMmoServer.Examples.Instances
             }         
         }
 
-        /*
-        private void BoxSpawn()
-        {          
-
-                if(bodyCount % 3 == 0) {
-
-                    Examples.NetEntitys.ExampleSphere sphere = new Examples.NetEntitys.ExampleSphere(this, new GalaxyVector3(0.36f, 15, 17.5f), new GalaxyQuaternion(4, 10, 20, 0.5f));
-                    sphere.Init();
-                    bodyCount++;
-                    return;
-                }
-            if (bodyCount % 4 == 0)
-            {
-
-                Examples.NetEntitys.ExamplePhysCapsule capsule = new Examples.NetEntitys.ExamplePhysCapsule(this, new GalaxyVector3(0.36f, 15, 17.5f), new GalaxyQuaternion(4, 10, 20, 0.5f));
-                capsule.Init();
-                bodyCount++;
-                return;
-            }
-            Examples.NetEntitys.ExamplePhysBox box = new Examples.NetEntitys.ExamplePhysBox(this, new GalaxyVector3(0.36f, 15, 17.5f),new GalaxyQuaternion(4, 10, 20, 0.5f));
-                    box.Init();
-                   bodyCount++;
-        }
-        */
+    
 
         private void BodyForseSpawn()
         {

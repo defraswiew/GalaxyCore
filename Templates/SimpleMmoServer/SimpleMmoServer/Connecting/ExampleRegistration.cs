@@ -1,17 +1,18 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
-using SimpleMmoCommon.Messages;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SimpleMmoCommon.Messages; 
 
 namespace SimpleMmoServer
 {
+    /// <summary>
+    /// Класс пример регистрации
+    /// </summary>
    public class ExampleRegistration
     {
         public ExampleRegistration()
         {
+            // подписываемся на событие регистрации
             GalaxyEvents.OnGalaxyRegistration += OnGalaxyRegistration;
         }
 
@@ -41,8 +42,7 @@ namespace SimpleMmoServer
 
             }
             else
-            {
-                
+            {                
                 approvalConnection.Deny(1, "Нам не нравится ваш логин");
             }
         }

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Instance Info", menuName = "GalaxyNetwork/Instance Info", order = 1)]
 public class GalaxyInstanceInfoScriptable : ScriptableObject

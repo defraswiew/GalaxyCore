@@ -1,22 +1,31 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreLib.NetEntity;
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
-using UnityEngine.UI;
 
+/// <summary>
+/// Пример работы с GalaxyVar
+/// </summary>
 public class ExampleGalaxyVars : MonoBehaviour
 {
+    /// <summary>
+    /// Помечаем строку как синхронизируемую
+    /// </summary>
     [GalaxyVar(1)]
     public string text;
+    /// <summary>
+    /// Делаем хп сетевыми
+    /// </summary>
     [GalaxyVar(2)]
     public int hp;
     public TextMesh textMesh;
+    /// <summary>
+    /// Пример синхронизации внутри любых других классах
+    /// </summary>
     public Test test = new Test();
     void Start()
     {
         ClientNetEntity netEntity = GetComponent<UnityNetEntity>().netEntity;
+        // регистрируем внешний класс в galaxyVars
         netEntity.galaxyVars.RegistrationClass(test);
     }
     void Update()

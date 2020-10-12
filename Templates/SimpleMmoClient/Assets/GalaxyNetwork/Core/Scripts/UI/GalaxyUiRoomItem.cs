@@ -1,52 +1,103 @@
-﻿using GalaxyCoreLib;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-public class GalaxyUiRoomItem : MonoBehaviour
+
+namespace GalaxyCoreLib
 {
-    public Text roomName;
-    public Text userCount;
-    public GameObject open;
-    public GameObject close;
-    public Button btn;
-    private int id;
-    public Image logo;
-    private string password="";
-    public GameObject passField;
-    private bool isOpen;
-
-    public void Init(int roomId, string nameRoom, int count, int max, bool isOpen, Sprite img = null)
+    /// <summary>
+    /// Строка комнаты в окне списка
+    /// </summary>
+    public class GalaxyUiRoomItem : MonoBehaviour
     {
-        id = roomId;
-        roomName.text = nameRoom;
-        userCount.text = count + " /" + max;
-        this.isOpen = isOpen;
-        if (isOpen)
+        /// <summary>
+        /// Имя комнаты
+        /// </summary>
+        [SerializeField]
+        private Text roomName;
+        /// <summary>
+        /// Число игроков
+        /// </summary>
+        [SerializeField]
+        private Text userCount;
+        /// <summary>
+        /// Открытая ли комната
+        /// </summary>
+        [SerializeField]
+        private GameObject open;
+        /// <summary>
+        /// Закрытыя ли комната
+        /// </summary>
+        [SerializeField]
+        private GameObject close;
+        /// <summary>
+        /// Изображение комнаты если есть
+        /// </summary>
+        [SerializeField]
+        private Image logo;
+        /// <summary>
+        /// Пароль на вход в комнату
+        /// </summary>
+        [SerializeField]
+        private GameObject passField;
+        /// <summary>
+        /// Открыта ли комната
+        /// </summary>
+        private bool isOpen;
+        /// <summary>
+        /// Текущий указанный пользователем пароль
+        /// </summary>
+        private string password = "";
+        /// <summary>
+        /// Ид комнаты
+        /// </summary>
+        private int id;
+
+        /// <summary>
+        /// Инициализация строки
+        /// </summary>
+        /// <param name="roomId">ид инстанса</param>
+        /// <param name="nameRoom">имя</param>
+        /// <param name="count">текущее число пользователей</param>
+        /// <param name="max">максимальное число пользователей</param>
+        /// <param name="isOpen">открыта ли комната</param>
+        /// <param name="img">картиночка если есть</param>
+        public void Init(int roomId, string nameRoom, int count, int max, bool isOpen, Sprite img = null)
         {
-            open.SetActive(true);
-        } else
-        {
-            close.SetActive(true);
+            id = roomId;
+            roomName.text = nameRoom;
+            userCount.text = count + " /" + max;
+            this.isOpen = isOpen;
+            if (isOpen)
+            {
+                open.SetActive(true);
+            }
+            else
+            {
+                close.SetActive(true);
+            }
+            if (img != null) logo.sprite = img;
         }
-        if (img != null) logo.sprite = img;
-    }
-
-    public void SetPassword(string password)
-    {
-        this.password = password;
-    }
-
-    public void Connect()
-    {
-        Debug.Log(1);
-        if (!isOpen && password=="")
+        /// <summary>
+        /// Обновляем пароль из поля passField
+        /// </summary>
+        /// <param name="password"></param>
+        public void SetPassword(string password)
         {
-            Debug.Log(2);
-            passField.SetActive(true);
-            return;
+            this.password = password;
         }
-        Debug.Log(3);
-        GalaxyApi.instances.EnterToInstance(id,password);
+        /// <summary>
+        /// Пытаемся подключиться к комнате
+        /// </summary>
+        public void Connect()
+        {
+            if (!isOpen && password == "")
+            {
+                passField.SetActive(true);
+                // нельзя подключиться если инстанс с паролем 
+                // а пароль не указан
+                return;
+            }
+            // отправляем в апи запрос на подключение к инстансу
+            GalaxyApi.instances.EnterToInstance(id, password);
+        }
     }
 }

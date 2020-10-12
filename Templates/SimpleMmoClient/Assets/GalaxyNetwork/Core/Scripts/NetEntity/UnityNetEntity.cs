@@ -1,10 +1,5 @@
 ﻿using GalaxyCoreLib;
-using GalaxyCoreLib.Api;
 using GalaxyCoreLib.NetEntity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using UnityEngine;
 
 public class UnityNetEntity : MonoBehaviour
@@ -23,26 +18,27 @@ public class UnityNetEntity : MonoBehaviour
     /// </summary>
     [HideInInspector]
     public float initTime;
-    
+    /// <summary>
+    /// массив компонентов
+    /// </summary>
     private Component[] components;
 
     void Awake()
     {
+        // подписываемся на событие сетевого старта
         netEntity.OnNetStart += OnNetStart;
+        // подписываемся на событие сетевого уничтожения
         netEntity.OnNetDestroy += OnNetDestroy;
-     //   GalaxyEvents.OnGalaxyIncommingMessage += OnGalaxyIncommingMessage;
-    }
-
-    private void OnGalaxyIncommingMessage(byte code, byte[] data)
-    {
  
     }
 
     void Start()
     {
+        // собираем компоненты
         components = GetComponents<Component>();
         foreach (var item in components)
         {
+            // регистрируем компоненты в системе управления сетевыми переменными
             netEntity.galaxyVars.RegistrationClass(item);
         }
         // Init необходимо вызывать именно в Start т.к внутренняя инициализация не успевает сработать к Awake или OnEnable
@@ -50,16 +46,11 @@ public class UnityNetEntity : MonoBehaviour
     }
 
     void Init()
-    {
-     //   netEntity.OnNetStart += OnNetStart;
-     //   netEntity.OnNetDestroy += OnNetDestroy; 
-       
+    {       
         if (!netEntity.isInit)
         {
-            // если netEntity все еще null то это явно наш объект
-            // и нужно отправлять запрос на создание сетевого экземпляра
-            // создаем пустой экземпляр сетевой сущности
-          //  netEntity = new ClientNetEntity();            
+            // если netEntity не инициализирован к вызову инит значит это наш объект
+            // и нужно отправлять запрос на создание сетевого экземпляра            
             // убираем все лишнее из имени
             netEntity.prefabName = gameObject.name.Split(new char[] { ' ', '(' })[0];
             // записываем текущую позицию и поворот
@@ -72,8 +63,7 @@ public class UnityNetEntity : MonoBehaviour
 
     private void OnNetStart()
     {
-     //   Debug.Log(gameObject.name + " OnNetStart");
-        //задаем время инициализации
+        // записываем время инициализации
         initTime = Time.time;
     }
 
@@ -85,6 +75,7 @@ public class UnityNetEntity : MonoBehaviour
 
     private void OnDestroy()
     {
+        // отписываемся от слушаемых событий
         netEntity.OnNetStart -= OnNetStart;
         netEntity.OnNetDestroy -= OnNetDestroy;
         // если же мы удаляем объект по своей инициативе то сообщяем об этом сетевой сущности
@@ -98,12 +89,4 @@ public class UnityNetEntity : MonoBehaviour
     }
 #endif
 
-
-
-    void LoadRPC()
-    {
-        List<MemberInfo> options_rpc = new List<MemberInfo>();
-        options_rpc = components.GetType().GetMembers(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-            .Where(n => Attribute.IsDefined(n, typeof(NetEntityRPC))).ToList();
-    }
 }

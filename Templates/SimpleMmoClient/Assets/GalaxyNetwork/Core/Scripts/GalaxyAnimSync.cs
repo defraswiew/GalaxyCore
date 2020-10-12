@@ -1,20 +1,46 @@
 ﻿using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using GalaxyCoreLib.NetEntity;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Компонент синхронизации параметров аниматора
+/// версия 0.1 (использовать только под гнетом страха)
+/// </summary>
 public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
 {
-    public Animator animator;
-    AnimatorSync animatorSync;
-    ClientNetEntity netEntity;
-    int count;
-    string[] names;
-    FastType[] types;
-    float[] floatsLearp;
-    float[] floatsTarget;
+    /// <summary>
+    /// Ссылкан а текущий аниматор
+    /// </summary>
+    private Animator animator;
+    /// <summary>
+    /// Синхронизатор
+    /// </summary>
+    private AnimatorSync animatorSync;
+    /// <summary>
+    /// Ссылка на сетевубю сущность
+    /// </summary>
+    private ClientNetEntity netEntity;
+    /// <summary>
+    /// Число параметров
+    /// </summary>
+    private int count;
+    /// <summary>
+    /// Имена параметров
+    /// </summary>
+    private string[] names;
+    /// <summary>
+    /// Кеш типов параметров
+    /// </summary>
+    private FastType[] types;
+    /// <summary>
+    /// Флоты для лерпа
+    /// </summary>
+    private float[] floatsLearp;
+    /// <summary>
+    /// Целевые флоты
+    /// </summary>
+    private float[] floatsTarget;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -45,9 +71,7 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
                 animatorSync.RegParameter(i, animator.GetInteger(names[i]));
                 types[i] = FastType._int;
             }
-
         }
-
     }
 
 
@@ -59,7 +83,6 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
     {
         GalaxyEvents.OnFrameUpdate -= OnFrameUpdate;
     }
-
     private void OnFrameUpdate()
     {
         if (!netEntity.isMy) return;
@@ -117,11 +140,11 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
             }
         }
     }
-
-
 }
 
-
+/// <summary>
+/// Типы переменных для хеша
+/// </summary>
 public enum FastType : byte
 {
     _none = 0,

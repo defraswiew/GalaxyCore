@@ -1,14 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using GalaxyCoreLib;
 
 [CustomEditor(typeof(GalaxyNetworkController))]
 public class EditorNetworkController : Editor
 {
-   
-
     public override void OnInspectorGUI()
     {
         GalaxyNetworkController item = (GalaxyNetworkController)target;
@@ -25,20 +21,22 @@ public class EditorNetworkController : Editor
         item.serverPort = EditorGUILayout.IntField(item.serverPort);
         GUILayout.EndHorizontal();
         GUILayout.Space(10);
-         if (GalaxyApi.myId!=0) GUILayout.Label("Client ID: " + GalaxyApi.myId, EditorStyles.largeLabel);
+        if (GalaxyApi.myId != 0) GUILayout.Label("Client ID: " + GalaxyApi.myId, EditorStyles.largeLabel);
 
         GUILayout.Space(10);
-        if (GalaxyApi.connection != null) {
-            if (GalaxyApi.connection.isConnected) {  
-        GUILayout.Label("Statictic", EditorStyles.boldLabel);
+        if (GalaxyApi.connection != null)
+        {
+            if (GalaxyApi.connection.isConnected)
+            {
+                GUILayout.Label("Statictic", EditorStyles.boldLabel);
 
 
-        GUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Messages");
-        GUILayout.Label("In: " + GalaxyApi.connection.statistic.inMessages);
-        GUILayout.Label("Out: " + GalaxyApi.connection.statistic.outMessages);
-        GUILayout.Label("           ");
-        GUILayout.EndHorizontal();                
+                GUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField("Messages");
+                GUILayout.Label("In: " + GalaxyApi.connection.statistic.inMessages);
+                GUILayout.Label("Out: " + GalaxyApi.connection.statistic.outMessages);
+                GUILayout.Label("           ");
+                GUILayout.EndHorizontal();
 
 
                 GUILayout.BeginHorizontal();
@@ -55,10 +53,7 @@ public class EditorNetworkController : Editor
                 GUILayout.Label("           ");
                 GUILayout.EndHorizontal();
 
-                GUILayout.Label("Ping: " + GalaxyApi.connection.statistic.ping);
-
-
-              
+                GUILayout.Label("Ping: " + GalaxyApi.connection.statistic.ping * 500);
             }
         }
 

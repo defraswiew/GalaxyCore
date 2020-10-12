@@ -5,16 +5,27 @@ using SimpleMmoServer.RPGTemplate;
 
 namespace SimpleMmoServer
 {
+    /// <summary>
+    /// Переопределение сетевых сущностей созданных с стороны клиента
+    /// </summary>
    public class NetEntityOverrider
     {
         public NetEntityOverrider()
         {
+            // Подписываемся на событие создания сетевой сущности (со стороны клиента)
             GalaxyEvents.OnNetEntityInstantiate += OnNetEntityInstantiate;  
         }
 
-
+        /// <summary>
+        /// Клиент запросил создание сущности
+        /// </summary>
+        /// <param name="name">Имя префаба</param>
+        /// <param name="data">дополнительные данные</param>
+        /// <param name="client">Клиент который хочет создать сущность</param>
+        /// <returns></returns>
         private NetEntity OnNetEntityInstantiate(string name, byte[] data, Client client)
         {
+            // По имени префаба назначаем сущности исполняемый класс
             switch (name)
             {              
                 case "Player":
@@ -31,10 +42,7 @@ namespace SimpleMmoServer
                     return rPGTemplatePlayer;
                 case "Box":
                     ExampleBox exampleBox = new ExampleBox(client.instanse);
-                    return exampleBox;
-                    
-                     
-
+                    return exampleBox;                                 
 
                 default:
                     if (name.Contains("Bld_"))

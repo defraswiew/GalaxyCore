@@ -1,19 +1,12 @@
-﻿// (c) GG-Team
-// Вешать на обьект, за который тянуть и указать в MainObj целиковое окно
-
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GalaxyDragWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
     public Transform MainObj;
-
     Vector2 offsetPos;
-
     Outline ou;
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         offsetPos = new Vector2(MainObj.position.x - eventData.pressPosition.x, MainObj.position.y - eventData.pressPosition.y);

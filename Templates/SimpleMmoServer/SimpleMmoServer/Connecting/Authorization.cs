@@ -2,9 +2,6 @@
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using SimpleMmoCommon.Messages;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SimpleMmoServer
 {
@@ -39,9 +36,11 @@ namespace SimpleMmoServer
             // Но сейчас мы не станем этого делать, и просто разрешить соеденение всем в чьих логинах содержится test
             if (message.login.Contains("test"))
             {
-                MessageApproval response = new MessageApproval(); //Создадим пакет который мы отправим клиенту вместе с разрешением коннекта
+                //Создадим пакет который мы отправим клиенту вместе с разрешением коннекта
+                MessageApproval response = new MessageApproval();  
                 response.name = message.login;
-                int clientID = Tools.GetNewID(); // Получаем ид
+                // Получаем ид, сюда следует подставить реальный ид клиента по базе
+                int clientID = Tools.GetNewID();  
 
                 // ClientConnection connection;  
                 // Create your own client implementation
@@ -57,7 +56,7 @@ namespace SimpleMmoServer
             else
             {
                  approvalConnection.Deny(1, "Нам не нравится ваш логин");
-                Log.Debug("OnGalaxyConnect", "неудачный коннект");
+                 Log.Debug("OnGalaxyConnect", "неудачный коннект");
             }
         }
     }

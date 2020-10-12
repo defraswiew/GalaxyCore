@@ -64,9 +64,9 @@ namespace SimpleMmoServer
             // We start the server
             // Запускаем сервер      
             GalaxyCore.Start(config);
-            // GalaxyCore.instances.Create(new ExampleRoomMovers());
-            //   GalaxyCore.instances.Create(new ExampleNetvisible());
-            //    GalaxyCore.instances.Create(new SimpleMmoServer.RPGTemplate.Location());
+                  
+            //  GalaxyCore.instances.Create(new ExampleNetvisible());
+            //  GalaxyCore.instances.Create(new SimpleMmoServer.RPGTemplate.Location());
         }
 
         /// <summary>
@@ -90,7 +90,8 @@ namespace SimpleMmoServer
                 case 4:  
                     return new Examples.Instances.ExampleRoomPhys2();
                 default:
-                    return new Examples.Instances.ExampleEmtyInstance(); // если не нужно ничего переопределять, то возвращяем null (будет использоваться стандартная комната)
+                    // если не нужно ничего переопределять, то возвращяем null (будет использоваться стандартная комната)
+                    return new Examples.Instances.ExampleEmtyInstance(); 
             }           
         }
     }

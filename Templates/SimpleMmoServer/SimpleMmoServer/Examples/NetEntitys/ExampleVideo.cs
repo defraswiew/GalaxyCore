@@ -8,7 +8,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
 {
     public class ExampleVideo : NetEntity
     {
-        [GalaxyVar(1,false)]
+        [GalaxyVar(1)]
         public string text;
         [GalaxyVar(2)]
         public int hp;
@@ -45,8 +45,8 @@ namespace SimpleMmoServer.Examples.NetEntitys
        
         public ExampleVideo(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
-            text = "sfgsaassgfg";
-            hp = 1234;
+            text = "hello";
+            hp = 666;
             galaxyVars.RegistrationClass(this);
         }
     }

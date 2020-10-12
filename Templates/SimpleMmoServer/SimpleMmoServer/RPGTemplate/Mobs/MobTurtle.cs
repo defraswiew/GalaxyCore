@@ -1,12 +1,9 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
+ 
 namespace SimpleMmoServer.RPGTemplate
 {
-   public class MobTurtle : Mob
+    public class MobTurtle : Mob
     {
         public MobTurtle(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {

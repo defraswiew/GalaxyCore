@@ -3640,5 +3640,768 @@
             Gets my local IPv4 address (not necessarily external) and subnet mask
             </summary>
         </member>
+        <member name="T:Octree.BoundingBox">
+            <summary>
+            Represents an axis aligned bounding box (AABB).
+            </summary>
+            <remarks>
+            This class was inspired by the Bounds type of the Unity Engine and 
+            designed with the exact same interface to provide maximum compatibility.
+            </remarks>
+        </member>
+        <member name="P:Octree.BoundingBox.Center">
+            <summary>
+            Gets or sets the center of the bounding box.
+            </summary>
+        </member>
+        <member name="P:Octree.BoundingBox.Extents">
+            <summary>
+            Gets or sets the extents of the bounding box. This is always half of the <see cref="P:Octree.BoundingBox.Size"/>.
+            </summary>
+        </member>
+        <member name="P:Octree.BoundingBox.Size">
+            <summary>
+            Gets or sets the size of the bounding box. This is always twice as large as the <see cref="P:Octree.BoundingBox.Extents"/>.
+            </summary>
+        </member>
+        <member name="P:Octree.BoundingBox.Min">
+            <summary>
+            Gets or sets the minimal point of the box.
+            </summary>
+            <remarks>
+            This is always equal to <c>center-extents</c>.
+            </remarks>
+        </member>
+        <member name="P:Octree.BoundingBox.Max">
+            <summary>
+            Gets or sets the maximal point of the box.
+            </summary>
+            <remarks>
+            This is always equal to <c>center+extents</c>.
+            </remarks>
+        </member>
+        <member name="M:Octree.BoundingBox.#ctor(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Creates a new bounding box.
+            </summary>
+            <param name="center">The center of the box.</param>
+            <param name="size">The size of the box.</param>
+        </member>
+        <member name="M:Octree.BoundingBox.SetMinMax(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Sets the bounds to the min and max value of the box.
+            </summary>
+            <param name="min">The minimal point.</param>
+            <param name="max">The maximal point.</param>
+        </member>
+        <member name="M:Octree.BoundingBox.Encapsulate(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Grows the bounding box include the point.
+            </summary>
+            <param name="point">The specified point to include.</param>
+        </member>
+        <member name="M:Octree.BoundingBox.Encapsulate(Octree.BoundingBox)">
+            <summary>
+            Grows the bounding box include the other box.
+            </summary>
+            <param name="box">The specified box to include.</param>
+        </member>
+        <member name="M:Octree.BoundingBox.Expand(System.Single)">
+            <summary>
+            Expands the bounds by increasing its <see cref="P:Octree.BoundingBox.Size"/> by <paramref name="amount"/> along each side.
+            </summary>
+            <param name="amount">The expansions for each dimension.</param>
+        </member>
+        <member name="M:Octree.BoundingBox.Expand(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Expands the bounds by increasing its <see cref="P:Octree.BoundingBox.Size"/> by <paramref name="amount"/> along each side.
+            </summary>
+            <param name="amount">The expansions for each dimension in order.</param>
+        </member>
+        <member name="M:Octree.BoundingBox.Contains(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Determines whether the box contains the point.
+            </summary>
+            <param name="point">The point to test.</param>
+            <returns><c>true</c> if the box contains the point; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Octree.BoundingBox.Intersects(Octree.BoundingBox)">
+            <summary>
+            Determines whether the bounding box intersects with another box.
+            </summary>
+            <param name="box">The box to test.</param>
+            <returns><c>true</c> if the bounding box intersects with another box, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Octree.BoundingBox.IntersectRay(Octree.Ray)">
+            <summary>
+            Determines whether the bounding box intersects with a ray.
+            </summary>
+            <param name="ray">The ray to test.</param>
+            <returns><c>true</c> if the box intersects with the ray, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Octree.BoundingBox.IntersectRay(Octree.Ray,System.Single@)">
+            <summary>
+            Determines whether the bounding box intersects with a ray.
+            </summary>
+            <param name="ray">The ray to test.</param>
+            <param name="distance">The calculated distance from the origin of the ray to the box along the ray.</param>
+            <returns><c>true</c> if the box intersects with the ray, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Octree.BoundingBox.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
+        </member>
+        <member name="M:Octree.BoundingBox.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object as a <see cref="T:Octree.BoundingBox" /> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Octree.BoundingBox" /> object to compare with this instance.</param>
+            <returns><c>true</c> if the specified box is equal to this instance; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Octree.BoundingBox.ToString">
+            <summary>
+            Returns a nicely formatted string for this bounding box.
+            </summary>
+        </member>
+        <member name="M:Octree.BoundingBox.ToString(System.String)">
+            <summary>
+            Returns a nicely formatted string for this bounding box.
+            </summary>
+            <param name="format">The format for the center and the extent.</param>
+        </member>
+        <member name="M:Octree.BoundingBox.op_Equality(Octree.BoundingBox,Octree.BoundingBox)">
+            <summary>
+            Determines whether two bounding boxes are equal.
+            </summary>
+            <param name="lhs">The first box.</param>
+            <param name="rhs">The second box.</param>
+        </member>
+        <member name="M:Octree.BoundingBox.op_Inequality(Octree.BoundingBox,Octree.BoundingBox)">
+            <summary>
+            Determines whether two bounding boxes are different.
+            </summary>
+            <param name="lhs">The first box.</param>
+            <param name="rhs">The second box.</param>
+        </member>
+        <member name="T:Octree.MathExtensions">
+            <summary>
+            Auxiliary mathematical functions.
+            </summary>
+        </member>
+        <member name="M:Octree.MathExtensions.Clamp(System.Single,System.Single,System.Single)">
+            <summary>
+            Clamps a value between a minimum and maximum value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+            <returns>The clamped value.</returns>
+        </member>
+        <member name="T:Octree.Point">
+            <summary>
+            Representation of 3D points and vectors.
+            </summary>
+            <remarks>
+            This class was inspired by the Vector3 type of the Unity Engine and 
+            designed with the exact same interface to provide maximum compatibility.
+            </remarks>
+        </member>
+        <member name="P:Octree.Point.X">
+            <summary>
+            Gets or sets the X coordinate.
+            </summary>
+        </member>
+        <member name="P:Octree.Point.Y">
+            <summary>
+            Gets or sets the Y coordinate.
+            </summary>
+        </member>
+        <member name="P:Octree.Point.Z">
+            <summary>
+            Gets or sets the Z coordinate.
+            </summary>
+        </member>
+        <member name="P:Octree.Point.Magnitude">
+            <summary>
+            Gets the length of the vector.
+            </summary>
+        </member>
+        <member name="P:Octree.Point.SqrMagnitude">
+            <summary>
+            Gets the squared length of the vector.
+            </summary>
+        </member>
+        <member name="P:Octree.Point.Normalized">
+            <summary>
+            Gets the vector with a magnitude of 1.
+            </summary>
+        </member>
+        <member name="M:Octree.Point.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new vector with given coordinates.
+            </summary>
+            <param name="x">The X coordinate.</param>
+            <param name="y">The Y coordinate.</param>
+            <param name="z">The Z coordinate.</param>
+        </member>
+        <member name="M:Octree.Point.Normalize">
+            <summary>
+            Normalizes the vector with a magnitude of 1.
+            </summary>
+        </member>
+        <member name="M:Octree.Point.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
+        </member>
+        <member name="M:Octree.Point.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object as a <see cref="T:Octree.Point" /> is exactly equal to this instance.
+            </summary>
+            <remarks>
+            Due to floating point inaccuracies, this might return false for vectors which are essentially (but not exactly) equal. Use the <see cref="M:Octree.Point.op_Equality(Octree.Point,Octree.Point)"/> to test two points for approximate equality.
+            </remarks>
+            <param name="other">The <see cref="T:Octree.Point" /> object to compare with this instance.</param>
+            <returns><c>true</c> if the specified point is equal to this instance; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Octree.Point.ToString">
+            <summary>
+            Returns a nicely formatted string for this vector.
+            </summary>
+        </member>
+        <member name="M:Octree.Point.ToString(System.String)">
+            <summary>
+            Returns a nicely formatted string for this vector.
+            </summary>
+            <param name="format">The format for each coordinate.</param>
+        </member>
+        <member name="F:Octree.Point.Zero">
+            <summary>
+            Shorthand for writing Point(0, 0, 0).
+            </summary>
+        </member>
+        <member name="F:Octree.Point.One">
+            <summary>
+            Shorthand for writing Point(1, 1, 1).
+            </summary>
+        </member>
+        <member name="F:Octree.Point.Forward">
+            <summary>
+            Shorthand for writing Point(0, 0, 1).
+            </summary>
+        </member>
+        <member name="F:Octree.Point.Back">
+            <summary>
+            Shorthand for writing Point(0, 0, -1).
+            </summary>
+        </member>
+        <member name="F:Octree.Point.Up">
+            <summary>
+            Shorthand for writing Point(0, 1, 0).
+            </summary>
+        </member>
+        <member name="F:Octree.Point.Down">
+            <summary>
+            Shorthand for writing Point(0, -1, 0).
+            </summary>
+        </member>
+        <member name="F:Octree.Point.Left">
+            <summary>
+            Shorthand for writing Point(-1, 0, 0).
+            </summary>
+        </member>
+        <member name="F:Octree.Point.Right">
+            <summary>
+            Shorthand for writing Point(1, 0, 0).
+            </summary>
+        </member>
+        <member name="M:Octree.Point.Distance(Octree.Point,Octree.Point)">
+            <summary>
+            Returns the distance between two points.
+            </summary>
+            <param name="a">The first point.</param>
+            <param name="b">The second point.</param>
+            <returns>The distance.</returns>
+        </member>
+        <member name="M:Octree.Point.Scale(Octree.Point,Octree.Point)">
+            <summary>
+            Multiplies two vectors component-wise.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+            <returns>The scaled up vector.</returns>
+        </member>
+        <member name="M:Octree.Point.Cross(Octree.Point,Octree.Point)">
+            <summary>
+            Cross-product of two vectors.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+            <returns>The cross product vector.</returns>
+        </member>
+        <member name="M:Octree.Point.Dot(Octree.Point,Octree.Point)">
+            <summary>
+            Dot-product of two vectors.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+            <returns>The dot product vector.</returns>
+        </member>
+        <member name="M:Octree.Point.Min(Octree.Point,Octree.Point)">
+            <summary>
+            Returns a point that is made from the smallest components of two points.
+            </summary>
+            <param name="a">The first point.</param>
+            <param name="b">The second point.</param>
+            <returns>The minimal coordinates.</returns>
+        </member>
+        <member name="M:Octree.Point.Max(Octree.Point,Octree.Point)">
+            <summary>
+            Returns a point that is made from the largest components of two points.
+            </summary>
+            <param name="a">The first point.</param>
+            <param name="b">The second point.</param>
+            <returns>The maximal coordinates.</returns>
+        </member>
+        <member name="M:Octree.Point.op_Addition(Octree.Point,Octree.Point)">
+            <summary>
+            Adds two vectors.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+        </member>
+        <member name="M:Octree.Point.op_Subtraction(Octree.Point,Octree.Point)">
+            <summary>
+            Subtracts one vector from another.
+            </summary>
+            <param name="a">The first vector.</param>
+            <param name="b">The second vector.</param>
+        </member>
+        <member name="M:Octree.Point.op_UnaryNegation(Octree.Point)">
+            <summary>
+            Negates a vector.
+            </summary>
+            <param name="a">The vector.</param>
+        </member>
+        <member name="M:Octree.Point.op_Multiply(Octree.Point,System.Single)">
+            <summary>
+            Multiplies a vector by a number.
+            </summary>
+            <param name="a">The vector.</param>
+            <param name="d">The number.</param>
+        </member>
+        <member name="M:Octree.Point.op_Multiply(System.Single,Octree.Point)">
+            <summary>
+            Multiplies a vector by a number.
+            </summary>
+            <param name="d">The number.</param>
+            <param name="a">The vector.</param>
+        </member>
+        <member name="M:Octree.Point.op_Division(Octree.Point,System.Single)">
+            <summary>
+            Divides a vector by a number.
+            </summary>
+            <param name="a">The vector.</param>
+            <param name="d">The number.</param>
+        </member>
+        <member name="M:Octree.Point.op_Equality(Octree.Point,Octree.Point)">
+            <summary>
+            Determines whether two points are approximately equal.
+            </summary>
+            <remarks>
+            To allow for floating point inaccuracies, the two vectors are considered equal if the magnitude of their difference is less than 1e-5..
+            </remarks>
+            <param name="a">The first point.</param>
+            <param name="b">The second point.</param>
+        </member>
+        <member name="M:Octree.Point.op_Inequality(Octree.Point,Octree.Point)">
+            <summary>
+            Determines whether two points are different.
+            </summary>
+            <remarks>
+            To allow for floating point inaccuracies, the two vectors are considered equal if the magnitude of their difference is less than 1e-5.
+            </remarks>
+            <param name="a">The first point.</param>
+            <param name="b">The second point.</param>
+        </member>
+        <member name="T:Octree.Ray">
+            <summary>
+            Representation of rays.
+            </summary>
+            <remarks>
+            A ray is an infinite line starting at <see cref="P:Octree.Ray.Origin"/> and going in some <see cref="P:Octree.Ray.Direction"/>.
+            
+            This class was inspired by the Ray type of the Unity Engine and 
+            designed with the exact same interface to provide maximum compatibility.
+            </remarks>
+        </member>
+        <member name="P:Octree.Ray.Origin">
+            <summary>
+            Gets or sets the origin of the ray.
+            </summary>
+        </member>
+        <member name="F:Octree.Ray._direction">
+            <summary>
+            The direction of the ray.
+            </summary>
+        </member>
+        <member name="P:Octree.Ray.Direction">
+            <summary>
+            Gets or sets the direction of the ray.
+            </summary>
+        </member>
+        <member name="M:Octree.Ray.#ctor(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Creates a ray starting at origin along direction.
+            </summary>
+            <param name="origin">The origin of the ray.</param>
+            <param name="direction">The direction of the ray.</param>
+        </member>
+        <member name="M:Octree.Ray.GetPoint(System.Single)">
+            <summary>
+            Returns a point at the given distance along the ray.
+            </summary>
+            <param name="distance">The distance.</param>
+            <returns>The point on the ray.</returns>
+        </member>
+        <member name="M:Octree.Ray.ToString">
+            <summary>
+            Returns a nicely formatted string for this ray.
+            </summary>
+        </member>
+        <member name="M:Octree.Ray.ToString(System.String)">
+            <summary>
+            Returns a nicely formatted string for this ray.
+            </summary>
+            <param name="format">The format for the origin and direction.</param>
+        </member>
+        <member name="T:Octree.PointOctree`1">
+            <summary>
+            A Dynamic Octree for storing any objects that can be described as a single point
+            </summary>
+            <seealso cref="!:BoundsOctree&lt;T&gt;"/>
+            <remarks>
+            Octree:	An octree is a tree data structure which divides 3D space into smaller partitions (nodes) 
+            and places objects into the appropriate nodes. This allows fast access to objects
+            in an area of interest without having to check every object.
+            
+            Dynamic: The octree grows or shrinks as required when objects as added or removed.
+            It also splits and merges nodes as appropriate. There is no maximum depth.
+            Nodes have a constant - <see cref="F:Octree.PointOctree`1.Node.NumObjectsAllowed"/> - which sets the amount of items allowed in a node before it splits.
+            
+            See also BoundsOctree, where objects are described by AABB bounds.
+            </remarks>
+            <typeparam name="T">The content of the octree can be anything, since the bounds data is supplied separately.</typeparam>
+        </member>
+        <member name="F:Octree.PointOctree`1._rootNode">
+            <summary>
+            Root node of the octree
+            </summary>
+        </member>
+        <member name="F:Octree.PointOctree`1._initialSize">
+            <summary>
+            Size that the octree was on creation
+            </summary>
+        </member>
+        <member name="F:Octree.PointOctree`1._minSize">
+            <summary>
+            Minimum side length that a node can be - essentially an alternative to having a max depth
+            </summary>
+        </member>
+        <member name="P:Octree.PointOctree`1.Count">
+            <summary>
+            The total amount of objects currently in the tree
+            </summary>
+        </member>
+        <member name="P:Octree.PointOctree`1.MaxBounds">
+            <summary>
+            Gets the bounding box that represents the whole octree
+            </summary>
+            <value>The bounding box of the root node.</value>
+        </member>
+        <member name="M:Octree.PointOctree`1.#ctor(System.Single,GalaxyCoreCommon.GalaxyVector3,System.Single)">
+            <summary>
+            Constructor for the point octree.
+            </summary>
+            <param name="initialWorldSize">Size of the sides of the initial node. The octree will never shrink smaller than this.</param>
+            <param name="initialWorldPos">Position of the centre of the initial node.</param>
+            <param name="minNodeSize">Nodes will stop splitting if the new nodes would be smaller than this.</param>
+        </member>
+        <member name="M:Octree.PointOctree`1.Add(`0,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Add an object.
+            </summary>
+            <param name="obj">Object to add.</param>
+            <param name="objPos">Position of the object.</param>
+        </member>
+        <member name="M:Octree.PointOctree`1.Remove(`0)">
+            <summary>
+            Remove an object. Makes the assumption that the object only exists once in the tree.
+            </summary>
+            <param name="obj">Object to remove.</param>
+            <returns>True if the object was removed successfully.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Remove(`0,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Removes the specified object at the given position. Makes the assumption that the object only exists once in the tree.
+            </summary>
+            <param name="obj">Object to remove.</param>
+            <param name="objPos">Position of the object.</param>
+            <returns>True if the object was removed successfully.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.GetNearby(Octree.Ray,System.Single)">
+            <summary>
+            Returns objects that are within <paramref name="maxDistance"/> of the specified ray.
+            If none, returns an empty array (not null).
+            </summary>
+            <param name="ray">The ray. Passing as ref to improve performance since it won't have to be copied.</param>
+            <param name="maxDistance">Maximum distance from the ray to consider.</param>
+            <returns>Objects within range.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.GetNearby(GalaxyCoreCommon.GalaxyVector3,System.Single)">
+            <summary>
+            Returns objects that are within <paramref name="maxDistance"/> of the specified position.
+            If none, returns an empty array (not null).
+            </summary>
+            <param name="position">The position. Passing as ref to improve performance since it won't have to be copied.</param>
+            <param name="maxDistance">Maximum distance from the position to consider.</param>
+            <returns>Objects within range.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.GetAll">
+            <summary>
+            Returns all objects in the tree.
+            If none, returns an empty array (not null).
+            </summary>
+            <returns>All objects.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Grow(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Grow the octree to fit in all objects.
+            </summary>
+            <param name="direction">Direction to grow.</param>
+        </member>
+        <member name="M:Octree.PointOctree`1.Shrink">
+            <summary>
+            Shrink the octree if possible, else leave it the same.
+            </summary>
+        </member>
+        <member name="T:Octree.PointOctree`1.Node">
+            <summary>
+            A node in a PointOctree
+            </summary>
+        </member>
+        <member name="P:Octree.PointOctree`1.Node.Center">
+            <summary>
+            Center of this node
+            </summary>
+        </member>
+        <member name="P:Octree.PointOctree`1.Node.SideLength">
+            <summary>
+            Length of the sides of this node
+            </summary>
+        </member>
+        <member name="F:Octree.PointOctree`1.Node._minSize">
+            <summary>
+            Minimum size for a node in this octree
+            </summary>
+        </member>
+        <member name="F:Octree.PointOctree`1.Node._bounds">
+            <summary>
+            Bounding box that represents this node
+            </summary>
+        </member>
+        <member name="F:Octree.PointOctree`1.Node._objects">
+            <summary>
+            Objects in this node
+            </summary>
+        </member>
+        <member name="F:Octree.PointOctree`1.Node._children">
+            <summary>
+            Child nodes, if any
+            </summary>
+        </member>
+        <member name="F:Octree.PointOctree`1.Node._childBounds">
+            <summary>
+            Bounds of potential children to this node. These are actual size (with looseness taken into account), not base size
+            </summary>
+        </member>
+        <member name="F:Octree.PointOctree`1.Node.NumObjectsAllowed">
+            <summary>
+            If there are already NumObjectsAllowed in a node, we split it into children
+            </summary>
+            <remarks>
+            A generally good number seems to be something around 8-15
+            </remarks>
+        </member>
+        <member name="F:Octree.PointOctree`1.Node._actualBoundsSize">
+            <summary>
+            For reverting the bounds size after temporary changes
+            </summary>
+        </member>
+        <member name="P:Octree.PointOctree`1.Node.HasChildren">
+            <summary>
+            Gets a value indicating whether this node has children
+            </summary>
+        </member>
+        <member name="T:Octree.PointOctree`1.Node.OctreeObject">
+            <summary>
+            An object in the octree
+            </summary>
+        </member>
+        <member name="F:Octree.PointOctree`1.Node.OctreeObject.Obj">
+            <summary>
+            Object content
+            </summary>
+        </member>
+        <member name="F:Octree.PointOctree`1.Node.OctreeObject.Pos">
+            <summary>
+            Object position
+            </summary>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.#ctor(System.Single,System.Single,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="baseLengthVal">Length of this node, not taking looseness into account.</param>
+            <param name="minSizeVal">Minimum size of nodes in this octree.</param>
+            <param name="centerVal">Center position of this node.</param>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.Add(`0,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Add an object.
+            </summary>
+            <param name="obj">Object to add.</param>
+            <param name="objPos">Position of the object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.Remove(`0)">
+            <summary>
+            Remove an object. Makes the assumption that the object only exists once in the tree.
+            </summary>
+            <param name="obj">Object to remove.</param>
+            <returns>True if the object was removed successfully.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.Remove(`0,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Removes the specified object at the given position. Makes the assumption that the object only exists once in the tree.
+            </summary>
+            <param name="obj">Object to remove.</param>
+            <param name="objPos">Position of the object.</param>
+            <returns>True if the object was removed successfully.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.GetNearby(Octree.Ray@,System.Single,System.Collections.Generic.List{`0})">
+            <summary>
+            Return objects that are within <paramref name="maxDistance"/> of the specified ray.
+            </summary>
+            <param name="ray">The ray.</param>
+            <param name="maxDistance">Maximum distance from the ray to consider.</param>
+            <param name="result">List result.</param>
+            <returns>Objects within range.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.GetNearby(GalaxyCoreCommon.GalaxyVector3@,System.Single,System.Collections.Generic.List{`0})">
+            <summary>
+            Return objects that are within <paramref name="maxDistance"/> of the specified position.
+            </summary>
+            <param name="position">The position.</param>
+            <param name="maxDistance">Maximum distance from the position to consider.</param>
+            <param name="result">List result.</param>
+            <returns>Objects within range.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.GetAll(System.Collections.Generic.List{`0})">
+            <summary>
+            Return all objects in the tree.
+            </summary>
+            <returns>All objects.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.SetChildren(Octree.PointOctree{`0}.Node[])">
+            <summary>
+            Set the 8 children of this octree.
+            </summary>
+            <param name="childOctrees">The 8 new child nodes.</param>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.ShrinkIfPossible(System.Single)">
+            <summary>
+            We can shrink the octree if:
+            - This node is >= double minLength in length
+            - All objects in the root node are within one octant
+            - This node doesn't have children, or does but 7/8 children are empty
+            We can also shrink it if there are no objects left at all!
+            </summary>
+            <param name="minLength">Minimum dimensions of a node in this octree.</param>
+            <returns>The new root, or the existing one if we didn't shrink.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.BestFitChild(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Find which child node this object would be most likely to fit in.
+            </summary>
+            <param name="objPos">The object's position.</param>
+            <returns>One of the eight child octants.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.HasAnyObjects">
+            <summary>
+            Checks if this node or anything below it has something in it.
+            </summary>
+            <returns>True if this node or any of its children, grandchildren etc have something in them</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.SqrDistanceToRay(Octree.Ray,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Returns the squared distance to the given ray from a point.
+            </summary>
+            <param name="ray">The ray.</param>
+            <param name="point">The point to check distance from the ray.</param>
+            <returns>Squared distance from the point to the closest point of the ray.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.SetValues(System.Single,System.Single,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Set values for this node. 
+            </summary>
+            <param name="baseLengthVal">Length of this node, not taking looseness into account.</param>
+            <param name="minSizeVal">Minimum size of nodes in this octree.</param>
+            <param name="centerVal">Centre position of this node.</param>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.SubAdd(`0,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Private counterpart to the public Add method.
+            </summary>
+            <param name="obj">Object to add.</param>
+            <param name="objPos">Position of the object.</param>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.SubRemove(`0,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Private counterpart to the public <see cref="M:Octree.PointOctree`1.Node.Remove(`0,GalaxyCoreCommon.GalaxyVector3)"/> method.
+            </summary>
+            <param name="obj">Object to remove.</param>
+            <param name="objPos">Position of the object.</param>
+            <returns>True if the object was removed successfully.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.Split">
+            <summary>
+            Splits the octree into eight children.
+            </summary>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.Merge">
+            <summary>
+            Merge all children into this node - the opposite of Split.
+            Note: We only have to check one level down since a merge will never happen if the children already have children,
+            since THAT won't happen unless there are already too many objects to merge.
+            </summary>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.Encapsulates(Octree.BoundingBox,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Checks if outerBounds encapsulates the given point.
+            </summary>
+            <param name="outerBounds">Outer bounds.</param>
+            <param name="point">Point.</param>
+            <returns>True if innerBounds is fully encapsulated by outerBounds.</returns>
+        </member>
+        <member name="M:Octree.PointOctree`1.Node.ShouldMerge">
+            <summary>
+            Checks if there are few enough objects in this node and its children that the children should all be merged into this.
+            </summary>
+            <returns>True there are less or the same amount of objects in this and its children than <see cref="F:Octree.PointOctree`1.Node.NumObjectsAllowed"/>.</returns>
+        </member>
     </members>
 </doc>

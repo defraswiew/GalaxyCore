@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-
-public class GalaxyUIChatMessage : MonoBehaviour
+namespace GalaxyCoreLib
 {
-    private LayoutElement layout;
-    private Text message;
-    public void SetMessage(string text)
+    public class GalaxyUIChatMessage : MonoBehaviour
     {
-        layout = GetComponent<LayoutElement>();
-        message = GetComponentInChildren<Text>();
-        message.text = text;
-        layout.preferredHeight = message.preferredHeight+7;
-        layout.preferredWidth = message.preferredWidth + 20;
+        private LayoutElement layout;
+        private Text message;
+        public void SetMessage(string text)
+        {
+            layout = GetComponent<LayoutElement>();
+            message = GetComponentInChildren<Text>();
+            message.text = text;
+            layout.preferredHeight = message.preferredHeight + 7;
+            layout.preferredWidth = message.preferredWidth + 20;
+        }
     }
 }

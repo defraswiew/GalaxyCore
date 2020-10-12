@@ -1,12 +1,13 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using SimpleMmoCommon.RPGTemplate;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace SimpleMmoServer.RPGTemplate
 {
+    /// <summary>
+    /// Пример реализации моба босса, с масс супер атакой
+    /// </summary>
     public class MobSlimeBoss : Mob
     {
         int skill1Count = 0;
@@ -19,7 +20,7 @@ namespace SimpleMmoServer.RPGTemplate
             attackDistanse = 5;
             minDamage = 3;
             maxDamage = 10;
-            moveSpeed = 0.3f;          
+            moveSpeed = 0.3f;
         }
 
         public override void InMessage(byte externalCode, byte[] data, Client clientSender)
@@ -40,16 +41,15 @@ namespace SimpleMmoServer.RPGTemplate
         public override bool OnAttack()
         {
             // каждая 8 атака будет супер атакой по площади
-            if (attackCount%8!=0) return true;
-            state = (byte)MobState.attack;             
-                int damage = GRand.NextInt(minDamage*2, maxDamage*3);
-                BitGalaxy message = new BitGalaxy();
-                message.WriteValue(damage);
-                // отправляем сообщение о том что мы наносим кому то дамаг. 
-                SendMessage(200, message.data, GalaxyDeliveryType.reliable);
-                InvokeRepeating("SkillDamage", 0.5f, 1, damage);
-                
-                return false;         
+            if (attackCount % 8 != 0) return true;
+            state = (byte)MobState.attack;
+            int damage = GRand.NextInt(minDamage * 2, maxDamage * 3);
+            BitGalaxy message = new BitGalaxy();
+            message.WriteValue(damage);
+            // отправляем сообщение о том что мы наносим кому то дамаг. 
+            SendMessage(200, message.data, GalaxyDeliveryType.reliable);
+            InvokeRepeating("SkillDamage", 0.5f, 1, damage);
+            return false;
         }
 
         public void SkillDamage(int damage)
@@ -61,18 +61,18 @@ namespace SimpleMmoServer.RPGTemplate
                 skill1Count = 0;
             }
 
-                RPGTemplatePlayer player;
-                // ищем все объекты в радиусе 6 метров
-                foreach (var item in instance.entities.GetNearby(transform.position, 10))
+            RPGTemplatePlayer player;
+            // ищем все объекты в радиусе 6 метров
+            foreach (var item in instance.entities.GetNearby(transform.position, 10))
+            {
+                player = item as RPGTemplatePlayer;
+                // если это игрок то сообщяем ему дамаг
+                if (player != null)
                 {
-                    player = item as RPGTemplatePlayer;
-                    // если это игрок то сообщяем ему дамаг
-                    if (player != null)
-                    {
-                        player.SetDamage(damage);
-                    }
+                    player.SetDamage(damage);
                 }
-            
+            }
+
         }
 
         public override void OnDestroy()

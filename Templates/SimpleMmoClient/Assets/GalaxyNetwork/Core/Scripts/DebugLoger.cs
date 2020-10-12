@@ -1,24 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using GalaxyCoreLib;
+﻿using UnityEngine;
 using GalaxyCoreLib.Api;
+
+/// <summary>
+/// Пример логгера занимающегося перехватом сообщений ядра
+/// Просто перекидываем события в юньковский Debug
+/// </summary>
 public class DebugLoger : MonoBehaviour
 {
     private void OnEnable()
     {
+        // сообщение информационного характера
         GalaxyEvents.OnGalaxyLogInfo += OnGalaxyLogInfo;
+        // сообщение предупреждение
         GalaxyEvents.OnGalaxyLogWarnig += OnGalaxyLogWarnig;
-        GalaxyEvents.OnGalaxyLogError += OnGalaxyLogError;
-
-
-        GalaxyEvents.OnGalaxyIncommingMessage += OnGalaxyIncommingMessage;
-    }
-
-    private void OnGalaxyIncommingMessage(byte code, byte[] data)
-    {
-        if(data!=null)
-        Debug.Log("code:"+ code + "  lenght:"+data.Length);
+        // сообщение об ошибке
+        GalaxyEvents.OnGalaxyLogError += OnGalaxyLogError;        
     }
 
     private void OnDisable()

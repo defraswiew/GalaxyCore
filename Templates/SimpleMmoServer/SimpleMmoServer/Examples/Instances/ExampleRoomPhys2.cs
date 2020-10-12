@@ -1,9 +1,6 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using SimpleMmoServer.Examples.NetEntitys;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SimpleMmoServer.Examples.Instances
 {
@@ -13,9 +10,10 @@ namespace SimpleMmoServer.Examples.Instances
         public override void Start()
         {
             Log.Info("ExampleRoomPhys2", "instance id:" + id);
-            SetFrameRate(40);
+            SetFrameRate(20);
             physics.Activate("phys/ExamplePhys2.phys");
             InvokeRepeating("CreateCube", 1, 1);
+            Invoke("TestEntity", 2);
         }
 
         public void CreateCube()
@@ -35,14 +33,13 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void IncomingClient(Client clientConnection)
         {          
-            Invoke("TestEntity", 2, clientConnection);
+           
         }
-        public void TestEntity(Client clientConnection)
+        public void TestEntity()
         {
             ExampleVideo entity = new ExampleVideo(this);
-            entity.prefabName = "ExampleVideo";
-          //  entity.ChangeOwner(clientConnection);
-            //entity.lossOwner = NetEntityLossOwnerLogic.destroy;
+           
+            entity.prefabName = "ExampleVideo"; 
             entity.Init();
         }
 
@@ -61,7 +58,8 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void Update()
         {
-
+         
+           
         }
 
    

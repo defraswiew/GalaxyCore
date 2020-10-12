@@ -1,9 +1,8 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
-using SimpleMmoCommon.RPGTemplate;
-using System;
+using SimpleMmoCommon.RPGTemplate; 
 using System.Collections.Generic;
-using System.Text;
+ 
 
 namespace SimpleMmoServer.RPGTemplate
 {
@@ -23,12 +22,12 @@ namespace SimpleMmoServer.RPGTemplate
         {
             switch (externalCode)
             {
-                    // нас спросили о нашем содержимом
-                    case 1:                  
+                // нас спросили о нашем содержимом
+                case 1:
                     SendMessageByOctoVisible(externalCode, dropList.Serialize(), GalaxyDeliveryType.reliable);
                     break;
-                    // кто то пытается что то взять
-                    case 2:
+                // кто то пытается что то взять
+                case 2:
                     {
                         BitGalaxy message = new BitGalaxy(data);
                         int itemID = message.ReadInt();
@@ -41,11 +40,12 @@ namespace SimpleMmoServer.RPGTemplate
                             if (dropList.items.Count == 0)
                             {
                                 Destory();
-                            }  
-                        } else
-                        {                           
+                            }
+                        }
+                        else
+                        {
                             Log.Info("Пользователь " + clientSender.id, "Хотел взять итем id:" + itemID + "  но такого уже нет");
-                        }                       
+                        }
                     }
                     break;
             }
@@ -53,14 +53,14 @@ namespace SimpleMmoServer.RPGTemplate
 
         public override void OnDestroy()
         {
-           
+
         }
 
         public override void Start()
         {
             // Генерируем случайные итемы
             dropList.items = new List<int>();
-            for (int i = 0; i < GRand.NextInt(1,10); i++)
+            for (int i = 0; i < GRand.NextInt(1, 10); i++)
             {
                 dropList.items.Add(GRand.NextInt(1, 100));
             }
@@ -75,7 +75,7 @@ namespace SimpleMmoServer.RPGTemplate
 
         public override void Update()
         {
-           
+
         }
     }
 }

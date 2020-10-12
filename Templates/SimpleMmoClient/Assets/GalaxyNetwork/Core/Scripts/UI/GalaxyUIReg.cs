@@ -1,58 +1,87 @@
 ﻿using GalaxyCoreLib;
 using SimpleMmoCommon.Messages;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class GalaxyUIReg : MonoBehaviour
+namespace GalaxyCoreLib
 {
-    public bool active = false;
-    public InputField login;
-    public InputField password;
-    public InputField password2;
-    public Text status;
-    public GameObject progress;
-   
-    void Start()
+    /// <summary>
+    /// Упрощенный пример окна регистрации
+    /// </summary>
+    public class GalaxyUIReg : MonoBehaviour
     {
-        if (active) status.text = "";
-    }
+        /// <summary>
+        /// активна ли регистрация
+        /// </summary>
+        public bool active = false;
+        /// <summary>
+        /// Поле логина
+        /// </summary>
+        [SerializeField]
+        public InputField login;
+        /// <summary>
+        /// Поле пароля
+        /// </summary>
+        [SerializeField]
+        public InputField password;
+        /// <summary>
+        /// Поле проверки пароля
+        /// </summary>
+        [SerializeField]
+        public InputField password2;
+        /// <summary>
+        /// Куда выводим статус
+        /// </summary>
+        [SerializeField]
+        public Text status;
+        /// <summary>
+        /// анимашка прогресса
+        /// </summary>
+        [SerializeField]
+        public GameObject progress;
 
-    public void Reg()
-    {
-        if (!active)
+        void Start()
         {
-            status.text = "Регистрация отключена";
-            return;
+            if (active) status.text = "";
         }
-        if (GalaxyApi.connection.isConnected)
+        /// <summary>
+        /// Вызываем регистрацию
+        /// </summary>
+        public void Reg()
         {
-            status.text = "Подключение активно";
-            return;
+            if (!active)
+            {
+                status.text = "Регистрация отключена";
+                return;
+            }
+            if (GalaxyApi.connection.isConnected)
+            {
+                status.text = "Подключение активно";
+                return;
+            }
+            if (login.text.Length < 4)
+            {
+                status.text = "Какой то очень короткий логин";
+                return;
+            }
+            if (password.text.Length < 4)
+            {
+                status.text = "А где пароль?";
+                return;
+            }
+            if (password.text != password2.text)
+            {
+                status.text = "Пароли не совпадают(";
+                return;
+            }
+            // Создаем новое сообщение для регистрации
+            MessageAuth messageAuth = new MessageAuth();
+            messageAuth.login = login.text;
+            messageAuth.password = password.text;
+            status.text = "Региструемся";
+            // отправляем запрос регистрации на сервер
+            GalaxyApi.connection.Registration(messageAuth.Serialize());
+            progress.SetActive(true);
         }
-        if (login.text.Length < 4)
-        {
-            status.text = "Какой то очень короткий логин";
-            return;
-        }
-        if (password.text.Length < 4)
-        {
-            status.text = "А где пароль?";
-            return;
-        }
-        if(password.text!= password2.text)
-        {
-            status.text = "Пароли не совпадают(";
-            return;
-        }
-        MessageAuth messageAuth = new MessageAuth();
-        messageAuth.login = login.text;
-        messageAuth.password = password.text;
-        byte[] data = messageAuth.Serialize();
-        status.text = "Региструемся";
-        GalaxyApi.connection.Registration(data); // Отправляем запрос на сервер    
-        progress.SetActive(true);
-    }
 
+    }
 }

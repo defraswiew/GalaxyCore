@@ -1,14 +1,18 @@
 ﻿using GalaxyCoreCommon;
 using ProtoBuf;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SimpleMmoCommon.RPGTemplate
 {
+    /// <summary>
+    /// Пример отправки списка ид итемов
+    /// </summary>
     [ProtoContract]
     public class DropList:BaseMessage
     {
+        /// <summary>
+        /// список ид итемов
+        /// </summary>
         [ProtoMember(1)]
         public List<int> items;
     }

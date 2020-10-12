@@ -3,11 +3,14 @@ using GalaxyCoreServer;
 using ProtoBuf;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
+using System.IO; 
 
 namespace SimpleMmoServer.RPGTemplate
 {
+    /// <summary>
+    /// Очень грубый пример сохранения статических сущностей 
+    /// в бинарный файлик, и загрузки обратно.
+    /// </summary>
     [ProtoContract]
     public class MapSaver:BaseMessage
     {
@@ -50,7 +53,6 @@ namespace SimpleMmoServer.RPGTemplate
             }
             catch (Exception)
             {
-
                 Log.Info("Instanse Save", "can not read " + saveName);
             }
         }

@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-
-public class GalaxyUiClientItem : MonoBehaviour
+namespace GalaxyCoreLib
 {
-    public Text label;
-
-    public void Init(int id, string login)
+    public class GalaxyUiClientItem : MonoBehaviour
     {
-        label.text = "(Id:" + id + ") " + login;
+        [SerializeField]
+        private Text label;
+        public void Init(int id, string login)
+        {
+            label.text = "(Id:" + id + ") " + login;
+        }
     }
 }

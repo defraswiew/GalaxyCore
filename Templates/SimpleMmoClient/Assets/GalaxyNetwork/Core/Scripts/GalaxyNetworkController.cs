@@ -1,13 +1,10 @@
-﻿using GalaxyCoreCommon.InternalMessages;
-using GalaxyCoreLib;
-using GalaxyCoreLib.Api;
-using ProtoBuf.Meta;
-using SimpleMmoCommon.Messages;
-using System.Collections;
-using System.Collections.Generic;
+﻿using GalaxyCoreLib;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Основной сетевой контроллер 
+/// </summary>
 public class GalaxyNetworkController : MonoBehaviour
 {
     /// <summary>
@@ -21,48 +18,49 @@ public class GalaxyNetworkController : MonoBehaviour
     /// <summary>
     /// Конфигурация клиента
     /// </summary>
-    Config config = new Config();
-
+    private Config config = new Config();
+    /// <summary>
+    /// показывать ли метки над сущностями
+    /// </summary>
     public bool drawLables = true;
-
+    /// <summary>
+    /// ссылка на самого себя
+    /// </summary>
     public static GalaxyNetworkController api;
+
     private void Awake()
-    {      
-        /*
-        if (GalaxyApi.connection.isConnected)
-        {
-            Destroy(gameObject);
-            return;
-        }     
-        */
+    {
         if (api != null)
         {
             Destroy(gameObject);
             return;
-        }       
+        }
         api = this;
-        config.serverIp = serverIP; // задаем указаный ип
-        config.serverPort = serverPort; // задаем указанный порт
-        config.app_name = "SimpleMmoServer"; // должно соответствовать имени сервера
-        config.FrameRate = 25; // Устанавливаем сетевой фреймрейт       
-        //config.simulate_latency = 0.05f;
-       GalaxyClientCore.Initialize(config); // инициализируем сетевое ядро        
-        GalaxyClientCore.unityCalls.Awake(); // прокидываем Awake
-        DontDestroyOnLoad(gameObject); // Помечаем объект как неразрушаемый при переходах между сценами      
-       
-    }
-    private void Start()
-    {       
-        GalaxyClientCore.unityCalls.Start(); // прокидываем Start
-        SceneManager.activeSceneChanged += SceneChanged;
-        SceneManager.sceneLoaded += SceneLoaded;
-        GalaxyEvents.OnGalaxyIncommingMessage += OnGalaxyIncommingMessage;
-   
+        // записываем ип
+        config.serverIp = serverIP;
+        // записываем порт
+        config.serverPort = serverPort;
+        // задаем имя (должно соответствовать имени сервера)
+        config.app_name = "SimpleMmoServer";
+        // Устанавливаем дефлотный сетевой фреймрейт
+        // Однако сервер может переназначать это значение в рамках инстансов
+        config.FrameRate = 25;
+        // инициализируем сетевое ядро   
+        GalaxyClientCore.Initialize(config);
+        // прокидываем Awake
+        GalaxyClientCore.unityCalls.Awake();
+        // Помечаем объект как неразрушаемый при переходах между сценами      
+        DontDestroyOnLoad(gameObject);
+
     }
 
-    private void OnGalaxyIncommingMessage(byte code, byte[] data)
+    private void Start()
     {
-        Debug.Log("OnGalaxyIncommingMessage " + code);
+        // прокидываем Start
+        GalaxyClientCore.unityCalls.Start();
+        // подписываемся на смену сцену
+        SceneManager.activeSceneChanged += SceneChanged;
+        SceneManager.sceneLoaded += SceneLoaded;
     }
 
     private void SceneLoaded(Scene arg0, LoadSceneMode arg1)
@@ -76,18 +74,16 @@ public class GalaxyNetworkController : MonoBehaviour
     }
 
     private void Update()
-    {    
-        GalaxyClientCore.unityCalls.Update(Time.deltaTime); // Прокидываем update
+    {
+        // Прокидываем update
+        GalaxyClientCore.unityCalls.Update(Time.deltaTime);
     }
-
 
     private void OnApplicationQuit()
     {
-        GalaxyApi.connection.Disconnect(); //Посылаем команду дисконекта при выходе из приложения
+        //Посылаем команду дисконекта при выходе из приложения
+        GalaxyApi.connection.Disconnect();
     }
 
-    private void OnDisable()
-    {
-       // GalaxyApi.connection.Disconnect();//Посылаем команду дисконекта если go был выключен
-    }
+
 }

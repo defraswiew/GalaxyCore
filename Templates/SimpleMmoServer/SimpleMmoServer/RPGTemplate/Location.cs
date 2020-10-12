@@ -1,11 +1,13 @@
 ﻿using GalaxyCoreCommon;
-using GalaxyCoreServer;
-using System;
+using GalaxyCoreServer; 
 using System.Collections.Generic;
-using System.Text;
+ 
 
 namespace SimpleMmoServer.RPGTemplate
 {
+    /// <summary>
+    /// Пример реализации большой локации с мобами
+    /// </summary>
     public class Location : InstanceOpenWorldOctree
     {
         // список спавнеров мобов
@@ -34,6 +36,7 @@ namespace SimpleMmoServer.RPGTemplate
         {
             // устанавливаем дистанцию видимости
             visibleDistance = 50;
+            // создаем спавнеры мобов
             spawners.Add(new MobSpawner(new GalaxyVector3(65, 0, -35), this, "MobSlime", 15, 15, 10));
             spawners.Add(new MobSpawner(new GalaxyVector3(100, 0, -50), this, "MobTurtle", 15, 15, 10));
             spawners.Add(new MobSpawner(new GalaxyVector3(60, 0, -80), this, "MobSlimeBoss", 1, 10, 60));

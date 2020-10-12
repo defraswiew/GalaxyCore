@@ -1,9 +1,5 @@
 ﻿using GalaxyCoreCommon;
-using GalaxyCoreCommon.InternalMessages;
-using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -11,29 +7,72 @@ using UnityEngine.SceneManagement;
 
 namespace GalaxyCoreLib
 {
+    /// <summary>
+    /// Пример окошка работы с инстансами (комнаты)
+    /// </summary>
     public class GalaxyUIRoom : MonoBehaviour
     {
-        [Header("Какую сцену загружать при выходе из комнаты")]
+        /// <summary>
+        /// Какую сцену загружать при выходе из комнаты
         /// может быть равным "" тогда ничего грузиться не будет
+        /// </summary>
+        [Header("Какую сцену загружать при выходе из комнаты")]      
         public string mainScene;
+        /// <summary>
+        /// Список комнат которые можно создавать
+        /// </summary>
         [Header("Комнаты")]
         public GalaxyInstanceInfoScriptable[] instancesInfo;
+        /// <summary>
+        /// Текущая комната
+        /// </summary>
         internal GalaxyInstanceInfoScriptable currentInfo;
-        [Header("Окна")]
-        public GameObject roomList;
-        public GameObject roomCreate;
+        /// <summary>
+        /// Окошко списка комнат
+        /// </summary>
+        [Header("Окна")]       
+        [SerializeField]
+        private GameObject roomList;
+        /// <summary>
+        /// Окошко создания инстанса
+        /// </summary>
+        [SerializeField]
+        private GameObject roomCreate;
+        /// <summary>
+        /// Выход
+        /// </summary>
         [Header("Кнопки")]
-        public GameObject exitBtn;
-        public GameObject createBtn;
-        public GalaxyUiRoomItem itemPref;
-        public RectTransform content;
-        private List<GameObject> items = new List<GameObject>();
+        [SerializeField]
+        private GameObject exitBtn;
+        /// <summary>
+        /// создание комнаты
+        /// </summary>
+        [SerializeField]
+        private GameObject createBtn;
+        /// <summary>
+        /// префаб строки для списка комнат
+        /// </summary>
+        [SerializeField]
+        private GalaxyUiRoomItem itemPref;
+        /// <summary>
+        /// Контент скроллера
+        /// </summary>
+        [SerializeField]
+        private RectTransform content;
+        /// <summary>
+        /// текущий список бъектов
+        /// </summary>
+        private List<GameObject> items = new List<GameObject>();      
         private bool visible = true;
         void OnEnable()
         {
+            // событие успешного подключения
             GalaxyEvents.OnGalaxyConnect += OnGalaxyConnect;
+            // сервер прислал новый список инстансов
             GalaxyEvents.OnGalaxyInstancesList += OnGalaxyInstancesList;
+            // мы вошли в инстанс
             GalaxyEvents.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
+            // мы вышли из инстанса
             GalaxyEvents.OnExitInstance += OnExitInstance;
            
         }
@@ -42,9 +81,11 @@ namespace GalaxyCoreLib
         {
             Debug.Log("OnSceneLoaded");         
             SceneManager.sceneLoaded -= OnSceneLoaded;
+            // запрашиваем синхронизацию команты
+            // в версиях клиента 0.8+ не обязательно
+            // т.к вызывается автоматически
             GalaxyApi.instances.SyncInstance();
         }
-
       
         void OnDisable()
         {
@@ -114,7 +155,7 @@ namespace GalaxyCoreLib
                 GalaxyInstanceInfoScriptable target = instancesInfo.Where(x => x.type == item.type).FirstOrDefault();
                 Sprite sprite = null;
                 if (target != null) sprite = target.img;
-                 GalaxyUiRoomItem newItem = Instantiate(itemPref, content);
+                GalaxyUiRoomItem newItem = Instantiate(itemPref, content);
                 newItem.Init(item.id, item.name, item.clients, item.maxClients, !item.password, sprite);
                 items.Add(newItem.gameObject);
             }

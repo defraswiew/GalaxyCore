@@ -1,49 +1,55 @@
 ﻿using GalaxyCoreServer;
 using SimpleMmoServer.RPGTemplate;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
+ 
 namespace SimpleMmoServer.Examples.Instances
 {
+    /// <summary>
+    /// Пример инстанса с включенной сетевой видимостью
+    /// </summary>
     public class ExampleNetvisible : InstanceOpenWorldOctree
     {
+        /// <summary>
+        /// Создаем сохранялку для игровой карты
+        /// </summary>
         public MapSaver mapSaver = new MapSaver();
- 
-        public override void Close()
-        {
-          
-        }
 
-        public override void IncomingClient(Client clientConnection)
+        public override void Start()
         {
-   
-        }
-
-       
-
-        public override void InMessage(byte code, byte[] data, Client clientConnection)
-        {
-           
+            // не закрываться при выходе всех игроков
+            autoClose = false;
+            // сетевая видимость по умолчанию в метрах
+            visibleDistance = 40;
+            // имя инстанса
+            name = "Building example";
+            // что грузим
+            mapSaver.Load(this, "cs_mansion");
         }
 
         public override void OutcomingClient(Client clientConnection)
         {
+            // если вышел последний игрок, сохраняем изменение в карте
             if (clients.Count == 0) mapSaver.SaveInstance(this, "cs_mansion");
-        }
-
-        public override void Start()
-        {
-           
-            autoClose = false;
-            visibleDistance = 40;
-            name = "Building example";
-            mapSaver.Load(this, "cs_mansion");    
-        }
+        }    
       
         public override void Update()
         {
            
+        }
+        public override void Close()
+        {
+
+        }
+
+        public override void IncomingClient(Client clientConnection)
+        {
+
+        }
+
+
+
+        public override void InMessage(byte code, byte[] data, Client clientConnection)
+        {
+
         }
     }
 }

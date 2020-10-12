@@ -64,11 +64,9 @@
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyColliderTerrain.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyInstanceInfoScriptable.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyNetworkController.cs" />
-     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Login.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\NetEntity\GalaxyNetworkInstantiator.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\NetEntity\NetEntityTransform.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\NetEntity\UnityNetEntity.cs" />
-     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\NetEntity\old_NetEntityTransform.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIChat.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIChatMessage.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUILogin.cs" />
@@ -84,13 +82,9 @@
      <Compile Include="Assets\GalaxyNetwork\Examples\Scripts\ExampleGalaxyVars.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExamplePlayer.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExampleRoomCreate.cs" />
-     <Compile Include="Assets\GalaxyNetwork\_TMP\EnityBase.cs" />
-     <Compile Include="Assets\GalaxyNetwork\_TMP\ProtoTest.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TPM_Spawn.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TestEntity.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TestGalaxyVars.cs" />
-     <Compile Include="Assets\GalaxyNetwork\_TMP\TestNetVarVector3.cs" />
-     <Compile Include="Assets\GalaxyNetwork\_TMP\test_send_to_instance.cs" />
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\protobuf-net.xml" />
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\SimpleMmoCommon.xml" />
      <None Include="Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\GalaxyCoreLib.xml" />

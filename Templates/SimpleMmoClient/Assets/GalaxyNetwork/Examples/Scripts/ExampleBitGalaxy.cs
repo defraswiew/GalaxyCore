@@ -1,19 +1,21 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreLib.NetEntity;
-using System.Collections;
-using System.Collections.Generic;
+ 
 using UnityEngine;
 
+/// <summary>
+/// Пример работы с BitGalaxy
+/// </summary>
 public class ExampleBitGalaxy : MonoBehaviour
 {
     /// <summary>
     /// ссылка на энтити
     /// </summary>
-    ClientNetEntity netEntity;
+    private ClientNetEntity netEntity;
     /// <summary>
     /// последний размер для сравнения
     /// </summary>
-    Vector3 scale;
+    private Vector3 scale;
     /// <summary>
     /// цвет объекта
     /// </summary>
@@ -21,11 +23,11 @@ public class ExampleBitGalaxy : MonoBehaviour
     /// <summary>
     /// последний цвет
     /// </summary>
-    Color _color;
+    private Color _color;
     /// <summary>
     /// текущий материал
     /// </summary>
-    Material mat;
+    private Material mat;
 
 
     void OnEnable()
@@ -100,12 +102,7 @@ public class ExampleBitGalaxy : MonoBehaviour
             buffer.WriteValue(color.b);
             buffer.WriteValue(color.a);
             netEntity.SendMessage(2, buffer.data);
-
             mat.color = color;
-
         }
     }
-
-
-
 }

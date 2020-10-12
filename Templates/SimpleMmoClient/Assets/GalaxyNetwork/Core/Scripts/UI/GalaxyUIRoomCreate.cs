@@ -1,28 +1,93 @@
-﻿using GalaxyCoreLib;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace GalaxyCoreLib
 {
+    /// <summary>
+    /// Пример окошка создания комнаты
+    /// </summary>
     public class GalaxyUIRoomCreate : MonoBehaviour
     {
-        public InputField roomName;
-        public InputField clients;
-        public InputField password;
-        public Text status;
-        public Text roomInfoName;
-        public Text roomDescription;
-        public GameObject progress;
-        public GalaxyUIRoom galaxyUIRoom;
-        public static GalaxyUIRoomCreate api;      
-        public RectTransform content;
-        public GalaxyUiRoomInfo itemPref;
+        /// <summary>
+        /// Статическая ссылка на самого себя
+        /// </summary>
+        public static GalaxyUIRoomCreate api;
+        #region UI_Links
+        /// <summary>
+        /// Поле имени комнаты
+        /// </summary>
+        [SerializeField]
+        private InputField roomName;
+        /// <summary>
+        /// Число клиентов
+        /// </summary>
+        [SerializeField]
+        private InputField clients;
+        /// <summary>
+        /// Пароль на комнату
+        /// </summary>
+        [SerializeField]
+        private InputField password;
+        /// <summary>
+        /// Текущий статус
+        /// </summary>
+        [SerializeField]
+        private Text status;
+        /// <summary>
+        /// заданное имя команты
+        /// </summary>
+        [SerializeField]
+        private Text roomInfoName;
+        /// <summary>
+        /// Описание
+        /// </summary>
+        [SerializeField]
+        private Text roomDescription;
+        /// <summary>
+        /// объект прогресса
+        /// </summary>
+        [SerializeField]
+        private GameObject progress;
+        /// <summary>
+        /// Ведущее окно с комнатами
+        /// </summary>
+        [SerializeField]
+        private GalaxyUIRoom galaxyUIRoom;     
+        /// <summary>
+        /// контент куда кладем информацию
+        /// </summary>
+        [SerializeField]
+        private RectTransform content;
+        /// <summary>
+        /// Префаб итема комнаты для UI
+        /// </summary>
+        [SerializeField]
+        private GalaxyUiRoomInfo itemPref;  
+        /// <summary>
+        /// видима ли комната (кусочек тогла)
+        /// </summary>
+        [SerializeField]
+        private GameObject btnVisible;
+        /// <summary>
+        /// видима ли комната (кусочек тогла)
+        /// </summary>
+        [SerializeField]
+        private GameObject btnUnVisible;
+        #endregion
+        /// <summary>
+        /// текущий список отображемых комнат в ui
+        /// </summary>
         private List<GalaxyUiRoomInfo> items = new List<GalaxyUiRoomInfo>();
-        public  GameObject btnVisible;
-        public GameObject btnUnVisible;
         void Awake()
         {
+            if (api != null)
+            {
+                Debug.LogWarning("Похоже на сцене двое GalaxyUIRoomCreate");
+                Destroy(gameObject);
+                return;
+            }
+            // устанавливаем ссылку на себя
             api = this;
         }
         void OnEnable()
@@ -60,11 +125,13 @@ namespace GalaxyCoreLib
             roomInfoName.text = info.uiName;
             roomDescription.text = info.uiDescription;
         }
-
+        /// <summary>
+        /// Создаем новую комнату
+        /// </summary>
         public void Create()
         {
             int clientCount = 0;
-
+            // добываем число клиентов из строки
             System.Int32.TryParse(clients.text, out clientCount);
             if (roomName.text.Length < 3)
             {
@@ -77,7 +144,8 @@ namespace GalaxyCoreLib
                 return;
             }
             status.text = "Создаю";
-            progress.SetActive(true);
+            progress.SetActive(true);          
+            // передаем ведущему окну запрос на создание комнаты
             galaxyUIRoom.Create(roomName.text, clientCount, password.text);
         }
 
