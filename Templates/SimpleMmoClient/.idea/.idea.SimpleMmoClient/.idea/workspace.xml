@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1de93c65-72e3-41ad-b67d-f836e8449f37" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/UnityNetEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/UnityNetEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Scripts/ExampleGalaxyVars.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Scripts/ExampleGalaxyVars.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Resources/link.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Resources/link.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/Instances/ExampleRoomPhys2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/Instances/ExampleRoomPhys2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntitys/ExampleVideo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntitys/ExampleVideo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Server.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../galaxycoreGitLab/GalaxyCoreCommon/Navigation/GalaxyMap.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorMapWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorResources.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/GalaxyMapNavigationController.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyMap/Scripts/GalaxyMapBakerCore.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyMap/Scripts/Editor/GalaxyMapEditorCommon.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyMap/Scripts/GalaxyMapBaker.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyMap/Scripts/Editor/GalaxyMapEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditopMapWindow.uxml" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditopMapWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyMapEditorCommon.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyMapEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/GalaxyMapBaker.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/GalaxyMapBakerCore.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorMapWindow.uss" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorResources.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorMapWindow.uxml" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorMapWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorLocalization.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditopMapCommon.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Resources/link.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kw6fPVya0saS8wMZLyKOT8Y3Yb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.5007752" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../00000000000/SimpleMmoClient.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\repos\00000000000" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1de93c65-72e3-41ad-b67d-f836e8449f37" name="Default Changelist" comment="" />
+      <created>1606599408628</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606599408628</updated>
+      <workItem from="1606599433819" duration="3388000" />
+      <workItem from="1606688454521" duration="1313000" />
+      <workItem from="1606769697301" duration="3912000" />
+      <workItem from="1606777186948" duration="733000" />
+      <workItem from="1606777960127" duration="1057000" />
+      <workItem from="1606854813550" duration="11470000" />
+      <workItem from="1606932639490" duration="16498000" />
+      <workItem from="1607019446142" duration="14794000" />
+      <workItem from="1607119072232" duration="2173000" />
+      <workItem from="1607199321059" duration="12896000" />
+      <workItem from="1607278911443" duration="9841000" />
+      <workItem from="1608622628631" duration="129000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="159" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606866607964">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="159" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606866607964" />
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1607213105659">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105659" />
+    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.2.center" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.2.left" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.2.right" timestamp="1607213105660">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom" timestamp="1607213105661">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105661" />
+    <state width="1877" height="375" key="GridCell.Tab.3.center" timestamp="1607213105661">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105661" />
+    <state width="1877" height="375" key="GridCell.Tab.3.left" timestamp="1607213105661">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105661" />
+    <state width="1877" height="375" key="GridCell.Tab.3.right" timestamp="1607213105661">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105661" />
+    <state x="368" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1606941526823">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="368" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606941526823" />
+  </component>
+</project>

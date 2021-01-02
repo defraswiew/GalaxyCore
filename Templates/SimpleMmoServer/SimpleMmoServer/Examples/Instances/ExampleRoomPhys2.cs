@@ -1,10 +1,11 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using SimpleMmoServer.Examples.NetEntitys;
+using System;
 
 namespace SimpleMmoServer.Examples.Instances
 {
-    public class ExampleRoomPhys2 : InstanceOpenWorld
+    public class ExampleRoomPhys2 : InstanceOpenWorldOctree
     {
         int max = 1;
         public override void Start()
@@ -12,8 +13,8 @@ namespace SimpleMmoServer.Examples.Instances
             Log.Info("ExampleRoomPhys2", "instance id:" + id);
             SetFrameRate(20);
             physics.Activate("phys/ExamplePhys2.phys");
-            InvokeRepeating("CreateCube", 1, 1);
-            Invoke("TestEntity", 2);
+         //   InvokeRepeating("CreateCube", 1, 1);
+           // Invoke("TestEntity", 2);
         }
 
         public void CreateCube()
@@ -23,6 +24,9 @@ namespace SimpleMmoServer.Examples.Instances
             box.Init();
             max--;
             if (max < 1) CancelInvoke("CreateCube");
+
+            
+
         }
 
 
@@ -32,13 +36,20 @@ namespace SimpleMmoServer.Examples.Instances
         }
 
         public override void IncomingClient(Client clientConnection)
-        {          
-           
+        {
+            Invoke("TestEntity", 2, clientConnection);
+           // InvokeRepeating("TestSend", 2, 2, clientConnection);
         }
-        public void TestEntity()
+
+        public void TestSend(Client clientConnection)
+        {
+            clientConnection.SendMessage(105, Array.Empty<byte>(), GalaxyDeliveryType.reliable);             
+        }
+
+        public void TestEntity(Client clientConnection)
         {
             ExampleVideo entity = new ExampleVideo(this);
-           
+            entity.ChangeOwner(clientConnection);
             entity.prefabName = "ExampleVideo"; 
             entity.Init();
         }

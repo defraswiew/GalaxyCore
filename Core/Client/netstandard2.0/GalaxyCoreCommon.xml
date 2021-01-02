@@ -933,6 +933,196 @@
             Оринтация объекта в пространстве  (не обязательньный параметр)
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMap.name">
+            <summary>
+            Имя карты
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreCommon.Navigation.GalaxyMap.layers">
+            <summary>
+            Менеджер слоев
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMap.searchNodeDistance">
+            <summary>
+            Стандартная дистанция поиска нода по координатам
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.id">
+            <summary>
+            Ид слоя
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.name">
+            <summary>
+            Имя слоя
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.isWalkable">
+            <summary>
+            Включать ли слой в расчет навигации
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.heightWalkable">
+            <summary>
+            Допустимый перепад высот для прокладки пути
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.transperent">
+            <summary>
+            нужно ли сканировать под этим слоем
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.r">
+            <summary>
+            Красный
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.g">
+            <summary>
+            Зеленый
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.b">
+            <summary>
+            Голубой
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.excludeGraph">
+            <summary>
+            Не включать в граф
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.exscind">
+            <summary>
+            Вырезать из крафа все что попало внутрь объекта
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.cost">
+            <summary>
+            Множитель стоимости перемещения
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.GalaxyMapLayerManager.GetById(System.Byte)">
+            <summary>
+            Получить слой по ид
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.GalaxyMapLayerManager.CreateLayer">
+            <summary>
+            Запрос на создание нового слоя
+            </summary>
+            <returns>вернется ид нужного слоя</returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.GalaxyMapLayerManager.RemoveLayer(System.Byte)">
+            <summary>
+            Удалить слой по ид
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeBase.layer">
+            <summary>
+            Слой нода
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeBase.indexX">
+            <summary>
+            Индекс нода по X
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeBase.indexZ">
+            <summary>
+            Индекс нода по Z
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeBase.x">
+            <summary>
+            позиция по Х
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeBase.y">
+            <summary>
+            Позиция по У
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeBase.z">
+            <summary>
+            Позиция по Z
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeFile.layer">
+            <summary>
+            Слой нода
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeFile.indexX">
+            <summary>
+            Индекс нода по X
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeFile.indexZ">
+            <summary>
+            Индекс нода по Z
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeFile.x">
+            <summary>
+            позиция по Х
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeFile.y">
+            <summary>
+            Позиция по У
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyNodeFile.z">
+            <summary>
+            Позиция по Z
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyPathAgent.layers">
+            <summary>
+            слои по которым будет простоен путь
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyPathAgent.maxLiftAngle">
+            <summary>
+            максимальный угол подьема
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.IGalaxyPathResult.OnGalaxyPathResult(GalaxyCoreCommon.Navigation.Path)">
+            <summary>
+            Вернулся запрошенный маршрут
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.Tools.CheckQuard(System.Int32)">
+            <summary>
+            Проверка корректности квадрата
+            </summary>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.Tools.MergeNodes(System.Collections.Generic.List{GalaxyCoreCommon.Navigation.GalaxyNode},System.Single)">
+            <summary>
+            Объеденение части нодов в более большие
+            </summary>
+            <param name="nodes"></param>
+            <param name="heightTrashold"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.Tools.SearchQuad(GalaxyCoreCommon.Navigation.GalaxyNode,System.Collections.Generic.List{GalaxyCoreCommon.Navigation.GalaxyNode},System.Int32,System.Single)">
+            <summary>
+            Пытаемся вписать квадрат вокруг указанной ноды
+            </summary>
+            <param name="node">целевой нод</param>
+            <param name="nodes">граф в котором будем работать</param>
+            <param name="range">размер квадрата который нужно вписать</param>
+            <param name="heightTrashold">допуск по высоте</param>
+            <returns></returns>
+        </member>
         <member name="T:GalaxyCoreCommon.NetVars">
             <summary>
             Variable Synchronization Kernel

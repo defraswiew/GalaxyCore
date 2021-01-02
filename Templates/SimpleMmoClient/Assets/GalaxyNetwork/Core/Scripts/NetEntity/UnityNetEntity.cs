@@ -57,7 +57,8 @@ public class UnityNetEntity : MonoBehaviour
             netEntity.transform.position = transform.position.NetworkVector3();
             netEntity.transform.rotation = transform.rotation.NetworkQuaternion();
             // отправляем запрос на создание сетевого объекта
-            GalaxyApi.netEntity.Instantiate(netEntity);                  
+            GalaxyApi.netEntity.Instantiate(netEntity);
+           
         }              
     }
 

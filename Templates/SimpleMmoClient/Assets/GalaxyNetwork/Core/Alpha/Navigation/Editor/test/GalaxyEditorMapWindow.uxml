@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<engine:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:engine="UnityEngine.UIElements"
+    xmlns:editor="UnityEditor.UIElements"
+    xsi:noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd"
+>
+    
+    <engine:VisualElement name="Header">
+     
+    </engine:VisualElement>
+
+    <engine:VisualElement name="Container">
+
+        <engine:VisualElement name="LeftPanel">
+          
+        </engine:VisualElement>
+
+        <engine:VisualElement name="RightPanel">
+            <engine:VisualElement name="NotBacker">
+            </engine:VisualElement>
+            <engine:VisualElement name="NotFile">
+            </engine:VisualElement>  
+            
+
+            <engine:VisualElement name="BackerEdit">
+            </engine:VisualElement>
+            <engine:VisualElement name="Layers">
+            </engine:VisualElement>
+            <engine:VisualElement name="Objects">
+            </engine:VisualElement>
+            <engine:VisualElement name="WorkSpace">
+
+           
+            <engine:TextField name="ObjectName" label="Object Name"/>
+            <editor:ColorField name="ColorField" label="Object Color"/>
+            <editor:Vector3Field name="SizeField" label="Object Size"/>
+            <editor:Vector3Field name="RotationField" label="Object Rotation"/>
+            <editor:FloatField name="AnimationSpeedField" label="Animation Speed"/>
+            <engine:Toggle name="IsAnimatingField" label="Is Animating"/>
+            <engine:ListView name="IsAnimatingField" label="Is Animating"/>
+            <engine:MinMaxSlider name="IsAnimatingField" label="Is Animating"/>
+            </engine:VisualElement>
+
+            <engine:VisualElement name="Logo">
+
+            </engine:VisualElement>   
+        </engine:VisualElement>
+
+    </engine:VisualElement>
+    
+    
+    
+</engine:UXML>

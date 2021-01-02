@@ -1,7 +1,6 @@
 ﻿using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
-using SimpleMmoServer.Examples.Instances;
- 
+using SimpleMmoServer.Examples.Instances; 
 
 namespace SimpleMmoServer
 {

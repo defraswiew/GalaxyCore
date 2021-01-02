@@ -1,4 +1,5 @@
 ﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon.Navigation;
 using UnityEngine;
 
 /// <summary>
@@ -55,6 +56,43 @@ public static class Extensions
     {
         return new Quaternion(quaternion.x, quaternion.y, quaternion.z, quaternion.w);
     }
+    public static void SetColor(this GalaxyMapLayer layer, Color32 color)
+    {
+        layer.b = color.b;
+        layer.r = color.r;
+        layer.g = color.g;
+    }
+    public static Color32 Color(this GalaxyMapLayer layer)
+    {
+        Color32 color = new Color32(layer.r,layer.g,layer.b,255);
+        return color;
+    }
+    public static GalaxyMapLayer Copy(this GalaxyMapLayer layer)
+    {
+        var result = new GalaxyMapLayer();
+        result.SetColor(layer.Color());
+        result.cost = layer.cost;
+        result.heightWalkable = layer.heightWalkable;
+        result.exscind = layer.exscind;
+        result.id = layer.id;
+        result.name = layer.name;
+        result.transperent = layer.transperent;
+        result.excludeGraph = layer.excludeGraph;
+        result.isWalkable = layer.isWalkable;
+        return result;
+    }
 
+    public static void Apply(this GalaxyMapLayer layer, GalaxyMapLayer target)
+    {
+        layer.SetColor(target.Color());
+        layer.cost = target.cost;
+        layer.heightWalkable = target.heightWalkable;
+        layer.exscind = target.exscind;
+        layer.id = target.id;
+        layer.name = target.name;
+        layer.transperent = target.transperent;
+        layer.excludeGraph = target.excludeGraph;
+        layer.isWalkable = target.isWalkable;
+    }
 }
 

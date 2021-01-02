@@ -27,7 +27,15 @@ public class ExampleGalaxyVars : MonoBehaviour
         ClientNetEntity netEntity = GetComponent<UnityNetEntity>().netEntity;
         // регистрируем внешний класс в galaxyVars
         netEntity.galaxyVars.RegistrationClass(test);
+        netEntity.OnInMessage += OnInMessage;
     }
+
+    private void OnInMessage(byte code, byte[] data)
+    {
+    //    if (code == 100) Debug.Log("Classic send");
+    //    if (code == 101) Debug.Log("Octo send");
+    }
+
     void Update()
     {
         textMesh.text = text + " heal:" + test.heal;

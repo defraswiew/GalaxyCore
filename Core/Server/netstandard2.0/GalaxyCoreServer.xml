@@ -1202,6 +1202,14 @@
             <param name="data">массив байт</param>
             <param name="deliveryType">способ доставки</param>
         </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendToOwner(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            отправить сообщение владельцу сущности
+            </summary>
+            <param name="code"></param>
+            <param name="data"></param>
+            <param name="deliveryType"></param>
+        </member>
         <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Отправить сообщение всем пользователям которые видят данную сущность

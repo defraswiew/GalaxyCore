@@ -114,6 +114,12 @@
             Тик сетевого фрейма
             </summary>
         </member>
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnEngineUpdate">
+            <summary>
+            Вызывается каждый кадр игрового движка, после обработки сетевой логики
+            </summary>
+            <param name="deltaTime"></param>
+        </member>
         <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyInstancesList">
             <summary>
             The list of instances came
@@ -641,6 +647,12 @@
             Network frame tick
             Тик сетевого фрейма
             </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnEngineUpdate">
+            <summary>
+            Вызывается каждый кадр игрового движка, после обработки сетевой логики
+            </summary>
+            <param name="deltaTime"></param>
         </member>
         <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyInstancesList">
             <summary>

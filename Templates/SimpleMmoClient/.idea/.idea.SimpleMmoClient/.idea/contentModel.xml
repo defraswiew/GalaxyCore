@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Денис\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_SimpleMmoClient.325839225.00" t="ExcludeRecursive" />
+    <e p="D:\repos\GalaxyCore\Templates\SimpleMmoClient" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="GalaxyNetwork" t="Include">
+          <e p="_TMP" t="Include">
+            <e p="TestEntity.cs" t="Include" />
+            <e p="TestGalaxyVars.cs" t="Include" />
+            <e p="TestMessage.cs" t="Include" />
+            <e p="TPM_Spawn.cs" t="Include" />
+          </e>
+          <e p="Core" t="Include">
+            <e p="Alpha" t="Include">
+              <e p="Navigation" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="GalaxyEditorLocalization.cs" t="Include" />
+                  <e p="GalaxyMapEditor.cs" t="Include" />
+                  <e p="GalaxyMapEditorCommon.cs" t="Include" />
+                  <e p="test" t="Include">
+                    <e p="GalaxyEditopMapCommon.cs" t="Include" />
+                    <e p="GalaxyEditorMapWindow.cs" t="Include" />
+                    <e p="GalaxyEditorMapWindow.uss" t="Include" />
+                    <e p="GalaxyEditorMapWindow.uxml" t="Include" />
+                    <e p="GalaxyEditorResources.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="GalaxyMapBaker.cs" t="Include" />
+                <e p="GalaxyMapBakerCore.cs" t="Include" />
+              </e>
+            </e>
+            <e p="GalaxyDragWindow.cs" t="Include" />
+            <e p="Plugins" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="GalaxyCoreCommon.xml" t="Include" />
+                <e p="GalaxyCoreLib.xml" t="Include" />
+                <e p="protobuf-net.xml" t="Include" />
+                <e p="SimpleMmoCommon.xml" t="Include" />
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="DebugLoger.cs" t="Include" />
+              <e p="Editor" t="Include">
+                <e p="EditorGalaxyPhys.cs" t="Include" />
+                <e p="EditorNetworkController.cs" t="Include" />
+                <e p="EditorUnityNetId.cs" t="Include" />
+                <e p="TextureScale.cs" t="Include" />
+              </e>
+              <e p="Extensions.cs" t="Include" />
+              <e p="GalaxyAnimSync.cs" t="Include" />
+              <e p="GalaxyColliderBox.cs" t="Include" />
+              <e p="GalaxyColliderSphere.cs" t="Include" />
+              <e p="GalaxyColliderTerrain.cs" t="Include" />
+              <e p="GalaxyInstanceInfoScriptable.cs" t="Include" />
+              <e p="GalaxyNetworkController.cs" t="Include" />
+              <e p="NetEntity" t="Include">
+                <e p="GalaxyNetworkInstantiator.cs" t="Include" />
+                <e p="NetEntityTransform.cs" t="Include" />
+                <e p="UnityNetEntity.cs" t="Include" />
+              </e>
+              <e p="UI" t="Include">
+                <e p="GalaxyUIChat.cs" t="Include" />
+                <e p="GalaxyUIChatMessage.cs" t="Include" />
+                <e p="GalaxyUiClientItem.cs" t="Include" />
+                <e p="GalaxyUiClietsList.cs" t="Include" />
+                <e p="GalaxyUILogin.cs" t="Include" />
+                <e p="GalaxyUIReg.cs" t="Include" />
+                <e p="GalaxyUIRoom.cs" t="Include" />
+                <e p="GalaxyUIRoomCreate.cs" t="Include" />
+                <e p="GalaxyUiRoomInfo.cs" t="Include" />
+                <e p="GalaxyUiRoomItem.cs" t="Include" />
+                <e p="GalaxyUIStatistic.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Examples" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="ExampleBitGalaxy.cs" t="Include" />
+              <e p="ExampleGalaxyVars.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Resources" t="Include">
+            <e p="link.xml" t="Include" />
+          </e>
+          <e p="SimpleMmo" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="ExamplePlayer.cs" t="Include" />
+              <e p="ExampleRoomCreate.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="SimpleMmoClient.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

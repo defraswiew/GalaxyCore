@@ -17,19 +17,37 @@ namespace SimpleMmoServer.Examples.NetEntitys
         {
             SendMessageExcept(clientSender, externalCode, data);
         }
-
-        public override void OnDestroy()
-        {
-        //    example.Destory();
-        }
-
         public override void Start()
         {
-            
-           
-        //    Invoke("Test", 1f);
-       
+            //   InvokeRepeating("Send", 2f, 2f);
+            //  InvokeRepeating("SendOcto", 1f, 2f);
+            Invoke("Kill", 10);
         }
+        public void Kill()
+        {
+            Destory();
+        }
+        public override void OnDestroy()
+        {
+            var newNetEntity = new ExampleVideo(instance, transform.position);
+            newNetEntity.ChangeOwner(ownerClient);
+            newNetEntity.Init();
+        }
+
+
+
+        public void Send()
+        {
+            SendMessage(100, new byte[0], GalaxyDeliveryType.reliable);
+        }
+        public void SendOcto()
+        {
+            Log.Info("SendOcto", "sens");
+            SendMessageByOctoVisible(101, new byte[0], GalaxyDeliveryType.reliable);
+        }
+        
+
+       
         public void Test()
         {
             galaxyVars.ForceSync();
@@ -45,6 +63,7 @@ namespace SimpleMmoServer.Examples.NetEntitys
        
         public ExampleVideo(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
+            prefabName = "ExampleVideo";
             text = "hello";
             hp = 666;
             galaxyVars.RegistrationClass(this);
