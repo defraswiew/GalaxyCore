@@ -29,6 +29,8 @@
             </engine:VisualElement>
             <engine:VisualElement name="Objects">
             </engine:VisualElement>
+            <engine:VisualElement name="Settings">
+            </engine:VisualElement>
             <engine:VisualElement name="WorkSpace">
 
            

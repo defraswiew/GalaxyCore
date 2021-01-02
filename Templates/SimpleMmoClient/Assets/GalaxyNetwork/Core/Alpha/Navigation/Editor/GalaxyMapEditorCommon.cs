@@ -152,7 +152,7 @@ public class GalaxyMapEditorCommon
 
 
 
-        if (window.currentLayer != 0) DrowLayer(window.baker.map.layers.GetById((byte)window.currentLayer));
+        if (window.currentLayer != 0) DrawLayer(window.baker.map.layers.GetById((byte)window.currentLayer));
 
         if (GUILayout.Button("Add new Layer", EditorStyles.miniButtonMid))
         {
@@ -166,9 +166,8 @@ public class GalaxyMapEditorCommon
     }
 
 
-    private void DrowLayer(GalaxyMapLayer layer)
+    private void DrawLayer(GalaxyMapLayer layer)
     {
-       
         if (layer == null) return;
         var layerBox = new Rect(0, 0, 0, 0);
         layerBox.width = (Screen.width - 5);

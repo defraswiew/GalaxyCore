@@ -3,7 +3,5 @@
 /Logs/
 /obj/
 /Packages/
-<<<<<<< HEAD
-=======
 /Temp/
->>>>>>> dev/0.2
+/.idea/

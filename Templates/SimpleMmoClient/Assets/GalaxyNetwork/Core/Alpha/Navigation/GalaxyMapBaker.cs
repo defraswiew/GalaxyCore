@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using GalaxyCoreCommon;
 using GalaxyCoreCommon.Navigation;
@@ -24,9 +25,32 @@ public class GalaxyMapBaker : MonoBehaviour
     public byte[] layers;
     public float progress;
 
+    public bool IsNotLayerAssigned => CheckLayers();
+
+    private bool CheckLayers()
+    {
+        if (objects == null) return false;
+        if (objects.Length == 0) return false;
+        foreach (var layer in layers)
+        {
+            if (layer > 0) return true;
+        }
+
+        return false;
+    }
     void Update()
     {
         map.Update();
+    }
+
+    private void OnValidate()
+    {
+        if (mapSize.x < 10) mapSize.x = 10;
+        if (mapSize.y < 10) mapSize.y = 10;
+        if (mapSize.z < 10) mapSize.z = 10;
+        if (cellSize < 0.5f) cellSize = 1;
+        if (minHeight < 1) minHeight = 1;
+        if (maxHeightLink < 0) maxHeightLink = 0;
     }
 
     public void SetLayer(GameObject go, byte layer)
@@ -69,6 +93,7 @@ public class GalaxyMapBaker : MonoBehaviour
     /// <returns></returns>
     private int GetSaveIndex(GameObject go)
     {
+        if (objects == null) objects = Array.Empty<GameObject>();
         for (int i = 0; i < objects.Length; i++)
         {
             if (objects[i] == go)
@@ -179,7 +204,6 @@ public class GalaxyMapBaker : MonoBehaviour
         map.SetBakeNodes(tmpMap);
         tmpMap.Clear();
 
-
         map.Save(path);
         progress = 0;
         Debug.Log(count);
@@ -201,7 +225,27 @@ public class GalaxyMapBaker : MonoBehaviour
 
     void Start()
     {
+        Load();
+    }
+
+    public void Save()
+    {
+      map.Save(path);
+    }
+    
+    public void Load()
+    {
+        Load(path);
+    }
+
+    public void Load(string loadPath)
+    {
+        path = loadPath;
+        if (path == "")
+        {
+            return;
+        }
         map = BaseMessage.Deserialize<GalaxyMap>(File.ReadAllBytes(path));
-        map.Init();
+        map?.Init();
     }
 }

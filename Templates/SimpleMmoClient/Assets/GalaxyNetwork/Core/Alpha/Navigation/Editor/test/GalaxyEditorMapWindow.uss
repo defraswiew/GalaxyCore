@@ -84,6 +84,12 @@
     color: #1E1E1F;
     white-space: normal;
 }
+ #ButtonBig:hover{
+     background-color: #bc7e00; 
+ }
+ #ButtonBig:active{
+     background-color: #8c5e03;
+ }
  #GreenButton{
      background-color: #66a402;
      border-left-color: #416e03;
@@ -118,7 +124,7 @@
  }
  #GalaxySelected{
      background-color: rgb(21, 24, 26);    
-     height: 50px; 
+     height: 100px; 
  }
  #LayersSelector{
      background-color: rgb(30, 34, 36);
@@ -155,6 +161,7 @@
 #LeftButtonContainer
 {
     margin-top: 15px;
+    margin-left: -2px;
 }
 #LeftButtonLabel
 {    
@@ -179,3 +186,16 @@
 #LeftButton:active {
     opacity: 0.6;
 }
+
+ .LeftButtonActive {
+     background-color: rgb(65, 55, 0);
+ }
+ 
+ #ObjectSelectedLabel{
+     font-size: 22;
+     color: #e09c04;
+     margin-left: 5px;
+     white-space: normal;
+     line-height: 5px;
+     -unity-font-style: bold;
+ }

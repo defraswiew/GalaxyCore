@@ -101,23 +101,12 @@ public class GalaxyMapEditor : EditorWindow
 
         }
 
-        if (GUI.changed)
-        {
-            EditorUtility.SetDirty(baker);
-            EditorSceneManager.MarkSceneDirty(baker.gameObject.scene);
-            SceneView.RepaintAll();
-        }
-
-
-
         if (baker.progress > 0 && baker.progress < 1) 
             EditorUtility.DisplayProgressBar("Simple Progress Bar", "Shows a progress bar for the given seconds", baker.progress);
         else
             EditorUtility.ClearProgressBar();
 
         GUILayout.Label("Nodes: "+ baker.map.Nodes.Count);
-         
-
     }
 
     private void SetTab(TabType type)
