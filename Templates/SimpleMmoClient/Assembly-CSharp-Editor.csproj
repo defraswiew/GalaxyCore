@@ -59,17 +59,15 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\GalaxyEditorLocalization.cs" />
-     <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\GalaxyMapEditor.cs" />
-     <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\GalaxyMapEditorCommon.cs" />
-     <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\test\GalaxyEditopMapCommon.cs" />
-     <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\test\GalaxyEditorMapWindow.cs" />
-     <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\test\GalaxyEditorResources.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\GalaxyEditorMapCommon.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\GalaxyEditorMapWindow.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\GalaxyEditorResources.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Editor\EditorGalaxyPhys.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Editor\EditorNetworkController.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Editor\EditorUnityNetId.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Editor\TextureScale.cs" />
-     <None Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\test\GalaxyEditorMapWindow.uss" />
-     <None Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\test\GalaxyEditorMapWindow.uxml" />
+     <None Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\GalaxyEditorMapWindow.uss" />
+     <None Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\Editor\GalaxyEditorMapWindow.uxml" />
  <Reference Include="UnityEditor.TestRunner">
  <HintPath>C:/repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>

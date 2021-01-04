@@ -87,6 +87,7 @@
      <Compile Include="Assets\GalaxyNetwork\Examples\Scripts\ExampleGalaxyVars.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExamplePlayer.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExampleRoomCreate.cs" />
+     <Compile Include="Assets\GalaxyNetwork\_TMP\TMP_TestAgent.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TPM_Spawn.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TestEntity.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TestGalaxyVars.cs" />

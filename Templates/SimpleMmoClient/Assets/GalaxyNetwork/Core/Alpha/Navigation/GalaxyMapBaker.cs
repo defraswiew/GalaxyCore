@@ -8,12 +8,11 @@ using Tools = GalaxyCoreCommon.Navigation.Tools;
 
 public class GalaxyMapBaker : MonoBehaviour
 {
+    public static GalaxyMap mainMap;
     public Vector3 mapSize;
     public float cellSize;
     public float minHeight = 2;
     public float maxHeightLink = 0.1f;
-    private float sectorSize;
-    private GalaxyMapBakerCore bakerCore;
     public bool drawCell = false;
     public bool drawLinks = false;
     public GalaxyMap map = new GalaxyMap();
@@ -24,8 +23,10 @@ public class GalaxyMapBaker : MonoBehaviour
     [SerializeField]
     public byte[] layers;
     public float progress;
-
     public bool IsNotLayerAssigned => CheckLayers();
+    
+    private float sectorSize;
+    private GalaxyMapBakerCore bakerCore;
 
     private bool CheckLayers()
     {
@@ -42,7 +43,6 @@ public class GalaxyMapBaker : MonoBehaviour
     {
         map.Update();
     }
-
     private void OnValidate()
     {
         if (mapSize.x < 10) mapSize.x = 10;
@@ -146,8 +146,6 @@ public class GalaxyMapBaker : MonoBehaviour
         return result;
     }
 
-
-
     public void Baked()
     {
         uint nodeID = 0;
@@ -247,5 +245,9 @@ public class GalaxyMapBaker : MonoBehaviour
         }
         map = BaseMessage.Deserialize<GalaxyMap>(File.ReadAllBytes(path));
         map?.Init();
+        if (mainMap == null)
+        {
+            mainMap = map;
+        }
     }
 }

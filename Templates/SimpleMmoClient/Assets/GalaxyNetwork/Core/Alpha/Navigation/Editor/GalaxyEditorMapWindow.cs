@@ -10,7 +10,7 @@ namespace GalaxyCoreCommon.Navigation
 {
     public class GalaxyEditorMapWindow : EditorWindow
     {
-        private const string path = "Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/";
+        private const string path = "Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/";
         private GalaxyEditorResources resources;
         private GalaxyEditopMapCommon common;
         private GalaxyMapBaker baker;
@@ -26,7 +26,7 @@ namespace GalaxyCoreCommon.Navigation
         private VisualElement bakeButton;
         private bool init;
 
-        [MenuItem("Window/UIElements/GalaxyEditorMapWindow")]
+        [MenuItem("Galaxy Network/Navigation")]
         public static void ShowExample()
         {
             var wnd = GetWindow<GalaxyEditorMapWindow>();

@@ -408,7 +408,7 @@ namespace GalaxyCoreCommon.Navigation
             void BindItem(VisualElement e, int i)
             {
                 var elem = elements[i].Split('%');
-                ((Label) e).text = elem[1];
+                ((Label) e).text = elem[0]+") "+elem[1];
                 ((Label) e).name = "GalaxySelectedLabel";
             }
 

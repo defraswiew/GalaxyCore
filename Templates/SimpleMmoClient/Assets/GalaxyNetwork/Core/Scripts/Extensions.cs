@@ -94,5 +94,15 @@ public static class Extensions
         layer.excludeGraph = target.excludeGraph;
         layer.isWalkable = target.isWalkable;
     }
+
+    public static void GetPath(this GalaxyMap map, Vector3 start, Vector3 end, IGalaxyPathResult listener, NavigationMask mask)
+    {
+        map.GetPath(start.NetworkVector3(),end.NetworkVector3(),listener,mask);
+    }
+
+    public static Vector3 GetPosition(this GalaxyNode node)
+    {
+        return new Vector3(node.x, node.y, node.z);
+    }
 }
 

@@ -1082,23 +1082,56 @@
             Позиция по Z
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.Navigation.GalaxyPathAgent.layers">
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyPath.Status">
             <summary>
-            слои по которым будет простоен путь
+            Path status
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.Navigation.GalaxyPathAgent.maxLiftAngle">
-            <summary>
-            максимальный угол подьема
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreCommon.Navigation.IGalaxyPathResult.OnGalaxyPathResult(GalaxyCoreCommon.Navigation.Path)">
+        <member name="M:GalaxyCoreCommon.Navigation.IGalaxyPathResult.OnGalaxyPathResult(GalaxyCoreCommon.Navigation.GalaxyPath)">
             <summary>
             Вернулся запрошенный маршрут
             </summary>
             <param name="path"></param>
         </member>
-        <member name="M:GalaxyCoreCommon.Navigation.Tools.CheckQuard(System.Int32)">
+        <member name="F:GalaxyCoreCommon.Navigation.NavigationMask.maxLiftAngle">
+            <summary>
+            максимальный угол подьема
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.NavigationMask.maxIteration">
+            <summary>
+            Максимально допустимое число итераций поиска пути
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.NavigationMask.lianer">
+            <summary>
+            применять ли линейную фильтрацию к результату поиска
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.NavigationMask.ignoreCash">
+            <summary>
+            Игнорируем кеш
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.NavigationMask.AddLayer(System.Byte)">
+            <summary>
+            Добавить слой по ид
+            </summary>
+            <param name="layerId"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.NavigationMask.AddLayer(System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+            Добавить несколько слоев
+            </summary>
+            <param name="layerIds"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.NavigationMask.RemoveLayer(System.Byte)">
+            <summary>
+            Удалить слой
+            </summary>
+            <param name="layerId"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.Tools.CheckSquare(System.Int32)">
             <summary>
             Проверка корректности квадрата
             </summary>
@@ -1110,7 +1143,7 @@
             Объеденение части нодов в более большие
             </summary>
             <param name="nodes"></param>
-            <param name="heightTrashold"></param>
+            <param name="heightThreshold"></param>
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreCommon.Navigation.Tools.SearchQuad(GalaxyCoreCommon.Navigation.GalaxyNode,System.Collections.Generic.List{GalaxyCoreCommon.Navigation.GalaxyNode},System.Int32,System.Single)">
