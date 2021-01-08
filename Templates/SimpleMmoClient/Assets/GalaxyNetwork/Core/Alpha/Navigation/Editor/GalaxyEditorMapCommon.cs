@@ -326,9 +326,27 @@ namespace GalaxyCoreCommon.Navigation
             };
             trimNodes.RegisterCallback<ChangeEvent<bool>>(change => { layer.exscind = change.newValue; });
             container.Add(trimNodes);
-
+            container.Add(AddButton("Delete", () => { RemoveLayer(layer); }, "RedButton"));
             container.Add(AddButton("Save", () => { SaveLayers(layer); }, "GreenButton"));
+           
             root.Q<VisualElement>("LayerContainer").Add(container);
+        }
+
+        private void RemoveLayer(GalaxyMapLayer layer)
+        {
+            int i = 0;
+            foreach (var layerCurrent in backer.layers)
+            {
+                if (layerCurrent == layer.id)
+                {
+                    backer.layers[i] = 0;
+                    backer.objects[i] = null;
+                }
+                i++;
+            }
+            backer.map.layers.RemoveLayer(layer.id);
+            RenderLayersTab();
+            backer.Save();
         }
 
         private void SaveLayers(GalaxyMapLayer layer)

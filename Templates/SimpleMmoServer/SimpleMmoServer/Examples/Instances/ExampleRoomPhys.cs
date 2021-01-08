@@ -91,6 +91,7 @@ namespace SimpleMmoServer.Examples.Instances
         /// </summary>
         private void RayTest()
         {
+            /*
             directional =  player.transform.position - startPoint;           
             physics.RayCast(startPoint,directional, out RaycastHit raycastHit);
             debug.transform.position = raycastHit.point;
@@ -103,7 +104,8 @@ namespace SimpleMmoServer.Examples.Instances
             {
                 player.SendRayCastResult(false);
                 Log.Info("Tag: ", raycastHit.tag);
-            }         
+            }   
+            */
         }
 
     

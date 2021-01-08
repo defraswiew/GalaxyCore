@@ -85,8 +85,10 @@
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUiRoomItem.cs" />
      <Compile Include="Assets\GalaxyNetwork\Examples\Scripts\ExampleBitGalaxy.cs" />
      <Compile Include="Assets\GalaxyNetwork\Examples\Scripts\ExampleGalaxyVars.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Examples\Scripts\ExampleNavBotDebag.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExamplePlayer.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExampleRoomCreate.cs" />
+     <Compile Include="Assets\GalaxyNetwork\_TMP\TMP_LooKAt.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TMP_TestAgent.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TPM_Spawn.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TestEntity.cs" />

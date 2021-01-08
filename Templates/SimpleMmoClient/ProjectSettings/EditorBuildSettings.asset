@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GalaxyNetwork/Examples/Scenes/ExamplePhys2.unity
     guid: 9cc0f4c1c46fcd84999661613d96054a
+  - enabled: 1
+    path: Assets/GalaxyNetwork/Examples/Scenes/Navigation.unity
+    guid: eea34b7e586383b4b9f1852e3d5ebfb9
   m_configObjects: {}

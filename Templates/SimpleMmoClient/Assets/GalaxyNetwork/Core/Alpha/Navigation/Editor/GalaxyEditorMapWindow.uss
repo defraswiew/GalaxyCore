@@ -101,6 +101,18 @@
      color: #1E1E1F;
      white-space: normal;
  }
+
+ #RedButton{
+     background-color: #a43002;
+     border-left-color: #662100;
+     border-top-color: #662100;
+     border-right-color: #662100;
+     border-bottom-color: #662100;
+     border-radius: 7px;
+     font-size: 18;
+     color: #1E1E1F;
+     white-space: normal;
+ }
  
  .unity-vector3-field__label{     
      min-width: 100px;    

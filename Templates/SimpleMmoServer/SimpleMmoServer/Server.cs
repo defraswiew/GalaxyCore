@@ -88,6 +88,8 @@ namespace SimpleMmoServer
                     return new Examples.Instances.ExampleOctoRoom();
                 case 4:  
                     return new Examples.Instances.ExampleRoomPhys2();
+                case 5:
+                    return new Examples.Instances.ExampleNavigation();
                 default:
                     // если не нужно ничего переопределять, то возвращяем null (будет использоваться стандартная комната)
                     return new Examples.Instances.ExampleEmtyInstance(); 
