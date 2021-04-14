@@ -15,19 +15,21 @@ namespace SimpleMmoServer.RPGTemplate
     public class MapSaver:BaseMessage
     {
         [ProtoMember(1)]
-        public List<MapSaverItem> items;
+        public List<MapSaverItem> Items;
 
         public void SaveInstance(Instance instance, string saveName)
         {
-            items = new List<MapSaverItem>();
-            foreach (var item in instance.entities.list)
+            Items = new List<MapSaverItem>();
+            foreach (var item in instance.Entities.List)
             {
-                if (!item.isStatic) continue;
-                MapSaverItem saverItem = new MapSaverItem();
-                saverItem.pos = item.transform.position;
-                saverItem.rot = item.transform.rotation;
-                saverItem.pref = item.prefabName;
-                items.Add(saverItem);
+                if (!item.IsStatic) continue;
+                MapSaverItem saverItem = new MapSaverItem
+                {
+                    Position = item.transform.Position, 
+                    Rotation = item.transform.Rotation, 
+                    PrefabName = item.PrefabName
+                };
+                Items.Add(saverItem);
             }
             if (!Directory.Exists("Maps"))
             {
@@ -41,13 +43,15 @@ namespace SimpleMmoServer.RPGTemplate
         {
             try
             {
-                items = BaseMessage.Deserialize<MapSaver>(File.ReadAllBytes("Maps/" + saveName)).items;
-                if (items == null) return;
-                foreach (var item in items)
+                Items = BaseMessage.Deserialize<MapSaver>(File.ReadAllBytes("Maps/" + saveName)).Items;
+                if (Items == null) return;
+                foreach (var item in Items)
                 {
-                    NetEntityStandart netEntity = new NetEntityStandart(instance,item.pos,item.rot);
-                    netEntity.isStatic = true;
-                    netEntity.prefabName = item.pref;
+                    var netEntity = new NetEntityStandard(instance, item.Position, item.Rotation)
+                    {
+                        IsStatic = true, 
+                        PrefabName = item.PrefabName
+                    };
                     netEntity.Init();
                 }
             }
@@ -57,14 +61,15 @@ namespace SimpleMmoServer.RPGTemplate
             }
         }
     }
+    
     [ProtoContract]
     public class MapSaverItem : BaseMessage
     {
         [ProtoMember(1)]
-        public GalaxyVector3 pos;
+        public GalaxyVector3 Position;
         [ProtoMember(2)]
-        public GalaxyQuaternion rot;
+        public GalaxyQuaternion Rotation;
         [ProtoMember(3)]
-        public string pref;
+        public string PrefabName;
     }
 }

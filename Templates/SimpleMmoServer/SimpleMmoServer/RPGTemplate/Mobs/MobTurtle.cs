@@ -1,13 +1,14 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
- 
+using SimpleMmoServer.RPGTemplate.Mobs;
+
 namespace SimpleMmoServer.RPGTemplate
 {
     public class MobTurtle : Mob
     {
         public MobTurtle(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
-            prefabName = "MobTurtle";
+            PrefabName = "MobTurtle";
             syncType = NetEntityAutoSync.position_and_rotation;
         }
 
@@ -19,8 +20,8 @@ namespace SimpleMmoServer.RPGTemplate
                     {
                         BitGalaxy message = new BitGalaxy(data);
                         int damage = message.ReadInt();
-                        heal -= damage;
-                        if (heal <= 0) Death();
+                        Heal -= damage;
+                        if (Heal <= 0) Death();
                     }
                     break;
             }
@@ -31,20 +32,20 @@ namespace SimpleMmoServer.RPGTemplate
             return true;
         }
 
-        public override void OnDestroy()
+        protected override void OnDestroy()
         {
-            Drop drop = new Drop(instance, transform.position);
+            Drop drop = new Drop(Instance, transform.Position);
             drop.Init();
             RemoveInSpawner();
         }
 
-        public override void Start()
+        protected override void Start()
         {
             InvokeRepeating("RandomPoint", 5, 60);
-            galaxyVars.RegistrationClass(this);
+            GalaxyVars.RegistrationClass(this);
         }
 
-        public override void Update()
+        protected override void Update()
         {
             Attack();
             RandomMove();

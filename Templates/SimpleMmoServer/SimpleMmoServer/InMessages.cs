@@ -1,5 +1,4 @@
 ﻿using GalaxyCoreServer;
- 
 
 namespace SimpleMmoServer
 {
@@ -26,8 +25,8 @@ namespace SimpleMmoServer
                     break;
                 //In other cases, we send a message to the instance
                 default:
-                    if (client.instanse == null) return;
-                    client.instanse.InMessage(code, data, client);
+                    if (client.Instanse == null) return;
+                    client.Instanse.InMessage(code, data, client);
                     break;
             }
 

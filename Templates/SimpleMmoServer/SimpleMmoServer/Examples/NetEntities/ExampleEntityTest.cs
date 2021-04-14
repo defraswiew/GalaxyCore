@@ -1,10 +1,7 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace SimpleMmoServer.Examples.NetEntitys
+namespace SimpleMmoServer.Examples.NetEntities
 {
     public class ExampleEntityTest : NetEntity
     {
@@ -18,17 +15,17 @@ namespace SimpleMmoServer.Examples.NetEntitys
            
         }
 
-        public override void OnDestroy()
+        protected override void OnDestroy()
         {
              
         }
 
-        public override void Start()
+        protected override void Start()
         {
        
         }
 
-        public override void Update()
+        protected override void Update()
         {
         
         }

@@ -13,11 +13,11 @@ namespace SimpleMmoCommon.Messages
         /// Логин пользователя
         /// </summary>
         [ProtoMember(1)]
-        public string login { get; set; }
+        public string Login { get; set; }
         /// <summary>
         /// Пароль пользователя
         /// </summary>
         [ProtoMember(2)]
-        public string password { get; set; }
+        public string Password { get; set; }
     }
 }

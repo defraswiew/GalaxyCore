@@ -1,4 +1,5 @@
 ﻿using System;
+using GalaxyCoreServer;
 
 namespace SimpleMmoServer
 {
@@ -8,7 +9,19 @@ namespace SimpleMmoServer
         static void Main(string[] args)
         {           
             server = new Server();
-            Console.ReadLine();
+            while (true)
+            {
+                var input = Console.ReadLine();
+                switch (input)
+                {
+                    case "exit":
+                        GalaxyCore.Stop();
+                        return;
+                        
+                }
+                
+            }
+           
         }
     }
 }

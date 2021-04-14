@@ -1,7 +1,7 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using SimpleMmoCommon.RPGTemplate;
-
+using SimpleMmoServer.RPGTemplate.Mobs;
 
 namespace SimpleMmoServer.RPGTemplate
 {
@@ -10,17 +10,18 @@ namespace SimpleMmoServer.RPGTemplate
     /// </summary>
     public class MobSlimeBoss : Mob
     {
-        int skill1Count = 0;
+        private int _skill1Count = 0;
+        
         public MobSlimeBoss(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
-            prefabName = "MobSlimeBoss";
+            PrefabName = "MobSlimeBoss";
             syncType = NetEntityAutoSync.position;
-            heal = 1000;
-            maxHeal = 1000;
+            Heal = 1000;
+            MaxHeal = 1000;
             attackDistanse = 5;
             minDamage = 3;
             maxDamage = 10;
-            moveSpeed = 0.3f;
+            MoveSpeed = 0.3f;
         }
 
         public override void InMessage(byte externalCode, byte[] data, Client clientSender)
@@ -31,8 +32,8 @@ namespace SimpleMmoServer.RPGTemplate
                     {
                         BitGalaxy message = new BitGalaxy(data);
                         int damage = message.ReadInt();
-                        heal -= damage;
-                        if (heal <= 0) Death();
+                        Heal -= damage;
+                        if (Heal <= 0) Death();
                     }
                     break;
             }
@@ -42,28 +43,28 @@ namespace SimpleMmoServer.RPGTemplate
         {
             // каждая 8 атака будет супер атакой по площади
             if (attackCount % 8 != 0) return true;
-            state = (byte)MobState.attack;
+            State = (byte)MobState.attack;
             int damage = GRand.NextInt(minDamage * 2, maxDamage * 3);
             BitGalaxy message = new BitGalaxy();
             message.WriteValue(damage);
             // отправляем сообщение о том что мы наносим кому то дамаг. 
-            SendMessage(200, message.data, GalaxyDeliveryType.reliable);
+            SendMessage(200, message.Data, GalaxyDeliveryType.reliable);
             InvokeRepeating("SkillDamage", 0.5f, 1, damage);
             return false;
         }
 
         public void SkillDamage(int damage)
         {
-            skill1Count++;
-            if (skill1Count >= 4)
+            _skill1Count++;
+            if (_skill1Count >= 4)
             {
                 CancelInvoke("SkillDamage");
-                skill1Count = 0;
+                _skill1Count = 0;
             }
 
             RPGTemplatePlayer player;
             // ищем все объекты в радиусе 6 метров
-            foreach (var item in instance.entities.GetNearby(transform.position, 10))
+            foreach (var item in Instance.Entities.GetNearby(transform.Position, 10))
             {
                 player = item as RPGTemplatePlayer;
                 // если это игрок то сообщяем ему дамаг
@@ -75,20 +76,20 @@ namespace SimpleMmoServer.RPGTemplate
 
         }
 
-        public override void OnDestroy()
+        protected override void OnDestroy()
         {
             RemoveInSpawner();
-            Drop drop = new Drop(instance, transform.position);
+            Drop drop = new Drop(Instance, transform.Position);
             drop.Init();
         }
 
-        public override void Start()
+        protected override void Start()
         {
             InvokeRepeating("RandomPoint", 5, 120);
-            galaxyVars.RegistrationClass(this);
+            GalaxyVars.RegistrationClass(this);
         }
 
-        public override void Update()
+        protected override void Update()
         {
             Attack();
             RandomMove();

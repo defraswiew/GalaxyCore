@@ -10,18 +10,18 @@
             Api связанное с сетевым подключением
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.Connection.isConnected">
+        <member name="F:GalaxyCoreLib.Api.Connection.IsConnected">
             <summary>
             Is there a connection to the server
-            Установленно ли соеденение с сервером
+            Установлено ли соеденение с сервером
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.Connection.userDisconnect">
+        <member name="F:GalaxyCoreLib.Api.Connection._userDisconnect">
             <summary>
             Дисконект произошел по инициативе пользователя
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.Connection.statistic">
+        <member name="F:GalaxyCoreLib.Api.Connection.Statistic">
             <summary>
             Network statistics
             </summary>
@@ -96,7 +96,7 @@
             Лог ядра
             </summary>
         </member>
-        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyLogWarnig">
+        <member name="E:GalaxyCoreLib.Api.GalaxyEvents.OnGalaxyLogWarning">
             <summary>
             Kernel log
             Лог ядра
@@ -171,16 +171,14 @@
         <member name="T:GalaxyCoreLib.Api.Instances">
             <summary>
             Api related to managing intances (locations, rooms)
-            Api связанное с управлением интансами (локации, комнаты)
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.Api.Instances.current">
+        <member name="P:GalaxyCoreLib.Api.Instances.Current">
             <summary>
-            Состояние текущего инстанса на момент входа в него
             The state of the current instance at the time of entering it
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.Instances.clients">
+        <member name="F:GalaxyCoreLib.Api.Instances.Clients">
             <summary>
             The client dictionary in the current instance (id / client) works if this option is enabled on the server side
             Словарь клиентов в текущем инстансе (ид/клиент) работает если данная опция включена на стороне сервера
@@ -236,7 +234,7 @@
             Instance login request
             Запрос на вход в инстанс
             </summary>
-            <param name="istanseId">ид инстанса</param>
+            <param name="instanceId">ид инстанса</param>
             <param name="password">пароль на вход в инстанс(если нужен)</param>
             <param name="data">пользовательские данные</param>
         </member>
@@ -245,7 +243,7 @@
             Instance login request
             Запрос на вход в инстанс
             </summary>
-            <param name="istanseId">ид инстанса</param>
+            <param name="instanceId">ид инстанса</param>
             <param name="password">пароль на вход в инстанс(если нужен)</param>
             <param name="message">пользовательское сообщение</param>
         </member>
@@ -273,13 +271,13 @@
             Число активных сетевых объектов
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.NetEntityManager.awaiting">
+        <member name="F:GalaxyCoreLib.Api.NetEntityManager._awaiting">
             <summary>
             Dictionary of entities awaiting creation confirmation
             Словарь сущностей ожидающих подтверждение на создание
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.NetEntityManager.entitys">
+        <member name="F:GalaxyCoreLib.Api.NetEntityManager._entities">
             <summary>
             Active Entity Dictionary
             Словарь активный сущностей
@@ -296,7 +294,7 @@
         <member name="M:GalaxyCoreLib.Api.NetEntityManager.GetByClientId(System.Int32)">
             <summary>
             Get a list of entities for a specified client
-            Получить спискок сущностей указанного клиента
+            Получить список сущностей указанного клиента
             </summary>
             <param name="clientId">ид целевого клиента</param>
             <returns></returns>
@@ -384,72 +382,72 @@
         </member>
         <member name="T:GalaxyCoreLib.Api.Sender">
             <summary>
-            Отправка сообщений
+            Sending messages
             </summary>
         </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean)">
             <summary>
-            Отправить сообщение на сервер
+            Send a message to the server
             </summary>
-            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
-            <param name="data">Массив байт</param>
-            <param name="deliveryType">Способ доставки</param>
-            <param name="encrypt">Шифровать ли сообщение</param>
+            <param name="code">Custom message code. Required for easy separation</param>
+            <param name="data">Array of bytes</param>
+            <param name="deliveryType">Delivery method</param>
+            <param name="encrypt">Whether to encrypt the message</param>
         </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean)">
             <summary>
-            Отправить сообщение на сервер
+            Send a message to the server
             </summary>
-            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
-            <param name="message">сообщение (наследник BaseMessage)</param>
-            <param name="deliveryType"></param>
-            <param name="encrypt">Шифровать ли сообщение</param>
+            <param name="code">Custom message code. Required for easy separation</param>
+            <param name="message">message (inherited from BaseMessage)</param>
+            <param name="deliveryType">Delivery method</param>
+            <param name="encrypt">Whether to encrypt the message</param>
         </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToInstance(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
-            Отправить сообщение в текущий инстанс
+            Send a message to the current instance
             </summary>
-            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
-            <param name="data">Массив байт</param>
-            <param name="deliveryType">Способ доставки</param>
+            <param name="code">Custom message code. Required for easy separation</param>
+            <param name="data">Array of bytes</param>
+            <param name="deliveryType">Delivery method</param>
         </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToInstance(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
-            Отправить сообщение в текущий инстанс
+            Send a message to the current instance
             </summary>
-            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
-            <param name="message">Сообщение</param>
-            <param name="deliveryType">Способ доставки</param>
+            <param name="code">Custom message code. Required for easy separation</param>
+            <param name="message">message (inherited from BaseMessage)</param>
+            <param name="deliveryType">Delivery method</param>
         </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
-            Отправить сообщение сетевому объекту
+            Send message to network object
             </summary>
-            <param name="netId">Ид сетевого объекта</param>
-            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
-            <param name="message">Сообщение</param>
-            <param name="deliveryType">Способ доставки</param>
+            <param name="netId"/>Network object id/param>
+            <param name="code">Custom message code. Required for easy separation</param>
+            <param name="message">message (inherited from BaseMessage)</param>
+            <param name="deliveryType">Delivery method</param>
         </member>
         <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
-            Отправить данные сетевому объекту
+            Send message to network object
             </summary>
-            <param name="netId">Ид сетевого объекта</param>
-            <param name="code">Пользовательский код сообщения. Необходим для удобной сепарации.</param>
-            <param name="data">даныне</param>
-            <param name="deliveryType">Способ доставки</param>
+            <param name="netId">Network object id</param>
+            <param name="code">Custom message code. Required for easy separation</param>
+            <param name="data">Array of bytes</param>
+            <param name="deliveryType">Delivery method</param>
         </member>
-        <member name="P:GalaxyCoreLib.Api.Statistic.inMessages">
+        <member name="P:GalaxyCoreLib.Api.Statistic.InMessages">
             <summary>
-            Число входящих сообщений
+            Number of incoming messages
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.Api.Statistic.lossMessages">
+        <member name="P:GalaxyCoreLib.Api.Statistic.LossMessages">
             <summary>
             Число потерянных сообщений
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.Api.Statistic.ping">
+        <member name="P:GalaxyCoreLib.Api.Statistic.Ping">
             <summary>
             Пинг
             </summary>
@@ -460,37 +458,37 @@
             Доступное апи
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.GalaxyApi.myId">
+        <member name="P:GalaxyCoreLib.GalaxyApi.MyId">
             <summary>
             Client ID(the one specified in approvalConnection.Approve)
             Ид клиента (тот что был указан в approvalConnection.Approve)
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.connection">
+        <member name="F:GalaxyCoreLib.GalaxyApi.Connection">
             <summary>
             Network connection
             Сетевое соеденение
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.send">
+        <member name="F:GalaxyCoreLib.GalaxyApi.Send">
             <summary>
             Sending messages
             Отправка сообщений
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.instances">
+        <member name="F:GalaxyCoreLib.GalaxyApi.Instances">
             <summary>
             Api related to managing intances(locations, rooms)
             Api связанное с управлением интансами (локации, комнаты)
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.netEntity">
+        <member name="F:GalaxyCoreLib.GalaxyApi.NetEntity">
             <summary>
             Network objects manager
             Менеджер сетевых объектов
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.chat">
+        <member name="F:GalaxyCoreLib.GalaxyApi.Chat">
             <summary>
             Working with chat
             Работа с чатом
@@ -514,43 +512,43 @@
             Класс конфигурации клиентской части
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Config.serverIp">
+        <member name="F:GalaxyCoreLib.Config.ServerIp">
             <summary>
             server ip
             ip сервера
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Config.serverPort">
+        <member name="F:GalaxyCoreLib.Config.ServerPort">
             <summary>
             server port
             порт сервера
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Config.autoSyncInstance">
+        <member name="F:GalaxyCoreLib.Config.AutoSyncInstance">
             <summary>
             automatic call of instance synchronization in case of data conflict
             Автоматическая синхронизация инстанса в случае обнаружения не совпадения данных
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.Config.simulate_latency">
+        <member name="P:GalaxyCoreLib.Config.SimulateLatency">
             <summary>
             Ping emulation. 0.05 for 50ms lag
             Эмуляция пинга. 0,05 для 50 мс лага
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.Config.simulate_loss">
+        <member name="P:GalaxyCoreLib.Config.SimulateLoss">
             <summary>
             Emulation of message loss. 1 = 100% loss
             Эмуляция потерь сообщений. 1 = 100% потери
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Config.smoofInstantiate">
+        <member name="F:GalaxyCoreLib.Config.SmoothingInstantiate">
             <summary>
             Distribution of object creation by frames
             Распределение создания объектов по кадрам
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.Config.app_name">
+        <member name="P:GalaxyCoreLib.Config.AppName">
             <summary>
             Application ID.Must match the server name.
             Идентификатор приложения. Должен соответствовать имени сервера.
@@ -574,13 +572,13 @@
             Текущий инстанс в котором мы сейчас находимся, равен null если мы не в инстансе
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.CurrentInstance.id">
+        <member name="F:GalaxyCoreLib.CurrentInstance.Id">
             <summary>
             current instance id
             ид текущего инстанса
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.CurrentInstance.name">
+        <member name="F:GalaxyCoreLib.CurrentInstance.Name">
             <summary>
             Instance name
             Имя инстанса
@@ -598,7 +596,7 @@
             Успешный коннект к серверу
             </summary>
         </member>
-        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGallaxyDisconnect">
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyDisconnect">
             <summary>
             Break the connection
             Разрыв соеденения
@@ -610,7 +608,7 @@
             Ответ пришедший от сервера в deny пакете
             </summary>
         </member>
-        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyIncommingMessage">
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyIncomingMessage">
             <summary>
             Incoming message from the server
             Входящее сообщение от сервера
@@ -626,7 +624,7 @@
             <param name="publisher"></param>
             <param name="message"></param>
         </member>
-        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyLogWarnig">
+        <member name="T:GalaxyCoreLib.Delegates.DelegateOnGalaxyLogWarning">
             <summary>
             Kernel logging
             Логирование ядра
@@ -748,31 +746,31 @@
             Основной класс ядра клиентской части
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyClientCore.unityCalls">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.EngineCalls">
             <summary>
             call forwarding
             Проброска вызовов
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyClientCore.config">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.Config">
             <summary>
             Client configuration
             Конфигурация клиента
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyClientCore.networkCore">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.NetworkCore">
             <summary>
             Network core
             Сетевое ядро
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyClientCore.api">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.Api">
             <summary>
             Network engine api
             Api сетевого движка
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyClientCore.init">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.Init">
             <summary>
             Is the kernel initialized
             Инициализированно ли ядро
@@ -784,7 +782,7 @@
             Пауза передачи сообщений внешнему коду
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyClientCore.version">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.Version">
             <summary>
             Kernel version
             Версия ядра
@@ -858,50 +856,50 @@
         </member>
         <member name="T:GalaxyCoreLib.NetEntity.ClientNetEntity">
             <summary>
-            Реализация сетевой сущности на стороне клиента
+            Client-side network entity implementation
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.prefabName">
+        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.PrefabName">
             <summary>
-            Имя сетевой сущности (как правило служит для сопоставления с префабом)
+            Network entity name (usually used to match with a prefab)
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.localId">
+        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.LocalId">
             <summary>
-            Локальный ид (назначается автоматически и служит только для корректности инициализации)
+            Local id (assigned automatically and serves only for correct initialization)
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.netID">
+        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.NetID">
             <summary>
-            Сетевой ид (назначается автоматически)
+            Network ID (assigned automatically)
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.ownerClientId">
+        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.OwnerClientId">
             <summary>
-            Ид владельца сущьности (если 0 то это серверная сущность)
+            Entity owner id (if 0 then this is a server entity)
             </summary>
         </member>
         <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.transform">
             <summary>
-            
+            Experimental functionality
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.isMy">
+        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.IsMy">
             <summary>
-            Пренадлежит ли объект текущему клиенту
+            ПWhether the object belongs to the current client
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.isInit">
+        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.IsInit">
             <summary>
-            Инициализирован ли объект
+            Is the object initialized
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.NetEntity.ClientNetEntity.initData">
+        <member name="F:GalaxyCoreLib.NetEntity.ClientNetEntity.InitData">
             <summary>
-            cascum init data
+            additional initialization data
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.NetEntity.ClientNetEntity.galaxyVars">
+        <member name="F:GalaxyCoreLib.NetEntity.ClientNetEntity.GalaxyVars">
             <summary>
             Synchronizing Variables
             </summary>
@@ -913,49 +911,49 @@
         </member>
         <member name="E:GalaxyCoreLib.NetEntity.ClientNetEntity.OnNetStart">
             <summary>
-            Вызывается при успешной сетевой инициализации объекта
+            Called upon successful network initialization of an object
             </summary>
         </member>
         <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.CallOnNetStart">
             <summary>
-            Вызов события успешной инициализации
+            Raising the Successful Initialization Event
             </summary>
         </member>
         <member name="E:GalaxyCoreLib.NetEntity.ClientNetEntity.OnNetDestroy">
             <summary>
-            Вызов события удаления сетевой сущности
+            event of deleting a network entity
             </summary>
         </member>
         <member name="E:GalaxyCoreLib.NetEntity.ClientNetEntity.OnInMessage">
             <summary>
-            Новое входящее сообщение
+            New incoming message
             </summary>
         </member>
         <member name="E:GalaxyCoreLib.NetEntity.ClientNetEntity.OnChangeOwner">
             <summary>
-            Сменился владелец сущности
+            The owner of the entity has changed
             </summary>
         </member>
         <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.Destroy">
             <summary>
-            Запрос на удаление объекта
+            Object deletion request
             </summary>
         </member>
         <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
-            Отправка сообщения всем экземплярам данного объекта
+            Sending a message to all instances of a given object
             </summary>
-            <param name="code">пользовательский код</param>
-            <param name="message">Сообщение (наследник BaseMessage)</param>
-            <param name="deliveryType">способ доставки</param>
+            <param name="code">custom code</param>
+            <param name="message">Message (inherited from BaseMessage)</param>
+            <param name="deliveryType">delivery method</param>
         </member>
         <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
-            Отправка сообщения всем экземплярам данного объекта
+            Sending a message to all instances of a given object
             </summary>
-            <param name="code">пользовательский код</param>
-            <param name="data">массив байт</param>
-            <param name="deliveryType">способ доставки</param>
+            <param name="code">custom code</param>
+            <param name="data">byte array</param>
+            <param name="deliveryType">delivery method</param>
         </member>
         <member name="T:GalaxyCoreLib.NetEntity.GalaxyVars">
             <summary>
@@ -986,29 +984,19 @@
             
             </summary>
         </member>
-        <member name="T:GalaxyCoreLib.NetEntity.Transform">
+        <member name="T:GalaxyCoreLib.NetEntity.NetTransform">
             <summary>
             
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.Transform.position">
+        <member name="M:GalaxyCoreLib.NetEntity.NetTransform.SendPosition(GalaxyCoreCommon.GalaxyVector3)">
             <summary>
-            Положение сущности в пространстве (не обязательньный параметр)
+            Send the position of the object to the server with the nearest frame
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.Transform.rotation">
+        <member name="M:GalaxyCoreLib.NetEntity.NetTransform.SendRotation(GalaxyCoreCommon.GalaxyQuaternion)">
             <summary>
-            Оринтация объекта в пространстве  (не обязательньный параметр)
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreLib.NetEntity.Transform.SendPosition(GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            Отправить позицию объекта на сервер ближайшим фреймом
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreLib.NetEntity.Transform.SendRotation(GalaxyCoreCommon.GalaxyQuaternion)">
-            <summary>
-            Отправить поворот объекта на сервер ближайшим фреймом
+            Send object rotation to the server with the nearest frame
             </summary>
         </member>
         <member name="T:GalaxyCoreLib.Network.MessageSender">
@@ -1031,10 +1019,10 @@
         </member>
         <member name="T:GalaxyCoreLib.Network.NetworkCore">
             <summary>
-            Основной класс сетевого ядра
+            The main class of the network core
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.Network.NetworkCore.connected">
+        <member name="P:GalaxyCoreLib.Network.NetworkCore.Connected">
             <summary>
             Server connection status
             Статус подключения к серверу
@@ -1060,17 +1048,17 @@
             Класс описывающих клиентов рядом с нами
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.RemoteClient.id">
+        <member name="P:GalaxyCoreLib.RemoteClient.Id">
             <summary>
             Client id
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.RemoteClient.name">
+        <member name="P:GalaxyCoreLib.RemoteClient.Name">
             <summary>
             client name
             </summary>        
         </member>
-        <member name="P:GalaxyCoreLib.RemoteClient.data">
+        <member name="P:GalaxyCoreLib.RemoteClient.Data">
             <summary>
             user data
             </summary>        

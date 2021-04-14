@@ -1,5 +1,6 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
+using SimpleMmoServer.RPGTemplate.Mobs;
 
 namespace SimpleMmoServer.RPGTemplate
 {
@@ -11,52 +12,51 @@ namespace SimpleMmoServer.RPGTemplate
         /// <summary>
         /// Скорость движения персонажа
         /// </summary>
-        [GalaxyVar(1)]
-        public float move;
+        [GalaxyVar(1)] public float Move;
+
         /// <summary>
         /// Текущие жизни
         /// </summary>
-        [GalaxyVar(10)]
-        public int heal = 100;
+        [GalaxyVar(10)] public int Heal = 100;
+
         /// <summary>
         /// Максимальный хп
         /// </summary>
-        [GalaxyVar(11)]
-        public int maxHeal = 100;
-       
-        public RPGTemplatePlayer(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        [GalaxyVar(11)] public int MaxHeal = 100;
+
+        public RPGTemplatePlayer(Instance instance, GalaxyVector3 position = default,
+            GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) :
+            base(instance, position, rotation, syncType)
         {
-            prefabName = "RPGTemplatePlayer";          
-        }   
+            PrefabName = "RPGTemplatePlayer";
+        }
 
         public override void InMessage(byte externalCode, byte[] data, Client clientSender)
         {
             // переоправляем сообщение всем кто видит эту сущность
-            SendMessageByOctoVisible(externalCode, data,GalaxyDeliveryType.reliable);
+            SendMessageByOctoVisible(externalCode, data, GalaxyDeliveryType.reliable);
         }
 
-        public override void OnDestroy()
+        protected override void OnDestroy()
         {
-            
         }
 
-        public override void Start()
+        protected override void Start()
         {
             // дергаем метод поиска мобов раз в секунду
             // использовать InvokeRepeating значительно дешевле чем считать время в Update
             InvokeRepeating("MobFinder", 1, 1);
             InvokeRepeating("StatControl", 1, 1);
-            galaxyVars.RegistrationClass(this);
+            GalaxyVars.RegistrationClass(this);
         }
 
-        public override void Update()
+        protected override void Update()
         {
-            
         }
 
         public void StatControl()
         {
-            if(heal<maxHeal)heal++;
+            if (Heal < MaxHeal) Heal++;
         }
 
         public void MobFinder()
@@ -64,13 +64,14 @@ namespace SimpleMmoServer.RPGTemplate
             // смотрим нет ли мобов в радиусе 20 метров
             // искать мобов игроками дешевле чем мобами игроков
             Mob mob;
-            foreach (var item in instance.entities.GetNearby(transform.position, 20))
+            foreach (var item in Instance.Entities.GetNearby(transform.Position, 20))
             {
                 mob = item as Mob;
-                if (mob != null) {
-                    mob.PlayerNear(this);                
+                if (mob != null)
+                {
+                    mob.PlayerNear(this);
                 }
-            }  
+            }
         }
 
         /// <summary>
@@ -79,7 +80,7 @@ namespace SimpleMmoServer.RPGTemplate
         /// <param name="damage"></param>
         public void SetDamage(int damage)
         {
-            heal -= damage;
+            Heal -= damage;
         }
     }
 }

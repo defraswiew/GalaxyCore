@@ -1,6 +1,7 @@
 ﻿using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
-using SimpleMmoServer.Examples.Instances; 
+using SimpleMmoServer.Connecting;
+using SimpleMmoServer.NetEntities;
 
 namespace SimpleMmoServer
 {
@@ -13,30 +14,36 @@ namespace SimpleMmoServer
         /// <summary>
         /// An example of authorization implementation
         /// </summary>
-        Authorization authorization = new Authorization();
+        private Authorization _authorization = new Authorization();
+
         /// <summary>
         /// Registration example
         /// </summary>
-        ExampleRegistration exampleRegistration = new ExampleRegistration();
+        private ExampleRegistration _exampleRegistration = new ExampleRegistration();
+
         /// <summary>
         /// Server configuration
         /// </summary>
-        Config config = new Config();
+        private Config _config = new Config();
+
         /// <summary>
         /// The class that receives incoming messages
         /// Класс, который получает входящие сообщения
         /// </summary>
-        InMessages inMessages = new InMessages();
+        private InMessages _inMessages = new InMessages();
+
         /// <summary>
         /// Logging class
         /// Класс логирования
         /// </summary>
-        LogVisualizator logs = new LogVisualizator();
+        private LogVisualizator _logs = new LogVisualizator();
+
         /// <summary>
         /// Overriding network entities
         /// Переопределение сетевых сущностей
         /// </summary>
-        NetEntityOverrider entityOverrider = new NetEntityOverrider();
+        private NetEntityOverrider _entityOverrider = new NetEntityOverrider();
+
         /// <summary>
         /// Whether to show debug messages
         /// Показывать ли дебаг сообщения
@@ -47,25 +54,26 @@ namespace SimpleMmoServer
         {
             // Registering an incoming message handler
             // Регистрируем обработчик входящих сообщений
-            config.incomingMessage = inMessages;
-            GalaxyEvents.OnGalaxyInstanceCreate += OnGalaxyInstanceCreate; //Отлавливаем событие создания нового инстанса
+            _config.IncomingMessage = _inMessages;
+            GalaxyEvents.OnGalaxyInstanceCreate +=
+                OnGalaxyInstanceCreate; //Отлавливаем событие создания нового инстанса
 
             // It is important that the server name matches the name specified in the client
             // Важно что бы имя сервера совпадало с именем указанным в клиенте
-            config.SERVER_NAME = "SimpleMmoServer";
+            _config.ServerName = "SimpleMmoServer";
             // Указываем рабочий порт
             // Specify the working port
-            config.LISTEN_PORT = 30200;
+            _config.ListenPort = 30200;
             // enable auto control of the message sending buffer
             // включаем авто управление буфером отправки сообщений
-            config.AUTO_FLUSH_SEND = true;
-            config.NET_FRAME_RATE = 20;
+            _config.AutoFlushSend = true;
+            _config.NetFrameRate = 20;
+            _config.DebugMode = true;
             // We start the server
             // Запускаем сервер      
-            GalaxyCore.Start(config);
-                  
-            //  GalaxyCore.instances.Create(new ExampleNetvisible());
-            //  GalaxyCore.instances.Create(new SimpleMmoServer.RPGTemplate.Location());
+            GalaxyCore.Start(_config);
+
+            // GalaxyCore.Instances.Create(new RPGTemplate.Location());
         }
 
         /// <summary>
@@ -80,20 +88,16 @@ namespace SimpleMmoServer
         {
             switch (type)
             {
-                case 1:  
-                    return new Examples.Instances.ExampleRoomPhys();                
-                case 2:  
+                case 1:
+                    return new Examples.Instances.ExampleRoomPhys();
+                case 2:
                     return new Examples.Instances.ExampleRoomMovers();
-                case 3: 
-                    return new Examples.Instances.ExampleOctoRoom();
-                case 4:  
+                case 4:
                     return new Examples.Instances.ExampleRoomPhys2();
-                case 5:
-                    return new Examples.Instances.ExampleNavigation();
                 default:
                     // если не нужно ничего переопределять, то возвращяем null (будет использоваться стандартная комната)
-                    return new Examples.Instances.ExampleEmtyInstance(); 
-            }           
+                    return new Examples.Instances.ExampleEmptyInstance();
+            }
         }
     }
 }

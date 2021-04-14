@@ -15,7 +15,7 @@ namespace SimpleMmoServer.RPGTemplate
         DropList dropList = new DropList();
         public Drop(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
-            prefabName = "Drop";
+            PrefabName = "Drop";
         }
 
         public override void InMessage(byte externalCode, byte[] data, Client clientSender)
@@ -32,48 +32,48 @@ namespace SimpleMmoServer.RPGTemplate
                         BitGalaxy message = new BitGalaxy(data);
                         int itemID = message.ReadInt();
                         // проверяем есть ли у нас такой итем
-                        if (dropList.items.Contains(itemID))
+                        if (dropList.Items.Contains(itemID))
                         {
-                            dropList.items.Remove(itemID);
-                            Log.Info("Пользователь " + clientSender.id, "Взял итем id:" + itemID);
+                            dropList.Items.Remove(itemID);
+                            Log.Info("Пользователь " + clientSender.Id, "Взял итем id:" + itemID);
                             // если итемы закончились удаляемся
-                            if (dropList.items.Count == 0)
+                            if (dropList.Items.Count == 0)
                             {
                                 Destory();
                             }
                         }
                         else
                         {
-                            Log.Info("Пользователь " + clientSender.id, "Хотел взять итем id:" + itemID + "  но такого уже нет");
+                            Log.Info("Пользователь " + clientSender.Id, "Хотел взять итем id:" + itemID + "  но такого уже нет");
                         }
                     }
                     break;
             }
         }
 
-        public override void OnDestroy()
+        protected override void OnDestroy()
         {
 
         }
 
-        public override void Start()
+        protected override void Start()
         {
             // Генерируем случайные итемы
-            dropList.items = new List<int>();
+            dropList.Items = new List<int>();
             for (int i = 0; i < GRand.NextInt(1, 10); i++)
             {
-                dropList.items.Add(GRand.NextInt(1, 100));
+                dropList.Items.Add(GRand.NextInt(1, 100));
             }
             // удаляем дроп если его не собрали за две минуты
-            Invoke("DestroByTime", 120);
+            Invoke("DestroyByTime", 120);
         }
 
-        public void DestroByTime()
+        public void DestroyByTime()
         {
             Destory();
         }
 
-        public override void Update()
+        protected override void Update()
         {
 
         }

@@ -14,6 +14,6 @@ namespace SimpleMmoCommon.RPGTemplate
         /// список ид итемов
         /// </summary>
         [ProtoMember(1)]
-        public List<int> items;
+        public List<int> Items;
     }
 }

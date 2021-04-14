@@ -8,26 +8,12 @@ namespace SimpleMmoServer.Examples.Instances
     /// </summary>
     public class ExampleRoomMovers : Instance
     {
-        int moverCount;
-        int moverMax = 50000;
-        public override void OutcomingClient(Client client)
-        {
-
-        }
-
-        public override void Close()
-        {
-
-        }
-
-        public override void IncomingClient(Client client)
-        {
-
-        }
+        private int _moverCount;
+        private int _moverMax = 5000;
 
         public override void Start()
         {
-            SetFrameRate(10);
+            SetFrameRate(5);
             InvokeRepeating("Spawn", 1, 0.2f);
         }
         public override void InMessage(byte code, byte[] data, Client client)
@@ -37,16 +23,15 @@ namespace SimpleMmoServer.Examples.Instances
 
         public void Spawn()
         {
-            if (moverCount > moverMax) CancelInvoke("Spawn");
-            Examples.NetEntitys.ExampleRandomMove mover = new Examples.NetEntitys.ExampleRandomMove(this, new GalaxyVector3(0, 1, 0));
+            if (_moverCount > _moverMax) CancelInvoke("Spawn");
+            Examples.NetEntities.ExampleRandomMove mover = new Examples.NetEntities.ExampleRandomMove(this, new GalaxyVector3(0, 1, 0));
             mover.Init();
-            moverCount++;
+            _moverCount++;
         }
 
         public override void Update()
         {
         }
-
     }
 }
 

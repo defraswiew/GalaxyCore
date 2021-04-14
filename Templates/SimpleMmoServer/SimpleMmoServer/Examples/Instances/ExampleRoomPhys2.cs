@@ -1,78 +1,55 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
-using SimpleMmoServer.Examples.NetEntitys;
+using SimpleMmoServer.Examples.NetEntities;
 using System;
 
 namespace SimpleMmoServer.Examples.Instances
 {
     public class ExampleRoomPhys2 : InstanceOpenWorldOctree
     {
-        int max = 1;
+        private int _max = 1;
+
         public override void Start()
         {
-            Log.Info("ExampleRoomPhys2", "instance id:" + id);
+            Log.Info("ExampleRoomPhys2", "instance id:" + Id);
             SetFrameRate(20);
-            physics.Activate("phys/ExamplePhys2.phys");
-         //   InvokeRepeating("CreateCube", 1, 1);
-           // Invoke("TestEntity", 2);
+            Physics.Activate("phys/ExamplePhys2.phys");
         }
 
         public void CreateCube()
         {
-            Examples.NetEntitys.ExampleSphere box = new Examples.NetEntitys.ExampleSphere(this, new GalaxyVector3(4, 10, 5), new GalaxyQuaternion(4, 10, 20, 0.5f));
-            box.transform.position = new GalaxyVector3(4, 10, 5);
+            var box = new Examples.NetEntities.ExampleSphere(this, new GalaxyVector3(4, 10, 5),
+                new GalaxyQuaternion(4, 10, 20, 0.5f));
+            box.transform.Position = new GalaxyVector3(4, 10, 5);
             box.Init();
-            max--;
-            if (max < 1) CancelInvoke("CreateCube");
-
-            
-
-        }
-
-
-        public override void Close()
-        {
-          
+            _max--;
+            if (_max < 1) CancelInvoke("CreateCube");
         }
 
         public override void IncomingClient(Client clientConnection)
         {
             Invoke("TestEntity", 2, clientConnection);
-           // InvokeRepeating("TestSend", 2, 2, clientConnection);
         }
 
         public void TestSend(Client clientConnection)
         {
-            clientConnection.SendMessage(105, Array.Empty<byte>(), GalaxyDeliveryType.reliable);             
+            clientConnection.SendMessage(105, Array.Empty<byte>(), GalaxyDeliveryType.reliable);
         }
 
         public void TestEntity(Client clientConnection)
         {
             ExampleVideo entity = new ExampleVideo(this);
             entity.ChangeOwner(clientConnection);
-            entity.prefabName = "ExampleVideo"; 
+            entity.PrefabName = "ExampleVideo";
             entity.Init();
         }
 
-     
-
-
         public override void InMessage(byte code, byte[] data, Client clientConnection)
         {
-          
-        }
-
-        public override void OutcomingClient(Client clientConnection)
-        {
-            
         }
 
         public override void Update()
         {
-         
-           
         }
-
-   
     }
 }

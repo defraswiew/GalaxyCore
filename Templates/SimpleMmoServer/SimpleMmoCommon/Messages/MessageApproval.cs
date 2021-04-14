@@ -13,7 +13,7 @@ namespace SimpleMmoCommon.Messages
         /// Ид клиента
         /// </summary>
         [ProtoMember(1)]
-        public string name; 
+        public string Name; 
         /// <summary>
         /// Базовый конструктор
         /// </summary>
@@ -27,7 +27,7 @@ namespace SimpleMmoCommon.Messages
         /// <param name="name"></param>
         public MessageApproval(string name)
         {
-            this.name = name;
+            Name = name;
         }
     }
 }

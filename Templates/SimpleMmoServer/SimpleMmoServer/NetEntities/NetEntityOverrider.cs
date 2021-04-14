@@ -1,19 +1,19 @@
 ﻿using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
-using SimpleMmoServer.Examples.NetEntitys;
+using SimpleMmoServer.Examples.NetEntities;
 using SimpleMmoServer.RPGTemplate;
 
-namespace SimpleMmoServer
+namespace SimpleMmoServer.NetEntities
 {
     /// <summary>
     /// Переопределение сетевых сущностей созданных с стороны клиента
     /// </summary>
-   public class NetEntityOverrider
+    public class NetEntityOverrider
     {
         public NetEntityOverrider()
         {
             // Подписываемся на событие создания сетевой сущности (со стороны клиента)
-            GalaxyEvents.OnNetEntityInstantiate += OnNetEntityInstantiate;  
+            GalaxyEvents.OnNetEntityInstantiate += OnNetEntityInstantiate;
         }
 
         /// <summary>
@@ -27,35 +27,32 @@ namespace SimpleMmoServer
         {
             // По имени префаба назначаем сущности исполняемый класс
             switch (name)
-            {              
-                case "Player":
-                    Examples.NetEntitys.ExamplePlayer player = new Examples.NetEntitys.ExamplePlayer(client.instanse);
-                    return player;
+            {
                 case "ExampleChangeOwner":
-                    Examples.NetEntitys.ExampleChangeOwner exampleChangeOwner = new Examples.NetEntitys.ExampleChangeOwner(client.instanse);
+                    Examples.NetEntities.ExampleChangeOwner exampleChangeOwner =
+                        new Examples.NetEntities.ExampleChangeOwner(client.Instanse);
                     return exampleChangeOwner;
                 case "ExampleVideo":
-                    ExampleVideo exampleVideo = new ExampleVideo(client.instanse);
+                    ExampleVideo exampleVideo = new ExampleVideo(client.Instanse);
                     return exampleVideo;
                 case "RPGTemplatePlayer":
-                    RPGTemplatePlayer rPGTemplatePlayer = new RPGTemplatePlayer(client.instanse);
+                    RPGTemplatePlayer rPGTemplatePlayer = new RPGTemplatePlayer(client.Instanse);
                     return rPGTemplatePlayer;
-                case "Box":
-                    ExampleBox exampleBox = new ExampleBox(client.instanse);
-                    return exampleBox;                                 
 
                 default:
                     if (name.Contains("Bld_"))
                     {
-                        NetEntityStandart netEntity = new NetEntityStandart(client.instanse);                      
-                        netEntity.isStatic = true;
-                        netEntity.lossOwner = NetEntityLossOwnerLogic.setServer;
+                        var netEntity = new NetEntityStandard(client.Instanse)
+                        {
+                            IsStatic = true,
+                            LossOwner = NetEntityLossOwnerLogic.setServer
+                        };
+
                         return netEntity;
                     }
-                      return null;
-            }
-         
-        }
 
+                    return null;
+            }
+        }
     }
 }
