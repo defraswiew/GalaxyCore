@@ -97,7 +97,7 @@ namespace GalaxyCoreLib
                 return;
             }
             // отправляем в апи запрос на подключение к инстансу
-            GalaxyApi.instances.EnterToInstance(id, password);
+            GalaxyApi.Instances.EnterToInstance(id, password);
         }
     }
 }

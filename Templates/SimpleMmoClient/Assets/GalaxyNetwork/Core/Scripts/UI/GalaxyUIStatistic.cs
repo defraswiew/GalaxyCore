@@ -30,20 +30,20 @@ namespace GalaxyCoreLib
         void Tick()
         {
             // если подключения нет, выходим
-            if (!GalaxyApi.connection.isConnected) return;
+            if (!GalaxyApi.Connection.IsConnected) return;
             // устанавливаем входящий трафик
-            inTraffic.text = System.Math.Round((GalaxyApi.connection.statistic.inTraffic / 1024f) / 1024f, 2) + " MB";
+            inTraffic.text = System.Math.Round((GalaxyApi.Connection.Statistic.InTraffic / 1024f) / 1024f, 2) + " MB";
             // объем входящих данных за секунду
-            inSpeed.text = System.Math.Round(GalaxyApi.connection.statistic.inTrafficInSecond / 1024f, 2) + " KB";
+            inSpeed.text = System.Math.Round(GalaxyApi.Connection.Statistic.InTrafficInSecond / 1024f, 2) + " KB";
             // объем исходщяего трафика
-            outTraffic.text = System.Math.Round((GalaxyApi.connection.statistic.outTraffic / 1024f) / 1024f, 2) + " MB";
+            outTraffic.text = System.Math.Round((GalaxyApi.Connection.Statistic.OutTraffic / 1024f) / 1024f, 2) + " MB";
             // объем исходщяего в секунду
-            outSpeed.text = System.Math.Round(GalaxyApi.connection.statistic.outTrafficInSecond / 1024f, 2) + " KB";
+            outSpeed.text = System.Math.Round(GalaxyApi.Connection.Statistic.OutTrafficInSecond / 1024f, 2) + " KB";
             // число сетевых объектов 
-            entity.text = GalaxyApi.netEntity.Count.ToString();
+            entity.text = GalaxyApi.NetEntity.Count.ToString();
             // GalaxyApi.connection.statistic.ping это PingPong в микро секундах, нам нужна половина умноженная на 1000
             // значит для получения нормального понятного пинга надо умножить на 500 (1000/2)
-            ping.text = System.Math.Round(GalaxyApi.connection.statistic.ping * 500, 2) + " ms";
+            ping.text = System.Math.Round(GalaxyApi.Connection.Statistic.Ping * 500, 2) + " ms";
         }
     }
 }

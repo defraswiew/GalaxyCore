@@ -140,7 +140,7 @@ namespace GalaxyCoreLib
                 status.text = "Короткое имя";
                 return;
             }
-            if (!GalaxyApi.connection.isConnected)
+            if (!GalaxyApi.Connection.IsConnected)
             {
                 status.text = "Нет подключения к серверу";
                 return;

@@ -1,36 +1,24 @@
-﻿using GalaxyCoreCommon;
+﻿using System.Collections.Generic;
+using GalaxyCoreCommon;
 using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
-using System.Collections.Generic;
 using UnityEngine;
-namespace GalaxyCoreLib
+
+namespace GalaxyNetwork.Core.Scripts.UI
 {
     public class GalaxyUiClietsList : MonoBehaviour
     {
-        /// <summary>
-        /// Ссылка на контекс скрола
-        /// </summary>
         [SerializeField]
         private RectTransform content;
-        /// <summary>
-        /// ссылка на префаб строки клиента
-        /// </summary>
         [SerializeField]
         public GalaxyUiClientItem pref;
-        /// <summary>
-        /// текущий список строк
-        /// </summary>
-        private Dictionary<int, GalaxyUiClientItem> items = new Dictionary<int, GalaxyUiClientItem>();
+        private readonly Dictionary<int, GalaxyUiClientItem> items = new Dictionary<int, GalaxyUiClientItem>();
 
-        void OnEnable()
+        private void OnEnable()
         {
-            // вошел новый клиент
             GalaxyEvents.OnGalaxyIncomingClient += OnGalaxyIncomingClient;
-            // вышел клиент
             GalaxyEvents.OnGalaxyOutcomingClient += OnGalaxyOutcomingClient;
-            // мы вошли в комнату
             GalaxyEvents.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
-            // пришел ответ на запрос списка клиентов
             GalaxyEvents.OnGalaxyClientsUpdate += OnGalaxyClientsUpdate;
 
         }
@@ -47,7 +35,7 @@ namespace GalaxyCoreLib
         private void OnGalaxyClientsUpdate()
         {
             Clear();
-            foreach (var item in GalaxyApi.instances.clients)
+            foreach (var item in GalaxyApi.Instances.Clients)
             {
                 AddClient(item.Value);
             }
@@ -58,7 +46,7 @@ namespace GalaxyCoreLib
             // чистим окно
             Clear();
             // запрашиваем новый список клиентов
-            GalaxyApi.instances.ClientsUpdate();
+            GalaxyApi.Instances.ClientsUpdate();
         }
         /// <summary>
         /// Очистка окна от старых записей
@@ -77,21 +65,22 @@ namespace GalaxyCoreLib
         /// <param name="client"></param>
         private void AddClient(RemoteClient client)
         {
-            if (items.ContainsKey(client.id)) return;
-            GalaxyUiClientItem uiClient = Instantiate(pref, content);
-            uiClient.Init(client.id, client.name);
-            items.Add(client.id, uiClient);
+            if (items.ContainsKey(client.Id)) return;
+            var uiClient = Instantiate(pref, content);
+            uiClient.Init(client.Id, client.Name);
+            items.Add(client.Id, uiClient);
         }
         private void OnGalaxyIncomingClient(RemoteClient client)
         {
             AddClient(client);
-            Debug.Log("Вошел " + client.id + "  " + client.name);
+            Debug.Log("In " + client.Id + "  " + client.Name);
         }
         private void OnGalaxyOutcomingClient(RemoteClient client)
         {
-            if (!items.ContainsKey(client.id)) return;
-            Debug.Log("Вышел " + client.id + "  " + client.name);
-            Destroy(items[client.id].gameObject);
+            if (!items.ContainsKey(client.Id)) return;
+            Debug.Log("Out " + client.Id + "  " + client.Name);
+            Destroy(items[client.Id].gameObject);
+            items.Remove(client.Id);
         }
     }
 }

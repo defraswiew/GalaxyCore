@@ -1,4 +1,5 @@
-﻿using GalaxyCoreLib.NetEntity; 
+﻿using GalaxyCoreLib.NetEntity;
+using GalaxyNetwork.Core.Scripts.NetEntity;
 using UnityEngine;
 
 public class ExamplePlayer : MonoBehaviour
@@ -7,7 +8,7 @@ public class ExamplePlayer : MonoBehaviour
     Material material;
     void Awake()
     {
-        netEntity = GetComponent<UnityNetEntity>().netEntity;
+        netEntity = GetComponent<UnityNetEntity>().NetEntity;
         material = GetComponentInChildren<MeshRenderer>().material;         
     }
 

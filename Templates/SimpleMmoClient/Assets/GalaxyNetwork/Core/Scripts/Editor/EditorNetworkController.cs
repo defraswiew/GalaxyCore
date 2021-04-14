@@ -1,69 +1,72 @@
-﻿using UnityEditor;
+﻿using GalaxyCoreLib;
+using UnityEditor;
 using UnityEngine;
-using GalaxyCoreLib;
 
-[CustomEditor(typeof(GalaxyNetworkController))]
-public class EditorNetworkController : Editor
+namespace GalaxyNetwork.Core.Scripts.Editor
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(GalaxyNetworkController))]
+    public class EditorNetworkController : UnityEditor.Editor
     {
-        GalaxyNetworkController item = (GalaxyNetworkController)target;
-        GUILayout.Label("Galaxy Network Controller", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField("Settings", GUILayout.ExpandWidth(true));
-
-        GUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Server IP: ");
-        item.serverIP = EditorGUILayout.TextField(item.serverIP);
-        GUILayout.EndHorizontal();
-
-        GUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Server port: ");
-        item.serverPort = EditorGUILayout.IntField(item.serverPort);
-        GUILayout.EndHorizontal();
-        GUILayout.Space(10);
-        if (GalaxyApi.myId != 0) GUILayout.Label("Client ID: " + GalaxyApi.myId, EditorStyles.largeLabel);
-
-        GUILayout.Space(10);
-        if (GalaxyApi.connection != null)
+        public override void OnInspectorGUI()
         {
-            if (GalaxyApi.connection.isConnected)
+            GalaxyNetworkController item = (GalaxyNetworkController)target;
+            GUILayout.Label("Galaxy Network Controller", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Settings", GUILayout.ExpandWidth(true));
+
+            GUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Server IP: ");
+            item.ServerIP = EditorGUILayout.TextField(item.ServerIP);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Server port: ");
+            item.ServerPort = EditorGUILayout.IntField(item.ServerPort);
+            GUILayout.EndHorizontal();
+            GUILayout.Space(10);
+            if (GalaxyApi.MyId != 0) GUILayout.Label("Client ID: " + GalaxyApi.MyId, EditorStyles.largeLabel);
+
+            GUILayout.Space(10);
+            if (GalaxyApi.Connection != null)
             {
-                GUILayout.Label("Statictic", EditorStyles.boldLabel);
+                if (GalaxyApi.Connection.IsConnected)
+                {
+                    GUILayout.Label("Statictic", EditorStyles.boldLabel);
 
 
-                GUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("Messages");
-                GUILayout.Label("In: " + GalaxyApi.connection.statistic.inMessages);
-                GUILayout.Label("Out: " + GalaxyApi.connection.statistic.outMessages);
-                GUILayout.Label("           ");
-                GUILayout.EndHorizontal();
+                    GUILayout.BeginHorizontal();
+                    EditorGUILayout.LabelField("Messages");
+                    GUILayout.Label("In: " + GalaxyApi.Connection.Statistic.InMessages);
+                    GUILayout.Label("Out: " + GalaxyApi.Connection.Statistic.OutMessages);
+                    GUILayout.Label("           ");
+                    GUILayout.EndHorizontal();
 
 
-                GUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("Traffic");
-                GUILayout.Label("In: " + GalaxyApi.connection.statistic.inTraffic);
-                GUILayout.Label("Out: " + GalaxyApi.connection.statistic.outTraffic);
-                GUILayout.Label("           ");
-                GUILayout.EndHorizontal();
+                    GUILayout.BeginHorizontal();
+                    EditorGUILayout.LabelField("Traffic");
+                    GUILayout.Label("In: " + GalaxyApi.Connection.Statistic.InTraffic);
+                    GUILayout.Label("Out: " + GalaxyApi.Connection.Statistic.OutTraffic);
+                    GUILayout.Label("           ");
+                    GUILayout.EndHorizontal();
 
-                GUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("Traffic");
-                GUILayout.Label("In: " + GalaxyApi.connection.statistic.inTrafficInSecond);
-                GUILayout.Label("Out: " + GalaxyApi.connection.statistic.outTrafficInSecond);
-                GUILayout.Label("           ");
-                GUILayout.EndHorizontal();
+                    GUILayout.BeginHorizontal();
+                    EditorGUILayout.LabelField("Traffic");
+                    GUILayout.Label("In: " + GalaxyApi.Connection.Statistic.InTrafficInSecond);
+                    GUILayout.Label("Out: " + GalaxyApi.Connection.Statistic.OutTrafficInSecond);
+                    GUILayout.Label("           ");
+                    GUILayout.EndHorizontal();
 
-                GUILayout.Label("Ping: " + GalaxyApi.connection.statistic.ping * 500);
+                    GUILayout.Label("Ping: " + GalaxyApi.Connection.Statistic.Ping * 500);
+                }
             }
+
+
+            GUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Отображать NetEntity");
+            item.DrawLabels = GUILayout.Toggle(item.DrawLabels, "");
+
+            GUILayout.EndHorizontal();
+
         }
 
-
-        GUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Отображать NetEntity");
-        item.drawLables = GUILayout.Toggle(item.drawLables, "");
-
-        GUILayout.EndHorizontal();
-
     }
-
 }

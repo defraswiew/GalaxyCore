@@ -77,7 +77,7 @@ namespace GalaxyCoreLib
             // А это делать не обязательно, это просто пример чтения ответа на авторизацию
             MessageApproval messageApproval = new MessageApproval();
             messageApproval = BaseMessage.Deserialize<MessageApproval>(message);
-            Debug.Log("Наше имя " + messageApproval.name);
+            Debug.Log("Наше имя " + messageApproval.Name);
             // прячем окно
             gameObject.SetActive(false);
         }
@@ -119,14 +119,14 @@ namespace GalaxyCoreLib
                 return;
             }
             if (count == 1) status.text = "Подключение...";
-            messageAuth.login = login.text;
-            messageAuth.password = password.text;
+            messageAuth.Login = login.text;
+            messageAuth.Password = password.text;
             // Отправляем сообщение авторизации
-            GalaxyApi.connection.Connect(messageAuth.Serialize());           
+            GalaxyApi.Connection.Connect(messageAuth.Serialize());           
             // запускаем отображение прогресса
             progress.SetActive(true);
             // для информации выводим версию клиента
-            Debug.Log("Client version: " + GalaxyClientCore.version.ToString());
+            Debug.Log("Client version: " + GalaxyClientCore.Version.ToString());
             Invoke("Waiting", 5f);
         }
         public void DropCount()

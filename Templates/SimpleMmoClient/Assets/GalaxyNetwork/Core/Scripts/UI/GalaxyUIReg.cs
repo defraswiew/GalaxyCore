@@ -53,7 +53,7 @@ namespace GalaxyCoreLib
                 status.text = "Регистрация отключена";
                 return;
             }
-            if (GalaxyApi.connection.isConnected)
+            if (GalaxyApi.Connection.IsConnected)
             {
                 status.text = "Подключение активно";
                 return;
@@ -75,11 +75,11 @@ namespace GalaxyCoreLib
             }
             // Создаем новое сообщение для регистрации
             MessageAuth messageAuth = new MessageAuth();
-            messageAuth.login = login.text;
-            messageAuth.password = password.text;
+            messageAuth.Login = login.text;
+            messageAuth.Password = password.text;
             status.text = "Региструемся";
             // отправляем запрос регистрации на сервер
-            GalaxyApi.connection.Registration(messageAuth.Serialize());
+            GalaxyApi.Connection.Registration(messageAuth.Serialize());
             progress.SetActive(true);
         }
 

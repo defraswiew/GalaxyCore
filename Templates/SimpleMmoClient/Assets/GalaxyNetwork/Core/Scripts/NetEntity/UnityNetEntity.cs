@@ -2,92 +2,94 @@
 using GalaxyCoreLib.NetEntity;
 using UnityEngine;
 
-public class UnityNetEntity : MonoBehaviour
+namespace GalaxyNetwork.Core.Scripts.NetEntity
 {
-    /// <summary>
-    /// Ссылка на сетевую сущность в ядре
-    /// </summary>
-    public ClientNetEntity netEntity = new ClientNetEntity();
-    /// <summary>
-    /// буфер дополнительный данных который можно приложить при инициализации
-    /// </summary>
-    [HideInInspector]
-    public byte[] data = null;
-    /// <summary>
-    /// Время инициализации объекта
-    /// </summary>
-    [HideInInspector]
-    public float initTime;
-    /// <summary>
-    /// массив компонентов
-    /// </summary>
-    private Component[] components;
-
-    void Awake()
+    public class UnityNetEntity : MonoBehaviour
     {
-        // подписываемся на событие сетевого старта
-        netEntity.OnNetStart += OnNetStart;
-        // подписываемся на событие сетевого уничтожения
-        netEntity.OnNetDestroy += OnNetDestroy;
- 
-    }
+        /// <summary>
+        /// Link to a network entity in the kernel
+        /// </summary>
+        public ClientNetEntity NetEntity = new ClientNetEntity();
 
-    void Start()
-    {
-        // собираем компоненты
-        components = GetComponents<Component>();
-        foreach (var item in components)
+        /// <summary>
+        /// additional data buffer that can be attached during initialization
+        /// </summary>
+        [HideInInspector] 
+        public byte[] Data = null;
+
+        /// <summary>
+        /// Object initialization time
+        /// </summary>
+        [HideInInspector] 
+        public float InitTime;
+
+        /// <summary>
+        /// массив компонентов
+        /// </summary>
+        private Component[] _components;
+
+        private void Awake()
         {
-            // регистрируем компоненты в системе управления сетевыми переменными
-            netEntity.galaxyVars.RegistrationClass(item);
+            // подписываемся на событие сетевого старта
+            NetEntity.OnNetStart += OnNetStart;
+            // подписываемся на событие сетевого уничтожения
+            NetEntity.OnNetDestroy += OnNetDestroy;
         }
-        // Init необходимо вызывать именно в Start т.к внутренняя инициализация не успевает сработать к Awake или OnEnable
-        Init();       
-    }
 
-    void Init()
-    {       
-        if (!netEntity.isInit)
+        void Start()
         {
-            // если netEntity не инициализирован к вызову инит значит это наш объект
-            // и нужно отправлять запрос на создание сетевого экземпляра            
-            // убираем все лишнее из имени
-            netEntity.prefabName = gameObject.name.Split(new char[] { ' ', '(' })[0];
-            // записываем текущую позицию и поворот
-            netEntity.transform.position = transform.position.NetworkVector3();
-            netEntity.transform.rotation = transform.rotation.NetworkQuaternion();
-            // отправляем запрос на создание сетевого объекта
-            GalaxyApi.netEntity.Instantiate(netEntity);
-           
-        }              
-    }
+            _components = GetComponents<Component>();
+            foreach (var item in _components)
+            {
+                NetEntity.GalaxyVars.RegistrationClass(item);
+            }
 
-    private void OnNetStart()
-    {
-        // записываем время инициализации
-        initTime = Time.time;
-    }
+            Init();
+        }
 
-    private void OnNetDestroy()
-    {
-        //Удаляем объект согласно команде сервера
-        Destroy(gameObject);
-    }
+        void Init()
+        {
+            if (!NetEntity.IsInit)
+            {
+                // если netEntity не инициализирован к вызову инит значит это наш объект
+                // и нужно отправлять запрос на создание сетевого экземпляра            
+                // убираем все лишнее из имени
+                NetEntity.PrefabName = gameObject.name.Split(new char[] {' ', '('})[0];
+                // записываем текущую позицию и поворот
+                NetEntity.transform.Position = transform.position.NetworkVector3();
+                NetEntity.transform.Rotation = transform.rotation.NetworkQuaternion();
+                // отправляем запрос на создание сетевого объекта
+                GalaxyApi.NetEntity.Instantiate(NetEntity);
+            }
+        }
 
-    private void OnDestroy()
-    {
-        // отписываемся от слушаемых событий
-        netEntity.OnNetStart -= OnNetStart;
-        netEntity.OnNetDestroy -= OnNetDestroy;
-        // если же мы удаляем объект по своей инициативе то сообщяем об этом сетевой сущности
-        if (netEntity!=null) netEntity.Destroy();
-    }
+        private void OnNetStart()
+        {
+            // записываем время инициализации
+            InitTime = Time.time;
+        }
+
+        private void OnNetDestroy()
+        {
+            //Удаляем объект согласно команде сервера
+            Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            // отписываемся от слушаемых событий
+            NetEntity.OnNetStart -= OnNetStart;
+            NetEntity.OnNetDestroy -= OnNetDestroy;
+            // если же мы удаляем объект по своей инициативе то сообщяем об этом сетевой сущности
+            if (NetEntity != null) NetEntity.Destroy();
+        }
 #if UNITY_EDITOR
-    void OnDrawGizmos()
-    {
-        if (GalaxyNetworkController.api == null) return;
-        if(GalaxyNetworkController.api.drawLables) UnityEditor.Handles.Label(transform.position + Vector3.up, "NetEntity: " + netEntity.netID);
-    }
+        void OnDrawGizmos()
+        {
+            if (GalaxyNetworkController.Api == null) return;
+            if (GalaxyNetworkController.Api.DrawLabels)
+                UnityEditor.Handles.Label(transform.position + Vector3.up, "NetEntity: " + NetEntity.NetID);
+        }
 #endif
-
+    }
 }

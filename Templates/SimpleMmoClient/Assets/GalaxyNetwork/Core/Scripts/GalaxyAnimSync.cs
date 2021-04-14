@@ -1,6 +1,7 @@
 ﻿using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using GalaxyCoreLib.NetEntity;
+using GalaxyNetwork.Core.Scripts.NetEntity;
 using UnityEngine;
 
 /// <summary>
@@ -44,7 +45,7 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
     void Start()
     {
         animator = GetComponent<Animator>();
-        netEntity = GetComponent<UnityNetEntity>().netEntity;
+        netEntity = GetComponent<UnityNetEntity>().NetEntity;
         count = animator.parameterCount;
         types = new FastType[count];
         animatorSync = new AnimatorSync(netEntity, (byte)count, this);
@@ -85,7 +86,7 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
     }
     private void OnFrameUpdate()
     {
-        if (!netEntity.isMy) return;
+        if (!netEntity.IsMy) return;
         for (int i = 0; i < count; i++)
         {
             switch (types[i])
@@ -130,7 +131,7 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
 
     void Update()
     {
-        if (netEntity.isMy) return;
+        if (netEntity.IsMy) return;
         for (int i = 0; i < count; i++)
         {
             if (types[i] == FastType._float)

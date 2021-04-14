@@ -1,43 +1,48 @@
 ﻿using System.Collections.Generic;
 using GalaxyCoreCommon;
 using GalaxyCoreLib.NetEntity;
+using GalaxyNetwork.Core.Scripts;
+using GalaxyNetwork.Core.Scripts.NetEntity;
 using UnityEngine;
 
-public class ExampleNavBotDebag : MonoBehaviour
+namespace GalaxyNetwork.Examples.Scripts
 {
-    private ClientNetEntity entity;
-    private List<Vector3> points;
-    void Start()
+    public class ExampleNavBotDebag : MonoBehaviour
     {
-        points = new List<Vector3>();
-        entity = GetComponent<UnityNetEntity>().netEntity;
-        entity.OnInMessage+= EntityOnOnInMessage;
-    }
-
-    private void EntityOnOnInMessage(byte code, byte[] data)
-    {
-        if (code == 1)
+        private ClientNetEntity entity;
+        private List<Vector3> points;
+        void Start()
         {
-            var message = new BitGalaxy(data);
-            points.Clear();
-            while (message.position<message.data.Length)
-            {
-                points.Add(message.ReadGalaxyVector3().Vector3());
-            }
-            transform.LookAt(transform.position);
+            points = new List<Vector3>();
+            entity = GetComponent<UnityNetEntity>().NetEntity;
+            entity.OnInMessage+= EntityOnOnInMessage;
         }
-    }
+
+        private void EntityOnOnInMessage(byte code, byte[] data)
+        {
+            if (code == 1)
+            {
+                var message = new BitGalaxy(data);
+                points.Clear();
+                while (message.Position<message.Data.Length)
+                {
+                    points.Add(message.ReadGalaxyVector3().Vector3());
+                }
+                transform.LookAt(transform.position);
+            }
+        }
 
    
-    void Update()
-    {
-        var lastPosition = transform.position;
-        int i = 0;
-        foreach (var point in points)
+        void Update()
         {
-            if(i>0)Debug.DrawLine(lastPosition,point);
-            lastPosition = point;
-            i++;
+            var lastPosition = transform.position;
+            int i = 0;
+            foreach (var point in points)
+            {
+                if(i>0)Debug.DrawLine(lastPosition,point);
+                lastPosition = point;
+                i++;
+            }
         }
     }
 }

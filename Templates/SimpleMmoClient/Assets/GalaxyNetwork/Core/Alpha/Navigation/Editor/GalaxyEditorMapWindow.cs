@@ -1,4 +1,4 @@
-using System.Collections;
+using GalaxyNetwork.Core.Alpha.Navigation;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -24,7 +24,8 @@ namespace GalaxyCoreCommon.Navigation
         private VisualElement leftButtonObjects;
         private VisualElement leftButtonSettings;
         private VisualElement bakeButton;
-        private bool init;
+       
+        private bool _loaded;
 
         [MenuItem("Galaxy Network/Navigation")]
         public static void ShowExample()
@@ -59,8 +60,10 @@ namespace GalaxyCoreCommon.Navigation
             if (baker != null)
             {
                 baker.Load();
-                init = true;
+                _loaded = true;
             }
+
+            OnGUI();
         }
 
         public void ReDrawSettings()
@@ -102,9 +105,9 @@ namespace GalaxyCoreCommon.Navigation
 
         private void OnClickCreateFile()
         {
-            baker.path =
+            baker.Path =
                 EditorUtility.SaveFilePanel("Open map", "", SceneManager.GetActiveScene().name + ".gnm", "gnm");
-            File.WriteAllBytes(baker.path, new byte[0]);
+            File.WriteAllBytes(baker.Path, new byte[0]);
         }
 
         private void OnClickScene()
@@ -155,15 +158,21 @@ namespace GalaxyCoreCommon.Navigation
                 }
             }
 
+            if (!_loaded && baker.Path != null)
+            {
+                baker.Load();
+                    _loaded = true;
+            }
+
             common.backer = baker;
-            if (baker.path == null)
+            if (baker.Path == null)
             {
                 state = State.notFile;
                 UpdateState();
                 return;
             }
 
-            if (!File.Exists(baker.path))
+            if (!File.Exists(baker.Path))
             {
                 state = State.notFile;
                 UpdateState();

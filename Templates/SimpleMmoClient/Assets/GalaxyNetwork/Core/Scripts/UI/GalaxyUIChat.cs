@@ -68,7 +68,7 @@ namespace GalaxyCoreLib
         void OnEnable()
         {
             // событие входящего сообщения чата
-            GalaxyApi.chat.OnChatMessage += OnChatMessage;
+            GalaxyApi.Chat.OnChatMessage += OnChatMessage;
             // событие входа в комнату
             GalaxyEvents.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
             // кто то вошел в комнату
@@ -101,7 +101,7 @@ namespace GalaxyCoreLib
         void OnDisable()
         {
             // отписываемся от слушаемых событий
-            GalaxyApi.chat.OnChatMessage -= OnChatMessage;
+            GalaxyApi.Chat.OnChatMessage -= OnChatMessage;
             GalaxyEvents.OnGalaxyEnterInInstance -= OnGalaxyEnterInInstance;
             GalaxyEvents.OnGalaxyIncomingClient -= OnGalaxyIncomingClient;
             GalaxyEvents.OnGalaxyConnect -= OnGalaxyConnect;
@@ -134,13 +134,13 @@ namespace GalaxyCoreLib
         private void OnGalaxyIncomingClient(RemoteClient client)
         {
             // Сообщяем в системный чат о входе игрока
-            SetItemInWindow("<color=#" + ColorUtility.ToHtmlStringRGB(sysColor) + "><b>[" + sysName + "]</b>: К нам присоеденился " + client.name + "</color>");
+            SetItemInWindow("<color=#" + ColorUtility.ToHtmlStringRGB(sysColor) + "><b>[" + sysName + "]</b>: К нам присоеденился " + client.Name + "</color>");
         }
 
         private void OnGalaxyEnterInInstance(InstanceInfo info)
         {
             // Сообщяем в системный чат о входе инстанс
-            SetItemInWindow("<color=#" + ColorUtility.ToHtmlStringRGB(sysColor) + "><b>[" + sysName + "]</b>: Вход в инстанс " + info.name + "</color>");
+            SetItemInWindow("<color=#" + ColorUtility.ToHtmlStringRGB(sysColor) + "><b>[" + sysName + "]</b>: Вход в инстанс " + info.Name + "</color>");
             if (chenalls.ContainsKey(instanseName)) return;
             // а за одно и создаем новый канал
             ChenallItem chenall = new ChenallItem();
@@ -158,12 +158,12 @@ namespace GalaxyCoreLib
             switch (message.Type)
             {
                 case ChatMessageType.all:
-                    SetItemInWindow("<b>[Мир] " + message.name + "</b>:" + message.text);
+                    SetItemInWindow("<b>[Мир] " + message.Name + "</b>:" + message.Text);
                     break;
                 case ChatMessageType.privateMessage:
                     break;
                 case ChatMessageType.instance:
-                    SetItemInWindow("<b>[" + instanseName + "] " + message.name + "</b>:" + message.text);
+                    SetItemInWindow("<b>[" + instanseName + "] " + message.Name + "</b>:" + message.Text);
                     break;
                 case ChatMessageType.group:
                     break;
@@ -189,16 +189,16 @@ namespace GalaxyCoreLib
             switch (currentChenall.chatMessageType)
             {
                 case ChatMessageType.all:
-                    GalaxyApi.chat.SendAll(field.text);
+                    GalaxyApi.Chat.SendAll(field.text);
                     break;
                 case ChatMessageType.privateMessage:
-                    GalaxyApi.chat.SendToClient(currentChenall.target, field.text);
+                    GalaxyApi.Chat.SendToClient(currentChenall.target, field.text);
                     break;
                 case ChatMessageType.instance:
-                    GalaxyApi.chat.SendToInstanse(field.text);
+                    GalaxyApi.Chat.SendToInstanse(field.text);
                     break;
                 case ChatMessageType.group:
-                    GalaxyApi.chat.SendGroup(currentChenall.target, field.text);
+                    GalaxyApi.Chat.SendGroup(currentChenall.target, field.text);
                     break;
                 default:
                     break;

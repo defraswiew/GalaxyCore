@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using GalaxyNetwork.Core.Alpha.Navigation;
+using GalaxyNetwork.Core.Scripts;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEditor.UIElements;
@@ -136,12 +139,12 @@ namespace GalaxyCoreCommon.Navigation
             };
             var size = new Vector3Field
             {
-                value = backer.mapSize,
+                value = backer.MapSize,
                 label = Loc.Get("range")
             };
             size.RegisterCallback<ChangeEvent<Vector3>>(change =>
             {
-                backer.mapSize = change.newValue;
+                backer.MapSize = change.newValue;
                 MarkDirty();
             });
             container.Add(size);
@@ -150,20 +153,20 @@ namespace GalaxyCoreCommon.Navigation
 
             cellSizeValue.RegisterCallback<ChangeEvent<float>>(change =>
             {
-                backer.cellSize = (float) Math.Round(change.newValue, 1);
+                backer.CellSize = (float) Math.Round(change.newValue, 1);
                 MarkDirty();
             });
-            cellSizeValue.value = backer.cellSize;
+            cellSizeValue.value = backer.CellSize;
             container.Add(cellSizeValue);
 
             var minHeight = CreateSlider(1f, 100f, 0, Loc.Get("minHeight"));
 
             minHeight.RegisterCallback<ChangeEvent<float>>(change =>
             {
-                backer.minHeight = (float) Math.Round(change.newValue, 0);
+                backer.MinHeight = (float) Math.Round(change.newValue, 0);
                 MarkDirty();
             });
-            minHeight.value = backer.minHeight;
+            minHeight.value = backer.MinHeight;
             container.Add(minHeight);
 
            
@@ -171,17 +174,17 @@ namespace GalaxyCoreCommon.Navigation
             var visibleCells = new Toggle
             {
                 label = Loc.Get("drawCells"),
-                value = backer.drawCell
+                value = backer.DrawCell
             };
-            visibleCells.RegisterCallback<ChangeEvent<bool>>(change => { backer.drawCell = change.newValue; SceneView.RepaintAll(); });
+            visibleCells.RegisterCallback<ChangeEvent<bool>>(change => { backer.DrawCell = change.newValue; SceneView.RepaintAll(); });
             container.Add(visibleCells);
             
             var visibleLinks = new Toggle
             {
                 label = Loc.Get("drawLinks"),
-                value = backer.drawLinks
+                value = backer.DrawLinks
             };
-            visibleLinks.RegisterCallback<ChangeEvent<bool>>(change => { backer.drawLinks = change.newValue; SceneView.RepaintAll(); });
+            visibleLinks.RegisterCallback<ChangeEvent<bool>>(change => { backer.DrawLinks = change.newValue; SceneView.RepaintAll(); });
             container.Add(visibleLinks);
             
             var bakeButton = CreateBackedButton();
@@ -199,14 +202,14 @@ namespace GalaxyCoreCommon.Navigation
 
         private void AddLayer()
         {
-            if (backer.map.layers == null)
+            if (backer.Map.Layers == null)
             {
-                backer.map.layers = new GalaxyMapLayerManager();
+                backer.Map.Layers = new GalaxyMapLayerManager();
             }
 
             var layer = new GalaxyMapLayer
             {
-                name = "New Layer"
+                Name = "New Layer"
             };
             layer.SetColor(GetRandomColor());
             RenderLayerEdit(layer);
@@ -253,8 +256,9 @@ namespace GalaxyCoreCommon.Navigation
 
         }
 
-        private void SelectLayerInObject(object obj)
+        private void SelectLayerInObject(IEnumerable<object> listObject)
         {
+            var obj = listObject.First();
             if (int.TryParse(((string) obj).Split('%')[0], out var id))
             {
                 backer.SetLayer(Selection.activeGameObject.gameObject, (byte) id);
@@ -277,10 +281,10 @@ namespace GalaxyCoreCommon.Navigation
             root.Q<VisualElement>("LayerContainer").Clear();
             var name = new TextField
             {
-                value = layer.name,
+                value = layer.Name,
                 label = Loc.Get("name")
             };
-            name.RegisterCallback<ChangeEvent<string>>(change => { layer.name = change.newValue; });
+            name.RegisterCallback<ChangeEvent<string>>(change => { layer.Name = change.newValue; });
             container.Add(name);
 
             var color = new ColorField
@@ -293,38 +297,45 @@ namespace GalaxyCoreCommon.Navigation
             var maxHeight = new FloatField
             {
                 label = Loc.Get("maxHeightLink"),
-                value = layer.heightWalkable
+                value = layer.HeightWalkable
             };
-            maxHeight.RegisterCallback<ChangeEvent<float>>(change => { layer.heightWalkable = change.newValue; });
+            maxHeight.RegisterCallback<ChangeEvent<float>>(change => { layer.HeightWalkable = change.newValue; });
             container.Add(maxHeight);
 
             var cost = new FloatField
             {
                 label = Loc.Get("cost"),
-                value = layer.cost
+                value = layer.Cost
             };
-            cost.RegisterCallback<ChangeEvent<float>>(change => { layer.heightWalkable = change.newValue; });
+            cost.RegisterCallback<ChangeEvent<float>>(change => { layer.Cost = change.newValue; });
             container.Add(cost);
             var transparent = new Toggle
             {
                 label = Loc.Get("layerTransparent"),
-                value = layer.transperent
+                value = layer.Transparent
             };
-            transparent.RegisterCallback<ChangeEvent<bool>>(change => { layer.transperent = change.newValue; });
+            transparent.RegisterCallback<ChangeEvent<bool>>(change => { layer.Transparent = change.newValue; });
             container.Add(transparent);
+            var isWalkable = new Toggle
+            {
+                label = Loc.Get("Is Walkable"),
+                value = layer.IsWalkable
+            };
+            isWalkable.RegisterCallback<ChangeEvent<bool>>(change => { layer.IsWalkable = change.newValue; });
+            container.Add(isWalkable);
             var graphInclude = new Toggle
             {
                 label = Loc.Get("graphInclude"),
-                value = layer.excludeGraph
+                value = layer.ExcludeGraph
             };
-            graphInclude.RegisterCallback<ChangeEvent<bool>>(change => { layer.excludeGraph = change.newValue; });
+            graphInclude.RegisterCallback<ChangeEvent<bool>>(change => { layer.ExcludeGraph = change.newValue; });
             container.Add(graphInclude);
             var trimNodes = new Toggle
             {
                 label = Loc.Get("trimNodes"),
-                value = layer.exscind
+                value = layer.Cut
             };
-            trimNodes.RegisterCallback<ChangeEvent<bool>>(change => { layer.exscind = change.newValue; });
+            trimNodes.RegisterCallback<ChangeEvent<bool>>(change => { layer.Cut = change.newValue; });
             container.Add(trimNodes);
             container.Add(AddButton("Delete", () => { RemoveLayer(layer); }, "RedButton"));
             container.Add(AddButton("Save", () => { SaveLayers(layer); }, "GreenButton"));
@@ -335,32 +346,32 @@ namespace GalaxyCoreCommon.Navigation
         private void RemoveLayer(GalaxyMapLayer layer)
         {
             int i = 0;
-            foreach (var layerCurrent in backer.layers)
+            foreach (var layerCurrent in backer.Layers)
             {
-                if (layerCurrent == layer.id)
+                if (layerCurrent == layer.Id)
                 {
-                    backer.layers[i] = 0;
-                    backer.objects[i] = null;
+                    backer.Layers[i] = 0;
+                    backer.Objects[i] = null;
                 }
                 i++;
             }
-            backer.map.layers.RemoveLayer(layer.id);
+            backer.Map.Layers.RemoveLayer(layer.Id);
             RenderLayersTab();
             backer.Save();
         }
 
         private void SaveLayers(GalaxyMapLayer layer)
         {
-            if (layer.id == 0)
+            if (layer.Id == 0)
             {
-                var id = backer.map.layers.CreateLayer();
-                var newLayer = backer.map.layers.GetById(id);
-                layer.id = id;
+                var id = backer.Map.Layers.CreateLayer();
+                var newLayer = backer.Map.Layers.GetById(id);
+                layer.Id = id;
                 newLayer.Apply(layer);
             }
             else
             {
-                var newLayer = backer.map.layers.GetById(layer.id);
+                var newLayer = backer.Map.Layers.GetById(layer.Id);
                 newLayer.Apply(layer);
             }
 
@@ -368,7 +379,7 @@ namespace GalaxyCoreCommon.Navigation
             backer.Save();
         }
 
-        private VisualElement CreateLayersSelected(Action<object> action, byte selectedId = 0, int height = 0)
+        private VisualElement CreateLayersSelected(Action<IEnumerable<object>> action, byte selectedId = 0, int height = 0)
         {
             var container = new VisualElement
             {
@@ -383,11 +394,11 @@ namespace GalaxyCoreCommon.Navigation
             {
                 {0, "Not walkable"}
             };
-            if (backer.map.layers != null)
+            if (backer.Map.Layers != null)
             {
-                foreach (var layer in backer.map.layers.list)
+                foreach (var layer in backer.Map.Layers.List)
                 {
-                    layers.Add(layer.id, layer.name);
+                    layers.Add(layer.Id, layer.Name);
                 }
             }
 
@@ -395,16 +406,17 @@ namespace GalaxyCoreCommon.Navigation
             return container;
         }
 
-        private void SelectLayer(object obj)
+        private void SelectLayer(IEnumerable<object> objList)
         {
+            var obj = objList.First();
             if (int.TryParse(((string) obj).Split('%')[0], out var id))
             {
-                var copy = backer.map.layers.GetById((byte) id).Copy();
+                var copy = backer.Map.Layers.GetById((byte) id).Copy();
                 RenderLayerEdit(copy);
             }
         }
 
-        private ListView CreateListView(Dictionary<int, string> values, Action<object> action, byte selected = 0,
+        private ListView CreateListView(Dictionary<int, string> values, Action<IEnumerable<object>> action, byte selected = 0,
             int height = 0)
         {
             List<string> elements = new List<string>();
@@ -436,7 +448,7 @@ namespace GalaxyCoreCommon.Navigation
                 selectionType = SelectionType.Multiple,
                 selectedIndex = selectionItem
             };
-            list.onItemChosen += action;
+            list.onItemsChosen += action;
             //  list.onSelectionChanged += objects => Debug.Log(objects[0]);
             list.style.flexGrow = 1.0f;
             if (height > 0)
@@ -446,8 +458,6 @@ namespace GalaxyCoreCommon.Navigation
 
             return list;
         }
-
-
         private Slider CreateSlider(float min, float max, int dec, string label, string tooltip = "")
         {
             var slider = new Slider
@@ -467,8 +477,6 @@ namespace GalaxyCoreCommon.Navigation
             {
                 var value = (float) Math.Round(change.newValue, dec);
                 floatField.value = value;
-                //  if (value > max) value = max;
-                //  if (value <min) value = min;
             });
             floatField.RegisterCallback<ChangeEvent<float>>(change =>
             {
@@ -487,8 +495,9 @@ namespace GalaxyCoreCommon.Navigation
                 {0, "English"},
                 {1, "Russian"}
             };
-            var listView = CreateListView(languages, obj =>
+            var listView = CreateListView(languages, listObject =>
             {
+                var obj = listObject.First();
                 if (int.TryParse(((string) obj).Split('%')[0], out var id))
                 {
                     Loc.SetLanguage(id);
@@ -513,15 +522,15 @@ namespace GalaxyCoreCommon.Navigation
             {
                 name = "BackedButtonContainer"
             };
-            if (backer.map.layers == null)
+            if (backer.Map.Layers == null)
             {
                 return NotLayer(container);
             }
-            if (backer.map.layers.list == null)
+            if (backer.Map.Layers.List == null)
             {
                 return NotLayer(container);
             }
-            if (backer.map.layers.list.Count == 0)
+            if (backer.Map.Layers.List.Count == 0)
             {
                 return NotLayer(container);
             }

@@ -9,7 +9,7 @@ public class ExampleRoomCreate : MonoBehaviour
     public byte type;   
     public void Create()
     {
-        GalaxyApi.instances.Create(room_name, 100, type);
+        GalaxyApi.Instances.Create(room_name, 100, type);
         GameObject.Find("ExampleRooms").SetActive(false); 
     }
 }

@@ -1,78 +1,99 @@
-﻿using GalaxyCoreCommon;
-using GalaxyCoreLib.Api;
-using UnityEngine;
+﻿using GalaxyCoreLib.Api;
 using GalaxyCoreLib.NetEntity;
+using UnityEngine;
 
-namespace GalaxyCoreLib
+namespace GalaxyNetwork.Core.Scripts.NetEntity
 {
     /// <summary>
-    /// Базовый компонент - пример реализации сетевого перемещения
+    /// Basic component - an example of implementing a network move
     /// </summary>
     [RequireComponent(typeof(UnityNetEntity))]
     public class NetEntityTransform : MonoBehaviour
     {
         /// <summary>
-        ///  Ссылка на сетевую сущность в ядре
+        ///  Link to a network entity in the kernel
         /// </summary>
-        private ClientNetEntity netEntity;
+        private ClientNetEntity _netEntity;
+
         /// <summary>
-        /// отправлять ли позицию
+        /// whether to send a position
         /// </summary>
-        public bool sendMyPosition;
+        public bool SendMyPosition;
+
         /// <summary>
-        /// Отправлять ли поворот
+        /// Whether to send a turn
         /// </summary>
-        public bool sendMyRotation;
+        public bool SendMyRotation;
+
+        /// <summary>
+        /// interpolation method
+        /// </summary>
+        public InterpolationType Interpolation;
 
         private void Awake()
         {
             // получаем ссылку на сетевую сущность
-            netEntity = GetComponent<UnityNetEntity>().netEntity;
+            _netEntity = GetComponent<UnityNetEntity>().NetEntity;
         }
 
         private void OnEnable()
         {
             // подписывемся на событие сетевого тика
             GalaxyEvents.OnFrameUpdate += OnFrameUpdate;
+            GalaxyEvents.OnEngineUpdate += SoftUpdate;
         }
+
         private void OnDisable()
         {
             // отписываемся от сетевого тика
             GalaxyEvents.OnFrameUpdate -= OnFrameUpdate;
+            GalaxyEvents.OnEngineUpdate -= SoftUpdate;
         }
+
         private void OnFrameUpdate()
         {
             // если объект пренадлежит не нам, не отправляем данные
             // в прочем если их отправить, сервер все равно их отбросит
-            if (!netEntity.isMy) return;
+            if (!_netEntity.IsMy) return;
             // записываем в сетевую сущность новые координаты
-            if (sendMyPosition) netEntity.transform.SendPosition(transform.position.NetworkVector3());
+            if (SendMyPosition) _netEntity.transform.SendPosition(transform.position.NetworkVector3());
             // записываем в сетевую сущность новый ротейшен
-            if (sendMyRotation) netEntity.transform.SendRotation(transform.rotation.NetworkQuaternion());
+            if (SendMyRotation) _netEntity.transform.SendRotation(transform.rotation.NetworkQuaternion());
 
             // Не обязательно делать это в сетевом тике, как часто бы мы не обновляли данные в сущности,
             // они не уйдут раньше наступления клиентского сетевого фрейма
             // однако разумнее обновлять данные в момент надобности, а именно в сетевом тике
         }
 
-        public void Update()
+        private void SoftUpdate(float delta)
         {
+            if (!_netEntity.IsInit) return;
             // если сущность наша то нам не следует обрабатывать входящую информацию о положении
-            if (!netEntity.isMy)
+            if (!_netEntity.IsMy)
             {
-                // проверяем не пустые ли входящие данные
-                if (netEntity.transform.position != GalaxyVector3.Zero)
+                switch (Interpolation)
                 {
-                    // интерполируем текущую позицию в сетевую позицию согласно GalaxyApi.lerpDelta (расчитывается на основе фреймрейта и fps)
-                    transform.position = Vector3.Lerp(transform.position, netEntity.transform.position.Vector3(), GalaxyApi.lerpDelta);
+                    case InterpolationType.None:
+                        _netEntity.transform.ApplyRemoteData();
+                        break;
+                    case InterpolationType.Soft:
+                        _netEntity.transform.InterpolateEndPoint();
+                        break;
+                    case InterpolationType.EndPont:
+                        _netEntity.transform.InterpolateEndPoint();
+                        break;
                 }
-                // пороверяем не пустой ли rotation 
-                if (!netEntity.transform.rotation.isZero())
-                {
-                    // интерполируем поворот объекта
-                    transform.rotation = Quaternion.Lerp(transform.rotation, netEntity.transform.rotation.Quaternion(), GalaxyApi.lerpDelta);
-                }
+
+                transform.position = _netEntity.transform.Position.Vector3();
+                transform.rotation = _netEntity.transform.Rotation.Quaternion();
             }
+        }
+
+        public enum InterpolationType
+        {
+            None,
+            Soft,
+            EndPont,
         }
     }
 }

@@ -2,25 +2,27 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GalaxyDragWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+namespace GalaxyNetwork.Core
+{
+    public class GalaxyDragWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
-    public Transform MainObj;
-    Vector2 offsetPos;
-    Outline ou;
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        offsetPos = new Vector2(MainObj.position.x - eventData.pressPosition.x, MainObj.position.y - eventData.pressPosition.y);
-        ou = this.gameObject.AddComponent<Outline>();
+        public Transform MainObj;
+        private Vector2 _offsetPos;
+        private Outline _outline;
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            _offsetPos = new Vector2(MainObj.position.x - eventData.pressPosition.x, MainObj.position.y - eventData.pressPosition.y);
+            _outline = gameObject.AddComponent<Outline>();
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            MainObj.position = new Vector2(eventData.position.x + _offsetPos.x, eventData.position.y + _offsetPos.y);
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            Destroy(_outline);
+        }
     }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        MainObj.position = new Vector2(eventData.position.x + offsetPos.x, eventData.position.y + offsetPos.y);
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        Destroy(ou);
-    }
-
 }

@@ -9,7 +9,7 @@
             Сообщение успешной авторизации
             </summary>
         </member>
-        <member name="F:SimpleMmoCommon.Messages.MessageApproval.name">
+        <member name="F:SimpleMmoCommon.Messages.MessageApproval.Name">
             <summary>
             Ид клиента
             </summary>
@@ -30,12 +30,12 @@
              Сообщение авторизации
             </summary>
         </member>
-        <member name="P:SimpleMmoCommon.Messages.MessageAuth.login">
+        <member name="P:SimpleMmoCommon.Messages.MessageAuth.Login">
             <summary>
             Логин пользователя
             </summary>
         </member>
-        <member name="P:SimpleMmoCommon.Messages.MessageAuth.password">
+        <member name="P:SimpleMmoCommon.Messages.MessageAuth.Password">
             <summary>
             Пароль пользователя
             </summary>
@@ -55,7 +55,7 @@
             Пример отправки списка ид итемов
             </summary>
         </member>
-        <member name="F:SimpleMmoCommon.RPGTemplate.DropList.items">
+        <member name="F:SimpleMmoCommon.RPGTemplate.DropList.Items">
             <summary>
             список ид итемов
             </summary>

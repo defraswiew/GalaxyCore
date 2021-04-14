@@ -1,11 +1,15 @@
-﻿using GalaxyCoreCommon.Navigation;
+﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon.Navigation;
+using GalaxyNetwork.Core.Alpha.Navigation;
+using GalaxyNetwork.Core.Scripts;
 using UnityEngine;
 
 public class TMP_TestAgent : MonoBehaviour,IGalaxyPathResult
 {
     [SerializeField]
     private Transform endPoint;
-
+    [SerializeField]
+    private bool _ignoreCost;
     private GalaxyPath path;
     private GalaxyMapBaker controller;
     [SerializeField]
@@ -15,7 +19,9 @@ public class TMP_TestAgent : MonoBehaviour,IGalaxyPathResult
     [SerializeField]
     private int maxIteration = 10000;
     [SerializeField]
-    private bool line = true; 
+    private bool line = true;
+    [SerializeField]
+    private bool _preLine = true;
     [SerializeField]
     private bool cashe = true;
     private NavigationMask mask;
@@ -24,18 +30,13 @@ public class TMP_TestAgent : MonoBehaviour,IGalaxyPathResult
         controller = FindObjectOfType<GalaxyMapBaker>();
         mask = new NavigationMask();
         mask.AddLayer(layers);
+        InvokeRepeating("Work",0.5f,1);
     }
 
-    void Update()
+    private void Update()
     {
-        mask.maxLiftAngle = angle;
-        mask.maxIteration = maxIteration;
-        mask.lianer = line;
-        mask.ignoreCash = cashe;
-        controller.map.GetPath(transform.position,endPoint.position,this,mask);
-    
+        if (path.Nodes == null) return;
         var lastPosition = transform.position;
-       if (path.Nodes == null) return;
         foreach (var node in path.Nodes)
         {
           var nextPosition = node.GetPosition();
@@ -44,6 +45,16 @@ public class TMP_TestAgent : MonoBehaviour,IGalaxyPathResult
         }
     }
 
+    private void Work()
+    {
+        mask.MaxLiftAngle = angle;
+        mask.MaxIteration = maxIteration;
+        mask.Lianer = line;
+        mask.IgnoreCash = cashe;
+        mask.IgnoreCost = _ignoreCost;
+        mask.PreLiner = _preLine;
+        controller.Map.GetPath(transform.position,endPoint.position,this,mask);
+    }
     public void OnGalaxyPathResult(GalaxyPath path)
     {
         Debug.Log(path.Status.ToString());

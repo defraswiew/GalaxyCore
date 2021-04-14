@@ -84,7 +84,7 @@ namespace GalaxyCoreLib
             // запрашиваем синхронизацию команты
             // в версиях клиента 0.8+ не обязательно
             // т.к вызывается автоматически
-            GalaxyApi.instances.SyncInstance();
+            GalaxyApi.Instances.SyncInstance();
         }
       
         void OnDisable()
@@ -119,16 +119,16 @@ namespace GalaxyCoreLib
         /// <param name="info"></param>
         private void OnGalaxyEnterInInstance(InstanceInfo info)
         {
-            Debug.Log("Вход в " + info.name);           
+            Debug.Log("Вход в " + info.Name);           
             roomList.SetActive(false);
             exitBtn.SetActive(true);
             createBtn.SetActive(false);
             roomCreate.SetActive(false);
             //смотрим была ли инфа об инстансе в  GalaxyInstanceInfoScriptable 
-            GalaxyInstanceInfoScriptable target = instancesInfo.Where(x => x.type == info.type).FirstOrDefault();
+            GalaxyInstanceInfoScriptable target = instancesInfo.FirstOrDefault(x => x.type == info.Type);
             if (target == null)
             {
-                GalaxyApi.instances.SyncInstance();
+                GalaxyApi.Instances.SyncInstance();
             } else
             {
                 if (target.sceneName != "")
@@ -137,7 +137,7 @@ namespace GalaxyCoreLib
                     SceneManager.sceneLoaded += OnSceneLoaded;                
                 } else
                 {
-                    GalaxyApi.instances.SyncInstance();
+                    GalaxyApi.Instances.SyncInstance();
                 }
                
             }
@@ -152,11 +152,11 @@ namespace GalaxyCoreLib
             Clear();
             foreach (var item in instances)
             {
-                GalaxyInstanceInfoScriptable target = instancesInfo.Where(x => x.type == item.type).FirstOrDefault();
+                GalaxyInstanceInfoScriptable target = instancesInfo.FirstOrDefault(x => x.type == item.Type);
                 Sprite sprite = null;
                 if (target != null) sprite = target.img;
                 GalaxyUiRoomItem newItem = Instantiate(itemPref, content);
-                newItem.Init(item.id, item.name, item.clients, item.maxClients, !item.password, sprite);
+                newItem.Init(item.Id, item.Name, item.Clients, item.MaxClients, !item.Password, sprite);
                 items.Add(newItem.gameObject);
             }
         }
@@ -169,7 +169,7 @@ namespace GalaxyCoreLib
         public void Create(string name, int count, string password)
         {
             //пример создания инстанса с возможностью задать пароль, видимость, и тип
-            GalaxyApi.instances.Create(name, count,currentInfo.type, password,visible);
+            GalaxyApi.Instances.Create(name, count,currentInfo.type, password,visible);
         }
         /// <summary>
         /// Устанавливаем из UI видимая комната или нет
@@ -195,7 +195,7 @@ namespace GalaxyCoreLib
         /// </summary>
         public void GetRoomList()
         {
-            GalaxyApi.instances.InstanceList();
+            GalaxyApi.Instances.InstanceList();
             
         }
         /// <summary>
@@ -203,7 +203,7 @@ namespace GalaxyCoreLib
         /// </summary>
         public void ExitInstance()
         {
-            GalaxyApi.instances.ExitInstance();
+            GalaxyApi.Instances.ExitInstance();
             Clear();
             GetRoomList();
         }
@@ -212,7 +212,7 @@ namespace GalaxyCoreLib
         {
             roomList.SetActive(true);
             GetRoomList();
-            if (GalaxyApi.instances.current == null)
+            if (GalaxyApi.Instances.Current == null)
             {
                 exitBtn.SetActive(false);
                 createBtn.SetActive(true);
