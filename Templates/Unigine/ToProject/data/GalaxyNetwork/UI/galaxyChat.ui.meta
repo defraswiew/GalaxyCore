@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<asset version="2.11.0.0">
-	<guid>e29101a4ad7760b30d812e76ee07535d621a3d18</guid>
-	<type>file</type>
-	<hash>a396f38b</hash>
-	<runtimes>
-		<runtime id="e29101a4ad7760b30d812e76ee07535d621a3d18" name="galaxyChat.ui" link="0"/>
-	</runtimes>
-</asset>

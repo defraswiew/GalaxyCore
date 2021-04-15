@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<asset version="2.11.0.0">
-	<guid>00a5a2a1255d5b8c4552617b1977e89e05a2b765</guid>
-	<type>file</type>
-	<hash>81ec6d52</hash>
-	<runtimes>
-		<runtime id="00a5a2a1255d5b8c4552617b1977e89e05a2b765" name="galaxyStatistics.ui" link="0"/>
-	</runtimes>
-</asset>

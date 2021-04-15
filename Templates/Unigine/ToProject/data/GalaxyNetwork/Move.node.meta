@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<asset version="2.11.0.0">
-	<guid>c076489d3ab43158d4d684d77d405c4a40b31f21</guid>
-	<type>node</type>
-	<hash>a92cabb6</hash>
-	<runtimes>
-		<runtime id="c076489d3ab43158d4d684d77d405c4a40b31f21" name="Move.node" link="0"/>
-	</runtimes>
-</asset>
