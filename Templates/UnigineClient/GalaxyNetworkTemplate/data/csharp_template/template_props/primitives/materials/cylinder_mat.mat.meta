@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.14.0.0">
+	<guid>7028881e5062b70f344d72d5bb1636962184330e</guid>
+	<type>material</type>
+	<hash>8c917344</hash>
+	<runtimes>
+		<runtime id="7028881e5062b70f344d72d5bb1636962184330e" name="cylinder_mat" link="0"/>
+	</runtimes>
+</asset>

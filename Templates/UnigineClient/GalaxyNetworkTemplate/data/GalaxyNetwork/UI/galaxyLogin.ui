@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui version="1.0">
+
+<window name="window" export="1" space="4" sizeable="1" width="512">
+	<text>Galaxy Network</text>
+	
+ <tabbox align="expand" space="4">
+		
+		<tab>
+			<text>Login</text>
+      
+	    <editline name="login_login" align="expand" export="1" >
+						<text>test</text>
+					</editline>
+      
+    <editline name="login_password" align="expand" password="1">
+						<text>Password</text>
+					</editline>
+
+     
+      
+      
+      <button name="auth" export="yes"> 	<text>Login</text></button>
+		</tab>
+		
+		<tab>
+			<text>Registration</text>
+       <editline name="reg_name" align="expand">
+						<text>Name</text>
+					</editline>
+		 	    <editline name="reg_login" align="expand">
+						<text>Login</text>
+					</editline>
+    <editline name="reg_password" align="expand" password="1">
+						<text>Password</text>
+					</editline>
+      <button name="Reg" export="yes"> 	<text>Registration</text></button>
+		</tab>
+		
+	 
+		
+	</tabbox>
+	
+</window>
+
+</ui>

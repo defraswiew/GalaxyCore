@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodes version="2.14.0.0">
+	<node type="ObjectMeshStatic" id="278945233" name="material_ball">
+		<mesh_name>guid://b16fed1dff6c8bd81cc21d57e77a1aca4208cba1</mesh_name>
+		<surface name="material_ball_mat_lod_0" lighting_mode="2" bake_to_env_probe="0" cast_env_probe_shadow="0" shadow_mode="1" max_visible_distance="2" max_fade_distance="0.5" physics_friction="1" physics_restitution="1" material="83f3ab14baec9b632d0749669802518dd7d04588"/>
+		<surface name="material_ball_mat_lod_1" lighting_mode="2" bake_to_env_probe="0" cast_env_probe_shadow="0" shadow_mode="1" min_visible_distance="2" max_visible_distance="6" min_fade_distance="0.5" max_fade_distance="1" physics_friction="1" physics_restitution="1" material="83f3ab14baec9b632d0749669802518dd7d04588"/>
+		<surface name="material_ball_mat_lod_2" lighting_mode="2" bake_to_env_probe="0" cast_env_probe_shadow="0" shadow_mode="1" min_visible_distance="6" min_fade_distance="1" physics_friction="1" physics_restitution="1" material="83f3ab14baec9b632d0749669802518dd7d04588"/>
+		<body type="BodyRigid" id="1826926321" frozen="0">
+			<shape type="ShapeSphere" id="1137218388" transform="1 0 0 0 0 1 0 0 0 0 1 0 -2.38418579e-06 -0.0121665001 0.564280152 1">
+				<radius>0.434030116</radius>
+			</shape>
+			<shape type="ShapeCylinder" id="1651579136" transform="1 0 0 0 0 1 0 0 0 0 1 0 -5.24520874e-06 -0.0121684074 0.0625190735 1">
+				<radius>0.432455063</radius>
+				<height>0.125148714</height>
+			</shape>
+			<shape type="ShapeSphere" id="1109740590" enabled="0" transform="1 0 0 0 0 1 0 0 0 0 1 0 0.296469986 0.252750009 0.0387362242 1">
+				<radius>0.046233058</radius>
+			</shape>
+			<shape type="ShapeSphere" id="559080432" enabled="0" transform="1 0 0 0 0 1 0 0 0 0 1 0 -0.296469986 0.252750009 0.0387362242 1">
+				<radius>0.046233058</radius>
+			</shape>
+			<shape type="ShapeSphere" id="2100943756" enabled="0" transform="1 0 0 0 0 1 0 0 0 0 1 0 0 0.332749993 0.0387362242 1">
+				<radius>0.046233058</radius>
+			</shape>
+			<shape type="ShapeSphere" id="388762529" enabled="0" transform="1 0 0 0 0 1 0 0 0 0 1 0 0.296469986 -0.247250006 0.0387362242 1">
+				<radius>0.046233058</radius>
+			</shape>
+			<shape type="ShapeSphere" id="2044339784" enabled="0" transform="1 0 0 0 0 1 0 0 0 0 1 0 -0.296469986 -0.247250006 0.0387362242 1">
+				<radius>0.046233058</radius>
+			</shape>
+			<shape type="ShapeSphere" id="1073108835" enabled="0" transform="1 0 0 0 0 1 0 0 0 0 1 0 0 -0.387250006 0.0387362242 1">
+				<radius>0.046233058</radius>
+			</shape>
+			<shape type="ShapeSphere" id="1734985318" enabled="0" transform="1 0 0 0 0 1 0 0 0 0 1 0 -0.389999986 0 0.0387362242 1">
+				<radius>0.046233058</radius>
+			</shape>
+			<shape type="ShapeSphere" id="1667646153" enabled="0" transform="1 0 0 0 0 1 0 0 0 0 1 0 0.389999986 0 0.0387362242 1">
+				<radius>0.046233058</radius>
+			</shape>
+		</body>
+		<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0 0 0 1.0</transform>
+	</node>
+</nodes>

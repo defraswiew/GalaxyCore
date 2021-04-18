@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<material version="2.14.0.0" name="material_ball" guid="83f3ab14baec9b632d0749669802518dd7d04588" base_material="mesh_base">
+	<state name="ao_map">1</state>
+	<texture name="albedo">guid://fecf2f1252778349dcf0b414f25c1063d34e3a66</texture>
+	<texture name="shading">guid://82fb4683e414ba063e30c9ad87291f2886d77867</texture>
+	<texture name="normal">guid://3ac02fc875c310878d1b943add8e9651fa79db7c</texture>
+	<texture name="ambient_occlusion">guid://4227c53bb3cc795eb05a9125737a1040525b469f</texture>
+	<parameter name="metalness" expression="0">1</parameter>
+	<parameter name="specular_color" expression="0">1 1 1 1</parameter>
+	<parameter name="gloss" expression="0">1</parameter>
+</material>

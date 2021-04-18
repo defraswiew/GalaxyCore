@@ -9,7 +9,7 @@ namespace SimpleMmoServer.Examples.Instances
     public class ExampleRoomMovers : Instance
     {
         private int _moverCount;
-        private int _moverMax = 5000;
+        private int _moverMax = 1000;
 
         public override void Start()
         {

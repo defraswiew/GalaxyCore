@@ -6,25 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1de93c65-72e3-41ad-b67d-f836e8449f37" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/UnityNetEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/UnityNetEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Scripts/ExampleGalaxyVars.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Scripts/ExampleGalaxyVars.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Resources/link.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Resources/link.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/Instances/ExampleRoomPhys2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/Instances/ExampleRoomPhys2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntitys/ExampleVideo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntitys/ExampleVideo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Server.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorMapWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorMapWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,35 +21,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../../galaxycoreGitLab/GalaxyCoreCommon/Navigation/GalaxyMap.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorMapWindow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorResources.cs" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/GalaxyMapNavigationController.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyMap/Scripts/GalaxyMapBakerCore.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyMap/Scripts/Editor/GalaxyMapEditorCommon.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyMap/Scripts/GalaxyMapBaker.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyMap/Scripts/Editor/GalaxyMapEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditopMapWindow.uxml" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditopMapWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyMapEditorCommon.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyMapEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/GalaxyMapBaker.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/GalaxyMapBakerCore.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorMapWindow.uss" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorResources.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorMapWindow.uxml" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditorMapWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorLocalization.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/test/GalaxyEditopMapCommon.cs" />
-        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Resources/link.xml" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorMapWindow.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1kw6fPVya0saS8wMZLyKOT8Y3Yb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -77,6 +39,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.5007752" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
@@ -92,7 +55,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -101,7 +64,7 @@
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -126,6 +89,7 @@
       <workItem from="1607199321059" duration="12896000" />
       <workItem from="1607278911443" duration="9841000" />
       <workItem from="1608622628631" duration="129000" />
+      <workItem from="1618664850544" duration="37000" />
     </task>
     <servers />
   </component>

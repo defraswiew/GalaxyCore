@@ -1,0 +1,103 @@
+{
+    "binary": "Development",
+    "config": "Development",
+    "delete_unused": true,
+    "fullscreen": false,
+    "launcher": "BinaryFile",
+    "main_debug": "D:/UNIGINE_Projects/GalaxyNetworkTemplate/bin/GalaxyNetworkTemplate_x64d.exe",
+    "main_dev": "D:/UNIGINE_Projects/GalaxyNetworkTemplate/bin/GalaxyNetworkTemplate_x64.exe",
+    "main_release": "D:/UNIGINE_Projects/GalaxyNetworkTemplate/bin/GalaxyNetworkTemplate_x64.exe",
+    "name": "GalaxyNetworkTemplate",
+    "os": "Windows",
+    "precision": "Float",
+    "precompile": true,
+    "resolutions": [
+        "960;540;16;9",
+        "1024;576;16;9",
+        "1280;720;16;9",
+        "1366;768;16;9",
+        "1600;900;16;9",
+        "1920;1080;16;9",
+        "2560;1440;16;9",
+        "3840;2160;16;9",
+        "960;600;16;10",
+        "1024;640;16;10",
+        "1280;800;16;10",
+        "1440;900;16;10",
+        "1680;1050;16;10",
+        "1920;1200;16;10",
+        "2560;1600;16;10",
+        "800;600;4;3",
+        "1024;768;4;3",
+        "1280;960;4;3",
+        "1600;1200;4;3",
+        "2048;1536;4;3",
+        "2560;2048;5;4",
+        "2560;1080;21;9",
+        "3440;1440;21;9"
+    ],
+    "rules": [
+        {
+            "from": "",
+            "to": ""
+        }
+    ],
+    "selected_res": 0,
+    "vapi": "Auto",
+    "vdebug": "Disabled",
+    "vrmodes": [
+    ],
+    "wildcards": [
+        {
+            "pattern": "*.cs",
+            "primary": true,
+            "source": false
+        },
+        {
+            "pattern": "*.h",
+            "primary": false,
+            "source": true
+        },
+        {
+            "pattern": "*.path",
+            "primary": false,
+            "source": true
+        },
+        {
+            "pattern": "*.physics",
+            "primary": false,
+            "source": true
+        },
+        {
+            "pattern": "*.prop",
+            "primary": false,
+            "source": true
+        },
+        {
+            "pattern": "*.render",
+            "primary": false,
+            "source": true
+        },
+        {
+            "pattern": "*.sound",
+            "primary": false,
+            "source": true
+        },
+        {
+            "pattern": "*.track",
+            "primary": false,
+            "source": true
+        },
+        {
+            "pattern": "*.usc",
+            "primary": false,
+            "source": true
+        },
+        {
+            "pattern": "*.world",
+            "primary": false,
+            "source": true
+        }
+    ],
+    "world": "60586bbbe11bedde064e7ba5e6cbf8c084a7151f"
+}

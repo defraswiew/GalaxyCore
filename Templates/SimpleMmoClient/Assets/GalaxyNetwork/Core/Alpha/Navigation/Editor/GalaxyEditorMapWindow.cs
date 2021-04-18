@@ -1,3 +1,4 @@
+using GalaxyCoreLib;
 using GalaxyNetwork.Core.Alpha.Navigation;
 using UnityEditor;
 using UnityEngine;

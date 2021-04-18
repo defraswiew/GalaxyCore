@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GalaxyNetworkTemplate", "GalaxyNetworkTemplate.csproj", "{4CD972DE-2D5D-4155-9BFD-7D0BD3CE57F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CD972DE-2D5D-4155-9BFD-7D0BD3CE57F7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4CD972DE-2D5D-4155-9BFD-7D0BD3CE57F7}.Debug|x64.Build.0 = Debug|Any CPU
+		{4CD972DE-2D5D-4155-9BFD-7D0BD3CE57F7}.Release|x64.ActiveCfg = Release|Any CPU
+		{4CD972DE-2D5D-4155-9BFD-7D0BD3CE57F7}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {121286A7-AB44-4F62-81DE-F4144B7437A8}
+	EndGlobalSection
+EndGlobal

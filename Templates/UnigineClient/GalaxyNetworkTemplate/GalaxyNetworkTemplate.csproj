@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+		<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+		<GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+		<RootNamespace>UnigineApp</RootNamespace>
+		<StartupObject>UnigineApp.UnigineApp</StartupObject>
+		<WarningLevel>4</WarningLevel>
+		<OutputPath>bin</OutputPath>
+		<EnableDefaultItems>false</EnableDefaultItems>
+		<SkipPostBuild>false</SkipPostBuild>
+		<PlatformTarget>x64</PlatformTarget>
+		<DebugType>portable</DebugType>
+		<DOTNET_HOST_PATH Condition="'$(DOTNET_HOST_PATH)' == ''">dotnet</DOTNET_HOST_PATH>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<AssemblyName>GalaxyNetworkTemplate_x64d</AssemblyName>
+		<DebugSymbols>true</DebugSymbols>
+		<Optimize>false</Optimize>
+		<DefineConstants>TRACE;DEBUG;</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(Configuration)'=='Debug'">
+		<Reference Include="UnigineSharp_x64d">
+			<SpecificVersion>false</SpecificVersion>
+			<HintPath>bin\UnigineSharp_x64d.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<AssemblyName>GalaxyNetworkTemplate_x64</AssemblyName>
+		<Optimize>true</Optimize>
+		<DefineConstants>TRACE;NDEBUG;</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<Reference Include="UnigineSharp_x64">
+			<SpecificVersion>false</SpecificVersion>
+			<HintPath>bin\UnigineSharp_x64.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="data/GalaxyNetwork/GalaxyNetworkInstantiator.cs" />
+		<Compile Include="data/GalaxyNetwork/UnigineNetEntity.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="data\csharp_template\first_person_controller\components\FirstPersonController.cs" />
+		<Compile Include="source\AppEditorLogic.cs" />
+		<Compile Include="source\AppSystemLogic.cs" />
+		<Compile Include="source\AppWorldLogic.cs" />
+		<Compile Include="source\GalaxyNetwork\Test.cs" />
+		<Compile Include="source\GalaxyNetwork\UI\UIChat.cs" />
+		<Compile Include="source\GalaxyNetwork\UI\UIInstances.cs" />
+		<Compile Include="source\GalaxyNetwork\UI\UILogin.cs" />
+		<Compile Include="source\GalaxyNetwork\UI\UIStatistics.cs" />
+		<Compile Include="source\GalaxyNetwork\UnigineGalaxyNetwork.cs" />
+		<Compile Include="source\main.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="GalaxyCoreCommon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+	    <HintPath>source\GalaxyNetwork\Libs\GalaxyCoreCommon.dll</HintPath>
+	  </Reference>
+	  <Reference Include="GalaxyCoreLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+	    <HintPath>source\GalaxyNetwork\Libs\GalaxyCoreLib.dll</HintPath>
+	  </Reference>
+	  <Reference Include="protobuf-net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67">
+	    <HintPath>source\GalaxyNetwork\Libs\protobuf-net.dll</HintPath>
+	  </Reference>
+	  <Reference Include="SimpleMmoCommon, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+	    <HintPath>source\GalaxyNetwork\Libs\SimpleMmoCommon.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="source\GalaxyNetwork\Libs\GalaxyCoreCommon.dll" />
+	  <Content Include="source\GalaxyNetwork\Libs\GalaxyCoreCommon.xml" />
+	  <Content Include="source\GalaxyNetwork\Libs\GalaxyCoreLib.dll" />
+	  <Content Include="source\GalaxyNetwork\Libs\GalaxyCoreLib.xml" />
+	  <Content Include="source\GalaxyNetwork\Libs\protobuf-net.dll" />
+	  <Content Include="source\GalaxyNetwork\Libs\protobuf-net.xml" />
+	  <Content Include="source\GalaxyNetwork\Libs\SimpleMmoCommon.dll" />
+	  <Content Include="source\GalaxyNetwork\Libs\SimpleMmoCommon.xml" />
+	</ItemGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="&quot;$(DOTNET_HOST_PATH)&quot; &quot;$(OutputPath)cspropgen_x64d.dll&quot; -p &quot;$(OutputPath)$(AssemblyName).dll&quot; -data_path ../data/" Condition="'$(Configuration)'=='Debug' And $(SkipPostBuild)=='false'" />
+		<Exec Command="&quot;$(DOTNET_HOST_PATH)&quot; &quot;$(OutputPath)cspropgen_x64.dll&quot; -p &quot;$(OutputPath)$(AssemblyName).dll&quot; -data_path ../data/" Condition="'$(Configuration)'=='Release' And $(SkipPostBuild)=='false'" />
+	</Target>
+</Project>
