@@ -1,6 +1,10 @@
 ﻿using GalaxyCoreServer;
 using GalaxyCoreCommon;
-
+#if GALAXY_DOUBLE
+using vector = GalaxyCoreCommon.GalaxyVectorD3;
+#else
+using vector = GalaxyCoreCommon.GalaxyVector3;
+#endif
 namespace SimpleMmoServer.Examples.NetEntities
 {
     public class ExamplePet : NetEntity
@@ -14,7 +18,7 @@ namespace SimpleMmoServer.Examples.NetEntities
             PrefabName = "Pet";
         }
 
-        public override void InMessage(byte externalCode, byte[] data, Client client)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient client)
         {
         }
 
@@ -29,8 +33,8 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         protected override void Update()
         {
-            if (GalaxyVector3.Distance(transform.Position, Player.transform.Position) < 2) return;
-            transform.Position = GalaxyVector3.Lerp(transform.Position, Player.transform.Position,
+            if (vector.Distance(transform.Position, Player.transform.Position) < 2) return;
+            transform.Position = vector.Lerp(transform.Position, Player.transform.Position,
                 Instance.Time.DeltaTime * 0.7f);
         }
     }

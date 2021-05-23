@@ -1,11 +1,15 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
-
+#if GALAXY_DOUBLE
+using vector = GalaxyCoreCommon.GalaxyVectorD3;
+#else
+using vector = GalaxyCoreCommon.GalaxyVector3;
+#endif
 namespace SimpleMmoServer.Examples.NetEntities
 {
     public class ExampleRandomMove : NetEntity
     {
-        private GalaxyVector3 _target;
+        private vector _target;
         private float _timer;
         private int _randTime;
 
@@ -17,7 +21,7 @@ namespace SimpleMmoServer.Examples.NetEntities
             PrefabName = "Move";
         }
 
-        public override void InMessage(byte externalCode, byte[] data, Client client)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient client)
         {
         }
 
@@ -41,7 +45,7 @@ namespace SimpleMmoServer.Examples.NetEntities
                 _target.Z = GRand.NextInt(-180, 180);
             }
 
-            transform.Position = GalaxyVector3.Lerp(transform.Position, _target, Instance.Time.DeltaTime * 0.03f);
+            transform.Position = vector.Lerp(transform.Position, _target, Instance.Time.DeltaTime * 0.03f);
         }
     }
 }

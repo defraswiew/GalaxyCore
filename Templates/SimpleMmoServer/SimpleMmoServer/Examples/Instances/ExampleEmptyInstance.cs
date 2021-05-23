@@ -4,7 +4,7 @@ namespace SimpleMmoServer.Examples.Instances
 {
     public class ExampleEmptyInstance : Instance
     {
-        public override void InMessage(byte code, byte[] data, Client clientConnection)
+        public override void InMessage(byte code, byte[] data, BaseClient clientConnection)
         {
             if (Owner == clientConnection.Id) ChangeOwner();
         }

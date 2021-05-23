@@ -26,17 +26,17 @@ namespace SimpleMmoServer.Examples.Instances
             if (_max < 1) CancelInvoke("CreateCube");
         }
 
-        public override void IncomingClient(Client clientConnection)
+        public override void IncomingClient(BaseClient clientConnection)
         {
             Invoke("TestEntity", 2, clientConnection);
         }
 
-        public void TestSend(Client clientConnection)
+        public void TestSend(BaseClient clientConnection)
         {
             clientConnection.SendMessage(105, Array.Empty<byte>(), GalaxyDeliveryType.reliable);
         }
 
-        public void TestEntity(Client clientConnection)
+        public void TestEntity(BaseClient clientConnection)
         {
             ExampleVideo entity = new ExampleVideo(this);
             entity.ChangeOwner(clientConnection);
@@ -44,7 +44,7 @@ namespace SimpleMmoServer.Examples.Instances
             entity.Init();
         }
 
-        public override void InMessage(byte code, byte[] data, Client clientConnection)
+        public override void InMessage(byte code, byte[] data, BaseClient clientConnection)
         {
         }
 

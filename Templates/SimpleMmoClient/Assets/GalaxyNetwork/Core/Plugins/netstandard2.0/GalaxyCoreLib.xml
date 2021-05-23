@@ -171,7 +171,6 @@
         <member name="T:GalaxyCoreLib.Api.Instances">
             <summary>
             Api related to managing intances (locations, rooms)
-            Api связанное с управлением интансами (локации, комнаты)
             </summary>
         </member>
         <member name="P:GalaxyCoreLib.Api.Instances.Current">
@@ -880,7 +879,7 @@
             Entity owner id (if 0 then this is a server entity)
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.NetTransform">
+        <member name="P:GalaxyCoreLib.NetEntity.ClientNetEntity.transform">
             <summary>
             Experimental functionality
             </summary>

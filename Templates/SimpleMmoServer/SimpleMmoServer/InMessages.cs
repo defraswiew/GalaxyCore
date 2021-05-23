@@ -15,7 +15,7 @@ namespace SimpleMmoServer
         /// <param name="code">The message code that we attached from the client side</param>
         /// <param name="data">Array of bytes (message)</param>
         /// <param name="client">Client instance</param>
-        public void IncomingMessage(byte code, byte[] data, Client client)
+        public void IncomingMessage(byte code, byte[] data, BaseClient client)
         {
             // we distribute messages according to the code we specified, for convenience we use Enum   
             switch (code)

@@ -58,7 +58,7 @@ namespace GalaxyNetwork.Core.Scripts
         /// <returns></returns>
         public static Quaternion Quaternion(this GalaxyQuaternion quaternion)
         {
-            return new Quaternion(quaternion.x, quaternion.y, quaternion.z, quaternion.w);
+            return new Quaternion(quaternion.X, quaternion.Y, quaternion.Z, quaternion.W);
         }
 
         public static void SetColor(this GalaxyMapLayer layer, Color32 color)
@@ -86,6 +86,8 @@ namespace GalaxyNetwork.Core.Scripts
             result.Transparent = layer.Transparent;
             result.ExcludeGraph = layer.ExcludeGraph;
             result.IsWalkable = layer.IsWalkable;
+            result.ProjectionLower = layer.ProjectionLower;
+            result.IgnoreProjection = layer.IgnoreProjection;
             return result;
         }
 
@@ -100,6 +102,8 @@ namespace GalaxyNetwork.Core.Scripts
             layer.Transparent = target.Transparent;
             layer.ExcludeGraph = target.ExcludeGraph;
             layer.IsWalkable = target.IsWalkable;
+            layer.ProjectionLower = target.ProjectionLower;
+            layer.IgnoreProjection = target.IgnoreProjection;
         }
 
         public static void GetPath(this GalaxyMap map, Vector3 start, Vector3 end, IGalaxyPathResult listener,

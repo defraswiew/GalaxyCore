@@ -14,7 +14,7 @@ namespace SimpleMmoServer.Examples.Instances
         public GalaxyVector3 ForceTarget = new GalaxyVector3(10, 10, 10);
         private int _frameCount;
 
-        public override void InMessage(byte code, byte[] data, Client clientConnection)
+        public override void InMessage(byte code, byte[] data, BaseClient clientConnection)
         {
         }
 

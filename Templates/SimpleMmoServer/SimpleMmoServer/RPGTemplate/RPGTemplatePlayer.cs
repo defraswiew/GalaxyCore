@@ -31,7 +31,7 @@ namespace SimpleMmoServer.RPGTemplate
             PrefabName = "RPGTemplatePlayer";
         }
 
-        public override void InMessage(byte externalCode, byte[] data, Client clientSender)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
             // переоправляем сообщение всем кто видит эту сущность
             SendMessageByOctoVisible(externalCode, data, GalaxyDeliveryType.reliable);

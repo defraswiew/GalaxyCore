@@ -228,6 +228,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            Burn GalaxyVectorD3
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.BitGalaxy.ReadGalaxyVectorD3">
+            <summary>
+            Read string
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:GalaxyCoreCommon.BitGalaxy.WriteValue(GalaxyCoreCommon.GalaxyQuaternion)">
             <summary>
             Burn GalaxyQuaternion
@@ -722,22 +734,22 @@
             network Quaternion
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.x">
+        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.X">
             <summary>
             
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.y">
+        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.Y">
             <summary>
             
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.z">
+        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.Z">
             <summary>
             
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.w">
+        <member name="F:GalaxyCoreCommon.GalaxyQuaternion.W">
             <summary>
             
             </summary>
@@ -750,6 +762,13 @@
             <param name="y"></param>
             <param name="z"></param>
             <param name="w"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.#ctor(GalaxyCoreCommon.GalaxyVector3,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="vectorPart"></param>
+            <param name="scalarPart"></param>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.IsZero">
             <summary>
@@ -768,6 +787,14 @@
             
             </summary>
             <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Multiply(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="rotation"></param>
+            <param name="point"></param>
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Multiply(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyVector3)">
@@ -795,6 +822,14 @@
             <summary>
             
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.CreateFromAxisAngle(GalaxyCoreCommon.GalaxyVectorD3,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="axis"></param>
+            <param name="angle"></param>
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.CreateFromAxisAngle(GalaxyCoreCommon.GalaxyVector3,System.Single)">
@@ -1133,6 +1168,274 @@
             </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.Right">
+            <summary>
+            Shorthand for writing Point(1, 0, 0).
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreCommon.GalaxyVectorD3">
+            <summary>
+            Vector3
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.X">
+            <summary>
+            Х
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Y">
+            <summary>
+            Y
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Z">
+            <summary>
+            Z
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.IsZero">
+            <summary>
+            Is zero
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Lerp(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3,System.Single)">
+            <summary>
+            Linear vector interpolation
+            </summary>
+            <param name="a">start</param>
+            <param name="b">end</param>
+            <param name="t">delta</param>
+            <returns></returns>
+        </member>
+        <member name="P:GalaxyCoreCommon.GalaxyVectorD3.Item(System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="index"></param>
+             <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Equals(GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Cross(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Cross(GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="vector2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Dot(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Min(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Max(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Move(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3,System.Single,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="speed"></param>
+            <param name="delta"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Summ">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Distance(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            Distance
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Addition(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            +
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Subtraction(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            -
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_UnaryNegation(GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            -
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Multiply(GalaxyCoreCommon.GalaxyVectorD3,System.Single)">
+            <summary>
+            *
+            </summary>
+            <param name="a"></param>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Multiply(System.Single,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            *
+            </summary>
+            <param name="d"></param>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Division(GalaxyCoreCommon.GalaxyVectorD3,System.Single)">
+            <summary>
+            /
+            </summary>
+            <param name="a"></param>
+            <param name="d"></param>
+            <returns></returns>
+        </member>
+        <member name="P:GalaxyCoreCommon.GalaxyVectorD3.SqrMagnitude">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Equality(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Inequality(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.ToString">
+            <summary>
+            Returns a nicely formatted string for this vector.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.ToString(System.String)">
+            <summary>
+            Returns a nicely formatted string for this vector.
+            </summary>
+            <param name="format">The format for each coordinate.</param>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Scale(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Angle(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary>
+            
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Zero">
+            <summary>
+            Shorthand for writing Point(0, 0, 0).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.One">
+            <summary>
+            Shorthand for writing Point(1, 1, 1).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Forward">
+            <summary>
+            Shorthand for writing Point(0, 0, 1).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Back">
+            <summary>
+            Shorthand for writing Point(0, 0, -1).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Up">
+            <summary>
+            Shorthand for writing Point(0, 1, 0).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Down">
+            <summary>
+            Shorthand for writing Point(0, -1, 0).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Left">
+            <summary>
+            Shorthand for writing Point(-1, 0, 0).
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Right">
             <summary>
             Shorthand for writing Point(1, 0, 0).
             </summary>
@@ -1657,7 +1960,7 @@
             </summary>
         </member>
         <member name="F:GalaxyCoreCommon.Navigation.GalaxyMap.NodesArray">
-            <summary>
+            <summary>5
             
             </summary>
         </member>
@@ -1666,7 +1969,7 @@
             Стандартная дистанция поиска нода по координатам
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.Navigation.GalaxyMap.SearchNode(GalaxyCoreCommon.GalaxyVector3,System.Byte[],System.Single)">
+        <member name="M:GalaxyCoreCommon.Navigation.GalaxyMap.SearchNode(GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             Поиск нода
             </summary>
@@ -1681,6 +1984,7 @@
             </summary>
             <param name="start"></param>
             <param name="end"></param>
+            <param name="ignoreLayers"></param>
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreCommon.Navigation.GalaxyMap.GetPath(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.Navigation.IGalaxyPathResult,GalaxyCoreCommon.Navigation.NavigationMask)">
@@ -1697,7 +2001,7 @@
             Синхронизация основного потока
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.Navigation.GalaxyMap.Init">
+        <member name="M:GalaxyCoreCommon.Navigation.GalaxyMap.Init(GalaxyCoreCommon.Navigation.NavigationConfig)">
             <summary>
             Initialization
             </summary>
@@ -1772,6 +2076,16 @@
         <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.Cost">
             <summary>
             Множитель стоимости перемещения
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.ProjectionLower">
+            <summary>
+            Проэцировать ли слой на нижние слои
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.GalaxyMapLayer.IgnoreProjection">
+            <summary>
+            Игнорировать проэкцию
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.Navigation.GalaxyMapLayerManager">
@@ -1994,6 +2308,11 @@
             Не удалось найти финишный нод
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.Navigation.PathStatus.EndReplaced">
+            <summary>
+            Конечная точка быза заменена
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.Navigation.PathStatus.Impossible">
             <summary>
             Не возможно достигнуть точки
@@ -2002,6 +2321,11 @@
         <member name="F:GalaxyCoreCommon.Navigation.PathStatus.Line">
             <summary>
             Цель возможно достигнуть по прямой
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.PathStatus.TooClose">
+            <summary>
+            Слишком близко
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.Navigation.IGalaxyPathResult">
@@ -2077,6 +2401,18 @@
             Игнорируем кеш
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.Navigation.NavigationMask.EndPointAllowance">
+            <summary>
+            допуск поиска ближайшей позиции в случае невозможности получить конечную точку
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.Navigation.NavigationMask.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
         <member name="M:GalaxyCoreCommon.Navigation.NavigationMask.AddLayer(System.Byte)">
             <summary>
             Добавить слой по ид
@@ -2142,13 +2478,13 @@
             Way cost
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.Navigation.Path.#ctor(GalaxyCoreCommon.Navigation.WorkNode)">
+        <member name="M:GalaxyCoreCommon.Navigation.Path.#ctor(GalaxyCoreCommon.Navigation.WorkNode@)">
             <summary>
             
             </summary>
             <param name="start"></param>
         </member>
-        <member name="M:GalaxyCoreCommon.Navigation.Path.AddStep(GalaxyCoreCommon.Navigation.WorkNode,System.Double)">
+        <member name="M:GalaxyCoreCommon.Navigation.Path.AddStep(GalaxyCoreCommon.Navigation.WorkNode@,System.Double)">
             <summary>
             Add way segment
             </summary>
@@ -2219,19 +2555,23 @@
             Runtime node version
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.Navigation.WorkNode.Links">
+        <member name="M:GalaxyCoreCommon.Navigation.WorkNode.#ctor(System.UInt32,System.Single,System.Single,System.Single,System.UInt16,System.UInt16,System.UInt32,System.Byte,System.Byte)">
             <summary>
-            Links
+            
             </summary>
+            <param name="parent"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <param name="indexX"></param>
+            <param name="indexZ"></param>
+            <param name="id"></param>
+            <param name="layer"></param>
+            <param name="size"></param>
         </member>
         <member name="F:GalaxyCoreCommon.Navigation.WorkNode.Parent">
             <summary>
             Parent node id
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreCommon.Navigation.WorkNode.Layer">
-            <summary>
-            Layer id
             </summary>
         </member>
         <member name="F:GalaxyCoreCommon.Navigation.WorkNode.X">
@@ -2249,11 +2589,6 @@
             Position Z
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.Navigation.WorkNode.Size">
-            <summary>
-            Sell size
-            </summary>
-        </member>
         <member name="F:GalaxyCoreCommon.Navigation.WorkNode.IndexX">
             <summary>
             Node index X
@@ -2267,6 +2602,21 @@
         <member name="F:GalaxyCoreCommon.Navigation.WorkNode.Id">
             <summary>
             Node id
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.WorkNode.Links">
+            <summary>
+            Links
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.WorkNode.Layer">
+            <summary>
+            Layer id
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.WorkNode.Size">
+            <summary>
+            Sell size
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.NetVars">
@@ -2894,38 +3244,38 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="T:GalaxyCoreCommon.TransformSerrializator">
+        <member name="T:GalaxyCoreCommon.TransformSerialization">
             <summary>
             Fast transform serialization
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.TransformSerrializator.NetId">
+        <member name="F:GalaxyCoreCommon.TransformSerialization.NetId">
             <summary>
             
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.TransformSerrializator._threshold">
+        <member name="F:GalaxyCoreCommon.TransformSerialization._threshold">
             <summary>
             Порог изменений координат для отправки
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.TransformSerrializator._length">
+        <member name="F:GalaxyCoreCommon.TransformSerialization._length">
             <summary>
             длинна полезной части буфера
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.TransformSerrializator._buffer">
+        <member name="F:GalaxyCoreCommon.TransformSerialization._buffer">
             <summary>
             Временный буфер
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.TransformSerrializator.#ctor(System.Int32)">
+        <member name="M:GalaxyCoreCommon.TransformSerialization.#ctor(System.Int32)">
             <summary>
             
             </summary>
             <param name="netId"></param>
         </member>
-        <member name="M:GalaxyCoreCommon.TransformSerrializator.SetPosition(System.Single,System.Single,System.Single)">
+        <member name="M:GalaxyCoreCommon.TransformSerialization.SetPosition(System.Single,System.Single,System.Single)">
             <summary>
             Установить координаты для серриализации
             </summary>
@@ -2933,20 +3283,93 @@
             <param name="y"></param>
             <param name="z"></param>
         </member>
-        <member name="M:GalaxyCoreCommon.TransformSerrializator.SetPosition(GalaxyCoreCommon.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.TransformSerialization.FullSetPosition(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            
+            </summary>
+            <param name="vector3"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.SetPosition(GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             Установить координаты для серриализации
             </summary>
             <param name="vector3"></param>
         </member>
-        <member name="M:GalaxyCoreCommon.TransformSerrializator.Serrialize(Lidgren.Network.NetBuffer)">
+        <member name="M:GalaxyCoreCommon.TransformSerialization.SetRotation(GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>
+            
+            </summary>
+            <param name="rotation"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.FullSetRotation(GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>
+            
+            </summary>
+            <param name="rotation"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.SetRotation(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="z"></param>
+            <param name="w"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.ApplyVector3(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            
+            </summary>
+            <param name="pos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.RemoteVector3(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            
+            </summary>
+            <param name="pos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.ApplyQuaternion(GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>
+            
+            </summary>
+            <param name="rot"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.RemoteQuaternion(GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>
+            
+            </summary>
+            <param name="rot"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.GetRemoteQuaternion">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.GetRemoteVector3">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.PreMath">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.TransformSerialization.Serrialize(Lidgren.Network.NetBuffer)">
             <summary>
             Сереаллизация изменений
             </summary>
             <param name="message"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.TransformSerrializator.FullSerrialize(Lidgren.Network.NetBuffer)">
+        <member name="M:GalaxyCoreCommon.TransformSerialization.FullSerrialize(Lidgren.Network.NetBuffer)">
             <summary>
             Полная серриализация
             </summary>

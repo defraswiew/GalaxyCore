@@ -4,7 +4,11 @@ using ProtoBuf;
 using System;
 using System.Collections.Generic;
 using System.IO; 
-
+#if GALAXY_DOUBLE
+using vector = GalaxyCoreCommon.GalaxyVectorD3;
+#else
+using vector = GalaxyCoreCommon.GalaxyVector3;
+#endif
 namespace SimpleMmoServer.RPGTemplate
 {
     /// <summary>
@@ -66,7 +70,7 @@ namespace SimpleMmoServer.RPGTemplate
     public class MapSaverItem : BaseMessage
     {
         [ProtoMember(1)]
-        public GalaxyVector3 Position;
+        public vector Position;
         [ProtoMember(2)]
         public GalaxyQuaternion Rotation;
         [ProtoMember(3)]

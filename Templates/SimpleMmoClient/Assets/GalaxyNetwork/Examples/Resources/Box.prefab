@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6413550585262596853}
   - component: {fileID: 8346294487572073473}
   m_Layer: 0
-  m_Name: Unigine
+  m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,6 +57,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &3743586341018959448
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -106,8 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b548dbccd7a8bac4b9f8ec4e758e7059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: 
-  initTime: 0
+  Data: 
+  InitTime: 0
 --- !u!114 &8346294487572073473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,5 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41de5af4a5abb8d4f9e2c84b454c5560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sendMyPosition: 1
-  sendMyRotation: 1
+  SendMyPosition: 1
+  SendMyRotation: 1
+  Interpolation: 1

@@ -2,7 +2,11 @@
 using GalaxyCoreServer;
 using SimpleMmoCommon.RPGTemplate; 
 using System.Collections.Generic;
- 
+#if GALAXY_DOUBLE
+using vector = GalaxyCoreCommon.GalaxyVectorD3;
+#else
+using vector = GalaxyCoreCommon.GalaxyVector3;
+#endif
 
 namespace SimpleMmoServer.RPGTemplate
 {
@@ -13,12 +17,12 @@ namespace SimpleMmoServer.RPGTemplate
     {
         //список итемов хранящихся в дропе
         DropList dropList = new DropList();
-        public Drop(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public Drop(Instance instance, vector position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
         {
             PrefabName = "Drop";
         }
 
-        public override void InMessage(byte externalCode, byte[] data, Client clientSender)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
             switch (externalCode)
             {

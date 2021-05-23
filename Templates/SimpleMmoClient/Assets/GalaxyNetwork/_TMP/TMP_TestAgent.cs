@@ -1,4 +1,5 @@
-﻿using GalaxyCoreCommon;
+﻿using System;
+using System.Collections.Generic;
 using GalaxyCoreCommon.Navigation;
 using GalaxyNetwork.Core.Alpha.Navigation;
 using GalaxyNetwork.Core.Scripts;
@@ -21,23 +22,35 @@ public class TMP_TestAgent : MonoBehaviour,IGalaxyPathResult
     [SerializeField]
     private bool line = true;
     [SerializeField]
-    private bool _preLine = true;
+    private int endPointAllowance;
+    
+    [SerializeField] 
+    private PreLinerType _preLine;
     [SerializeField]
     private bool cashe = true;
     private NavigationMask mask;
+    private float _lastTime;
     private void Start()
     {
         controller = FindObjectOfType<GalaxyMapBaker>();
         mask = new NavigationMask();
         mask.AddLayer(layers);
-        InvokeRepeating("Work",0.5f,1);
+     //   Invoke("Work",0.5f);
+    }
+
+    private void OnEnable()
+    {
+        controller = FindObjectOfType<GalaxyMapBaker>();
+        mask = new NavigationMask();
+        mask.AddLayer(layers);
+        Work();
     }
 
     private void Update()
     {
         if (path.Nodes == null) return;
         var lastPosition = transform.position;
-        foreach (var node in path.Nodes)
+        foreach (var node in new List<WorkNode>(path.Nodes))
         {
           var nextPosition = node.GetPosition();
           Debug.DrawLine(lastPosition,nextPosition);
@@ -48,16 +61,21 @@ public class TMP_TestAgent : MonoBehaviour,IGalaxyPathResult
     private void Work()
     {
         mask.MaxLiftAngle = angle;
+        mask.EndPointAllowance = endPointAllowance;
         mask.MaxIteration = maxIteration;
         mask.Lianer = line;
         mask.IgnoreCash = cashe;
         mask.IgnoreCost = _ignoreCost;
         mask.PreLiner = _preLine;
         controller.Map.GetPath(transform.position,endPoint.position,this,mask);
+        _lastTime = Time.time;
     }
     public void OnGalaxyPathResult(GalaxyPath path)
     {
-        Debug.Log(path.Status.ToString());
+        Debug.Log(path.Status.ToString() + " " + (Time.time - _lastTime) + "  wait:"+path.Diagnostics.WaitTime + "  PreLine:"+path.Diagnostics.PreLineTime + "  Find:"+path.Diagnostics.PathFindingTime + "  Liner:"+path.Diagnostics.LianerTime + " -->" +controller.Map.RequestCont + " / " + controller.Map.ResponseCont);
+        _lastTime = Time.time;
         this.path = path;
+        Work();
     }
 }
+

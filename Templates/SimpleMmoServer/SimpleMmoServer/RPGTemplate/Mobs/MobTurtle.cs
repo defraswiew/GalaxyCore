@@ -12,7 +12,7 @@ namespace SimpleMmoServer.RPGTemplate
             syncType = NetEntityAutoSync.position_and_rotation;
         }
 
-        public override void InMessage(byte externalCode, byte[] data, Client clientSender)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
             switch (externalCode)
             {

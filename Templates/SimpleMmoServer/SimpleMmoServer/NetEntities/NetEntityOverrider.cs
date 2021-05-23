@@ -23,7 +23,7 @@ namespace SimpleMmoServer.NetEntities
         /// <param name="data">дополнительные данные</param>
         /// <param name="client">Клиент который хочет создать сущность</param>
         /// <returns></returns>
-        private NetEntity OnNetEntityInstantiate(string name, byte[] data, Client client)
+        private NetEntity OnNetEntityInstantiate(string name, byte[] data, BaseClient client)
         {
             // По имени префаба назначаем сущности исполняемый класс
             switch (name)

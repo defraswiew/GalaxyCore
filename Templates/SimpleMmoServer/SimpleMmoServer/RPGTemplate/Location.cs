@@ -12,7 +12,7 @@ namespace SimpleMmoServer.RPGTemplate
         // список спавнеров мобов
         private readonly List<MobSpawner> _spawns = new List<MobSpawner>();
 
-        public override void InMessage(byte code, byte[] data, Client clientConnection)
+        public override void InMessage(byte code, byte[] data, BaseClient clientConnection)
         {
            
         }

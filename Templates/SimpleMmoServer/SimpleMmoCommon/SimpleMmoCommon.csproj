@@ -2,11 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Debug;Release;FLOAT;DOUBLE</Configurations>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\..\..\Templates\SimpleMmoClient\Assets\GalaxyNetwork\Core\Plugins\</OutputPath>
     <DocumentationFile>..\..\..\Templates\SimpleMmoClient\Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\SimpleMmoCommon.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DOUBLE|AnyCPU'">
+    <Optimize>false</Optimize>
   </PropertyGroup>
 
   <ItemGroup>

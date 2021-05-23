@@ -27,7 +27,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         }
 
 
-        public override void InMessage(byte externalCode, byte[] data, Client client)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient client)
         {
         }
 

@@ -13,7 +13,7 @@ namespace SimpleMmoServer.Examples.NetEntities
             PrefabName = "ExampleCapsule";
         }
 
-        public override void InMessage(byte externalCode, byte[] data, Client clientSender)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
         }
 

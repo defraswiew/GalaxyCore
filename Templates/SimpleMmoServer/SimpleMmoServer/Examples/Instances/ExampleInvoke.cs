@@ -49,7 +49,7 @@ namespace SimpleMmoServer.Examples.Instances
         {
         }
 
-        public override void InMessage(byte code, byte[] data, Client clientConnection)
+        public override void InMessage(byte code, byte[] data, BaseClient clientConnection)
         {
         }
     }

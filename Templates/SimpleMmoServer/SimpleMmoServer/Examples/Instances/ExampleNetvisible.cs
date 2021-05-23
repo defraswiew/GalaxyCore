@@ -24,7 +24,7 @@ namespace SimpleMmoServer.Examples.Instances
             // что грузим
             MapSaver.Load(this, "cs_mansion"); }
 
-        public override void OutgoingClient(Client clientConnection)
+        public override void OutgoingClient(BaseClient clientConnection)
         {
             if (Clients.Count == 0) MapSaver.SaveInstance(this, "cs_mansion");
         }
@@ -33,7 +33,7 @@ namespace SimpleMmoServer.Examples.Instances
         {
         }
 
-        public override void InMessage(byte code, byte[] data, Client clientConnection)
+        public override void InMessage(byte code, byte[] data, BaseClient clientConnection)
         {
         }
     }

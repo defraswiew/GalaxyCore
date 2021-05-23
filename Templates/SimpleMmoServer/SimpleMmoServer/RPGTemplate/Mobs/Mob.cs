@@ -1,7 +1,11 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using SimpleMmoCommon.RPGTemplate;
-
+#if GALAXY_DOUBLE
+using vector = GalaxyCoreCommon.GalaxyVectorD3;
+#else
+using vector = GalaxyCoreCommon.GalaxyVector3;
+#endif
 namespace SimpleMmoServer.RPGTemplate.Mobs
 {
     /// <summary>
@@ -115,7 +119,7 @@ namespace SimpleMmoServer.RPGTemplate.Mobs
                 State = (byte) MobState.move;
 
                 //      transform.position = GalaxyVector3.Lerp(transform.position, movePoint, instance.Time.deltaTime * moveSpeed);
-                transform.Position = GalaxyVector3.Move(transform.Position, MovePoint, 1, Instance.Time.DeltaTime);
+                transform.Position = vector.Move(transform.Position, MovePoint, 1, Instance.Time.DeltaTime);
             }
             else
             {
@@ -139,7 +143,7 @@ namespace SimpleMmoServer.RPGTemplate.Mobs
                 return;
             }
 
-            float sqrDis = (target.transform.Position - transform.Position).SqrMagnitude;
+            var sqrDis = (target.transform.Position - transform.Position).SqrMagnitude;
             // выходим если цель ушла за предел агро зоны
             if (sqrDis > agroDistance * 2)
             {
@@ -153,7 +157,7 @@ namespace SimpleMmoServer.RPGTemplate.Mobs
             if (sqrDis > attackDistanse)
             {
                 State = (byte) MobState.follow;
-                transform.Position = GalaxyVector3.Lerp(transform.Position, target.transform.Position,
+                transform.Position = vector.Lerp(transform.Position, target.transform.Position,
                     Instance.Time.DeltaTime * MoveSpeed * 2);
                 return;
             }

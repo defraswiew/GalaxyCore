@@ -72,7 +72,6 @@ namespace SimpleMmoServer
             // We start the server
             // Запускаем сервер      
             GalaxyCore.Start(_config);
-
             // GalaxyCore.Instances.Create(new RPGTemplate.Location());
         }
 
@@ -83,8 +82,8 @@ namespace SimpleMmoServer
         /// <param name="type">custom instance type code</param>
         /// <param name="data">an array of bytes of additional information attached to the creation request</param>
         /// <param name="client">the client who sent the request</param>
-        /// <returns>Return any inheritor of the Inctance class</returns>
-        private Instance OnGalaxyInstanceCreate(byte type, byte[] data, Client client)
+        /// <returns>Return any inheritor of the Instance class</returns>
+        private Instance OnGalaxyInstanceCreate(byte type, byte[] data, BaseClient client)
         {
             switch (type)
             {
@@ -94,6 +93,8 @@ namespace SimpleMmoServer
                     return new Examples.Instances.ExampleRoomMovers();
                 case 4:
                     return new Examples.Instances.ExampleRoomPhys2();
+                case 5:
+                    return new Examples.Instances.ExampleNavigation();
                 default:
                     // если не нужно ничего переопределять, то возвращяем null (будет использоваться стандартная комната)
                     return new Examples.Instances.ExampleEmptyInstance();

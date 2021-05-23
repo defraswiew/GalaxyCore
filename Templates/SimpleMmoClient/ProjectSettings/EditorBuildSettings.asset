@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/GalaxyNetwork/Examples/Scenes/Navigation.unity
     guid: eea34b7e586383b4b9f1852e3d5ebfb9
+  - enabled: 1
+    path: Assets/GalaxyNetwork/Examples/Scenes/ExampleNav.unity
+    guid: dbcac682e7582ec44858375d77826eda
   m_configObjects: {}

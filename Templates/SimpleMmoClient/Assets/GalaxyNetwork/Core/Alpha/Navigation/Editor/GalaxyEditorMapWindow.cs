@@ -1,11 +1,10 @@
-using GalaxyCoreLib;
 using GalaxyNetwork.Core.Alpha.Navigation;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows;
-using Loc = GalaxyEditorLocalization;
+using Loc = GalaxyNetwork.Core.Alpha.Navigation.Editor.GalaxyEditorLocalization;
 
 namespace GalaxyCoreCommon.Navigation
 {
@@ -56,16 +55,13 @@ namespace GalaxyCoreCommon.Navigation
             root.Q<VisualElement>("NotFile").Add(common.CreateNotFileContainer(OnClickOpenFile, OnClickCreateFile));
 
             state = State.none;
+            oldState = State.none;
             Selection.selectionChanged += SelectionChanged;
-
-            if (baker != null)
-            {
-                baker.Load();
-                _loaded = true;
-            }
-
+            _loaded = false;
             OnGUI();
+            EditorApplication.playModeStateChanged += change => { _loaded = false; };
         }
+       
 
         public void ReDrawSettings()
         {
@@ -142,7 +138,15 @@ namespace GalaxyCoreCommon.Navigation
             EditorGUI.ProgressBar(new Rect(3, 45, position.width - 6, 20), 0, "Baked");
         }
 
-      
+        private void LoadCheck()
+        {
+            if(baker == null) return;
+            if (!_loaded && baker.Path != null)
+            {
+                baker.Load();
+                _loaded = true;
+            }
+        }
         
         private void OnGUI()
         {
@@ -159,11 +163,7 @@ namespace GalaxyCoreCommon.Navigation
                 }
             }
 
-            if (!_loaded && baker.Path != null)
-            {
-                baker.Load();
-                    _loaded = true;
-            }
+            LoadCheck();
 
             common.backer = baker;
             if (baker.Path == null)

@@ -1245,8 +1245,6 @@
 	"03a5ff968558b1fdba8fcb38d92c95379985712a": "editor2/resources/template_render_settings/template_virtual_reality.render",
 	"df1f523f13f23a927b5418c96d354b9465b4c1e3": "configs/default.user",
 	"5fc06ee29974a0d934a294642d945473e5d80f36": "csharp_template/first_person_controller/components/FirstPersonController.cs",
-	"27688c4297125eb97a2c78c4f3f32d53f0f25296": "GalaxyNetwork/GalaxyNetworkInstantiator.cs",
-	"8c04b395c1c66ff0128c428f900a4ea2561b7d99": "GalaxyNetwork/UnigineNetEntity.cs",
 	"ce1aa1606a9db211bdc08b918cd68e08db5c47c8": "core/textures/sky_base_mask_0.dds",
 	"e16a40067ebd143a160fc69c08ebefc6cda4d53c": "core/textures/sky_base_clouds_0.dds",
 	"5350f4d903a2f858ef22d23ec214d24e9eefa46c": "core/textures/sky_base_mask_1.dds",

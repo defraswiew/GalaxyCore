@@ -30,6 +30,7 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
                     rayPos.z = position.z + z * cellSize;
                     hits = Physics.RaycastAll(rayPos, Vector3.down, range.y);
                     var lastY = float.MaxValue;
+                    byte projection = 0;
                     foreach (var item in hits.OrderByDescending(s => s.point.y))
                     {
                         if (lastY - item.point.y < heightMin) continue;
@@ -47,9 +48,26 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
                         if (node.Layer != 0)
                         {
                             mapLayer = baker.Map.Layers.GetById(node.Layer);
+                            if (mapLayer.ProjectionLower)
+                            {
+                                projection = node.Layer;
+                                continue;
+                            }
                             if (mapLayer.Cut) break;
                             if (mapLayer.ExcludeGraph) continue;
+                            
+                            
+                            if (projection > 0 && !mapLayer.IgnoreProjection)
+                            {
+                                node.Layer = projection;
+                            }
                         }
+                        else
+                        {
+                            node.Layer = projection;
+                        }
+                        
+                       
                   
                         points.Add(node);
                         if (!transparent[node.Layer]) break;
@@ -116,7 +134,7 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
 
             foreach (var node in nodes)
             {
-                if(node == null) continue;
+                if(node.Id == 0) continue;
                 if (node.Parent > 0) continue;
                 var layer = layers.GetById(node.Layer);
                 Gizmos.color = Color.red;
@@ -159,7 +177,7 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
 
             foreach (var node in nodes)
             {
-                if(node == null) continue;
+                if(node.Id == 0) continue;
                 if (node.Parent > 0) continue;
                 var layer = layers.GetById(node.Layer);
                 Gizmos.color = Color.red;
@@ -170,7 +188,7 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
                 if(node.Links == null) continue;
                 foreach (var item in node.Links)
                 {
-                    Gizmos.DrawLine(new Vector3(node.X, node.Y + 0.2f, node.Z), new Vector3(item.X, item.Y + 0.2f, item.Z));
+                    //Gizmos.DrawLine(new Vector3(node.X, node.Y + 0.2f, node.Z), new Vector3(item.X, item.Y + 0.2f, item.Z));
                 }
 
             }

@@ -1,6 +1,10 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
-
+#if GALAXY_DOUBLE
+using vector = GalaxyCoreCommon.GalaxyVectorD3;
+#else
+using vector = GalaxyCoreCommon.GalaxyVector3;
+#endif
 namespace SimpleMmoServer.Examples.NetEntities
 {
     public class ExampleVideo : NetEntity
@@ -8,7 +12,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         [GalaxyVar(1)] public string Text;
         [GalaxyVar(2)] public int Hp;
 
-        public override void InMessage(byte externalCode, byte[] data, Client clientSender)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
             SendMessageExcept(clientSender, externalCode, data);
         }
@@ -25,7 +29,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         protected override void OnDestroy()
         {
             var newNetEntity = new ExampleVideo(Instance, transform.Position);
-            newNetEntity.ChangeOwner(OwnerClient);
+            newNetEntity.ChangeOwner();
             newNetEntity.Init();
         }
 
@@ -49,7 +53,7 @@ namespace SimpleMmoServer.Examples.NetEntities
             Log.Info("Position", transform.Position.ToString());
         }
 
-        public ExampleVideo(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default,
+        public ExampleVideo(Instance instance, vector position = default, GalaxyQuaternion rotation = default,
             NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation,
             syncType)
         {

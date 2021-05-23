@@ -5,7 +5,7 @@ namespace SimpleMmoServer
     /// <summary>
     /// Пример кастомного класса клиента
     /// </summary>
-    public class ExampleClient : Client
+    public class ExampleClient : BaseClient
     {
         public ExampleClient()
         {
@@ -14,7 +14,7 @@ namespace SimpleMmoServer
         /// <summary>
         /// Вызывается когда игрок отключился
         /// </summary>
-        public override void OnDisconnected()
+        protected override void OnDisconnected()
         {
             
         }

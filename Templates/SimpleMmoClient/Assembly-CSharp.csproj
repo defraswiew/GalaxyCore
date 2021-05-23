@@ -57,18 +57,20 @@
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\NetEntity\GalaxyNetworkInstantiator.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TPM_Spawn.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\GalaxyDragWindow.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIChatSystem.cs" />
      <Compile Include="Assets\GalaxyNetwork\SimpleMmo\Scripts\ExamplePlayer.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\GalaxyMapBakerCore.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyColliderSphere.cs" />
      <Compile Include="Assets\GalaxyNetwork\Examples\Scripts\ExampleGalaxyVars.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\NetEntity\NetEntityTransform.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIChatChannel.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Extensions.cs" />
-     <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIChat.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUILogin.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyAnimSync.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIReg.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyInstanceInfoScriptable.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIChatMessage.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Examples\Scripts\ExampleNetVars2.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUiRoomItem.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUIRoomCreate.cs" />
      <Compile Include="Assets\GalaxyNetwork\_TMP\TMP_TREE.cs" />
@@ -98,8 +100,14 @@
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.EditorCoroutines.Editor">
+ <HintPath>C:/repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.MemoryProfiler">
+ <HintPath>C:/repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.MemoryProfiler.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
  <HintPath>C:/repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
@@ -115,6 +123,9 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.MemoryProfiler.Editor">
+ <HintPath>C:/repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.MemoryProfiler.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

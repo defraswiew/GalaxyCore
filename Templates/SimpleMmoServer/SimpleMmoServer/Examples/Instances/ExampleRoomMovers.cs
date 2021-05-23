@@ -1,5 +1,6 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
+using SimpleMmoServer.Examples.NetEntities;
 
 namespace SimpleMmoServer.Examples.Instances
 {
@@ -16,7 +17,7 @@ namespace SimpleMmoServer.Examples.Instances
             SetFrameRate(5);
             InvokeRepeating("Spawn", 1, 0.2f);
         }
-        public override void InMessage(byte code, byte[] data, Client client)
+        public override void InMessage(byte code, byte[] data, BaseClient client)
         {
             Log.Debug("Instance", "InMessage code:" + code);
         }
@@ -31,6 +32,13 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void Update()
         {
+        }
+
+        public override void IncomingClient(BaseClient clientConnection)
+        {
+            var entity = new ExampleNetVars(this);
+            entity.ChangeOwner(clientConnection);
+            entity.Init();
         }
     }
 }

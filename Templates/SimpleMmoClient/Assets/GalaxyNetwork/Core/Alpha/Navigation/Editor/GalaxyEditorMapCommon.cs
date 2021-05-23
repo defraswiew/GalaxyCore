@@ -8,7 +8,7 @@ using UnityEditor.SceneManagement;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Loc = GalaxyEditorLocalization;
+using Loc = GalaxyNetwork.Core.Alpha.Navigation.Editor.GalaxyEditorLocalization;
 
 namespace GalaxyCoreCommon.Navigation
 {
@@ -149,7 +149,7 @@ namespace GalaxyCoreCommon.Navigation
             });
             container.Add(size);
 
-            var cellSizeValue = CreateSlider(0.5f, 15f, 1, Loc.Get("cell_size"));
+            var cellSizeValue = CreateSlider(backer.CellSize, 0.5f, 15f, 1, Loc.Get("cell_size"));
 
             cellSizeValue.RegisterCallback<ChangeEvent<float>>(change =>
             {
@@ -159,7 +159,7 @@ namespace GalaxyCoreCommon.Navigation
             cellSizeValue.value = backer.CellSize;
             container.Add(cellSizeValue);
 
-            var minHeight = CreateSlider(1f, 100f, 0, Loc.Get("minHeight"));
+            var minHeight = CreateSlider(backer. MinHeight,1f, 100f, 0, Loc.Get("minHeight"));
 
             minHeight.RegisterCallback<ChangeEvent<float>>(change =>
             {
@@ -330,6 +330,7 @@ namespace GalaxyCoreCommon.Navigation
             };
             graphInclude.RegisterCallback<ChangeEvent<bool>>(change => { layer.ExcludeGraph = change.newValue; });
             container.Add(graphInclude);
+            
             var trimNodes = new Toggle
             {
                 label = Loc.Get("trimNodes"),
@@ -337,6 +338,30 @@ namespace GalaxyCoreCommon.Navigation
             };
             trimNodes.RegisterCallback<ChangeEvent<bool>>(change => { layer.Cut = change.newValue; });
             container.Add(trimNodes);
+            
+            var projectionLower = new Toggle
+            {
+                label = Loc.Get("projectionLower"),
+                value = layer.ProjectionLower
+            };
+            projectionLower.RegisterCallback<ChangeEvent<bool>>(change =>
+            {
+                layer.ProjectionLower = change.newValue;
+            });
+            container.Add(projectionLower);
+            
+            var ignoreProjection = new Toggle
+            {
+                label = Loc.Get("ignoreProjection"),
+                value = layer.IgnoreProjection
+            };
+            ignoreProjection.RegisterCallback<ChangeEvent<bool>>(change =>
+            {
+                layer.IgnoreProjection = change.newValue;
+            });
+            container.Add(ignoreProjection);
+            
+            
             container.Add(AddButton("Delete", () => { RemoveLayer(layer); }, "RedButton"));
             container.Add(AddButton("Save", () => { SaveLayers(layer); }, "GreenButton"));
            
@@ -458,7 +483,7 @@ namespace GalaxyCoreCommon.Navigation
 
             return list;
         }
-        private Slider CreateSlider(float min, float max, int dec, string label, string tooltip = "")
+        private Slider CreateSlider(float current,float min, float max, int dec, string label, string tooltip = "")
         {
             var slider = new Slider
             {
@@ -468,6 +493,10 @@ namespace GalaxyCoreCommon.Navigation
             {
                 value = (float) Math.Round(max / 2, dec)
             };
+            if (current != 0)
+            {
+                floatField.value = current;
+            }
             slider.label = label;
             slider.value = (float) Math.Round(max / 2, dec);
             slider.lowValue = min;

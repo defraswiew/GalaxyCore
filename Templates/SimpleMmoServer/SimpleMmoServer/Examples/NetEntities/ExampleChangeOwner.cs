@@ -6,7 +6,7 @@ namespace SimpleMmoServer.Examples.NetEntities
     public class ExampleChangeOwner : NetEntity
     {
         private int _timer = 0;
-        public Client OldOwner;
+        public BaseClient OldOwner;
 
         public ExampleChangeOwner(Instance instance, GalaxyVector3 position = default,
             GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) :
@@ -14,7 +14,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         {
         }
 
-        public override void InMessage(byte externalCode, byte[] data, Client clientSender)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
         }
 

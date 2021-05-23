@@ -24,7 +24,7 @@ namespace SimpleMmoServer.RPGTemplate
             MoveSpeed = 0.3f;
         }
 
-        public override void InMessage(byte externalCode, byte[] data, Client clientSender)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
             switch (externalCode)
             {

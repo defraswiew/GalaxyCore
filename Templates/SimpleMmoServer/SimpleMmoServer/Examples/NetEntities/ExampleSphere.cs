@@ -1,7 +1,7 @@
 ﻿using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Physics;
-
+ 
 namespace SimpleMmoServer.Examples.NetEntities
 {
     public class ExampleSphere : NetEntity
@@ -13,7 +13,7 @@ namespace SimpleMmoServer.Examples.NetEntities
             PrefabName = "ExampleSphere";
         }
 
-        public override void InMessage(byte externalCode, byte[] data, Client clientSender)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
         }
 

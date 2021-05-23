@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 3402171229394416142}
   - component: {fileID: 1355066954303963440}
   - component: {fileID: 3603846826634784788}
-  - component: {fileID: 2702218592976310783}
+  - component: {fileID: 7799503459540452768}
   m_Layer: 0
   m_Name: ExampleVideo
   m_TagString: Untagged
@@ -192,8 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b548dbccd7a8bac4b9f8ec4e758e7059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: 
-  initTime: 0
+  Data: 
+  InitTime: 0
 --- !u!114 &3603846826634784788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,20 +206,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41de5af4a5abb8d4f9e2c84b454c5560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sendMyPosition: 1
-  sendMyRotation: 1
---- !u!114 &2702218592976310783
+  SendMyPosition: 0
+  SendMyRotation: 0
+  Interpolation: 0
+--- !u!114 &7799503459540452768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8554210705371111313}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc8ad14777eae44abd99ea917998c4f, type: 3}
+  m_Script: {fileID: 11500000, guid: ce8a041935ae82c419a8ee914b544fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
-  hp: 0
-  textMesh: {fileID: 2678136115229846863}
+  Name: 
+  Hp: 0
+  ServerTime: 0

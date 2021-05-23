@@ -19,9 +19,10 @@ namespace SimpleMmoServer.RPGTemplate
             // нас устраивает только позиция
             // поворот будем высчитывать по направлению движения
             syncType = NetEntityAutoSync.position;
+            ChangeOwner();
         }
 
-        public override void InMessage(byte externalCode, byte[] data, Client clientSender)
+        public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
             switch (externalCode)
             {
@@ -53,6 +54,7 @@ namespace SimpleMmoServer.RPGTemplate
         {
             InvokeRepeating("RandomPoint", 5, 60);
             GalaxyVars.RegistrationClass(this);
+            GalaxyVars.AutoApplyRemoteData = false;
         }
 
         protected override void Update()

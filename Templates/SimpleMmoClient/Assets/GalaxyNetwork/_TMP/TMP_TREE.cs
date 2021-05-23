@@ -15,17 +15,10 @@ public class TMP_TREE : MonoBehaviour
         tree.AddOrUpdate(entity,new GalaxyVector3(0,10,20));
         var result = tree.GetNearby(new GalaxyVector3(10, 10, 10), 20);
        tree.Remove(entity);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
-
     public struct EntityUnit
     {
         private string _uid;
-        
     }
 }

@@ -233,7 +233,12 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
                 return;
             }
             Map = BaseMessage.Deserialize<GalaxyMap>(File.ReadAllBytes(Path));
-            Map?.Init();
+            Map?.Init(new NavigationConfig
+            {
+                ParallelWorkerCount = 2,
+                QueueLimit = 500,
+                UseJumping = false
+            });
             if (MainMap == null)
             {
                 MainMap = Map;
