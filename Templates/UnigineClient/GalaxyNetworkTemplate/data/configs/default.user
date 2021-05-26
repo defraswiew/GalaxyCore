@@ -37,7 +37,7 @@
 	<show_fps>0</show_fps>
 	<show_profiler>0</show_profiler>
 	<show_profiler_charts>1</show_profiler_charts>
-	<show_visualizer>1</show_visualizer>
+	<show_visualizer>0</show_visualizer>
 	<video_extension>2</video_extension>
 	<visualizer_fix_flicker>1</visualizer_fix_flicker>
 	<world_handler_3d>0</world_handler_3d>
