@@ -12,6 +12,8 @@ namespace SimpleMmoServer.Examples.NetEntities
             GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) :
             base(instance, position, rotation, syncType)
         {
+            FullUpdateRate = 5;
+            
         }
 
         public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)

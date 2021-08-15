@@ -692,7 +692,7 @@ PlayerSettings:
   gcIncremental: 1
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform:
-    Android: 3
+    Android: 6
     Standalone: 6
   m_RenderingPath: 1
   m_MobileRenderingPath: 1

@@ -29,7 +29,10 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         /// interpolation method
         /// </summary>
         public InterpolationType Interpolation;
-
+     
+        public float TeleportDistance = 20;
+        private Vector3 _remotePosition;
+        
         private void Awake()
         {
             // получаем ссылку на сетевую сущность
@@ -71,6 +74,14 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
             // если сущность наша то нам не следует обрабатывать входящую информацию о положении
             if (!_netEntity.IsMy)
             {
+                _remotePosition = _netEntity.transform.RemotePosition.Vector3();
+                if ((_remotePosition - transform.position).sqrMagnitude > TeleportDistance)
+                {
+                    _netEntity.transform.ApplyRemoteData();
+                    transform.position = _netEntity.transform.Position.Vector3();
+                    transform.rotation = _netEntity.transform.Rotation.Quaternion();
+                    return;
+                }
                 switch (Interpolation)
                 {
                     case InterpolationType.None:
@@ -83,7 +94,8 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
                         _netEntity.transform.InterpolateEndPoint();
                         break;
                 }
-
+                
+                
                 transform.position = _netEntity.transform.Position.Vector3();
                 transform.rotation = _netEntity.transform.Rotation.Quaternion();
             }

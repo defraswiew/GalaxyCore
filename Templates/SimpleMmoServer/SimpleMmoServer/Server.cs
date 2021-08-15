@@ -1,4 +1,5 @@
-﻿using GalaxyCoreServer;
+﻿using GalaxyCoreCommon.InternalMessages;
+using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using SimpleMmoServer.Connecting;
 using SimpleMmoServer.NetEntities;
@@ -72,7 +73,7 @@ namespace SimpleMmoServer
             // We start the server
             // Запускаем сервер      
             GalaxyCore.Start(_config);
-            // GalaxyCore.Instances.Create(new RPGTemplate.Location());
+            //GalaxyCore.Instances.Create(new RPGTemplate.Location());
         }
 
         /// <summary>

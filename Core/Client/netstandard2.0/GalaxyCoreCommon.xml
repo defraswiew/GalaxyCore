@@ -3369,7 +3369,7 @@
             <param name="message"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.TransformSerialization.FullSerrialize(Lidgren.Network.NetBuffer)">
+        <member name="M:GalaxyCoreCommon.TransformSerialization.FullSerialize(Lidgren.Network.NetBuffer)">
             <summary>
             Полная серриализация
             </summary>

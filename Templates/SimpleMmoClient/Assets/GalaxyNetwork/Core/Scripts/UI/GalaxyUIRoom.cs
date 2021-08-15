@@ -81,9 +81,6 @@ namespace GalaxyCoreLib
         {
             Debug.Log("OnSceneLoaded");         
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            // запрашиваем синхронизацию команты
-            // в версиях клиента 0.8+ не обязательно
-            // т.к вызывается автоматически
             GalaxyApi.Instances.SyncInstance();
         }
       
