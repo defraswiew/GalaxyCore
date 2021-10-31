@@ -71,7 +71,6 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         private void SoftUpdate(float delta)
         {
             if (!_netEntity.IsInit) return;
-            // если сущность наша то нам не следует обрабатывать входящую информацию о положении
             if (!_netEntity.IsMy)
             {
                 _remotePosition = _netEntity.transform.RemotePosition.Vector3();

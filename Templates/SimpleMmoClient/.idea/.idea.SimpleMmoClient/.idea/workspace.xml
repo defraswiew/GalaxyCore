@@ -6,12 +6,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1de93c65-72e3-41ad-b67d-f836e8449f37" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorMapWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorMapWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Resources/Move.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Resources/Move.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/Instances/ExampleRoomMovers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/Instances/ExampleRoomMovers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Server.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/SimpleMmoServer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/SimpleMmoServer.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +41,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/TransformSerialization.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/InternalMessages/ChatMessage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatChannel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/GalaxyChat.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TMP_TREE.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorLocalization.cs" />
       <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorMapWindow.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorMapCommon.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/GalaxyMapBakerCore.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Scripts/ExampleNetVars2.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/GalaxyMapBaker.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChat.cs" />
+      <option value="$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/InternalMessages/ChatMessage.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatChannel.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TMP_TestAgent.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TMP_ROT.cs" />
+      <option value="$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/TransformSerialization.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatMessage.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIRoom.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiClietsList.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" />
+      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/GalaxyNetworkController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1kw6fPVya0saS8wMZLyKOT8Y3Yb" />
@@ -33,15 +79,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30010834" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994525" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="XThreadsFramesViewSplitterKey" value="0.5007752" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../00000000000/SimpleMmoClient.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -54,6 +101,7 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -63,6 +111,7 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -90,6 +139,50 @@
       <workItem from="1607278911443" duration="9841000" />
       <workItem from="1608622628631" duration="129000" />
       <workItem from="1618664850544" duration="37000" />
+      <workItem from="1618821320079" duration="169000" />
+      <workItem from="1618821505578" duration="672000" />
+      <workItem from="1619251015637" duration="2497000" />
+      <workItem from="1619298378383" duration="3975000" />
+      <workItem from="1619348065344" duration="8400000" />
+      <workItem from="1619449217257" duration="1738000" />
+      <workItem from="1619538450579" duration="605000" />
+      <workItem from="1619556339598" duration="11000" />
+      <workItem from="1619648588795" duration="1535000" />
+      <workItem from="1619697380577" duration="740000" />
+      <workItem from="1619705763148" duration="613000" />
+      <workItem from="1619725745790" duration="1054000" />
+      <workItem from="1620030002961" duration="612000" />
+      <workItem from="1620110773529" duration="1645000" />
+      <workItem from="1620198653496" duration="2272000" />
+      <workItem from="1620215932599" duration="1344000" />
+      <workItem from="1620975115312" duration="26000" />
+      <workItem from="1620987753454" duration="607000" />
+      <workItem from="1621233409594" duration="2679000" />
+      <workItem from="1621371323095" duration="1028000" />
+      <workItem from="1621410497546" duration="4103000" />
+      <workItem from="1621454000971" duration="6708000" />
+      <workItem from="1621495430680" duration="3653000" />
+      <workItem from="1621506170615" duration="2949000" />
+      <workItem from="1621627555186" duration="855000" />
+      <workItem from="1621630884709" duration="819000" />
+      <workItem from="1621767024659" duration="4650000" />
+      <workItem from="1621981947764" duration="2295000" />
+      <workItem from="1622014735791" duration="1325000" />
+      <workItem from="1623012675067" duration="309000" />
+      <workItem from="1623018232010" duration="1884000" />
+      <workItem from="1623072941759" duration="813000" />
+      <workItem from="1623089389610" duration="168000" />
+      <workItem from="1623180092877" duration="1663000" />
+      <workItem from="1625042970014" duration="1825000" />
+      <workItem from="1629100075508" duration="1402000" />
+      <workItem from="1629216624894" duration="2885000" />
+      <workItem from="1629989293837" duration="598000" />
+      <workItem from="1630650736491" duration="1075000" />
+      <workItem from="1630911528725" duration="814000" />
+      <workItem from="1635157082365" duration="887000" />
+      <workItem from="1635177023717" duration="1196000" />
+      <workItem from="1635236082136" duration="2102000" />
+      <workItem from="1635692117037" duration="1483000" />
     </task>
     <servers />
   </component>
@@ -112,79 +205,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="159" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606866607964">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="159" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606866607964" />
-    <state width="1877" height="375" key="GridCell.Tab.0.bottom" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.0.center" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.0.left" timestamp="1607213105659">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105659" />
-    <state width="1877" height="375" key="GridCell.Tab.0.right" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.1.bottom" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.1.center" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.1.left" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.1.right" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.2.bottom" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.2.center" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.2.left" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.2.right" timestamp="1607213105660">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105660" />
-    <state width="1877" height="375" key="GridCell.Tab.3.bottom" timestamp="1607213105661">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105661" />
-    <state width="1877" height="375" key="GridCell.Tab.3.center" timestamp="1607213105661">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105661" />
-    <state width="1877" height="375" key="GridCell.Tab.3.left" timestamp="1607213105661">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105661" />
-    <state width="1877" height="375" key="GridCell.Tab.3.right" timestamp="1607213105661">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="375" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607213105661" />
-    <state x="368" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1606941526823">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="368" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606941526823" />
   </component>
 </project>

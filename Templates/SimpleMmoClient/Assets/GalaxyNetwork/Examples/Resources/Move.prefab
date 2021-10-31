@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b548dbccd7a8bac4b9f8ec4e758e7059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: 
-  initTime: 0
+  Data: 
+  InitTime: 0
 --- !u!114 &2201955651195249791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,3 +157,4 @@ MonoBehaviour:
   SendMyPosition: 0
   SendMyRotation: 0
   Interpolation: 2
+  TeleportDistance: 20

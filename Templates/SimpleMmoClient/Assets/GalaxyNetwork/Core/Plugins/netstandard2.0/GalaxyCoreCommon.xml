@@ -1960,7 +1960,7 @@
             </summary>
         </member>
         <member name="F:GalaxyCoreCommon.Navigation.GalaxyMap.NodesArray">
-            <summary>
+            <summary>5
             
             </summary>
         </member>
@@ -1969,7 +1969,7 @@
             Стандартная дистанция поиска нода по координатам
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.Navigation.GalaxyMap.SearchNode(GalaxyCoreCommon.GalaxyVector3,System.Byte[],System.Single)">
+        <member name="M:GalaxyCoreCommon.Navigation.GalaxyMap.SearchNode(GalaxyCoreCommon.GalaxyVector3)">
             <summary>
             Поиск нода
             </summary>
@@ -2308,6 +2308,11 @@
             Не удалось найти финишный нод
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.Navigation.PathStatus.EndReplaced">
+            <summary>
+            Конечная точка быза заменена
+            </summary>
+        </member>
         <member name="F:GalaxyCoreCommon.Navigation.PathStatus.Impossible">
             <summary>
             Не возможно достигнуть точки
@@ -2316,6 +2321,11 @@
         <member name="F:GalaxyCoreCommon.Navigation.PathStatus.Line">
             <summary>
             Цель возможно достигнуть по прямой
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.PathStatus.TooClose">
+            <summary>
+            Слишком близко
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.Navigation.IGalaxyPathResult">
@@ -2389,6 +2399,11 @@
         <member name="F:GalaxyCoreCommon.Navigation.NavigationMask.IgnoreCash">
             <summary>
             Игнорируем кеш
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.Navigation.NavigationMask.EndPointAllowance">
+            <summary>
+            допуск поиска ближайшей позиции в случае невозможности получить конечную точку
             </summary>
         </member>
         <member name="M:GalaxyCoreCommon.Navigation.NavigationMask.Equals(System.Object)">
@@ -3354,7 +3369,7 @@
             <param name="message"></param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreCommon.TransformSerialization.FullSerrialize(Lidgren.Network.NetBuffer)">
+        <member name="M:GalaxyCoreCommon.TransformSerialization.FullSerialize(Lidgren.Network.NetBuffer)">
             <summary>
             Полная серриализация
             </summary>

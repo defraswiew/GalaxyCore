@@ -1,4 +1,5 @@
-﻿using GalaxyCoreCommon.InternalMessages;
+﻿using System;
+using GalaxyCoreCommon.InternalMessages;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using SimpleMmoServer.Connecting;
@@ -12,6 +13,17 @@ namespace SimpleMmoServer
     /// </summary>
     public class Server
     {
+        /* To help me quickly fix bugs, plug in the "Sentry" package to NuGet. Uncomment these lines, and indicate the name of the project. Thanks.
+        private IDisposable _debugger = SentrySdk.Init(o =>
+        {
+            o.Dsn = "https://3f0d0ab79e9b497db744524ed6af612b@o997840.ingest.sentry.io/6042409";
+            o.Debug = true;
+            o.TracesSampleRate = 1.0;
+            o.Release = "you project name";
+            o.AttachStacktrace = true;
+            o.MaxBreadcrumbs = 20;
+        });
+        */
         /// <summary>
         /// An example of authorization implementation
         /// </summary>
@@ -72,9 +84,12 @@ namespace SimpleMmoServer
             _config.DebugMode = true;
             // We start the server
             // Запускаем сервер      
-            GalaxyCore.Start(_config);
             //GalaxyCore.Instances.Create(new RPGTemplate.Location());
+            
+            GalaxyCore.Start(_config);
         }
+        
+        
 
         /// <summary>
         /// This is an example of overriding the default instance implementation by custom code like

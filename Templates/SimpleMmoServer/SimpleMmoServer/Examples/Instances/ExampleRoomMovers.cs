@@ -4,9 +4,6 @@ using SimpleMmoServer.Examples.NetEntities;
 
 namespace SimpleMmoServer.Examples.Instances
 {
-    /// <summary>
-    /// Пример создания множества авторитарно двигаемых объектов
-    /// </summary>
     public class ExampleRoomMovers : Instance
     {
         private int _moverCount;
@@ -14,11 +11,12 @@ namespace SimpleMmoServer.Examples.Instances
 
         public override void Start()
         {
-            SetFrameRate(5);
+            SetFrameRate(2);
             InvokeRepeating("Spawn", 1, 0.2f);
         }
         public override void InMessage(byte code, byte[] data, BaseClient client)
         {
+            
             Log.Debug("Instance", "InMessage code:" + code);
         }
 

@@ -61,6 +61,13 @@
             Входящее сообщение в чате
             </summary>
         </member>
+        <member name="M:GalaxyCoreLib.Api.GalaxyChat.SendToClient(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="clientID"></param>
+            <param name="text"></param>
+        </member>
         <member name="T:GalaxyCoreLib.Api.GalaxyEvents">
             <summary>
             Public events

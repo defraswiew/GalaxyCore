@@ -1293,6 +1293,11 @@
             Apply transform values received from the client within the current frame
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.NetTransform.ForceSync">
+            <summary>
+            Forced sync transform
+            </summary>
+        </member>
         <member name="T:GalaxyCoreServer.Network.ClientStatistic">
             <summary>
             Client statistics
