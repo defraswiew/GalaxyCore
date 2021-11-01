@@ -29,16 +29,13 @@ namespace SimpleMmoServer.NetEntities
             switch (name)
             {
                 case "ExampleChangeOwner":
-                    Examples.NetEntities.ExampleChangeOwner exampleChangeOwner =
-                        new Examples.NetEntities.ExampleChangeOwner(client.Instanse);
-                    return exampleChangeOwner;
+                    return new ExampleChangeOwner(client.Instanse);
                 case "ExampleVideo":
-                    ExampleVideo exampleVideo = new ExampleVideo(client.Instanse);
-                    return exampleVideo;
+                    return new ExampleVideo(client.Instanse);
                 case "RPGTemplatePlayer":
-                    RPGTemplatePlayer rPGTemplatePlayer = new RPGTemplatePlayer(client.Instanse);
-                    return rPGTemplatePlayer;
-
+                    return new RPGTemplatePlayer(client.Instanse);
+                case "SendMessages":
+                    return new ExampleNetEntitySendMessages(client.Instanse);
                 default:
                     if (name.Contains("Bld_"))
                     {

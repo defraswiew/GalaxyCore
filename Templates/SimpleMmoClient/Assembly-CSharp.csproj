@@ -67,6 +67,7 @@
      <Compile Include="Assets\GalaxyNetwork\Core\Alpha\Navigation\GalaxyMapBaker.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\Extensions.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\GalaxyColliderBox.cs" />
+     <Compile Include="Assets\GalaxyNetwork\Examples\Scripts\ExampleNetEntitySendMessages.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUiClietsList.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\DebugLogger.cs" />
      <Compile Include="Assets\GalaxyNetwork\Core\Scripts\UI\GalaxyUiClientItem.cs" />
