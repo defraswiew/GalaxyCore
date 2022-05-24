@@ -15,13 +15,6 @@
             </summary>
             <returns>Array of bytes</returns>
         </member>
-        <member name="M:GalaxyCoreCommon.BaseMessage.Deserialize``1">
-            <summary>
-            Unpacking a message based on internal content
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
         <member name="M:GalaxyCoreCommon.BaseMessage.Deserialize``1(System.Byte[])">
             <summary>
             Unpacking a message into a new instance
@@ -473,6 +466,142 @@
             group
             </summary>
         </member>
+        <member name="T:GalaxyCoreCommon.GalaxyMath">
+            <summary> Math functions collection (and math extensions for some types) </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyMath.Deg2Rad">
+            <summary> Degrees-to-radians conversion constant </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.GalaxyMath.Rad2Deg">
+            <summary> Radians-to-degrees conversion constant </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Clamp(System.Int32,System.Int32,System.Int32)">
+            <summary> Clamps the given value between the given minimum and maximum values. </summary>
+            <returns> Value within the min and max range (min and max are included in range!) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Clamp(System.Int64,System.Int64,System.Int64)">
+            <summary> Clamps the given value between the given minimum and maximum values. </summary>
+            <returns> Value within the min and max range (min and max are included in range!) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Clamp(System.Single,System.Single,System.Single)">
+            <summary> Clamps the given value between the given minimum and maximum values. </summary>
+            <returns> Value within the min and max range (min and max are included in range!) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Clamp(System.Double,System.Double,System.Double)">
+            <summary> Clamps the given value between the given minimum and maximum values. </summary>
+            <returns> Value within the min and max range (min and max are included in range!) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Clamp01(System.Single)">
+            <returns> Clamps value to 0 .. 1 range </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Clamp01(System.Double)">
+            <returns> Clamps value to 0 .. 1 range </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Lerp(System.Single,System.Single,System.Single)">
+            <returns>
+                Interpolated value between a and b  <para/>
+                When t = 0 returns a. When t = 1 returns b. When 0.5 retuns point between a and b.
+            </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Lerp(System.Double,System.Double,System.Double)">
+            <returns>
+                Interpolated value between a and b  <para/>
+                When t = 0 returns a. When t = 1 returns b. When 0.5 retuns point between a and b.
+            </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Sign(System.Double)">
+            <returns> 1 when value is positive or zero, -1 when value is negative. </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Inverse(System.Single)">
+            <returns> 1 / this </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Sqrt(System.Single)">
+            <returns> Sqrt(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Abs(System.Single)">
+            <returns> Abs(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Acos(System.Single)">
+            <returns> Acos(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Asin(System.Single)">
+            <returns> Asin(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Atan(System.Single)">
+            <returns> Atan(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Cos(System.Single)">
+            <returns> Cos(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Cosh(System.Single)">
+            <returns> Cosh(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Exp(System.Single)">
+            <returns> Exp(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Log(System.Single)">
+            <returns> Log(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Log10(System.Single)">
+            <returns> Log10(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Sin(System.Single)">
+            <returns> Sin(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Sinh(System.Single)">
+            <returns> Sinh(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Tan(System.Single)">
+            <returns> Tan(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Tanh(System.Single)">
+            <returns> Tanh(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Inverse(System.Double)">
+            <returns> 1 / this </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Sqrt(System.Double)">
+            <returns> Sqrt(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Abs(System.Double)">
+            <returns> Abs(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Acos(System.Double)">
+            <returns> Acos(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Asin(System.Double)">
+            <returns> Asin(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Atan(System.Double)">
+            <returns> Atan(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Cos(System.Double)">
+            <returns> Cos(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Cosh(System.Double)">
+            <returns> Cosh(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Exp(System.Double)">
+            <returns> Exp(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Log(System.Double)">
+            <returns> Log(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Log10(System.Double)">
+            <returns> Log10(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Sin(System.Double)">
+            <returns> Sin(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Sinh(System.Double)">
+            <returns> Sinh(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Tan(System.Double)">
+            <returns> Tan(this) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyMath.Tanh(System.Double)">
+            <returns> Tanh(this) </returns>
+        </member>
         <member name="T:GalaxyCoreCommon.GalaxyMatrix4x4">
             <summary>
             
@@ -730,727 +859,447 @@
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.GalaxyQuaternion">
-            <summary>
-            network Quaternion
-            </summary>
+            <summary> Network Quaternion </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyQuaternion.X">
-            <summary>
-            
-            </summary>
+            <summary> Rotation axis X * Sin( rotation angle / 2 ) </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyQuaternion.Y">
-            <summary>
-            
-            </summary>
+            <summary> Rotation axis Y * Sin( rotation angle / 2 ) </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyQuaternion.Z">
-            <summary>
-            
-            </summary>
+            <summary> Rotation axis Z * Sin( rotation angle / 2 ) </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyQuaternion.W">
-            <summary>
-            
-            </summary>
+            <summary> Cos ( rotation angle / 2 ) </summary>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.#ctor(System.Single,System.Single,System.Single,System.Single)">
-            <summary>
-            Base constructor
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-            <param name="w"></param>
+            <summary> Base constructor </summary>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.#ctor(GalaxyCoreCommon.GalaxyVector3,System.Single)">
-            <summary>
-            
-            </summary>
-            <param name="vectorPart"></param>
-            <param name="scalarPart"></param>
+            <summary> </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.IsZero">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Summ">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Equals(GalaxyCoreCommon.GalaxyQuaternion)">
-            <summary>
-            
-            </summary>
-            <param name="other"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Multiply(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="rotation"></param>
-            <param name="point"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Multiply(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="rotation"></param>
-            <param name="point"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Dot(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyQuaternion)">
-            <summary>
-            
-            </summary>
-            <param name="quaternion1"></param>
-            <param name="quaternion2"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.CreateFromRotationMatrix(GalaxyCoreCommon.GalaxyMatrix4x4)">
-            <summary>
-            Creates a Quaternion from the given rotation matrix.
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Length">
-            <summary>
-            
-            </summary>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.#ctor(GalaxyCoreCommon.GalaxyVectorD3,System.Single)">
+            <summary> </summary>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.CreateFromAxisAngle(GalaxyCoreCommon.GalaxyVectorD3,System.Single)">
-            <summary>
-            
-            </summary>
-            <param name="axis"></param>
-            <param name="angle"></param>
-            <returns></returns>
+            <param name="axis"> Axis around which to rotate </param>
+            <param name="angle"> Angle in radians </param>
+            <returns> Rotation around given axis </returns>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.CreateFromAxisAngle(GalaxyCoreCommon.GalaxyVector3,System.Single)">
-            <summary>
-            
-            </summary>
-            <param name="axis"></param>
-            <param name="angle"></param>
+            <param name="axis"> Axis around which to rotate </param>
+            <param name="angle"> Angle in radians </param>
+            <returns> Rotation around given axis </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.CreateFromRotationMatrix(GalaxyCoreCommon.GalaxyMatrix4x4)">
+            <summary> Creates a Quaternion from the given rotation matrix. </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Equals(GalaxyCoreCommon.GalaxyQuaternion)">
+            <returns> True if all 4 components of quaternion are equal to other's 4 </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.IsZero">
+            <returns> True if all 4 components of quaternion are zero </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Summ">
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Length">
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.LengthSquared">
-            <summary>
-            
-            </summary>
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Normalize">
-            <summary>
-            
-            </summary>
-            <returns></returns>
+            <returns> Normalized rotation </returns>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Inverse">
-            <summary>
-            
-            </summary>
-            <returns></returns>
+            <returns> Inverted rotation </returns>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Conjugate">
-            <summary>
-            
-            </summary>
+            <returns> Flip axis(vector) part of the quaternion </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Dot(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyQuaternion)">
             <returns></returns>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Lerp(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyQuaternion,System.Single)">
-            <summary>
-            
-            </summary>
-            <param name="q1"></param>
-            <param name="q2"></param>
-            <param name="t"></param>
-            <returns></returns>
+            <param name="q1"> Starting rotation </param>
+            <param name="q2"> End rotation </param>
+            <param name="t"> Interpolation % parameter</param>
+            <returns> Lineary interpolated rotation between q1 and q2 </returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Multiply(GalaxyCoreCommon.GalaxyQuaternion,System.Single)">
-            <summary>
-            
-            </summary>
-            <param name="value1"></param>
-            <param name="value2"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Addition(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyQuaternion)">
-            <summary>
-            
-            </summary>
-            <param name="value1"></param>
-            <param name="value2"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Subtraction(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyQuaternion)">
-            <summary>
-            Subtracts one Quaternion from another.
-            </summary>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.Slerp(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyQuaternion,System.Single)">
+            <param name="q1"> Starting rotation </param>
+            <param name="q2"> End rotation </param>
+            <param name="t"> Interpolation % parameter</param>
+            <returns> Spherically interpolated rotation between q1 and q2 </returns>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_UnaryNegation(GalaxyCoreCommon.GalaxyQuaternion)">
-            <summary>
-            Flips the sign of each component of the quaternion.
-            </summary>
+            <summary> Flips the sign of each component of the quaternion. </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Addition(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyQuaternion)">
+            <returns> Combine rotations </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Subtraction(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary> Subtracts one Quaternion from another. </summary>
         </member>
         <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Multiply(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyQuaternion)">
-            <summary>
-            Multiplies two Quaternions together.
-            </summary>
+            <summary> Multiplies two Quaternions together. </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Multiply(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyVectorD3)">
+            <returns> Rotate vector by quaternion </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Multiply(GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreCommon.GalaxyVector3)">
+            <returns> Rotate vector by quaternion </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyQuaternion.op_Multiply(GalaxyCoreCommon.GalaxyQuaternion,System.Single)">
+            <returns> Multuplies X,Y,Z and W of quaternion by float value. MAY BREAK THE QUATERNION </returns>
         </member>
         <member name="T:GalaxyCoreCommon.GalaxyVector3">
-            <summary>
-            Vector3
-            </summary>
+            <summary> Float-based Vector3 </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.X">
-            <summary>
-            Х
-            </summary>
+            <summary> Х </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.Y">
-            <summary>
-            Y
-            </summary>
+            <summary> Y </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.Z">
-            <summary>
-            Z
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.#ctor(System.Single,System.Single,System.Single)">
-            <summary>
-            
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.IsZero">
-            <summary>
-            Is zero
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Lerp(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3,System.Single)">
-            <summary>
-            Linear vector interpolation
-            </summary>
-            <param name="a">start</param>
-            <param name="b">end</param>
-            <param name="t">delta</param>
-            <returns></returns>
-        </member>
-        <member name="P:GalaxyCoreCommon.GalaxyVector3.Item(System.Int32)">
-             <summary>
-            
-             </summary>
-             <param name="index"></param>
-             <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Equals(System.Object)">
-            <summary>
-            
-            </summary>
-            <param name="other"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Equals(GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="other"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Cross(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Cross(GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="vector2"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Dot(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Min(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Max(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Move(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3,System.Single,System.Single)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <param name="speed"></param>
-            <param name="delta"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Summ">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.GetHashCode">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Distance(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            Distance
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Addition(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            +
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Subtraction(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            -
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_UnaryNegation(GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            -
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Multiply(GalaxyCoreCommon.GalaxyVector3,System.Single)">
-            <summary>
-            *
-            </summary>
-            <param name="a"></param>
-            <param name="d"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Multiply(System.Single,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            *
-            </summary>
-            <param name="d"></param>
-            <param name="a"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Division(GalaxyCoreCommon.GalaxyVector3,System.Single)">
-            <summary>
-            /
-            </summary>
-            <param name="a"></param>
-            <param name="d"></param>
-            <returns></returns>
-        </member>
-        <member name="P:GalaxyCoreCommon.GalaxyVector3.SqrMagnitude">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Equality(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Inequality(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.ToString">
-            <summary>
-            Returns a nicely formatted string for this vector.
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.ToString(System.String)">
-            <summary>
-            Returns a nicely formatted string for this vector.
-            </summary>
-            <param name="format">The format for each coordinate.</param>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Scale(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVector3.Angle(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
-            <summary>
-            
-            </summary>
-            <param name="from"></param>
-            <param name="to"></param>
-            <returns></returns>
+            <summary> Z </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.Zero">
-            <summary>
-            Shorthand for writing Point(0, 0, 0).
-            </summary>
+            <summary> Shorthand for writing Point(0, 0, 0). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.One">
-            <summary>
-            Shorthand for writing Point(1, 1, 1).
-            </summary>
+            <summary> Shorthand for writing Point(1, 1, 1). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.Forward">
-            <summary>
-            Shorthand for writing Point(0, 0, 1).
-            </summary>
+            <summary> Shorthand for writing Point(0, 0, 1). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.Back">
-            <summary>
-            Shorthand for writing Point(0, 0, -1).
-            </summary>
+            <summary> Shorthand for writing Point(0, 0, -1). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.Up">
-            <summary>
-            Shorthand for writing Point(0, 1, 0).
-            </summary>
+            <summary> Shorthand for writing Point(0, 1, 0). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.Down">
-            <summary>
-            Shorthand for writing Point(0, -1, 0).
-            </summary>
+            <summary> Shorthand for writing Point(0, -1, 0). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.Left">
-            <summary>
-            Shorthand for writing Point(-1, 0, 0).
-            </summary>
+            <summary> Shorthand for writing Point(-1, 0, 0). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVector3.Right">
-            <summary>
-            Shorthand for writing Point(1, 0, 0).
-            </summary>
+            <summary> Shorthand for writing Point(1, 0, 0). </summary>
         </member>
-        <member name="T:GalaxyCoreCommon.GalaxyVectorD3">
-            <summary>
-            Vector3
-            </summary>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.#ctor(System.Single,System.Single,System.Single)">
+            <summary> Base constructor </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.X">
-            <summary>
-            Х
-            </summary>
+        <member name="P:GalaxyCoreCommon.GalaxyVector3.Item(System.Int32)">
+            <returns> 0 for X, 1 for Y, 2 for Z </returns>
         </member>
-        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Y">
-            <summary>
-            Y
-            </summary>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Equals(System.Object)">
+            <returns> True if other object is GalaxyVector3 and is equal to this one </returns>
         </member>
-        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Z">
-            <summary>
-            Z
-            </summary>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Equals(GalaxyCoreCommon.GalaxyVector3@)">
+            <returns> True if X, Y and Z are equal to other's </returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.#ctor(System.Double,System.Double,System.Double)">
-            <summary>
-            
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="z"></param>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.GetHashCode">
+            <returns> HashCode </returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.IsZero">
-            <summary>
-            Is zero
-            </summary>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.ToString">
+            <summary> Returns a nicely formatted string for this vector. </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Lerp(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3,System.Single)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.ToString(System.String)">
+            <summary> Returns a nicely formatted string for this vector. </summary>
+            <param name="format"> The format for each coordinate. </param>
+        </member>
+        <member name="P:GalaxyCoreCommon.GalaxyVector3.SqrMagnitude">
+            <summary> Squared length </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.IsZero">
+            <returns> True if X, Y and Z are zero </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Summ">
+            <returns> X + Y + Z </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Length">
+            <returns> Magnitude of the vector </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.LengthSquared">
+            <returns> Squared magnitude of the vector </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Normalize">
+            <returns> Normalized vector with the same direction and magnitude of 1 </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Distance(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <returns> Distance between points </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Cross(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <returns> Cross product of two vectors </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Cross(GalaxyCoreCommon.GalaxyVector3@)">
+            <param name="vector2"> second vector </param>
+            <returns> Cross product of two vectors</returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Dot(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <returns> Dot product of two vectors </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Dot(GalaxyCoreCommon.GalaxyVector3@)">
+            <param name="other"> Second vector </param>
+            <returns> Dot product of two vectors </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Min(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <returns> New Vector with X=Min(a.X, b.X); Y=Min(a.Y, b.Y); Z=Min(a.Z, b.Z) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Max(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <returns> New Vector with X=Max(a.X, b.X); Y=Max(a.Y, b.Y); Z=Max(a.Z, b.Z) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Move(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@,System.Single,System.Single)">
+            <returns> New point that moves from point a into direction of point b with given speed and delta </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Angle(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <returns> Angle in degrees between two vectors </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.SignedAngle(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <returns> Minimal signed angle between two vectors on plane defined by axis </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Lerp(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@,System.Single)">
             <summary>
             Linear vector interpolation
             </summary>
             <param name="a">start</param>
             <param name="b">end</param>
             <param name="t">delta</param>
-            <returns></returns>
         </member>
-        <member name="P:GalaxyCoreCommon.GalaxyVectorD3.Item(System.Int32)">
-             <summary>
-            
-             </summary>
-             <param name="index"></param>
-             <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Equals(System.Object)">
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Slerp(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@,System.Single)">
             <summary>
-            
+            Spherical vector interpolation
             </summary>
-            <param name="other"></param>
-            <returns></returns>
+            <param name="a">start</param>
+            <param name="b">end</param>
+            <param name="t">delta</param>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Equals(GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="other"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Project(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <summary> Projects vector onto normal </summary>
+            <returns> Vector that is colinear with onNormal but have different length </returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Cross(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Project(GalaxyCoreCommon.GalaxyVector3@)">
+            <summary> Projects vector onto normal </summary>
+            <returns> Vector that is colinear with onNormal but have different length </returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Cross(GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="vector2"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.ProjectOnPlane(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <summary> Projects vector onto plane defined by it's normal </summary>
+            <returns> Vector projected onto given plane </returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Dot(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.ProjectOnPlane(GalaxyCoreCommon.GalaxyVector3@)">
+            <summary> Projects vector onto plane defined by it's normal </summary>
+            <returns> Vector projected onto given plane </returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Min(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.Scale(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <returns> New vector where each vector axis is multiplied by other vector axis </returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Max(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_UnaryNegation(GalaxyCoreCommon.GalaxyVector3@)">
+            <returns> Inverted vector </returns>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Move(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3,System.Single,System.Single)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <param name="speed"></param>
-            <param name="delta"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Equality(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
+            <summary> == </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Summ">
-            <summary>
-            
-            </summary>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Inequality(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
+            <summary> != </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.GetHashCode">
-            <summary>
-            
-            </summary>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Addition(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <summary> + </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Distance(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            Distance
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Subtraction(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@)">
+            <summary> - </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Addition(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            +
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Multiply(GalaxyCoreCommon.GalaxyVector3@,System.Single)">
+            <summary> * </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Subtraction(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            -
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Multiply(System.Single,GalaxyCoreCommon.GalaxyVector3@)">
+            <summary> * </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_UnaryNegation(GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            -
-            </summary>
-            <param name="a"></param>
-            <returns></returns>
+        <member name="M:GalaxyCoreCommon.GalaxyVector3.op_Division(GalaxyCoreCommon.GalaxyVector3@,System.Single)">
+            <summary> / </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Multiply(GalaxyCoreCommon.GalaxyVectorD3,System.Single)">
-            <summary>
-            *
-            </summary>
-            <param name="a"></param>
-            <param name="d"></param>
-            <returns></returns>
+        <member name="T:GalaxyCoreCommon.GalaxyVectorD3">
+            <summary> Double-based Vector3 </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Multiply(System.Single,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            *
-            </summary>
-            <param name="d"></param>
-            <param name="a"></param>
-            <returns></returns>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.X">
+            <summary> Х </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Division(GalaxyCoreCommon.GalaxyVectorD3,System.Single)">
-            <summary>
-            /
-            </summary>
-            <param name="a"></param>
-            <param name="d"></param>
-            <returns></returns>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Y">
+            <summary> Y </summary>
         </member>
-        <member name="P:GalaxyCoreCommon.GalaxyVectorD3.SqrMagnitude">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Equality(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Inequality(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.ToString">
-            <summary>
-            Returns a nicely formatted string for this vector.
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.ToString(System.String)">
-            <summary>
-            Returns a nicely formatted string for this vector.
-            </summary>
-            <param name="format">The format for each coordinate.</param>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Scale(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="a"></param>
-            <param name="b"></param>
-            <returns></returns>
-        </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Angle(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
-            <summary>
-            
-            </summary>
-            <param name="from"></param>
-            <param name="to"></param>
-            <returns></returns>
+        <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Z">
+            <summary> Z </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Zero">
-            <summary>
-            Shorthand for writing Point(0, 0, 0).
-            </summary>
+            <summary> Shorthand for writing Point(0, 0, 0). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVectorD3.One">
-            <summary>
-            Shorthand for writing Point(1, 1, 1).
-            </summary>
+            <summary> Shorthand for writing Point(1, 1, 1). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Forward">
-            <summary>
-            Shorthand for writing Point(0, 0, 1).
-            </summary>
+            <summary> Shorthand for writing Point(0, 0, 1). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Back">
-            <summary>
-            Shorthand for writing Point(0, 0, -1).
-            </summary>
+            <summary> Shorthand for writing Point(0, 0, -1). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Up">
-            <summary>
-            Shorthand for writing Point(0, 1, 0).
-            </summary>
+            <summary> Shorthand for writing Point(0, 1, 0). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Down">
-            <summary>
-            Shorthand for writing Point(0, -1, 0).
-            </summary>
+            <summary> Shorthand for writing Point(0, -1, 0). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Left">
-            <summary>
-            Shorthand for writing Point(-1, 0, 0).
-            </summary>
+            <summary> Shorthand for writing Point(-1, 0, 0). </summary>
         </member>
         <member name="F:GalaxyCoreCommon.GalaxyVectorD3.Right">
-            <summary>
-            Shorthand for writing Point(1, 0, 0).
-            </summary>
+            <summary> Shorthand for writing Point(1, 0, 0). </summary>
         </member>
-        <member name="T:GalaxyCoreCommon.MathExtensions">
-            <summary>
-            
-            </summary>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.#ctor(System.Double,System.Double,System.Double)">
+            <summary> Base constructor </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.MathExtensions.Inverse(System.Single)">
+        <member name="P:GalaxyCoreCommon.GalaxyVectorD3.Item(System.Int32)">
+            <returns> 0 for X, 1 for Y, 2 for Z </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Equals(System.Object)">
+            <returns> True if other object is GalaxyVector3 and is equal to this one </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Equals(GalaxyCoreCommon.GalaxyVectorD3@)">
+            <returns> True if X, Y and Z are equal to other's </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.GetHashCode">
+            <returns> HashCode </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.ToString">
+            <summary> Returns a nicely formatted string for this vector. </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.ToString(System.String)">
+            <summary> Returns a nicely formatted string for this vector. </summary>
+            <param name="format"> The format for each coordinate. </param>
+        </member>
+        <member name="P:GalaxyCoreCommon.GalaxyVectorD3.SqrMagnitude">
+            <summary> Squared length </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.IsZero">
+            <returns> True if X, Y and Z are zero </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Summ">
+            <returns> X + Y + Z </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Length">
+            <returns> Magnitude of the vector </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.LengthSquared">
+            <returns> Squared magnitude of the vector </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Normalize">
+            <returns> Normalized vector with the same direction and magnitude of 1 </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Distance(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <returns> Distance between points </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Cross(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <returns> Cross product of two vectors </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Cross(GalaxyCoreCommon.GalaxyVectorD3@)">
+            <param name="vector2"> second vector </param>
+            <returns> Cross product of two vectors</returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Dot(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <returns> Dot product of two vectors </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Dot(GalaxyCoreCommon.GalaxyVectorD3@)">
+            <param name="other"> Second vector </param>
+            <returns> Dot product of two vectors </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Min(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <returns> New Vector with X=Min(a.X, b.X); Y=Min(a.Y, b.Y); Z=Min(a.Z, b.Z) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Max(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <returns> New Vector with X=Max(a.X, b.X); Y=Max(a.Y, b.Y); Z=Max(a.Z, b.Z) </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Move(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@,System.Single,System.Single)">
+            <returns> New point that moves from point a into direction of point b with given speed and delta </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Angle(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <returns> Angle in degrees between two vectors </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.SignedAngle(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <returns> Minimal signed angle between two vectors on plane defined by axis </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Lerp(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@,System.Single)">
             <summary>
-            
+            Linear vector interpolation
             </summary>
-            <param name="x"></param>
-            <returns></returns>
+            <param name="a">start</param>
+            <param name="b">end</param>
+            <param name="t">delta</param>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Slerp(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@,System.Single)">
+            <summary>
+            Spherical vector interpolation
+            </summary>
+            <param name="a">start</param>
+            <param name="b">end</param>
+            <param name="t">delta</param>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Project(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <summary> Projects vector onto normal </summary>
+            <returns> Vector that is colinear with onNormal but have different length </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Project(GalaxyCoreCommon.GalaxyVectorD3@)">
+            <summary> Projects vector onto normal </summary>
+            <returns> Vector that is colinear with onNormal but have different length </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.ProjectOnPlane(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <summary> Projects vector onto plane defined by it's normal </summary>
+            <returns> Vector projected onto given plane </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.ProjectOnPlane(GalaxyCoreCommon.GalaxyVectorD3@)">
+            <summary> Projects vector onto plane defined by it's normal </summary>
+            <returns> Vector projected onto given plane </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.Scale(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <returns> New vector where each vector axis is multiplied by other vector axis </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_UnaryNegation(GalaxyCoreCommon.GalaxyVectorD3@)">
+            <returns> Inverted vector </returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Equality(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary> == </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Inequality(GalaxyCoreCommon.GalaxyVectorD3,GalaxyCoreCommon.GalaxyVectorD3)">
+            <summary> != </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Addition(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <summary> + </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Subtraction(GalaxyCoreCommon.GalaxyVectorD3@,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <summary> - </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Multiply(GalaxyCoreCommon.GalaxyVectorD3@,System.Single)">
+            <summary> * </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Multiply(GalaxyCoreCommon.GalaxyVectorD3@,System.Double)">
+            <summary> * </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Multiply(System.Single,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <summary> * </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Multiply(System.Double,GalaxyCoreCommon.GalaxyVectorD3@)">
+            <summary> * </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Division(GalaxyCoreCommon.GalaxyVectorD3@,System.Single)">
+            <summary> / </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Division(GalaxyCoreCommon.GalaxyVectorD3@,System.Double)">
+            <summary> / </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVectorD3.op_Implicit(GalaxyCoreCommon.GalaxyVector3@)~GalaxyCoreCommon.GalaxyVectorD3">
+            <returns> Converted vector </returns>
         </member>
         <member name="T:GalaxyCoreCommon.GalaxyVar">
             <summary>
@@ -2664,19 +2513,19 @@
             BoundingBox type AABB
             </summary>
         </member>
-        <member name="P:GalaxyCoreCommon.BoundingBox.Center">
+        <member name="F:GalaxyCoreCommon.BoundingBox.Center">
             <summary>
             Get Center
             </summary>
         </member>
-        <member name="P:GalaxyCoreCommon.BoundingBox.Extents">
+        <member name="F:GalaxyCoreCommon.BoundingBox.Extents">
             <summary>
             Gets or sets the extents of the bounding box. This is always half of the <see cref="P:GalaxyCoreCommon.BoundingBox.Size"/>.
             </summary>
         </member>
         <member name="P:GalaxyCoreCommon.BoundingBox.Size">
             <summary>
-            Gets or sets the size of the bounding box. This is always twice as large as the <see cref="P:GalaxyCoreCommon.BoundingBox.Extents"/>.
+            Gets or sets the size of the bounding box. This is always twice as large as the <see cref="F:GalaxyCoreCommon.BoundingBox.Extents"/>.
             </summary>
         </member>
         <member name="P:GalaxyCoreCommon.BoundingBox.Min">
@@ -2733,33 +2582,52 @@
             </summary>
             <param name="amount">The expansions for each dimension in order.</param>
         </member>
-        <member name="M:GalaxyCoreCommon.BoundingBox.Contains(GalaxyCoreCommon.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.BoundingBox.Contains(GalaxyCoreCommon.GalaxyVector3@)">
             <summary>
             Determines whether the box contains the point.
             </summary>
             <param name="point">The point to test.</param>
             <returns><c>true</c> if the box contains the point; otherwise, <c>false</c>.</returns>
         </member>
-        <member name="M:GalaxyCoreCommon.BoundingBox.Intersects(GalaxyCoreCommon.BoundingBox)">
+        <member name="M:GalaxyCoreCommon.BoundingBox.Contains(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyQuaternion@)">
+            <summary>
+                Determines whether the box contains the point. <para/>
+                Note: a bit more calculation-heavy than Contains without rotation parameter
+            </summary>
+            <param name="point">The point to test.</param>
+            <param name="boxRotation"> Rotation of the box </param>
+            <returns><c>true</c> if the box contains the point; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BoundingBox.Intersects(GalaxyCoreCommon.BoundingBox@)">
             <summary>
             Determines whether the bounding box intersects with another box.
             </summary>
             <param name="box">The box to test.</param>
             <returns><c>true</c> if the bounding box intersects with another box, <c>false</c> otherwise.</returns>
         </member>
-        <member name="M:GalaxyCoreCommon.BoundingBox.IntersectRay(GalaxyCoreCommon.Octree.Ray)">
+        <member name="M:GalaxyCoreCommon.BoundingBox.IntersectRay(GalaxyCoreCommon.Octree.Ray@)">
             <summary>
             Determines whether the bounding box intersects with a ray.
             </summary>
             <param name="ray">The ray to test.</param>
             <returns><c>true</c> if the box intersects with the ray, <c>false</c> otherwise.</returns>
         </member>
-        <member name="M:GalaxyCoreCommon.BoundingBox.IntersectRay(GalaxyCoreCommon.Octree.Ray,System.Single@)">
+        <member name="M:GalaxyCoreCommon.BoundingBox.IntersectRay(GalaxyCoreCommon.Octree.Ray@,System.Single@)">
             <summary>
             Determines whether the bounding box intersects with a ray.
             </summary>
             <param name="ray">The ray to test.</param>
             <param name="distance">The calculated distance from the origin of the ray to the box along the ray.</param>
+            <returns><c>true</c> if the box intersects with the ray, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.BoundingBox.IntersectRay(GalaxyCoreCommon.Octree.Ray@,System.Single@,GalaxyCoreCommon.GalaxyQuaternion@)">
+            <summary>
+                Determines whether the bounding box intersects with a ray. <para/>
+                Note: a bit more calculation-heavy than IntersectRay without rotation parameter
+            </summary>
+            <param name="ray">The ray to test.</param>
+            <param name="distance">The calculated distance from the origin of the ray to the box along the ray.</param>
+            <param name="boxRotation"> Rotation of the box </param>
             <returns><c>true</c> if the box intersects with the ray, <c>false</c> otherwise.</returns>
         </member>
         <member name="M:GalaxyCoreCommon.BoundingBox.GetHashCode">
@@ -2786,14 +2654,14 @@
             </summary>
             <param name="format">The format for the center and the extent.</param>
         </member>
-        <member name="M:GalaxyCoreCommon.BoundingBox.op_Equality(GalaxyCoreCommon.BoundingBox,GalaxyCoreCommon.BoundingBox)">
+        <member name="M:GalaxyCoreCommon.BoundingBox.op_Equality(GalaxyCoreCommon.BoundingBox@,GalaxyCoreCommon.BoundingBox@)">
             <summary>
             Determines whether two bounding boxes are equal.
             </summary>
             <param name="lhs">The first box.</param>
             <param name="rhs">The second box.</param>
         </member>
-        <member name="M:GalaxyCoreCommon.BoundingBox.op_Inequality(GalaxyCoreCommon.BoundingBox,GalaxyCoreCommon.BoundingBox)">
+        <member name="M:GalaxyCoreCommon.BoundingBox.op_Inequality(GalaxyCoreCommon.BoundingBox@,GalaxyCoreCommon.BoundingBox@)">
             <summary>
             Determines whether two bounding boxes are different.
             </summary>
@@ -3121,7 +2989,7 @@
             </summary>
             <returns>True if this node or any of its children, grandchildren etc have something in them</returns>
         </member>
-        <member name="M:GalaxyCoreCommon.Octree.PointOctree`1.Node.SqrDistanceToRay(GalaxyCoreCommon.Octree.Ray,GalaxyCoreCommon.GalaxyVector3)">
+        <member name="M:GalaxyCoreCommon.Octree.PointOctree`1.Node.SqrDistanceToRay(GalaxyCoreCommon.Octree.Ray@,GalaxyCoreCommon.GalaxyVector3@)">
             <summary>
             Returns the squared distance to the given ray from a point.
             </summary>

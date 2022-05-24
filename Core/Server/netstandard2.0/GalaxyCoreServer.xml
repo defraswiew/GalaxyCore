@@ -1167,7 +1167,7 @@
             <param name="data"></param>
             <param name="baseClientSender">message sender</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Sending a message to all instances of a given object
             </summary>
@@ -1183,7 +1183,7 @@
             <param name="data"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Send a message to all instances of this object except for the specified client
             </summary>
@@ -1209,7 +1209,7 @@
             <param name="data"></param>
             <param name="deliveryType"></param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Send a message to all users who see this entity
             </summary>

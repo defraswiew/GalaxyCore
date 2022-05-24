@@ -26,7 +26,7 @@
             Network statistics
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Connection.Connect(GalaxyCoreCommon.BaseMessage)">
+        <member name="M:GalaxyCoreLib.Api.Connection.Connect(GalaxyCoreCommon.INetworkSerrializeble)">
             <summary>
             Connect to server
             </summary>
@@ -38,7 +38,7 @@
             </summary>
             <param name="message">package with authorization data</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Connection.Registration(GalaxyCoreCommon.BaseMessage)">
+        <member name="M:GalaxyCoreLib.Api.Connection.Registration(GalaxyCoreCommon.INetworkSerrializeble)">
             <summary>
             Sending a registration request
             </summary>
@@ -60,6 +60,13 @@
             Incoming chat message
             Входящее сообщение в чате
             </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.Api.GalaxyChat.SendToClient(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="clientID"></param>
+            <param name="text"></param>
         </member>
         <member name="T:GalaxyCoreLib.Api.GalaxyEvents">
             <summary>
@@ -238,7 +245,7 @@
             <param name="password">пароль на вход в инстанс(если нужен)</param>
             <param name="data">пользовательские данные</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Instances.EnterToInstance(System.Int32,GalaxyCoreCommon.BaseMessage,System.String)">
+        <member name="M:GalaxyCoreLib.Api.Instances.EnterToInstance(System.Int32,GalaxyCoreCommon.INetworkSerrializeble,System.String)">
             <summary>
             Instance login request
             Запрос на вход в инстанс
@@ -307,7 +314,7 @@
             <param name="entity">Базовый экземпляр сетевой сущности</param>
             <param name="data">Дополнительные пользовательские данные</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.NetEntityManager.Instantiate(GalaxyCoreLib.NetEntity.ClientNetEntity,GalaxyCoreCommon.BaseMessage)">
+        <member name="M:GalaxyCoreLib.Api.NetEntityManager.Instantiate(GalaxyCoreLib.NetEntity.ClientNetEntity,GalaxyCoreCommon.INetworkSerrializeble)">
             <summary>
             Creating a new network entity
             Создание новой сетевой сущности
@@ -394,7 +401,7 @@
             <param name="deliveryType">Delivery method</param>
             <param name="encrypt">Whether to encrypt the message</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean)">
             <summary>
             Send a message to the server
             </summary>
@@ -411,7 +418,7 @@
             <param name="data">Array of bytes</param>
             <param name="deliveryType">Delivery method</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToInstance(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToInstance(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Send a message to the current instance
             </summary>
@@ -419,7 +426,7 @@
             <param name="message">message (inherited from BaseMessage)</param>
             <param name="deliveryType">Delivery method</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Send message to network object
             </summary>
@@ -939,7 +946,7 @@
             Object deletion request
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendMessage(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Sending a message to all instances of a given object
             </summary>

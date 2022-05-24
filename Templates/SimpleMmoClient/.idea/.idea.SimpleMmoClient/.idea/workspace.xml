@@ -6,31 +6,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1de93c65-72e3-41ad-b67d-f836e8449f37" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/GalaxyCoreServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/GalaxyCoreServer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Resources/Move.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Resources/Move.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIReg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIReg.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/Instances/ExampleRoomMovers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/Instances/ExampleRoomMovers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Server.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/SimpleMmoServer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/SimpleMmoServer.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,35 +36,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatSystem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/TransformSerialization.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/InternalMessages/ChatMessage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatChannel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/GalaxyChat.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/InternalMessages/ChatMessage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/TransformSerialization.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIReg.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUILogin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiRoomItem.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TMP_TREE.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorLocalization.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorMapWindow.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/Editor/GalaxyEditorMapCommon.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/GalaxyMapBakerCore.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Scripts/ExampleNetVars2.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Alpha/Navigation/GalaxyMapBaker.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChat.cs" />
-      <option value="$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/InternalMessages/ChatMessage.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatChannel.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TMP_TestAgent.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TMP_ROT.cs" />
-      <option value="$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/TransformSerialization.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatMessage.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatSystem.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIRoom.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiClietsList.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" />
-      <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/GalaxyNetworkController.cs" />
-    </changedPaths>
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUILogin.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIReg.cs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1kw6fPVya0saS8wMZLyKOT8Y3Yb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -88,13 +69,15 @@
     <property name="XThreadsFramesViewSplitterKey" value="0.5007752" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
+  <component name="RunManager" selected="Unity Executable.Standalone Player">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../00000000000/SimpleMmoClient.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\repos\00000000000" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -118,7 +101,10 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1de93c65-72e3-41ad-b67d-f836e8449f37" name="Default Changelist" comment="" />
@@ -183,11 +169,12 @@
       <workItem from="1635177023717" duration="1196000" />
       <workItem from="1635236082136" duration="2102000" />
       <workItem from="1635692117037" duration="1483000" />
+      <workItem from="1651401320988" duration="1523000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />

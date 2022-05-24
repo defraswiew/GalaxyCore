@@ -79,6 +79,7 @@ namespace GalaxyCoreLib
             messageAuth.Password = password.text;
             status.text = "Региструемся";
             // отправляем запрос регистрации на сервер
+         
             GalaxyApi.Connection.Registration(messageAuth.Serialize());
             progress.SetActive(true);
         }

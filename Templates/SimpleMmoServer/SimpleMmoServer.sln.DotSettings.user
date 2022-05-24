@@ -1,0 +1,10 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005CGalaxyCoreCommon_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005CGalaxyCoreCommon_002Epdb/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005CGalaxyCoreCommon_002Exml/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005CGalaxyCoreServer_002Edeps_002Ejson/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005CGalaxyCoreServer_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005CGalaxyCoreServer_002Epdb/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005CGalaxyCoreServer_002Exml/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005Cprotobuf_002Dnet_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005Cprotobuf_002Dnet_002Exml/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

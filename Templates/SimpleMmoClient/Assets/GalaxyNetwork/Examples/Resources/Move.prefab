@@ -156,5 +156,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SendMyPosition: 0
   SendMyRotation: 0
-  Interpolation: 2
+  Interpolation: 1
   TeleportDistance: 20

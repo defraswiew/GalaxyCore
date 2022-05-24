@@ -80,6 +80,7 @@ namespace SimpleMmoServer
             // enable auto control of the message sending buffer
             // включаем авто управление буфером отправки сообщений
             _config.AutoFlushSend = true;
+          
             _config.NetFrameRate = 20;
             _config.DebugMode = true;
             // We start the server
