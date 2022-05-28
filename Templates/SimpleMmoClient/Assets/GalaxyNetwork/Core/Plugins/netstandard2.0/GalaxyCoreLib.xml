@@ -4,58 +4,55 @@
         <name>GalaxyCoreLib</name>
     </assembly>
     <members>
-        <member name="T:GalaxyCoreLib.GalaxyApi">
+        <member name="T:GalaxyCoreLib.Api.Connection">
             <summary>
-            Available api
-            Доступное апи
+            Api related to network connection
+            Api связанное с сетевым подключением
             </summary>
         </member>
-        <member name="P:GalaxyCoreLib.GalaxyApi.MyId">
+        <member name="F:GalaxyCoreLib.Api.Connection.IsConnected">
             <summary>
-            Client ID(the one specified in approvalConnection.Approve)
-            Ид клиента (тот что был указан в approvalConnection.Approve)
+            Is there a connection to the server
+            Установлено ли соеденение с сервером
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.Transport">
+        <member name="F:GalaxyCoreLib.Api.Connection._userDisconnect">
             <summary>
-            Network connection
-            Сетевое соеденение
+            Дисконект произошел по инициативе пользователя
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.Send">
+        <member name="F:GalaxyCoreLib.Api.Connection.Statistic">
             <summary>
-            Sending messages
-            Отправка сообщений
+            Network statistics
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.Instances">
+        <member name="M:GalaxyCoreLib.Api.Connection.Connect(GalaxyCoreCommon.INetworkSerrializeble)">
             <summary>
-            Api related to managing intances(locations, rooms)
-            Api связанное с управлением интансами (локации, комнаты)
+            Connect to server
             </summary>
+            <param name="message">package with authorization data(inherited from BaseMessage)</param>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.NetEntity">
+        <member name="M:GalaxyCoreLib.Api.Connection.Connect(System.Byte[])">
             <summary>
-            Network objects manager
-            Менеджер сетевых объектов
+            Connect to server
             </summary>
+            <param name="message">package with authorization data</param>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.Chat">
+        <member name="M:GalaxyCoreLib.Api.Connection.Registration(GalaxyCoreCommon.INetworkSerrializeble)">
             <summary>
-            Working with chat
-            Работа с чатом
+            Sending a registration request
             </summary>
+            <param name="message"> </param>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyApi.lerpDelta">
+        <member name="M:GalaxyCoreLib.Api.Connection.Registration(System.Byte[])">
             <summary>
-            Calculated delta for interpolation
-            Расчетная дельта для интерполяции
+            Sending a registration request
             </summary>
+            <param name="message"> </param>
         </member>
-        <member name="P:GalaxyCoreLib.GalaxyApi.isHost">
+        <member name="M:GalaxyCoreLib.Api.Connection.Disconnect">
             <summary>
-            Whether the client is a host for non-authoritarian logic
-            Является ли клиент хостом для не авторитарной логики
+            Disconnect from server
             </summary>
         </member>
         <member name="E:GalaxyCoreLib.Api.GalaxyChat.OnChatMessage">
@@ -462,55 +459,58 @@
             Пинг
             </summary>
         </member>
-        <member name="T:GalaxyCoreLib.Api.TransportConnection">
+        <member name="T:GalaxyCoreLib.GalaxyApi">
             <summary>
-            Api related to network connection
-            Api связанное с сетевым подключением
+            Available api
+            Доступное апи
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.TransportConnection.IsConnected">
+        <member name="P:GalaxyCoreLib.GalaxyApi.MyId">
             <summary>
-            Is there a connection to the server
-            Установлено ли соеденение с сервером
+            Client ID(the one specified in approvalConnection.Approve)
+            Ид клиента (тот что был указан в approvalConnection.Approve)
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.TransportConnection._userDisconnect">
+        <member name="F:GalaxyCoreLib.GalaxyApi.Connection">
             <summary>
-            Дисконект произошел по инициативе пользователя
+            Network connection
+            Сетевое соеденение
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.Api.TransportConnection.Statistic">
+        <member name="F:GalaxyCoreLib.GalaxyApi.Send">
             <summary>
-            Network statistics
+            Sending messages
+            Отправка сообщений
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.Api.TransportConnection.Connect(GalaxyCoreCommon.INetworkSerrializeble)">
+        <member name="F:GalaxyCoreLib.GalaxyApi.Instances">
             <summary>
-            Connect to server
+            Api related to managing intances(locations, rooms)
+            Api связанное с управлением интансами (локации, комнаты)
             </summary>
-            <param name="message">package with authorization data(inherited from BaseMessage)</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.TransportConnection.Connect(System.Byte[])">
+        <member name="F:GalaxyCoreLib.GalaxyApi.NetEntity">
             <summary>
-            Connect to server
+            Network objects manager
+            Менеджер сетевых объектов
             </summary>
-            <param name="message">package with authorization data</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.TransportConnection.Registration(GalaxyCoreCommon.INetworkSerrializeble)">
+        <member name="F:GalaxyCoreLib.GalaxyApi.Chat">
             <summary>
-            Sending a registration request
+            Working with chat
+            Работа с чатом
             </summary>
-            <param name="message"> </param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.TransportConnection.Registration(System.Byte[])">
+        <member name="F:GalaxyCoreLib.GalaxyApi.lerpDelta">
             <summary>
-            Sending a registration request
+            Calculated delta for interpolation
+            Расчетная дельта для интерполяции
             </summary>
-            <param name="message"> </param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.TransportConnection.Disconnect">
+        <member name="P:GalaxyCoreLib.GalaxyApi.isHost">
             <summary>
-            Disconnect from server
+            Whether the client is a host for non-authoritarian logic
+            Является ли клиент хостом для не авторитарной логики
             </summary>
         </member>
         <member name="T:GalaxyCoreLib.Config">
@@ -747,38 +747,60 @@
             </summary>
             <param name="owner">new owner</param>
         </member>
-        <member name="T:GalaxyCoreLib.GalaxyConnection">
+        <member name="T:GalaxyCoreLib.GalaxyClientCore">
             <summary>
-            Base connection class
+            The main client-side kernel class
+            Основной класс ядра клиентской части
             </summary>
         </member>
-        <member name="F:GalaxyCoreLib.GalaxyConnection.EngineCalls">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.EngineCalls">
             <summary>
             call forwarding
+            Проброска вызовов
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.GalaxyConnection.Connect(System.Byte[])">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.Config">
             <summary>
-            Connect To server
+            Client configuration
+            Конфигурация клиента
             </summary>
-            <param name="message"></param>
         </member>
-        <member name="M:GalaxyCoreLib.GalaxyConnection.Connect(GalaxyCoreCommon.INetworkSerrializeble)">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.NetworkCore">
             <summary>
-            Connect To server
+            Network core
+            Сетевое ядро
             </summary>
-            <param name="message"></param>
         </member>
-        <member name="M:GalaxyCoreLib.GalaxyConnection.Registration(System.Byte[])">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.Api">
             <summary>
-            Sending a registration request
+            Network engine api
+            Api сетевого движка
             </summary>
-            <param name="message"> </param>
         </member>
-        <member name="M:GalaxyCoreLib.GalaxyConnection.Disconnect">
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.Init">
             <summary>
-            Disconnect from server
+            Is the kernel initialized
+            Инициализированно ли ядро
             </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.paused">
+            <summary>
+            Pause transmission of messages to external code
+            Пауза передачи сообщений внешнему коду
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.GalaxyClientCore.Version">
+            <summary>
+            Kernel version
+            Версия ядра
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.GalaxyClientCore.Initialize(GalaxyCoreLib.Config)">
+            <summary>
+            Network core initialization
+            Инициализация сетевого ядра
+            </summary>
+            <param name="config">Client configuration</param>
         </member>
         <member name="M:GalaxyCoreLib.NetEntity.AnimatorSync.#ctor(GalaxyCoreLib.NetEntity.ClientNetEntity,System.Byte,GalaxyCoreLib.NetEntity.IAnimatorSync)">
             <summary>
@@ -889,7 +911,7 @@
             Synchronizing Variables
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.#ctor(GalaxyCoreLib.GalaxyConnection)">
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.#ctor">
             <summary>
             
             </summary>
