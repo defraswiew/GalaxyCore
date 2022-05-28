@@ -1,7 +1,7 @@
 ﻿using GalaxyCoreCommon;
-using GalaxyCoreLib.Api;
 using System.Collections.Generic;
 using System.Linq;
+using GalaxyNetwork.Core.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -64,16 +64,18 @@ namespace GalaxyCoreLib
         /// </summary>
         private List<GameObject> items = new List<GameObject>();      
         private bool visible = true;
+        private GalaxyConnection _connection;
         void OnEnable()
         {
+            _connection = GalaxyNetworkController.Api.MainConnection;
             // событие успешного подключения
-            GalaxyEvents.OnGalaxyConnect += OnGalaxyConnect;
+            _connection.Events.OnGalaxyConnect += OnGalaxyConnect;
             // сервер прислал новый список инстансов
-            GalaxyEvents.OnGalaxyInstancesList += OnGalaxyInstancesList;
+            _connection.Events.OnGalaxyInstancesList += OnGalaxyInstancesList;
             // мы вошли в инстанс
-            GalaxyEvents.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
+            _connection.Events.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
             // мы вышли из инстанса
-            GalaxyEvents.OnExitInstance += OnExitInstance;
+            _connection.Events.OnExitInstance += OnExitInstance;
            
         }
 
@@ -81,15 +83,15 @@ namespace GalaxyCoreLib
         {
             Debug.Log("OnSceneLoaded");         
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            GalaxyApi.Instances.SyncInstance();
+            _connection.Api.Instances.SyncInstance();
         }
       
         void OnDisable()
         {
-            GalaxyEvents.OnGalaxyConnect -= OnGalaxyConnect;
-            GalaxyEvents.OnGalaxyInstancesList -= OnGalaxyInstancesList;
-            GalaxyEvents.OnGalaxyEnterInInstance -= OnGalaxyEnterInInstance;
-            GalaxyEvents.OnExitInstance -= OnExitInstance;
+            _connection.Events.OnGalaxyConnect -= OnGalaxyConnect;
+            _connection.Events.OnGalaxyInstancesList -= OnGalaxyInstancesList;
+            _connection.Events.OnGalaxyEnterInInstance -= OnGalaxyEnterInInstance;
+            _connection.Events.OnExitInstance -= OnExitInstance;
           
         }
         /// <summary>
@@ -125,7 +127,7 @@ namespace GalaxyCoreLib
             GalaxyInstanceInfoScriptable target = instancesInfo.FirstOrDefault(x => x.type == info.Type);
             if (target == null)
             {
-                GalaxyApi.Instances.SyncInstance();
+                _connection.Api.Instances.SyncInstance();
             } else
             {
                 if (target.sceneName != "")
@@ -134,7 +136,7 @@ namespace GalaxyCoreLib
                     SceneManager.sceneLoaded += OnSceneLoaded;                
                 } else
                 {
-                    GalaxyApi.Instances.SyncInstance();
+                    _connection.Api.Instances.SyncInstance();
                 }
                
             }
@@ -166,7 +168,7 @@ namespace GalaxyCoreLib
         public void Create(string name, int count, string password)
         {
             //пример создания инстанса с возможностью задать пароль, видимость, и тип
-            GalaxyApi.Instances.Create(name, count,currentInfo.type, password,visible);
+            _connection.Api.Instances.Create(name, count,currentInfo.type, password,visible);
         }
         /// <summary>
         /// Устанавливаем из UI видимая комната или нет
@@ -192,7 +194,7 @@ namespace GalaxyCoreLib
         /// </summary>
         public void GetRoomList()
         {
-            GalaxyApi.Instances.InstanceList();
+            _connection.Api.Instances.InstanceList();
             
         }
         /// <summary>
@@ -200,7 +202,7 @@ namespace GalaxyCoreLib
         /// </summary>
         public void ExitInstance()
         {
-            GalaxyApi.Instances.ExitInstance();
+            _connection.Api.Instances.ExitInstance();
             Clear();
             GetRoomList();
         }
@@ -209,7 +211,7 @@ namespace GalaxyCoreLib
         {
             roomList.SetActive(true);
             GetRoomList();
-            if (GalaxyApi.Instances.Current == null)
+            if (_connection.Api.Instances.Current == null)
             {
                 exitBtn.SetActive(false);
                 createBtn.SetActive(true);

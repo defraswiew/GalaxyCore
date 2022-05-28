@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using GalaxyCoreCommon;
 using GalaxyCoreCommon.InternalMessages;
@@ -6,7 +7,6 @@ using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using UnityEngine;
 using UnityEngine.UI;
-
 
 namespace GalaxyNetwork.Core.Scripts.UI
 {
@@ -26,16 +26,34 @@ namespace GalaxyNetwork.Core.Scripts.UI
         private readonly List<GalaxyUIChatChannel> _channels = new List<GalaxyUIChatChannel>();
         private GalaxyUIChatChannelModel _currentChanel;
         private readonly Queue<GalaxyUIChatMessage> _messages = new Queue<GalaxyUIChatMessage>();
+        private GalaxyConnection _connection;
 
-
-        private void OnEnable()
+        private void OnEnableInit()
         {
+            _connection = GalaxyNetworkController.Api.MainConnection;
             // событие входящего сообщения чата
-            GalaxyApi.Chat.OnChatMessage += OnChatMessage;
+            _connection.Api.Chat.OnChatMessage += OnChatMessage;
             // событие успешного подключения
-            GalaxyEvents.OnGalaxyConnect += OnGalaxyConnect;
+            _connection.Events.OnGalaxyConnect += OnGalaxyConnect;
             _submit.onClick.AddListener(OnSubmit);
             _close.onClick.AddListener(OnClose);
+        }
+        
+        private void OnEnable()
+        {
+            StartCoroutine(Enabled());
+        }
+      
+        private IEnumerator Enabled()
+        {
+            while (true)
+            {
+                yield return null;   
+                if(GalaxyNetworkController.Api == null)
+                    continue;
+                OnEnableInit();
+                break;
+            }
         }
 
         private void OnClose()
@@ -45,8 +63,8 @@ namespace GalaxyNetwork.Core.Scripts.UI
 
         private void OnDisable()
         {
-            GalaxyApi.Chat.OnChatMessage -= OnChatMessage;
-            GalaxyEvents.OnGalaxyConnect -= OnGalaxyConnect;
+            _connection.Api.Chat.OnChatMessage -= OnChatMessage;
+            _connection.Events.OnGalaxyConnect -= OnGalaxyConnect;
             _submit.onClick.RemoveListener(OnSubmit);
             _close.onClick.RemoveListener(OnClose);
         }
@@ -63,7 +81,7 @@ namespace GalaxyNetwork.Core.Scripts.UI
                 ChannelType = _currentChanel.ChatChannelType
             };
             _field.text = "";
-            GalaxyApi.Chat.Send(message);
+            _connection.Api.Chat.Send(message);
         }
 
         private void OnGalaxyConnect(byte[] message)
@@ -151,10 +169,10 @@ namespace GalaxyNetwork.Core.Scripts.UI
                 {
                     if (message.ChannelInfo != null)
                     {
-                        model.Opponent = message.ChannelInfo.PrivateMembersIds[0] != GalaxyApi.MyId
+                        model.Opponent = message.ChannelInfo.PrivateMembersIds[0] != _connection.Api.MyId
                             ? message.ChannelInfo.PrivateMembersIds[0]
                             : message.ChannelInfo.PrivateMembersIds[1];
-                        model.Name = message.ChannelInfo.PrivateMembersIds[0] != GalaxyApi.MyId
+                        model.Name = message.ChannelInfo.PrivateMembersIds[0] != _connection.Api.MyId
                             ? message.ChannelInfo.PrivateMembers[0]
                             : message.ChannelInfo.PrivateMembers[1];
                     }
@@ -189,7 +207,7 @@ namespace GalaxyNetwork.Core.Scripts.UI
 
         private void OnClickMessage(ChatMessage message)
         {
-            if (GalaxyApi.MyId == message.Sender) return;
+            if (_connection.Api.MyId == message.Sender) return;
             var channel = _channels.FirstOrDefault(x => x.Model.Opponent == message.Sender);
             if (channel != null) return;
             var addChannel = new ChatMessage
@@ -198,7 +216,7 @@ namespace GalaxyNetwork.Core.Scripts.UI
                 Recipient = message.Sender
             };
 
-            GalaxyApi.Chat.Send(addChannel);
+            _connection.Api.Chat.Send(addChannel);
         }
 
         private void RemoveChannel(int channelId)

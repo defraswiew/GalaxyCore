@@ -1,6 +1,8 @@
 ﻿using GalaxyCoreLib.Api;
 using System.Collections;
 using System.Collections.Generic;
+using GalaxyCoreLib;
+using GalaxyNetwork.Core.Scripts;
 using UnityEngine;
 
 public class TPM_Spawn : MonoBehaviour
@@ -8,9 +10,11 @@ public class TPM_Spawn : MonoBehaviour
     public GameObject test;
     public int max = 10;
     private int count;
+    private GalaxyConnection _connection;
     void Start()
     {
-        GalaxyEvents.OnGalaxyEnterInInstance += GalaxyEvents_OnGalaxyEnterInInstance;
+        _connection = GalaxyNetworkController.Api.MainConnection;
+        _connection.Events.OnGalaxyEnterInInstance += GalaxyEvents_OnGalaxyEnterInInstance;
     
     }
 

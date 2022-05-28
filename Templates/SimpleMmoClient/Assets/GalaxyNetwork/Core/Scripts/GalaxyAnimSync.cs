@@ -42,10 +42,12 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
     /// Целевые флоты
     /// </summary>
     private float[] floatsTarget;
+    private GalaxyConnection _connection;
     void Start()
     {
         animator = GetComponent<Animator>();
         netEntity = GetComponent<UnityNetEntity>().NetEntity;
+        _connection = netEntity.Connection;
         count = animator.parameterCount;
         types = new FastType[count];
         animatorSync = new AnimatorSync(netEntity, (byte)count, this);
@@ -78,11 +80,11 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
 
     void OnEnable()
     {
-        GalaxyEvents.OnFrameUpdate += OnFrameUpdate;
+        _connection.Events.OnFrameUpdate += OnFrameUpdate;
     }
     void OnDisable()
     {
-        GalaxyEvents.OnFrameUpdate -= OnFrameUpdate;
+        _connection.Events.OnFrameUpdate -= OnFrameUpdate;
     }
     private void OnFrameUpdate()
     {
@@ -136,7 +138,7 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
         {
             if (types[i] == FastType._float)
             {
-                floatsLearp[i] = Mathf.Lerp(floatsLearp[i], floatsTarget[i], GalaxyApi.lerpDelta);
+                floatsLearp[i] = Mathf.Lerp(floatsLearp[i], floatsTarget[i], _connection.Api.lerpDelta);
                 animator.SetFloat(names[i], floatsLearp[i]);
             }
         }

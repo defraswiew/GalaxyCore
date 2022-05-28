@@ -1,4 +1,5 @@
 ﻿using GalaxyCoreLib;
+using GalaxyNetwork.Core.Scripts;
 using SimpleMmoCommon.Messages;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,8 +40,11 @@ namespace GalaxyCoreLib
         [SerializeField]
         public GameObject progress;
 
+        private GalaxyConnection _connection;
+
         void Start()
         {
+            _connection = GalaxyNetworkController.Api.MainConnection;
             if (active) status.text = "";
         }
         /// <summary>
@@ -53,7 +57,7 @@ namespace GalaxyCoreLib
                 status.text = "Регистрация отключена";
                 return;
             }
-            if (GalaxyApi.Connection.IsConnected)
+            if (_connection.Api.Transport.IsConnected)
             {
                 status.text = "Подключение активно";
                 return;
@@ -80,7 +84,7 @@ namespace GalaxyCoreLib
             status.text = "Региструемся";
             // отправляем запрос регистрации на сервер
          
-            GalaxyApi.Connection.Registration(messageAuth.Serialize());
+            _connection.Registration(messageAuth.Serialize());
             progress.SetActive(true);
         }
 

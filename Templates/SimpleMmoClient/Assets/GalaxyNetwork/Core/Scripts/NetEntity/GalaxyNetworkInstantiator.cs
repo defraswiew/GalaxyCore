@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using GalaxyCoreLib.NetEntity;
 using UnityEngine;
@@ -11,10 +12,12 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
     public class GalaxyNetworkInstantiator : MonoBehaviour
     {
         private readonly Dictionary<string, UnityNetEntity> _entityPrefabs = new Dictionary<string, UnityNetEntity>();
+        private GalaxyConnection _connection;
 
         private void OnEnable()
         {
-            GalaxyEvents.OnGalaxyNetEntityInstantiate += OnGalaxyNetEntityInstantiate;
+            _connection = GalaxyNetworkController.Api.MainConnection;
+            _connection.Events.OnGalaxyNetEntityInstantiate += OnGalaxyNetEntityInstantiate;
             foreach (var item in Resources.LoadAll<UnityNetEntity>(""))
             {
                 _entityPrefabs.Add(item.name, item);
@@ -26,7 +29,7 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         private void OnDisable()
         {
             // отписываемся от события создания новых сущностей
-            GalaxyEvents.OnGalaxyNetEntityInstantiate -= OnGalaxyNetEntityInstantiate;
+            _connection.Events.OnGalaxyNetEntityInstantiate -= OnGalaxyNetEntityInstantiate;
         }
 
         private ClientNetEntity OnGalaxyNetEntityInstantiate(ClientNetEntity netEntity)
