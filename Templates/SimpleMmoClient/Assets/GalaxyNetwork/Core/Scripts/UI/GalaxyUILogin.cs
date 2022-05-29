@@ -1,5 +1,6 @@
-﻿using GalaxyCoreCommon;
-using GalaxyCoreLib.Api;
+﻿using System.Collections;
+using GalaxyCoreCommon;
+using GalaxyNetwork.Core.Scripts;
 using SimpleMmoCommon.Messages;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,13 +50,30 @@ namespace GalaxyCoreLib
         /// </summary>
         private int count = 1;
 
+        private GalaxyConnection _connection;
+
         private void OnEnable()
         {
-            //подписка на событие об ошибках авторизации
-            GalaxyEvents.OnGalaxyApprovalResponse += OnGalaxyApprovalResponse;
-            // событие успешного коннекта      
-            GalaxyEvents.OnGalaxyConnect += OnGalaxyConnect;
-            progress.SetActive(false);
+            StartCoroutine(Enabled());
+        }
+      
+        private IEnumerator Enabled()
+        {
+            while (true)
+            {
+                yield return null;   
+                if(GalaxyNetworkController.Api == null)
+                    continue;
+                
+                _connection = GalaxyNetworkController.Api.MainConnection;
+                //подписка на событие об ошибках авторизации
+                _connection.Events.OnGalaxyApprovalResponse += OnGalaxyApprovalResponse;
+                // событие успешного коннекта      
+                _connection.Events.OnGalaxyConnect += OnGalaxyConnect;
+                progress.SetActive(false);
+                break;
+            }
+            
         }
 
         private void OnGalaxyConnect(byte[] message)
@@ -85,8 +103,8 @@ namespace GalaxyCoreLib
         private void OnDisable()
         {
             // отписываемся от всего на что подписались
-            GalaxyEvents.OnGalaxyApprovalResponse -= OnGalaxyApprovalResponse;
-            GalaxyEvents.OnGalaxyConnect -= OnGalaxyConnect;
+            _connection.Events.OnGalaxyApprovalResponse -= OnGalaxyApprovalResponse;
+            _connection.Events.OnGalaxyConnect -= OnGalaxyConnect;
         }
         /// <summary>
         /// Сюда приходит аварийный ответ авторизации, значит что то пошло не так
@@ -122,11 +140,12 @@ namespace GalaxyCoreLib
             messageAuth.Login = login.text;
             messageAuth.Password = password.text;
             // Отправляем сообщение авторизации
-            GalaxyApi.Connection.Connect(messageAuth.Serialize());           
+            _connection.Connect(messageAuth.Serialize());  
+            GalaxyNetworkController.Api.SlaveConnections["test"].Connect(messageAuth.Serialize());
             // запускаем отображение прогресса
             progress.SetActive(true);
             // для информации выводим версию клиента
-            Debug.Log("Client version: " + GalaxyClientCore.Version.ToString());
+            Debug.Log("Client version: " + GalaxyClientCore.Version);
             Invoke("Waiting", 5f);
         }
         public void DropCount()

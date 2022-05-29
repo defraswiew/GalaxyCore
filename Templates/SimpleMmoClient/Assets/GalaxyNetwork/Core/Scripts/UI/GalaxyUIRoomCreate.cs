@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GalaxyNetwork.Core.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ namespace GalaxyCoreLib
         /// Статическая ссылка на самого себя
         /// </summary>
         public static GalaxyUIRoomCreate api;
+        private GalaxyConnection _connection;
         #region UI_Links
         /// <summary>
         /// Поле имени комнаты
@@ -83,6 +85,7 @@ namespace GalaxyCoreLib
         private List<GalaxyUiRoomInfo> items = new List<GalaxyUiRoomInfo>();
         void Awake()
         {
+            _connection = GalaxyNetworkController.Api.MainConnection;
             if (api != null)
             {
                 Debug.LogWarning("Похоже на сцене двое GalaxyUIRoomCreate");
@@ -140,7 +143,7 @@ namespace GalaxyCoreLib
                 status.text = "Короткое имя";
                 return;
             }
-            if (!GalaxyApi.Connection.IsConnected)
+            if (!_connection.Api.Transport.IsConnected)
             {
                 status.text = "Нет подключения к серверу";
                 return;

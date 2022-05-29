@@ -42,15 +42,15 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         private void OnEnable()
         {
             // подписывемся на событие сетевого тика
-            GalaxyEvents.OnFrameUpdate += OnFrameUpdate;
-            GalaxyEvents.OnEngineUpdate += SoftUpdate;
+            _netEntity.Connection.Events.OnFrameUpdate += OnFrameUpdate;
+            _netEntity.Connection.Events.OnEngineUpdate += SoftUpdate;
         }
 
         private void OnDisable()
         {
             // отписываемся от сетевого тика
-            GalaxyEvents.OnFrameUpdate -= OnFrameUpdate;
-            GalaxyEvents.OnEngineUpdate -= SoftUpdate;
+            _netEntity.Connection.Events.OnFrameUpdate -= OnFrameUpdate;
+            _netEntity.Connection.Events.OnEngineUpdate -= SoftUpdate;
         }
 
         private void OnFrameUpdate()

@@ -13,29 +13,30 @@ namespace GalaxyNetwork.Core.Scripts.UI
         [SerializeField]
         public GalaxyUiClientItem pref;
         private readonly Dictionary<int, GalaxyUiClientItem> items = new Dictionary<int, GalaxyUiClientItem>();
-
+        private GalaxyConnection _connection;
         private void OnEnable()
         {
-            GalaxyEvents.OnGalaxyIncomingClient += OnGalaxyIncomingClient;
-            GalaxyEvents.OnGalaxyOutcomingClient += OnGalaxyOutcomingClient;
-            GalaxyEvents.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
-            GalaxyEvents.OnGalaxyClientsUpdate += OnGalaxyClientsUpdate;
+            _connection = GalaxyNetworkController.Api.MainConnection;
+            _connection.Events.OnGalaxyIncomingClient += OnGalaxyIncomingClient;
+            _connection.Events.OnGalaxyOutcomingClient += OnGalaxyOutcomingClient;
+            _connection.Events.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
+            _connection.Events.OnGalaxyClientsUpdate += OnGalaxyClientsUpdate;
 
         }
 
         void OnDisable()
         {
-            GalaxyEvents.OnGalaxyIncomingClient -= OnGalaxyIncomingClient;
-            GalaxyEvents.OnGalaxyOutcomingClient -= OnGalaxyOutcomingClient;
-            GalaxyEvents.OnGalaxyEnterInInstance -= OnGalaxyEnterInInstance;
-            GalaxyEvents.OnGalaxyClientsUpdate -= OnGalaxyClientsUpdate;
+            _connection.Events.OnGalaxyIncomingClient -= OnGalaxyIncomingClient;
+            _connection.Events.OnGalaxyOutcomingClient -= OnGalaxyOutcomingClient;
+            _connection.Events.OnGalaxyEnterInInstance -= OnGalaxyEnterInInstance;
+            _connection.Events.OnGalaxyClientsUpdate -= OnGalaxyClientsUpdate;
         }
 
 
         private void OnGalaxyClientsUpdate()
         {
             Clear();
-            foreach (var item in GalaxyApi.Instances.Clients)
+            foreach (var item in _connection.Api.Instances.Clients)
             {
                 AddClient(item.Value);
             }
@@ -46,7 +47,7 @@ namespace GalaxyNetwork.Core.Scripts.UI
             // чистим окно
             Clear();
             // запрашиваем новый список клиентов
-            GalaxyApi.Instances.ClientsUpdate();
+            _connection.Api.Instances.ClientsUpdate();
         }
         /// <summary>
         /// Очистка окна от старых записей

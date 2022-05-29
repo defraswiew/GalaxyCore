@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GalaxyNetwork.Core.Scripts;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace GalaxyCoreLib
@@ -50,6 +51,8 @@ namespace GalaxyCoreLib
         /// Ид комнаты
         /// </summary>
         private int id;
+        
+        private GalaxyConnection _connection;
 
         /// <summary>
         /// Инициализация строки
@@ -62,6 +65,7 @@ namespace GalaxyCoreLib
         /// <param name="img">картиночка если есть</param>
         public void Init(int roomId, string nameRoom, int count, int max, bool isOpen, Sprite img = null)
         {
+            _connection = GalaxyNetworkController.Api.MainConnection;
             id = roomId;
             roomName.text = nameRoom;
             userCount.text = count + " /" + max;
@@ -97,7 +101,7 @@ namespace GalaxyCoreLib
                 return;
             }
             // отправляем в апи запрос на подключение к инстансу
-            GalaxyApi.Instances.EnterToInstance(id, password);
+            _connection.Api.Instances.EnterToInstance(id, password);
         }
     }
 }

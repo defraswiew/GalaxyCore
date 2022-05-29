@@ -9,7 +9,7 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         /// <summary>
         /// Link to a network entity in the kernel
         /// </summary>
-        public ClientNetEntity NetEntity = new ClientNetEntity();
+        public ClientNetEntity NetEntity;
 
         /// <summary>
         /// additional data buffer that can be attached during initialization
@@ -30,6 +30,7 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
 
         private void Awake()
         {
+            NetEntity = new ClientNetEntity(GalaxyNetworkController.Api.MainConnection);
             // подписываемся на событие сетевого старта
             NetEntity.OnNetStart += OnNetStart;
             // подписываемся на событие сетевого уничтожения
@@ -59,7 +60,7 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
                 NetEntity.transform.Position = transform.position.NetworkVector3();
                 NetEntity.transform.Rotation = transform.rotation.NetworkQuaternion();
                 // отправляем запрос на создание сетевого объекта
-                GalaxyApi.NetEntity.Instantiate(NetEntity);
+                NetEntity.Connection.Api.NetEntity.Instantiate(NetEntity);
             }
         }
 

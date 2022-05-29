@@ -23,39 +23,41 @@ namespace GalaxyNetwork.Core.Scripts.Editor
             item.ServerPort = EditorGUILayout.IntField(item.ServerPort);
             GUILayout.EndHorizontal();
             GUILayout.Space(10);
-            if (GalaxyApi.MyId != 0) GUILayout.Label("Client ID: " + GalaxyApi.MyId, EditorStyles.largeLabel);
+            if(item.MainConnection == null)
+                return;
+            if (item.MainConnection.Api.MyId != 0) GUILayout.Label("Client ID: " + item.MainConnection.Api.MyId, EditorStyles.largeLabel);
 
             GUILayout.Space(10);
-            if (GalaxyApi.Connection != null)
+            if (item.MainConnection.Api.Transport != null)
             {
-                if (GalaxyApi.Connection.IsConnected)
+                if (item.MainConnection.Api.Transport.IsConnected)
                 {
                     GUILayout.Label("Statictic", EditorStyles.boldLabel);
 
 
                     GUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField("Messages");
-                    GUILayout.Label("In: " + GalaxyApi.Connection.Statistic.InMessages);
-                    GUILayout.Label("Out: " + GalaxyApi.Connection.Statistic.OutMessages);
+                    GUILayout.Label("In: " + item.MainConnection.Api.Transport.Statistic.InMessages);
+                    GUILayout.Label("Out: " + item.MainConnection.Api.Transport.Statistic.OutMessages);
                     GUILayout.Label("           ");
                     GUILayout.EndHorizontal();
 
 
                     GUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField("Traffic");
-                    GUILayout.Label("In: " + GalaxyApi.Connection.Statistic.InTraffic);
-                    GUILayout.Label("Out: " + GalaxyApi.Connection.Statistic.OutTraffic);
+                    GUILayout.Label("In: " + item.MainConnection.Api.Transport.Statistic.InTraffic);
+                    GUILayout.Label("Out: " + item.MainConnection.Api.Transport.Statistic.OutTraffic);
                     GUILayout.Label("           ");
                     GUILayout.EndHorizontal();
 
                     GUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField("Traffic");
-                    GUILayout.Label("In: " + GalaxyApi.Connection.Statistic.InTrafficInSecond);
-                    GUILayout.Label("Out: " + GalaxyApi.Connection.Statistic.OutTrafficInSecond);
+                    GUILayout.Label("In: " + item.MainConnection.Api.Transport.Statistic.InTrafficInSecond);
+                    GUILayout.Label("Out: " + item.MainConnection.Api.Transport.Statistic.OutTrafficInSecond);
                     GUILayout.Label("           ");
                     GUILayout.EndHorizontal();
 
-                    GUILayout.Label("Ping: " + GalaxyApi.Connection.Statistic.Ping * 500);
+                    GUILayout.Label("Ping: " + item.MainConnection.Api.Transport.Statistic.Ping * 500);
                 }
             }
 

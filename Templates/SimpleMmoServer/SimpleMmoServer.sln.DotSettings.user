@@ -7,4 +7,5 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005CGalaxyCoreServer_002Epdb/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005CGalaxyCoreServer_002Exml/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005Cprotobuf_002Dnet_002Edll/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005Cprotobuf_002Dnet_002Exml/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CServer_005Cnetstandard2_002E0_005Cprotobuf_002Dnet_002Exml/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005Crepos_005CGalaxyCoreGithub_005CCore_005CClient_005Cnetstandard2_002E0_005CGalaxyCoreLib_002Edll/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
