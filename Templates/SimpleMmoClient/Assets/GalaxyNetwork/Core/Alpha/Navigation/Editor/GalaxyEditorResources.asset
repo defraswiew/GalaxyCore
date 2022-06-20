@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6f9e2dc511d2214a81016b8cc730681, type: 3}
+  m_Name: GalaxyEditorResources
+  m_EditorClassIdentifier: 
+  SceneImage: {fileID: 2800000, guid: b7642ed1db00397418b882f9e2b4ca70, type: 3}
+  LayerImage: {fileID: 2800000, guid: aa27b8d1504a75a448322f884dd1e9ad, type: 3}
+  ObjectImage: {fileID: 2800000, guid: 57e847ddb4e703345b7a12769bf8d22b, type: 3}
+  SettingsImage: {fileID: 2800000, guid: adf1755ca648d4246aba2623e59a05cb, type: 3}
+  Logo: {fileID: 2800000, guid: eace2181fac4a1f45bc1308a684993dc, type: 3}

@@ -1,24 +1,53 @@
 ﻿using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using GalaxyCoreLib.NetEntity;
-using System.Collections;
-using System.Collections.Generic;
+using GalaxyNetwork.Core.Scripts.NetEntity;
 using UnityEngine;
 
+/// <summary>
+/// Компонент синхронизации параметров аниматора
+/// версия 0.1 (использовать только под гнетом страха)
+/// </summary>
 public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
 {
-    public Animator animator;
-    AnimatorSync animatorSync;
-    ClientNetEntity netEntity;
-    int count;
-    string[] names;
-    FastType[] types;
-    float[] floatsLearp;
-    float[] floatsTarget;
+    /// <summary>
+    /// Ссылкан а текущий аниматор
+    /// </summary>
+    private Animator animator;
+    /// <summary>
+    /// Синхронизатор
+    /// </summary>
+    private AnimatorSync animatorSync;
+    /// <summary>
+    /// Ссылка на сетевубю сущность
+    /// </summary>
+    private ClientNetEntity netEntity;
+    /// <summary>
+    /// Число параметров
+    /// </summary>
+    private int count;
+    /// <summary>
+    /// Имена параметров
+    /// </summary>
+    private string[] names;
+    /// <summary>
+    /// Кеш типов параметров
+    /// </summary>
+    private FastType[] types;
+    /// <summary>
+    /// Флоты для лерпа
+    /// </summary>
+    private float[] floatsLearp;
+    /// <summary>
+    /// Целевые флоты
+    /// </summary>
+    private float[] floatsTarget;
+    private GalaxyConnection _connection;
     void Start()
     {
         animator = GetComponent<Animator>();
-        netEntity = GetComponent<UnityNetEntity>().netEntity;
+        netEntity = GetComponent<UnityNetEntity>().NetEntity;
+        _connection = netEntity.Connection;
         count = animator.parameterCount;
         types = new FastType[count];
         animatorSync = new AnimatorSync(netEntity, (byte)count, this);
@@ -45,24 +74,21 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
                 animatorSync.RegParameter(i, animator.GetInteger(names[i]));
                 types[i] = FastType._int;
             }
-
         }
-
     }
 
 
     void OnEnable()
     {
-        GalaxyEvents.OnFrameUpdate += OnFrameUpdate;
+        _connection.Events.OnFrameUpdate += OnFrameUpdate;
     }
     void OnDisable()
     {
-        GalaxyEvents.OnFrameUpdate -= OnFrameUpdate;
+        _connection.Events.OnFrameUpdate -= OnFrameUpdate;
     }
-
     private void OnFrameUpdate()
     {
-        if (!netEntity.isMy) return;
+        if (!netEntity.IsMy) return;
         for (int i = 0; i < count; i++)
         {
             switch (types[i])
@@ -107,21 +133,21 @@ public class GalaxyAnimSync : MonoBehaviour, IAnimatorSync
 
     void Update()
     {
-        if (netEntity.isMy) return;
+        if (netEntity.IsMy) return;
         for (int i = 0; i < count; i++)
         {
             if (types[i] == FastType._float)
             {
-                floatsLearp[i] = Mathf.Lerp(floatsLearp[i], floatsTarget[i], GalaxyApi.lerpDelta);
+                floatsLearp[i] = Mathf.Lerp(floatsLearp[i], floatsTarget[i], _connection.Api.lerpDelta);
                 animator.SetFloat(names[i], floatsLearp[i]);
             }
         }
     }
-
-
 }
 
-
+/// <summary>
+/// Типы переменных для хеша
+/// </summary>
 public enum FastType : byte
 {
     _none = 0,

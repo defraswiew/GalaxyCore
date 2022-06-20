@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<material version="2.14.0.0" name="cone_mat" guid="afc043b92b3d17629ccf6ed32f0a396d5a08b34d" base_material="mesh_base">
+	<texture name="normal">guid://f225c61ccb2a78ee75153c32ff600758eeffa623</texture>
+	<parameter name="albedo_color" expression="0">0.129411772 0.541176498 0.113725498 1</parameter>
+	<parameter name="roughness" expression="0">0.100000001</parameter>
+</material>

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87edbd68d70e36343a7585a8c2285c5e, type: 3}
+  m_Name: ExampleNavigation
+  m_EditorClassIdentifier: 
+  uiName: Example Navigation
+  uiDescription: Example Navigation
+  img: {fileID: 4056923659880599833, guid: 79694f8ff6e741042bba1ab518e3a9f4, type: 3}
+  sceneName: ExampleNav
+  type: 5

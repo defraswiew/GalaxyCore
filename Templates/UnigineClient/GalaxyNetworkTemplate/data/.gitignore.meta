@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.14.0.0">
+	<guid>52c755b33b2e9f7663dc105d9635d61838d06297</guid>
+	<type>file</type>
+	<hash>0e4a4c96</hash>
+	<runtimes>
+		<runtime id="52c755b33b2e9f7663dc105d9635d61838d06297" name=".gitignore" link="0"/>
+	</runtimes>
+</asset>

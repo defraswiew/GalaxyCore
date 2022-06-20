@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.14.0.0">
+	<guid>b94b9b03e8540486f396922ddfb74da83716d4e7</guid>
+	<type>file</type>
+	<hash>80497b12</hash>
+	<runtimes>
+		<runtime id="b94b9b03e8540486f396922ddfb74da83716d4e7" name="galaxyLogin.ui" link="0"/>
+	</runtimes>
+</asset>

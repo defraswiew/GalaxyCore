@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SimpleMmoCommon
+﻿namespace SimpleMmoCommon
 {
     /// <summary>
     /// Типы команд для сетевой сущности

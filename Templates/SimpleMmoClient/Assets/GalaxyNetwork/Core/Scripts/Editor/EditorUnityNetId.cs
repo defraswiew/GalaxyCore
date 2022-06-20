@@ -1,39 +1,49 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using GalaxyNetwork.Core.Scripts.NetEntity;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(UnityNetEntity))]
-public class EditorUnityNetId : Editor
+namespace GalaxyNetwork.Core.Scripts.Editor
 {
-
-  
-
-    // OnInspector GUI
-    public override void OnInspectorGUI() //2
+    [CustomEditor(typeof(UnityNetEntity))]
+    public class EditorUnityNetId : UnityEditor.Editor
     {
-
-        UnityNetEntity item = (UnityNetEntity)target; //1
-        
-        GUILayout.Label("Galaxy Net Object", EditorStyles.boldLabel); //3      
-        GUILayout.Label("Net ID: " + item.netEntity.netID, EditorStyles.largeLabel);
-        if (item.netEntity.isInit)
+        private GUISkin _skin;
+        private Rect _mainBox;
+        void OnEnable()
         {
-            if (item.netEntity.isMy)
+            _skin = Resources.Load<GUISkin>("GalaxyNetworkGUI");
+            _mainBox = new Rect(0, 0, 0, 0);
+        }
+
+
+        public override void OnInspectorGUI()
+        {
+            _mainBox.width = (Screen.width - 5);
+            _mainBox.height = 200;
+
+            UnityNetEntity item = (UnityNetEntity)target;
+            GUILayout.Label("", _skin.GetStyle("MiniLogo"));
+            GUILayout.Label("Galaxy Net Object", EditorStyles.boldLabel);
+            GUILayout.Label("Net ID: " + item.NetEntity.NetID, EditorStyles.largeLabel);
+            if (item.NetEntity.IsInit)
             {
-                GUILayout.Label("Owner: You", EditorStyles.largeLabel);
-            } else
-            {
-                if(item.netEntity.ownerClientId == 0)
+                if (item.NetEntity.IsMy)
                 {
-                    GUILayout.Label("Owner: Server", EditorStyles.largeLabel);
-                } else
+                    GUILayout.Label("Owner: You", EditorStyles.largeLabel);
+                }
+                else
                 {
-                    GUILayout.Label("Owner: client:" + item.netEntity.ownerClientId, EditorStyles.largeLabel);
+                    if (item.NetEntity.OwnerClientId == 0)
+                    {
+                        GUILayout.Label("Owner: Server", EditorStyles.largeLabel);
+                    }
+                    else
+                    {
+                        GUILayout.Label("Owner: client:" + item.NetEntity.OwnerClientId, EditorStyles.largeLabel);
+                    }
                 }
             }
+            if (item.NetEntity.IsInit) GUILayout.Label("Live time: " + (int)(Time.time - item.InitTime), EditorStyles.largeLabel);
         }
-        GUILayout.Label("Live time: " + (int)(Time.time - item.initTime), EditorStyles.largeLabel);
-       
     }
 }

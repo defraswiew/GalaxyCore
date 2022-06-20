@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87edbd68d70e36343a7585a8c2285c5e, type: 3}
+  m_Name: ExamplePhys2
+  m_EditorClassIdentifier: 
+  uiName: "\u0424\u0438\u0437\u0438\u043A\u0430"
+  uiDescription: "\u041F\u0440\u0438\u043C\u0435\u0440 \u0440\u0430\u0431\u043E\u0442\u044B
+    \u0441\u0435\u0440\u0432\u0435\u0440\u043D\u043E\u0439 \u0444\u0438\u0437\u0438\u043A\u0438
+    (AddForce)"
+  img: {fileID: 21300000, guid: 8cd71f6185505c847a2019820eede4e7, type: 3}
+  sceneName: ExamplePhys2
+  type: 4

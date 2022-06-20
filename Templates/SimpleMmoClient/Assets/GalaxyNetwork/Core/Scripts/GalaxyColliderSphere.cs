@@ -1,36 +1,59 @@
 ﻿using GalaxyCoreCommon;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-public class GalaxyColliderSphere : MonoBehaviour
+namespace GalaxyNetwork.Core.Scripts
 {
-    private SphereCollider collider;
-    float size = 1;
-    public string physTag = "";
-    private void OnDrawGizmos()
+    /// <summary>
+    /// Сетевой коллайдер (сфера)
+    /// </summary>
+    public class GalaxyColliderSphere : MonoBehaviour
     {
-        if (collider == null) collider = GetComponent<SphereCollider>();
-        GetSize();
-        Gizmos.color = new Color(1f, 0.8f, 0f, 0.4f);
-        Gizmos.DrawSphere(transform.position, size+0.3f);
-    }
-    public PhysSphereCollider Bake()
-    {
-        PhysSphereCollider bake = new PhysSphereCollider();
-       
-        bake.position = transform.position.NetworkVector3();
-        bake.radius = size;
-        bake.tag = physTag;
-        if (physTag == "") bake.tag = transform.name;
-        return bake;
-    }
+        /// <summary>
+        /// Текущий коллайдер
+        /// </summary>
+        private SphereCollider _collider;
 
-    private float GetSize()
-    {
-        size = collider.radius;
-        size = size * transform.localScale.x + 0.1f;   
-        return size;
+        /// <summary>
+        /// размер коллайдера
+        /// </summary>
+        private float _size = 1;
+
+        /// <summary>
+        /// Физический тег (можно получить на сервере при коллизии)
+        /// </summary>
+        public string PhysTag = "";
+
+#if UNITY_EDITOR
+        /// <summary>
+        /// Рисуем коллайдер
+        /// </summary>
+        private void OnDrawGizmos()
+        {
+            if (_collider == null) _collider = GetComponent<SphereCollider>();
+            GetSize();
+            Gizmos.color = new Color(1f, 0.8f, 0f, 0.4f);
+            Gizmos.DrawSphere(transform.position, _size + 0.3f);
+        }
+#endif
+        /// <summary>
+        /// Запекание коллайдера
+        /// </summary>
+        /// <returns></returns>
+        public PhysSphereCollider Bake()
+        {
+            PhysSphereCollider bake = new PhysSphereCollider();
+            bake.position = transform.position.NetworkVector3();
+            bake.radius = _size;
+            bake.tag = PhysTag;
+            if (PhysTag == "") bake.tag = transform.name;
+            return bake;
+        }
+
+        private float GetSize()
+        {
+            _size = _collider.radius;
+            _size = _size * transform.localScale.x + 0.1f;
+            return _size;
+        }
     }
 }

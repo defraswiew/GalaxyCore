@@ -1,55 +1,49 @@
 ﻿using GalaxyCoreCommon;
-using GalaxyCoreServer; 
+using GalaxyCoreServer;
+using SimpleMmoServer.Examples.NetEntities;
 
 namespace SimpleMmoServer.Examples.Instances
 {
     public class ExampleRoomMovers : Instance
-    {       
-        float timer;
-        int moverCount;
-        int moverMax = 1000;
-        public override void OutcomingClient(Client client)
-        {                     
+    {
+        private int _moverCount;
+        private int _moverMax = 1000;
+
+        public override void Start()
+        {
+            Log.Debug("ExampleRoomMovers","Start");
+            SetFrameRate(5);
+            InvokeRepeating("Spawn", 1, 0.2f);
+        }
+        public override void InMessage(byte code, byte[] data, BaseClient client)
+        {
             
+            Log.Debug("Instance", "InMessage code:" + code);
         }
 
-        public override void Close()
+        public void Spawn()
         {
-            
-        }
-        
-        public override void IncomingClient(Client client)
-        {
+            for (int i = 0; i < 20; i++)
+            {
+                if (_moverCount > _moverMax) CancelInvoke("Spawn");
+                Examples.NetEntities.ExampleRandomMove mover = new Examples.NetEntities.ExampleRandomMove(this, new GalaxyVector3(0, 1, 0));
+                mover.Init();
+                _moverCount++;
+            }
            
         }
 
-        public override void Start()
-        {            
-            SetFrameRate(5);   
-        }
-        public override void InMessage(byte code, byte[] data, Client client)
-        {
-          
-        }
-
-      
         public override void Update()
-        {                 
-            timer += Time.deltaTime;
-            if (timer > 0.1f)
-            {
-                if (moverCount > moverMax) return;
-                timer = 0;              
-                Examples.NetEntitys.ExampleRandomMove mover = new Examples.NetEntitys.ExampleRandomMove(this,new GalaxyVector3(0,1,0));
-                mover.Init();
-                moverCount++;
-            }              
-              
+        {
         }
 
-     }
-            
+        public override void IncomingClient(BaseClient clientConnection)
+        {
+            var entity = new ExampleNetVars(this);
+            entity.ChangeOwner(clientConnection);
+            entity.Init();
+        }
+    }
 }
-             
- 
- 
+
+

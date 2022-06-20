@@ -1,68 +1,123 @@
-﻿using GalaxyCoreCommon.InternalMessages;
+﻿using System.Collections.Generic;
 using GalaxyCoreLib;
-using ProtoBuf.Meta;
-using SimpleMmoCommon.Messages;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GalaxyNetworkController : MonoBehaviour
+namespace GalaxyNetwork.Core.Scripts
 {
     /// <summary>
-    /// Ip адрес сервера
+    /// Main network controller
     /// </summary>
-    public string serverIP = "127.0.0.1";
-    /// <summary>
-    /// Порт сервера
-    /// </summary>
-    public int serverPort = 30200;
-    /// <summary>
-    /// Конфигурация клиента
-    /// </summary>
-    Config config = new Config();
-    private void Awake()
+    public class GalaxyNetworkController : MonoBehaviour
     {
-        config.serverIp = serverIP; // задаем указаный ип
-        config.serverPort = serverPort; // задаем указанный порт
-        config.app_name = "SimpleMmoServer"; // должно соответствовать имени сервера
-        config.FrameRate = 25; // Устанавливаем сетевой фреймрейт
-       
-        GalaxyClientCore.Initialize(config); // инициализируем сетевое ядро
-        GalaxyClientCore.unityCalls.Awake(); // прокидываем Awake
-        DontDestroyOnLoad(gameObject); // Помечаем объект как неразрушаемый при переходах между сценами        
-    }
-    private void Start()
-    {
-        GalaxyClientCore.unityCalls.Start(); // прокидываем Start
-        SceneManager.activeSceneChanged += SceneChanged;
-        SceneManager.sceneLoaded += SceneLoaded;  
-         
-    }
+        /// <summary>
+        /// Server ip address
+        /// </summary>
+        public string ServerIP = "127.0.0.1";
 
-    private void SceneLoaded(Scene arg0, LoadSceneMode arg1)
-    {
-        GalaxyClientCore.unityCalls.OnSceneLoaded();
-    }
+        /// <summary>
+        /// Server port
+        /// </summary>
+        public int ServerPort = 30200;
 
-    private void SceneChanged(Scene arg0, Scene arg1)
-    {
-        GalaxyClientCore.unityCalls.OnSceneChange();
-    }
+        /// <summary>
+        /// Client configuration
+        /// </summary>
+        private readonly Config _config = new Config();
 
-    private void Update()
-    {    
-        GalaxyClientCore.unityCalls.Update(Time.deltaTime); // Прокидываем update
-    }
+        /// <summary>
+        /// whether to show labels over entities
+        /// </summary>
+        public bool DrawLabels = true;
 
+        /// <summary>
+        /// self-reference
+        /// </summary>
+        public static GalaxyNetworkController Api;
 
-    private void OnApplicationQuit()
-    {
-        GalaxyApi.connection.Disconnect(); //Посылаем команду дисконекта при выходе из приложения
-    }
+        public GalaxyConnection MainConnection;
+        public Dictionary<string, GalaxyConnection> SlaveConnections;
 
-    private void OnDisable()
-    {
-        GalaxyApi.connection.Disconnect();//Посылаем команду дисконекта если go был выключен
+        private void Awake()
+        {
+            if (Api != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Api = this;
+            SlaveConnections = new Dictionary<string, GalaxyConnection>();
+            _config.ServerIp = ServerIP;
+            _config.ServerPort = ServerPort;
+            _config.AppName = "SimpleMmoServer";
+            _config.FrameRate = 25;
+            MainConnection = new GalaxyConnection(_config);
+            var slaveConnect = new GalaxyConnection(_config);
+            slaveConnect.EngineCalls.Awake();
+            SlaveConnections.Add("test",slaveConnect);
+            MainConnection.EngineCalls.Awake();
+            DontDestroyOnLoad(gameObject);
+        }
+
+        private void Start()
+        {
+            MainConnection.EngineCalls.Start();
+            foreach (var connection in SlaveConnections)
+            {
+                connection.Value.EngineCalls.Start();
+            }
+            SceneManager.activeSceneChanged += SceneChanged;
+            SceneManager.sceneLoaded += SceneLoaded;
+        }
+
+        private void SceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            MainConnection.EngineCalls.OnSceneLoaded();
+            foreach (var connection in SlaveConnections)
+            {
+                connection.Value.EngineCalls.OnSceneLoaded();
+            }
+        }
+
+        private void SceneChanged(Scene arg0, Scene arg1)
+        {
+            MainConnection.EngineCalls.OnSceneChange();
+            foreach (var connection in SlaveConnections)
+            {
+                connection.Value.EngineCalls.OnSceneChange();
+            }
+        }
+
+        private void Update()
+        {
+            MainConnection.EngineCalls.Update(Time.deltaTime);
+            foreach (var connection in SlaveConnections)
+            {
+                connection.Value.EngineCalls.Update(Time.deltaTime);
+            }
+        }
+
+        private void OnApplicationQuit()
+        {
+            MainConnection.Disconnect();
+            foreach (var connection in SlaveConnections)
+            {
+                connection.Value.Disconnect();
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (GalaxyNetworkController.Api == this)
+            {
+                MainConnection.Disconnect();
+                foreach (var connection in SlaveConnections)
+                {
+                    connection.Value.Disconnect();
+                }
+            }
+            
+        }
     }
 }

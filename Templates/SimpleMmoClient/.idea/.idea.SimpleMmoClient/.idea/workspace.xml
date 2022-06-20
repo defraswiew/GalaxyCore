@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1de93c65-72e3-41ad-b67d-f836e8449f37" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleRandomMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleRandomMove.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/UnityNetEntity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/NetEntity/ClientNetEntity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/NetEntityManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/GalaxyChat.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/TransformSerialization.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/GalaxyDragWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/GalaxyAnimSync.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/GalaxyNetworkController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/GalaxyNetworkInstantiator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiClietsList.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIRoom.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIReg.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiRoomItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/Instances.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUILogin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/SimpleMmo/Scripts/ExampleRoomCreate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatChannel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIRoomCreate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIStatistic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TPM_Spawn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Network/MessageSender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Network/NetworkCore.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/InternalMessages/ChatMessage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiRoomInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Editor/EditorNetworkController.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIReg.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiRoomItem.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIRoom.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TPM_Spawn.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/SimpleMmo/Scripts/ExampleRoomCreate.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/GalaxyAnimSync.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/GalaxyNetworkInstantiator.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/UnityNetEntity.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiClietsList.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIRoomCreate.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIStatistic.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Editor/EditorNetworkController.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatSystem.cs" />
+        <option value="$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Network/NetworkCore.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/GalaxyNetworkController.cs" />
+        <option value="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUILogin.cs" />
+        <option value="$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Network/MessageSender.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kw6fPVya0saS8wMZLyKOT8Y3Yb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994525" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.5007752" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Unity Executable.Standalone Player">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../00000000000/SimpleMmoClient.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\repos\00000000000" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1de93c65-72e3-41ad-b67d-f836e8449f37" name="Default Changelist" comment="" />
+      <created>1606599408628</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606599408628</updated>
+      <workItem from="1606599433819" duration="3388000" />
+      <workItem from="1606688454521" duration="1313000" />
+      <workItem from="1606769697301" duration="3912000" />
+      <workItem from="1606777186948" duration="733000" />
+      <workItem from="1606777960127" duration="1057000" />
+      <workItem from="1606854813550" duration="11470000" />
+      <workItem from="1606932639490" duration="16498000" />
+      <workItem from="1607019446142" duration="14794000" />
+      <workItem from="1607119072232" duration="2173000" />
+      <workItem from="1607199321059" duration="12896000" />
+      <workItem from="1607278911443" duration="9841000" />
+      <workItem from="1608622628631" duration="129000" />
+      <workItem from="1618664850544" duration="37000" />
+      <workItem from="1618821320079" duration="169000" />
+      <workItem from="1618821505578" duration="672000" />
+      <workItem from="1619251015637" duration="2497000" />
+      <workItem from="1619298378383" duration="3975000" />
+      <workItem from="1619348065344" duration="8400000" />
+      <workItem from="1619449217257" duration="1738000" />
+      <workItem from="1619538450579" duration="605000" />
+      <workItem from="1619556339598" duration="11000" />
+      <workItem from="1619648588795" duration="1535000" />
+      <workItem from="1619697380577" duration="740000" />
+      <workItem from="1619705763148" duration="613000" />
+      <workItem from="1619725745790" duration="1054000" />
+      <workItem from="1620030002961" duration="612000" />
+      <workItem from="1620110773529" duration="1645000" />
+      <workItem from="1620198653496" duration="2272000" />
+      <workItem from="1620215932599" duration="1344000" />
+      <workItem from="1620975115312" duration="26000" />
+      <workItem from="1620987753454" duration="607000" />
+      <workItem from="1621233409594" duration="2679000" />
+      <workItem from="1621371323095" duration="1028000" />
+      <workItem from="1621410497546" duration="4103000" />
+      <workItem from="1621454000971" duration="6708000" />
+      <workItem from="1621495430680" duration="3653000" />
+      <workItem from="1621506170615" duration="2949000" />
+      <workItem from="1621627555186" duration="855000" />
+      <workItem from="1621630884709" duration="819000" />
+      <workItem from="1621767024659" duration="4650000" />
+      <workItem from="1621981947764" duration="2295000" />
+      <workItem from="1622014735791" duration="1325000" />
+      <workItem from="1623012675067" duration="309000" />
+      <workItem from="1623018232010" duration="1884000" />
+      <workItem from="1623072941759" duration="813000" />
+      <workItem from="1623089389610" duration="168000" />
+      <workItem from="1623180092877" duration="1663000" />
+      <workItem from="1625042970014" duration="1825000" />
+      <workItem from="1629100075508" duration="1402000" />
+      <workItem from="1629216624894" duration="2885000" />
+      <workItem from="1629989293837" duration="598000" />
+      <workItem from="1630650736491" duration="1075000" />
+      <workItem from="1630911528725" duration="814000" />
+      <workItem from="1635157082365" duration="887000" />
+      <workItem from="1635177023717" duration="1196000" />
+      <workItem from="1635236082136" duration="2102000" />
+      <workItem from="1635692117037" duration="1483000" />
+      <workItem from="1651401320988" duration="1523000" />
+      <workItem from="1653426916860" duration="7918000" />
+      <workItem from="1655649129938" duration="513000" />
+      <workItem from="1655672988383" duration="514000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1653429286583">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1653429286583" />
+  </component>
+</project>

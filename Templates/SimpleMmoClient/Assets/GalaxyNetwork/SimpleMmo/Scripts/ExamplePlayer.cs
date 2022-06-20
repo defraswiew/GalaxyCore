@@ -1,6 +1,5 @@
 ﻿using GalaxyCoreLib.NetEntity;
-using System.Collections;
-using System.Collections.Generic;
+using GalaxyNetwork.Core.Scripts.NetEntity;
 using UnityEngine;
 
 public class ExamplePlayer : MonoBehaviour
@@ -9,8 +8,8 @@ public class ExamplePlayer : MonoBehaviour
     Material material;
     void Awake()
     {
-        netEntity = GetComponent<UnityNetEntity>().netEntity;
-        material = GetComponentInChildren<MeshRenderer>().material;
+        netEntity = GetComponent<UnityNetEntity>().NetEntity;
+        material = GetComponentInChildren<MeshRenderer>().material;         
     }
 
     void OnEnable()

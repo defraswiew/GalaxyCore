@@ -1,18 +1,22 @@
 ﻿using GalaxyCoreServer;
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace SimpleMmoServer
 {
-   public class ExampleClient:Client
+    /// <summary>
+    /// Пример кастомного класса клиента
+    /// </summary>
+    public class ExampleClient : BaseClient
     {
-      
-       public ExampleClient()
+        public ExampleClient()
         {
-
         }
 
+        /// <summary>
+        /// Вызывается когда игрок отключился
+        /// </summary>
+        protected override void OnDisconnected()
+        {
+            
+        }
     }
 }

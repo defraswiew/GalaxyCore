@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.14.0.0">
+	<guid>a4ef055b5e977afe67ef6645e313a2e07f3378bf</guid>
+	<type>texture</type>
+	<hash>78496265</hash>
+	<runtimes>
+		<runtime id="a4ef055b5e977afe67ef6645e313a2e07f3378bf" name="material_ball_alb.png" link="0"/>
+		<runtime id="fecf2f1252778349dcf0b414f25c1063d34e3a66" name="material_ball_alb.dds" link="1"/>
+	</runtimes>
+	<parameters>
+		<parameter type="string" name="mipmap_type">box</parameter>
+		<parameter type="string" name="image_format">DXT1</parameter>
+		<parameter type="bool" name="invert_g">0</parameter>
+		<parameter type="string" name="image_type">2d</parameter>
+		<parameter type="string" name="width">auto</parameter>
+		<parameter type="string" name="height">auto</parameter>
+		<parameter type="bool" name="srgb_correction">1</parameter>
+		<parameter type="bool" name="unchanged">0</parameter>
+		<parameter type="string" name="preset_name">albedo (rgb)</parameter>
+	</parameters>
+</asset>

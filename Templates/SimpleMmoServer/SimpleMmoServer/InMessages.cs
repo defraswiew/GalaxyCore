@@ -1,40 +1,35 @@
 ﻿using GalaxyCoreServer;
-using GalaxyCoreServer.Api;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SimpleMmoServer
 {
     /// <summary>
+    /// Main receiver of incoming packets
     /// Главный приемщик входящих пакетов
+    /// Сюда попадают собщения отправленные через  GalaxyApi.send.SendMessageToServer
     /// </summary>
-    public class InMessages : IIncomingMessage // обазятельное наследование интерфейса, т.к именно через него в данный класс входят новые сообщения
+    public class InMessages : IIncomingMessage
     {
         /// <summary>
-        /// Реализация обработки входящих сообщений
+        /// Implementing incoming message processing
         /// </summary>
-        /// <param name="code">Код сообщения который мы приложили со стороны клиента</param>
-        /// <param name="data">Массив байт (сообщение)</param>
-        /// <param name="client">Экземпляр клиента</param>
-        public void IncomingMessage(byte code, byte[] data, Client client)
+        /// <param name="code">The message code that we attached from the client side</param>
+        /// <param name="data">Array of bytes (message)</param>
+        /// <param name="client">Client instance</param>
+        public void IncomingMessage(byte code, byte[] data, BaseClient client)
         {
-          
-            // распределяем сообщения по заданному нами же коду, для удобства используем Enum    
+            // we distribute messages according to the code we specified, for convenience we use Enum   
             switch (code)
-            {              
-                //В остальных случаях отправляем сообщение в инстанс
+            {
+                case 211:
+                    Log.Debug("IncomingMessage", "Encrypt test");
+                    break;
+                //In other cases, we send a message to the instance
                 default:
-                    if (client.instanse == null) return;
-                    client.instanse.InMessage(code, data, client);
+                    if (client.Instanse == null) return;
+                    client.Instanse.InMessage(code, data, client);
                     break;
             }
 
         }
-
-
-
-
-
     }
 }

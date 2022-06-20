@@ -1,8 +1,5 @@
 ﻿using GalaxyCoreCommon;
-using ProtoBuf;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using ProtoBuf; 
 
 namespace SimpleMmoCommon.Messages
 {
@@ -16,6 +13,21 @@ namespace SimpleMmoCommon.Messages
         /// Ид клиента
         /// </summary>
         [ProtoMember(1)]
-        public string name; 
+        public string Name; 
+        /// <summary>
+        /// Базовый конструктор
+        /// </summary>
+        public MessageApproval()
+        {
+
+        }
+        /// <summary>
+        /// Конструктор с именем
+        /// </summary>
+        /// <param name="name"></param>
+        public MessageApproval(string name)
+        {
+            Name = name;
+        }
     }
 }

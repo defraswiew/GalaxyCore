@@ -1,0 +1,631 @@
+fileFormatVersion: 2
+guid: 79694f8ff6e741042bba1ab518e3a9f4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3163876009390520561
+    second: GalaxyAtlas_0
+  - first:
+      213: 2474902815787270192
+    second: GalaxyAtlas_1
+  - first:
+      213: -7848223130181318739
+    second: GalaxyAtlas_2
+  - first:
+      213: -8774481864277964571
+    second: GalaxyAtlas_3
+  - first:
+      213: 2284752634673667477
+    second: GalaxyAtlas_4
+  - first:
+      213: -7553791605054399845
+    second: GalaxyAtlas_5
+  - first:
+      213: -1464012164662596496
+    second: GalaxyAtlas_6
+  - first:
+      213: -2078759179466942616
+    second: GalaxyAtlas_7
+  - first:
+      213: 1375488107319891325
+    second: GalaxyAtlas_8
+  - first:
+      213: -8910828053515343384
+    second: GalaxyAtlas_9
+  - first:
+      213: 157788938516329784
+    second: GalaxyAtlas_10
+  - first:
+      213: 60013823224053447
+    second: GalaxyAtlas_11
+  - first:
+      213: -1021864502674468495
+    second: GalaxyAtlas_12
+  - first:
+      213: -2260892182638955803
+    second: GalaxyAtlas_13
+  - first:
+      213: 1245794176732340496
+    second: GalaxyAtlas_14
+  - first:
+      213: 4056923659880599833
+    second: GalaxyAtlas_15
+  - first:
+      213: 763907821006124938
+    second: GalaxyAtlas_16
+  - first:
+      213: -6460190240731182748
+    second: GalaxyAtlas_17
+  - first:
+      213: 315690437895882951
+    second: GalaxyAtlas_18
+  - first:
+      213: -8533658242194242696
+    second: GalaxyAtlas_19
+  - first:
+      213: 6276710838254011504
+    second: GalaxyAtlas_20
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GalaxyAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 500
+        width: 95
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8acf3689ed7d2d54e997fd33b4956764
+      internalID: -3163876009390520561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 510
+        width: 216
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ccb0576760f88479f6c176a9a0a3a7
+      internalID: 2474902815787270192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 457
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c6bd4db474c1a449a6b8c20e008c21
+      internalID: -7848223130181318739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 413
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a09c6920991ab4791290b79501b01f
+      internalID: -8774481864277964571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 470
+        width: 58
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b19e784a0264fa42815c66a5c4fdced
+      internalID: 2284752634673667477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 450
+        width: 103
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98ecb9a75188e854bbdb788edf39a079
+      internalID: -7553791605054399845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 495
+        width: 189
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eaa896982981a44e9b801db2472f77b
+      internalID: -1464012164662596496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 470
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d4e8b4ab190dd47a578e4d6015e778
+      internalID: -2078759179466942616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 470
+        width: 5
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238fc694ecc8f084abec2a84fd6029d3
+      internalID: 1375488107319891325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 450
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f29fc8a1204584b830f9713a4d145a
+      internalID: -8910828053515343384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 423
+        width: 69
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 908a9a73b1b6b934bae7eedbb6ab2be5
+      internalID: 157788938516329784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 421
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb9a2d5e0fffd84f8b2c026c6c4313e
+      internalID: 60013823224053447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 421
+        width: 67
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5f08f5162a14f24090c172fd7350146
+      internalID: -1021864502674468495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 410
+        width: 63
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 816f91f801d60f04b9c276fe44d166ff
+      internalID: -2260892182638955803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 421
+        width: 67
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff6f79a377a41454893c2f335c90fb8e
+      internalID: 1245794176732340496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 422
+        width: 77
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e5cd1abd9666ea48acb0ee3024faa23
+      internalID: 4056923659880599833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 411
+        width: 59
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15fc124cfec39c84482430482a1738e4
+      internalID: 763907821006124938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 452
+        width: 59
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e086e3602b46d9f408cbc75d28b1a01b
+      internalID: -6460190240731182748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 345
+        width: 73
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd2ae39d71bb39f469e267428885f788
+      internalID: 315690437895882951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_19
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 326
+        width: 148
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726be8bfefc17a44fae4b0c80c284cc6
+      internalID: -8533658242194242696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GalaxyAtlas_20
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 344
+        width: 65
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab00896328bae634ba5a5c91949d509f
+      internalID: 6276710838254011504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,213 @@
+ #Header
+{         
+    height: 50px;   
+    width: auto;
+    background-color: rgb(32, 33, 33);
+    display: flex;
+    flex-direction: row;
+}  
+ #HeaderLabel
+ {   
+     font-size: 28;
+     color: #e09c04;
+     margin-top: 10px;
+     margin-left: 10px;
+     white-space: normal;     
+     line-height: 5px;
+     -unity-font-style: bold;
+ }
+#Container
+{
+    background-color: rgb(48, 55, 59);
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    text-color: rgb(51, 51, 51);
+}
+#LeftPanel
+{
+    flex-direction: row;
+    background-color: rgb(32, 33, 33);
+    flex-direction: column;
+  
+    width: 66px;
+    border-width: 2px;
+    border-color: rgb(31, 27, 3);
+    
+}
+#RightPanel
+{
+    margin-top: 10px;
+    position: relative;
+    flex: 1;
+    width: auto;
+    height: auto; 
+}
+#WorkSpace
+{
+    position: relative;
+    flex: 1;
+    width: auto;
+    height:auto;
+}
+ 
+#Logo
+{
+    position: relative;
+    flex: 1;
+    width: auto;
+    max-height: 35px;
+    align-self: flex-end;
+}
+#NotBackerContainer{
+    color: #CFCFCF;
+}
+
+#ErrorMessage{
+    font-size: 22;
+    color: #CFCFCF;
+    margin-top: 10px; 
+    white-space: normal;
+    -unity-text-align: middle-center;
+    line-height: 5px;     
+    -unity-font-style: bold;       
+   
+}
+#ButtonBig{
+    background-color: #FEAB00;
+    border-left-color: #946700;
+    border-top-color: #946700;
+    border-right-color: #946700;
+    border-bottom-color: #946700;
+    border-radius: 7px;
+    font-size: 18;
+    color: #1E1E1F;
+    white-space: normal;
+}
+ #ButtonBig:hover{
+     background-color: #bc7e00; 
+ }
+ #ButtonBig:active{
+     background-color: #8c5e03;
+ }
+ #GreenButton{
+     background-color: #66a402;
+     border-left-color: #416e03;
+     border-top-color: #416e03;
+     border-right-color: #416e03;
+     border-bottom-color: #416e03;
+     border-radius: 7px;
+     font-size: 18;
+     color: #1E1E1F;
+     white-space: normal;
+ }
+
+ #RedButton{
+     background-color: #a43002;
+     border-left-color: #662100;
+     border-top-color: #662100;
+     border-right-color: #662100;
+     border-bottom-color: #662100;
+     border-radius: 7px;
+     font-size: 18;
+     color: #1E1E1F;
+     white-space: normal;
+ }
+ 
+ .unity-vector3-field__label{     
+     min-width: 100px;    
+ }
+ .unity-slider__label{
+     min-width: 100px;
+ }
+ .unity-label{     
+     font-size: 14;
+     color: #CFCFCF;
+ }
+#unity-text-input{
+    background-color: rgb(21, 24, 26);
+    color: #CFCFCF;
+    border-color: #946700;
+    min-width: 60px;
+}
+
+ #unity-text-input:hover {
+     background-color: rgb(21, 20, 20);
+ }
+ #GalaxySelected{
+     background-color: rgb(21, 24, 26);    
+     height: 100px; 
+ }
+ #LayersSelector{
+     background-color: rgb(30, 34, 36);
+     border-top-left-radius: 10px; 
+     border-top-right-radius: 10px;
+     border-bottom-color:#4D3410;
+     border-bottom-width: 2px;
+ }
+ #LayersSelectorLabel{
+    -unity-text-align: middle-center;
+ }
+ #LayerEditor{
+    top: 20px;
+ }
+ 
+ #GalaxySelectedLabel{
+     color: #CFCFCF;
+ }
+ #GalaxySelectedLabel:hover{
+     color: #FEAB00;
+     background-color: rgb(19, 19, 18);
+ }
+ #GalaxySelectedLabel:checked{
+     color: #FEAB00;
+     background-color: rgb(19, 19, 18);
+ }
+ #unity-tooltip{
+     background-color: rgb(21, 24, 26);
+     color: #CFCFCF;
+     border-color: #946700;
+     min-width: 60px;
+ }
+/* Left panel buttons */
+#LeftButtonContainer
+{
+    margin-top: 15px;
+    margin-left: -2px;
+}
+#LeftButtonLabel
+{    
+    color: #C1C1C2;
+    width: 60px;
+    height: auto;
+    white-space: normal;
+    -unity-text-align: middle-center;
+    font-size: 10;
+}
+#LeftButton
+{    
+    background-color: rgb(32, 33, 33);
+    width: 60px;
+    height: 60px;
+    border-width: 2px;
+    border-color: rgb(31, 27, 3);    
+}
+#LeftButton:hover {
+    opacity: 1;
+}
+#LeftButton:active {
+    opacity: 0.6;
+}
+
+ .LeftButtonActive {
+     background-color: rgb(65, 55, 0);
+ }
+ 
+ #ObjectSelectedLabel{
+     font-size: 22;
+     color: #e09c04;
+     margin-left: 5px;
+     white-space: normal;
+     line-height: 5px;
+     -unity-font-style: bold;
+ }

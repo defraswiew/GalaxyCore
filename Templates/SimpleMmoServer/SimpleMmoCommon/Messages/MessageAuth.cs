@@ -1,13 +1,10 @@
 ﻿using GalaxyCoreCommon;
-using ProtoBuf;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using ProtoBuf; 
 
 namespace SimpleMmoCommon.Messages
 {
     /// <summary>
-    /// Структура пакета авторизации
+    ///  Сообщение авторизации
     /// </summary>
     [ProtoContract]
     public class MessageAuth : BaseMessage
@@ -16,12 +13,11 @@ namespace SimpleMmoCommon.Messages
         /// Логин пользователя
         /// </summary>
         [ProtoMember(1)]
-        public string login { get; set; }
+        public string Login { get; set; }
         /// <summary>
         /// Пароль пользователя
         /// </summary>
         [ProtoMember(2)]
-        public string password { get; set; }
-
+        public string Password { get; set; }
     }
 }
