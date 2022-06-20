@@ -7,12 +7,12 @@ namespace SimpleMmoServer.Examples.Instances
     public class ExampleRoomMovers : Instance
     {
         private int _moverCount;
-        private int _moverMax = 5000;
+        private int _moverMax = 1000;
 
         public override void Start()
         {
             Log.Debug("ExampleRoomMovers","Start");
-            SetFrameRate(6);
+            SetFrameRate(5);
             InvokeRepeating("Spawn", 1, 0.2f);
         }
         public override void InMessage(byte code, byte[] data, BaseClient client)
