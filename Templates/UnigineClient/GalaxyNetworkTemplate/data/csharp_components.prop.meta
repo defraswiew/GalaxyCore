@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>657ecdbbfc83135a26777f86012da3587b67be0c</guid>
 	<type>property</type>
-	<hash>013bfe3b</hash>
+	<hash>87852585</hash>
 	<runtimes>
-		<runtime id="657ecdbbfc83135a26777f86012da3587b67be0c" name="C# Components" link="0"/>
+		<runtime id="657ecdbbfc83135a26777f86012da3587b67be0c" name="C# Components" link="0" type="4"/>
 	</runtimes>
 </asset>

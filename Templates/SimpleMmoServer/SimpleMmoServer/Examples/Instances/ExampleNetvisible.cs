@@ -1,4 +1,5 @@
-﻿using GalaxyCoreServer;
+﻿using GalaxyCoreCommon;
+using GalaxyCoreServer;
 using SimpleMmoServer.RPGTemplate;
 
 namespace SimpleMmoServer.Examples.Instances
@@ -23,9 +24,12 @@ namespace SimpleMmoServer.Examples.Instances
             Name = "Building example";
             // что грузим
             MapSaver.Load(this, "cs_mansion"); }
+        
+        
 
         public override void OutgoingClient(BaseClient clientConnection)
         {
+            Entities.GetNearby(new GalaxyVector3(0, 0, 0), 100);
             if (Clients.Count == 0) MapSaver.SaveInstance(this, "cs_mansion");
         }
 

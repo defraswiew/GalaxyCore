@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Migration log file</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+		body {
+			background: #1a242a;
+			color: #ececec;
+			margin: 20px;
+			font-size: 14px;
+			font-family: 'Courier New', Courier, monospace;
+			counter-reset: lognum;
+			tab-size: 4;
+		}
+		
+		.m, .w, .e {
+			padding: 3px;
+			white-space: pre-wrap;
+			line-height: 16px;
+		}
+		
+		.m:before, .w:before, .e:before {
+			counter-increment: lognum;
+			content: counter(lognum) ". ";
+		}
+		
+		.m {
+			color: #ececec;
+		}
+		
+		.w {
+			background-color: #FCF8E3;
+			color: #8A6D3B;
+		}
+		
+		.e {
+			background-color: #d64500;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+<div class="m">Start migration to version "2.14.1.0"</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_d3d11.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_d3d11_debug.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_gl_debug.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_gl.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/unigine.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/editor.cache</div>
+<div class="m"> Remove directory D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.thumbnails</div>
+<div class="m"> Remove directory D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.cache_textures</div>
+<div class="m">update materials ...</div>
+<div class="m">migrate properties ...</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_components.prop.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetworkTemplate.world.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.boot.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.config.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.controls.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.user.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/first_person_controller.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/components/FirstPersonController.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/fbx/material_ball.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_a.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_alb.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_sh.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cone.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cube.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cylinder.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/sphere.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cone.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cube.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cylinder.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/sphere.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cone_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cube_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cylinder_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/sphere_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cone_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cube_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cylinder_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_extreme.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_high.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_low.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_medium.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_ultra.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_virtual_reality.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/GalaxyNetworkInstantiator.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/Move.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/sphere.mesh.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UnigineNetEntity.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyChat.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyInstances.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyLogin.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyStatistics.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.boot"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.controls"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.user"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/49/498e07c151953e2cea14a39b52ce043ef0a3de85.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/4d/4d4169f591e5f2d0fa2b27ef08e03482256f69f9.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/a5/a5fe62229ac57b19ccf329a4986368b3cead9676.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/ba/bada353cdd958f6b159eddce4afe4ad5abf69e30.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/d5/d5d646d363239e16e660be7d15736db807fad5b7.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/first_person_controller.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cone.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cube.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cylinder.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/sphere.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/Move.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetworkTemplate.world"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_extreme.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_high.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_low.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_medium.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_ultra.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_virtual_reality.render"</div>
+<div class="m">Start migration to version "2.15.0.0"</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_d3d11.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_d3d11_debug.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_gl_debug.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_gl.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/unigine.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/editor.cache</div>
+<div class="m"> Remove directory D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.thumbnails</div>
+<div class="m"> Remove directory D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.cache_textures</div>
+<div class="m">update materials ...</div>
+<div class="m">migrate properties ...</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_components.prop.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetworkTemplate.world.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.boot.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.config.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.controls.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.user.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/first_person_controller.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/components/FirstPersonController.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/fbx/material_ball.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_a.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_alb.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_sh.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cone.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cube.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cylinder.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/sphere.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cone.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cube.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cylinder.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/sphere.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cone_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cube_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cylinder_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/sphere_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cone_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cube_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cylinder_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_extreme.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_high.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_low.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_medium.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_ultra.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_virtual_reality.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/GalaxyNetworkInstantiator.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/Move.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/sphere.mesh.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UnigineNetEntity.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyChat.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyInstances.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyLogin.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyStatistics.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.boot"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.controls"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.user"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/49/498e07c151953e2cea14a39b52ce043ef0a3de85.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/4d/4d4169f591e5f2d0fa2b27ef08e03482256f69f9.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/a5/a5fe62229ac57b19ccf329a4986368b3cead9676.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/ba/bada353cdd958f6b159eddce4afe4ad5abf69e30.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/d5/d5d646d363239e16e660be7d15736db807fad5b7.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/first_person_controller.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cone.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cube.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cylinder.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/sphere.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/Move.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetworkTemplate.world"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_extreme.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_high.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_low.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_medium.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_ultra.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_virtual_reality.render"</div>
+<div class="m">Start migration to version "2.15.0.1"</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_d3d11.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_d3d11_debug.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_gl_debug.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_gl.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/unigine.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/editor.cache</div>
+<div class="m"> Remove directory D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.thumbnails</div>
+<div class="m"> Remove directory D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.cache_textures</div>
+<div class="m">update materials ...</div>
+<div class="m">migrate properties ...</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_components.prop.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetworkTemplate.world.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.boot.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.config.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.controls.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.user.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/first_person_controller.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/components/FirstPersonController.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/fbx/material_ball.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_a.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_alb.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_sh.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cone.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cube.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cylinder.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/sphere.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cone.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cube.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cylinder.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/sphere.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cone_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cube_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cylinder_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/sphere_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cone_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cube_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cylinder_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_extreme.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_high.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_low.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_medium.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_ultra.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_virtual_reality.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/GalaxyNetworkInstantiator.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/Move.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/sphere.mesh.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UnigineNetEntity.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyChat.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyInstances.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyLogin.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyStatistics.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.boot"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.controls"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.user"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/49/498e07c151953e2cea14a39b52ce043ef0a3de85.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/4d/4d4169f591e5f2d0fa2b27ef08e03482256f69f9.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/a5/a5fe62229ac57b19ccf329a4986368b3cead9676.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/ba/bada353cdd958f6b159eddce4afe4ad5abf69e30.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/d5/d5d646d363239e16e660be7d15736db807fad5b7.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/first_person_controller.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cone.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cube.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cylinder.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/sphere.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/Move.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetworkTemplate.world"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_extreme.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_high.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_low.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_medium.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_ultra.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_virtual_reality.render"</div>
+<div class="m">Start migration to version "2.15.1.0"</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_d3d11.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_d3d11_debug.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_gl_debug.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/shader_gl.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/unigine.cache</div>
+<div class="m"> Remove D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/editor.cache</div>
+<div class="m"> Remove directory D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.thumbnails</div>
+<div class="m"> Remove directory D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.cache_textures</div>
+<div class="m">update materials ...</div>
+<div class="m">update material graphs ...</div>
+<div class="m">migrate properties ...</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_components.prop.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetworkTemplate.world.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.boot.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.config.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.controls.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.user.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/first_person_controller.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/components/FirstPersonController.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/fbx/material_ball.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_a.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_alb.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/textures/material_ball_sh.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cone.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cube.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cylinder.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/sphere.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cone.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cube.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/cylinder.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/fbx/sphere.fbx.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cone_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cube_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/cylinder_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/materials/sphere_mat.mat.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cone_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cube_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/textures/cylinder_n.png.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_extreme.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_high.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_low.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_medium.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_ultra.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_virtual_reality.render.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/GalaxyNetworkInstantiator.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/Move.node.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/sphere.mesh.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UnigineNetEntity.cs.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyChat.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyInstances.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyLogin.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/UI/galaxyStatistics.ui.meta"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.boot"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.controls"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/configs/default.user"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/49/498e07c151953e2cea14a39b52ce043ef0a3de85.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/4d/4d4169f591e5f2d0fa2b27ef08e03482256f69f9.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/a5/a5fe62229ac57b19ccf329a4986368b3cead9676.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/ba/bada353cdd958f6b159eddce4afe4ad5abf69e30.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/.runtimes/d5/d5d646d363239e16e660be7d15736db807fad5b7.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/first_person_controller/first_person_controller.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/material_ball/material_ball.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cone.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cube.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/cylinder.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_props/primitives/sphere.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetwork/Move.node"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/GalaxyNetworkTemplate.world"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_extreme.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_high.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_low.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_medium.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_ultra.render"</div>
+<div class="m">upgrading "D:/Repos/GalaxyCoreGithub/Templates/UnigineClient/GalaxyNetworkTemplate/data/csharp_template/template_render_settings/template_virtual_reality.render"</div>
+</body>
+</html>

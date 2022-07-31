@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>a428fd98ab66641782c2328a2fe88061d7dd1e4c</guid>
 	<type>texture</type>
-	<hash>e9bbe5f8</hash>
+	<hash>678670e8</hash>
 	<runtimes>
-		<runtime id="a428fd98ab66641782c2328a2fe88061d7dd1e4c" name="material_ball_a.png" link="0"/>
-		<runtime id="4227c53bb3cc795eb05a9125737a1040525b469f" name="material_ball_a.dds" link="1"/>
+		<runtime id="a428fd98ab66641782c2328a2fe88061d7dd1e4c" name="material_ball_a.png" link="0" type="6"/>
+		<runtime id="4227c53bb3cc795eb05a9125737a1040525b469f" name="material_ball_a.dds" link="1" type="6"/>
 	</runtimes>
 	<parameters>
 		<parameter type="string" name="mipmap_type">box</parameter>

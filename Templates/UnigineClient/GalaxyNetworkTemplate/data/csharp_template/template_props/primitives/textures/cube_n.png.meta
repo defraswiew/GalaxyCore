@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>9342ec43bd6f06db17b9cc05a00e2c40b9ada3ba</guid>
 	<type>texture</type>
-	<hash>e8ca6e55</hash>
+	<hash>07ded745</hash>
 	<runtimes>
-		<runtime id="9342ec43bd6f06db17b9cc05a00e2c40b9ada3ba" name="cube_n.png" link="0"/>
-		<runtime id="b6674b045b8932059769ee326a8eb293037aeb19" name="cube_n.dds" link="1"/>
+		<runtime id="9342ec43bd6f06db17b9cc05a00e2c40b9ada3ba" name="cube_n.png" link="0" type="6"/>
+		<runtime id="b6674b045b8932059769ee326a8eb293037aeb19" name="cube_n.dds" link="1" type="6"/>
 	</runtimes>
 	<parameters>
 		<parameter type="string" name="mipmap_type">box</parameter>

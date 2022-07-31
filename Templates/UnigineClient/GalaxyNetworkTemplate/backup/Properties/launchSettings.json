@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "main": {
+      "commandName": "Project",
+      "commandLineArgs": "-data_path ../ -console_command \"world_load \\\"GalaxyNetworkTemplate\\\"\""
+    }
+  }
+}

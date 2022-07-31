@@ -140,8 +140,7 @@ namespace GalaxyCoreLib
             messageAuth.Login = login.text;
             messageAuth.Password = password.text;
             // Отправляем сообщение авторизации
-            _connection.Connect(messageAuth.Serialize());  
-            GalaxyNetworkController.Api.SlaveConnections["test"].Connect(messageAuth.Serialize());
+            _connection.Connect(messageAuth.Serialize());
             // запускаем отображение прогресса
             progress.SetActive(true);
             // для информации выводим версию клиента

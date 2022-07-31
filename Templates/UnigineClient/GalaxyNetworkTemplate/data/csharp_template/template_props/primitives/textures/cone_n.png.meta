@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>aa480c17309a5a3ef84a1e147ac713a71e4727c1</guid>
 	<type>texture</type>
-	<hash>f04f36d7</hash>
+	<hash>8f81222</hash>
 	<runtimes>
-		<runtime id="aa480c17309a5a3ef84a1e147ac713a71e4727c1" name="cone_n.png" link="0"/>
-		<runtime id="f225c61ccb2a78ee75153c32ff600758eeffa623" name="cone_n.dds" link="1"/>
+		<runtime id="aa480c17309a5a3ef84a1e147ac713a71e4727c1" name="cone_n.png" link="0" type="6"/>
+		<runtime id="f225c61ccb2a78ee75153c32ff600758eeffa623" name="cone_n.dds" link="1" type="6"/>
 	</runtimes>
 	<parameters>
 		<parameter type="string" name="mipmap_type">box</parameter>

@@ -1,0 +1,5 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CUNIGINE_005FProjects_005CGalaxyNetworkTemplate_005Csource_005CGalaxyNetwork_005CLibs_005CGalaxyCoreCommon_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CUNIGINE_005FProjects_005CGalaxyNetworkTemplate_005Csource_005CGalaxyNetwork_005CLibs_005CGalaxyCoreLib_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CUNIGINE_005FProjects_005CGalaxyNetworkTemplate_005Csource_005CGalaxyNetwork_005CLibs_005Cprotobuf_002Dnet_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CUNIGINE_005FProjects_005CGalaxyNetworkTemplate_005Csource_005CGalaxyNetwork_005CLibs_005CSimpleMmoCommon_002Edll/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

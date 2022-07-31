@@ -18,5 +18,10 @@ namespace SimpleMmoServer
         {
             
         }
+
+        protected override void OnConnected()
+        {
+            base.OnConnected();
+        }
     }
 }

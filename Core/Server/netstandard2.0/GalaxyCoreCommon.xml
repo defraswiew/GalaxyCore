@@ -261,6 +261,11 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="T:GalaxyCoreCommon.DebugNetwork">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:GalaxyCoreCommon.GalaxyDeliveryType">
             <summary>
             Message delivery method
@@ -324,6 +329,11 @@
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.chat">
             <summary>
             Chat message
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.ConfirmEnterInInstance">
+            <summary>
+            
             </summary>
         </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.instanceCreate">

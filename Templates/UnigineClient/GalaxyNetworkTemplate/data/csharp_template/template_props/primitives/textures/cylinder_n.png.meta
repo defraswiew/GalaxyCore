@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>55932ca14d321a97d0da0a76fc6988ac2446bc7e</guid>
 	<type>texture</type>
-	<hash>fbd6d5b9</hash>
+	<hash>737363ee</hash>
 	<runtimes>
-		<runtime id="55932ca14d321a97d0da0a76fc6988ac2446bc7e" name="cylinder_n.png" link="0"/>
-		<runtime id="5c4cccedf7d047b63b9f6ff8e17f4d46bc703f86" name="cylinder_n.dds" link="1"/>
+		<runtime id="55932ca14d321a97d0da0a76fc6988ac2446bc7e" name="cylinder_n.png" link="0" type="6"/>
+		<runtime id="5c4cccedf7d047b63b9f6ff8e17f4d46bc703f86" name="cylinder_n.dds" link="1" type="6"/>
 	</runtimes>
 	<parameters>
 		<parameter type="string" name="mipmap_type">box</parameter>
