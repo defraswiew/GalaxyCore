@@ -77,7 +77,7 @@
             Called when creating a new instance to override logic
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyInstanceCreate(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyInstanceCreate(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient,System.Boolean@)">
             <summary>
             Вызов события переопределения инстанса
             </summary>
@@ -607,6 +607,24 @@
             The base class of the instance, serves as the basis for creating rooms, locations, and the like
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.Start">
+            <summary>
+            Called when an instance is created
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Update">
+            <summary>
+            Network frame tick
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+            <summary>
+            Custom forwarding a message to an instance
+            </summary>
+            <param name="code"></param>
+            <param name="data"></param>
+            <param name="baseClientConnection"></param>
+        </member>
         <member name="F:GalaxyCoreServer.Instance.Time">
             <summary>
             Time
@@ -705,11 +723,6 @@
             </summary>
             <param name="methodName">имя метода</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.Close">
-            <summary>
-            Called when the instance is closed
-            </summary>
-        </member>
         <member name="M:GalaxyCoreServer.Instance.GetClientById(System.Int32)">
             <summary>
             Getting a client in an instance by Id
@@ -728,11 +741,6 @@
             Вызывает обвновление всех сетевых сущностей в комнате
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.Update">
-            <summary>
-            Network frame tick
-            </summary>
-        </member>
         <member name="M:GalaxyCoreServer.Instance.AddClient(GalaxyCoreServer.BaseClient,System.Object)">
             <summary>
             Add client
@@ -743,23 +751,6 @@
         <member name="M:GalaxyCoreServer.Instance.SussesIncoming(GalaxyCoreServer.BaseClient)">
             <summary>
             Отправка клиенту сообщения об успешном входе в инстанс
-            </summary>
-            <param name="baseClientConnection"></param>
-        </member>
-        <member name="M:GalaxyCoreServer.Instance.Start">
-            <summary>
-            Called when an instance is created
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.Instance.IncomingClient(GalaxyCoreServer.BaseClient)">
-            <summary>
-            Called when a player enters an instance
-            </summary>
-            <param name="baseClientConnection">Client</param>
-        </member>
-        <member name="M:GalaxyCoreServer.Instance.OutgoingClient(GalaxyCoreServer.BaseClient)">
-            <summary>
-            The client left the room
             </summary>
             <param name="baseClientConnection"></param>
         </member>
@@ -790,14 +781,6 @@
             <summary>
             Remove all client network entities
             </summary>
-            <param name="baseClientConnection"></param>
-        </member>
-        <member name="M:GalaxyCoreServer.Instance.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
-            <summary>
-            Custom forwarding a message to an instance
-            </summary>
-            <param name="code"></param>
-            <param name="data"></param>
             <param name="baseClientConnection"></param>
         </member>
         <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
@@ -844,17 +827,42 @@
             <param name="data">данные</param>
             <param name="deliveryType">способ доставки</param>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.SyncWorld(GalaxyCoreServer.BaseClient)">
+            <summary>
+            отправить клиенту полное текущее состояние инстанса
+            </summary>
+            <param name="baseClientConnection"></param>
+        </member>
         <member name="M:GalaxyCoreServer.Instance.InstanceInfo">
             <summary>
             Getting user data for a request (list of instances)
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SyncWorld(GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Instance.IncomingClient(GalaxyCoreServer.BaseClient)">
             <summary>
-            отправить клиенту полное текущее состояние инстанса
+            Called when a player enters an instance
+            </summary>
+            <param name="baseClientConnection">Client</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.OutgoingClient(GalaxyCoreServer.BaseClient)">
+            <summary>
+            The client left the room
             </summary>
             <param name="baseClientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.ValidateIncomingClient(GalaxyCoreServer.BaseClient,System.Byte[])">
+            <summary>
+            manually check the user's access to the instance
+            </summary>
+            <param name="baseClientConnection"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Close">
+            <summary>
+            Called when the instance is closed
+            </summary>
         </member>
         <member name="M:GalaxyCoreServer.InstanceFramerOctree.GenerateTransformMessageByIgnoreVisible(System.UInt32)">
             <summary>

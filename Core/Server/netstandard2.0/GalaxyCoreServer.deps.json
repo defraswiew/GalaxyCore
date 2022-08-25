@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "GalaxyCoreServer/0.8.1": {
+      "GalaxyCoreServer/0.9.8": {
         "dependencies": {
           "GalaxyCoreCommon": "1.0.0",
           "NETStandard.Library": "2.0.3",
@@ -39,7 +39,7 @@
     }
   },
   "libraries": {
-    "GalaxyCoreServer/0.8.1": {
+    "GalaxyCoreServer/0.9.8": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

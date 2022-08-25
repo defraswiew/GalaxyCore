@@ -12,6 +12,10 @@ namespace SimpleMmoServer.Examples.NetEntities
         [GalaxyVar(1)] public string Text;
         [GalaxyVar(2)] public int Hp;
         [GalaxyVar(3)] public float Time;
+        [GalaxyVar(4)]
+        public float TestUser;
+        [GalaxyVar(5,false,false)]
+        public float TestUserNotTake;
 
         public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
@@ -52,7 +56,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         protected override void Update()
         {
             Time = Instance.Time.Time;
-            Log.Info("Test", Hp.ToString());
+        //    Log.Info("Test", Hp.ToString());
         }
 
         public ExampleVideo(Instance instance, vector position = default, GalaxyQuaternion rotation = default,
@@ -63,6 +67,12 @@ namespace SimpleMmoServer.Examples.NetEntities
             Text = "hello";
             Hp = 666;
             GalaxyVars.RegistrationClass(this);
+            GalaxyVars.OnChangedValue+=OnChangedValue;
+        }
+
+        private void OnChangedValue(byte id)
+        {
+           Log.Info("OnChangedValue",id.ToString());
         }
     }
 }

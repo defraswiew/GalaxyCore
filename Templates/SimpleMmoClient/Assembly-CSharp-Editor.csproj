@@ -722,14 +722,14 @@
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/Repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
- <Reference Include="Unity.PlasticSCM.Editor">
- <HintPath>D:/Repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>D:/Repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PlasticSCM.Editor">
+ <HintPath>D:/Repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.EditorCoroutines.Editor">
  <HintPath>D:/Repos/GalaxyCoreGithub/Templates/SimpleMmoClient/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>

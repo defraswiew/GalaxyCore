@@ -85,8 +85,9 @@ namespace SimpleMmoServer
         /// <param name="data">an array of bytes of additional information attached to the creation request</param>
         /// <param name="client">the client who sent the request</param>
         /// <returns>Return any inheritor of the Instance class</returns>
-        private Instance OnGalaxyInstanceCreate(byte type, byte[] data, BaseClient client)
+        private Instance OnGalaxyInstanceCreate(byte type, byte[] data, BaseClient client, out bool suscess)
         {
+            suscess = true;
             switch (type)
             {
                 case 1:
