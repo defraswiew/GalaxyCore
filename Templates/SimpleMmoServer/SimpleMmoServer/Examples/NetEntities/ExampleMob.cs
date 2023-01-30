@@ -16,7 +16,7 @@ namespace SimpleMmoServer.Examples.NetEntities
 
        
         
-        public ExampleMob(Instance instance, GalaxyVector3 position = new GalaxyVector3(), GalaxyQuaternion rotation = new GalaxyQuaternion(), NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public ExampleMob(Instance instance, GalaxyVector3 position = new GalaxyVector3(), GalaxyQuaternion rotation = new GalaxyQuaternion()) : base(instance, position, rotation)
         {
            
         }
@@ -76,7 +76,22 @@ namespace SimpleMmoServer.Examples.NetEntities
         {
              
         }
-        
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+            
+        }
+
         protected override void Start()
         {
              

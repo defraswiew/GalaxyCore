@@ -66,7 +66,7 @@ TextureImporter:
       213: 6276710838254011504
     second: GalaxyAtlas_20
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -86,6 +86,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -94,12 +96,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -117,9 +119,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -623,6 +629,28 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      GalaxyAtlas_19: -8533658242194242696
+      GalaxyAtlas_2: -7848223130181318739
+      GalaxyAtlas_18: 315690437895882951
+      GalaxyAtlas_0: -3163876009390520561
+      GalaxyAtlas_3: -8774481864277964571
+      GalaxyAtlas_4: 2284752634673667477
+      GalaxyAtlas_20: 6276710838254011504
+      GalaxyAtlas_15: 4056923659880599833
+      GalaxyAtlas_14: 1245794176732340496
+      GalaxyAtlas_6: -1464012164662596496
+      GalaxyAtlas_8: 1375488107319891325
+      GalaxyAtlas_9: -8910828053515343384
+      GalaxyAtlas_1: 2474902815787270192
+      GalaxyAtlas_12: -1021864502674468495
+      GalaxyAtlas_10: 157788938516329784
+      GalaxyAtlas_5: -7553791605054399845
+      GalaxyAtlas_16: 763907821006124938
+      GalaxyAtlas_11: 60013823224053447
+      GalaxyAtlas_13: -2260892182638955803
+      GalaxyAtlas_7: -2078759179466942616
+      GalaxyAtlas_17: -6460190240731182748
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

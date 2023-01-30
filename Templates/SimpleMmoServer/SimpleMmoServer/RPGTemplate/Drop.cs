@@ -17,7 +17,7 @@ namespace SimpleMmoServer.RPGTemplate
     {
         //список итемов хранящихся в дропе
         DropList dropList = new DropList();
-        public Drop(Instance instance, vector position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public Drop(Instance instance, vector position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             PrefabName = "Drop";
         }
@@ -58,6 +58,21 @@ namespace SimpleMmoServer.RPGTemplate
         protected override void OnDestroy()
         {
 
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+            
         }
 
         protected override void Start()

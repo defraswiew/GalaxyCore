@@ -971,17 +971,77 @@
         </member>
         <member name="T:GalaxyCoreLib.NetEntity.NetTransform">
             <summary>
+            Network equivalent of transform
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.NetTransform.InterpolatePosition">
+            <summary>
+            Interpolated value, works only if the corresponding methods are called. 
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.NetTransform.InterpolateScale">
+            <summary>
+            Interpolated value, works only if the corresponding methods are called. 
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.NetTransform.InterpolateRotation">
+            <summary>
+            Interpolated value, works only if the corresponding methods are called. 
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.NetTransform.FramesHistory">
+            <summary>
+            Stores the set number of the last snapshots of the transform state.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.NetEntity.EntityFrameArchive">
+            <summary>
+            Network frame imprint for a specific entity
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.EntityFrameArchive.Position">
+            <summary>
+            Position
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.EntityFrameArchive.Rotation">
+            <summary>
+            Rotation
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.EntityFrameArchive.Scale">
+            <summary>
+            Scale
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.NetEntity.FrameArchive">
+            <summary>
+            Stores the set number of the last snapshots of the transform state.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.FrameArchive.#ctor(System.Int32)">
+            <summary>
             
             </summary>
+            <param name="maxSize"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:GalaxyCoreLib.NetEntity.NetTransform.SendPosition(GalaxyCoreCommon.GalaxyVector3)">
+        <member name="M:GalaxyCoreLib.NetEntity.FrameArchive.SetSize(System.Int32)">
             <summary>
-            Send the position of the object to the server with the nearest frame
+            set the maximum capacity of the frames archive
             </summary>
+            <param name="maxSize"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:GalaxyCoreLib.NetEntity.NetTransform.SendRotation(GalaxyCoreCommon.GalaxyQuaternion)">
+        <member name="P:GalaxyCoreLib.NetEntity.FrameArchive.Item(System.Int32)">
             <summary>
-            Send object rotation to the server with the nearest frame
+            Get the frame (from 0 to _maxSize) where 0 is the most recent frame.
+            </summary>
+            <param name="i"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.NetEntity.NetTransform_old">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:GalaxyCoreLib.Network.MessageSender">

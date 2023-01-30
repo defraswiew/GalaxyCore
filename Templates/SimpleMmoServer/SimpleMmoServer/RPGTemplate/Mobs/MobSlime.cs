@@ -9,16 +9,14 @@ namespace SimpleMmoServer.RPGTemplate
     /// </summary>
     public class MobSlime : Mob
     {
-        public MobSlime(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default,
-            NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation,
-            syncType)
+        public MobSlime(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             // указываем имя префаба
             PrefabName = "MobSlime";
             // указываем тип синхронизации
             // нас устраивает только позиция
             // поворот будем высчитывать по направлению движения
-            syncType = NetEntityAutoSync.position;
+           
             ChangeOwner();
         }
 
@@ -48,6 +46,21 @@ namespace SimpleMmoServer.RPGTemplate
             RemoveInSpawner();
             Drop drop = new Drop(Instance, transform.Position);
             drop.Init();
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+             
         }
 
         protected override void Start()

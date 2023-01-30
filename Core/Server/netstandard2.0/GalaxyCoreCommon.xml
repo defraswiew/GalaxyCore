@@ -2489,6 +2489,50 @@
             Sell size
             </summary>
         </member>
+        <member name="F:GalaxyCoreCommon.NetEntities.NetTransformBase.POSITION_TOLERANCE">
+            <summary>
+            Threshold after which the position is considered changed
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.NetEntities.NetTransformBase.ROTATION_TOLERANCE">
+            <summary>
+            Threshold after which the rotation is considered changed
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntities.NetTransformBase.GetFrameData(System.Int32)">
+            <summary>
+            returns the delta from the last change
+            </summary>
+            <param name="netID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntities.NetTransformBase.ReadChanges(GalaxyCoreCommon.NetEntities.EntityFrameData)">
+            <summary>
+            ReadChanges
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntities.NetTransformBase.ResolvePosition(GalaxyCoreCommon.NetEntities.EntityFrameData)">
+            <summary>
+            Read position
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntities.NetTransformBase.ResolveRotation(GalaxyCoreCommon.NetEntities.EntityFrameData)">
+            <summary>
+            Read Rotation
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntities.NetTransformBase.ResolveScale(GalaxyCoreCommon.NetEntities.EntityFrameData)">
+            <summary>
+            Read Scale
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
         <member name="T:GalaxyCoreCommon.NetVars">
             <summary>
             Variable Synchronization Kernel

@@ -6,9 +6,7 @@ namespace SimpleMmoServer.Examples.NetEntities
 {
     public class ExampleSphere : NetEntity
     {
-        public ExampleSphere(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default,
-            NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation,
-            syncType)
+        public ExampleSphere(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             PrefabName = "ExampleSphere";
         }
@@ -19,6 +17,21 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         protected override void OnDestroy()
         {
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+             
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+          
         }
 
         protected override void Start()
@@ -35,7 +48,7 @@ namespace SimpleMmoServer.Examples.NetEntities
             Physics.Material.bounciness = 2;
             // specify the synchronization method
             // указываем способ синхронизации      
-            transform.SyncType = NetEntityAutoSync.position_and_rotation;
+           
             Physics.OnCollisionEnter += OnCollisionEnter;
         }
 

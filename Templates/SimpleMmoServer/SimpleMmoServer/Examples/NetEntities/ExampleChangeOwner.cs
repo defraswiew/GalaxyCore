@@ -9,10 +9,10 @@ namespace SimpleMmoServer.Examples.NetEntities
         public BaseClient OldOwner;
 
         public ExampleChangeOwner(Instance instance, GalaxyVector3 position = default,
-            GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) :
-            base(instance, position, rotation, syncType)
+            GalaxyQuaternion rotation = default) :
+            base(instance, position, rotation)
         {
-            FullUpdateRate = 5;
+       
             
         }
 
@@ -22,6 +22,21 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         protected override void OnDestroy()
         {
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+          
         }
 
         protected override void Start()

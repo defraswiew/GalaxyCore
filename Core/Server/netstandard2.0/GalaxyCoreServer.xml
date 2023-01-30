@@ -218,18 +218,6 @@
             <param name="distance">Радиус</param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreServer.Api.NetEntityManager.AddIgnoreList(GalaxyCoreServer.NetEntity)">
-            <summary>
-            добавляем энтити в список игнора сетевой видимости
-            </summary>
-            <param name="netEntity"></param>
-        </member>
-        <member name="M:GalaxyCoreServer.Api.NetEntityManager.RemoveIgnoreList(GalaxyCoreServer.NetEntity)">
-            <summary>
-            Удаляем энтити из списка игнора сетевой видимости
-            </summary>
-            <param name="netEntity"></param>
-        </member>
         <member name="M:GalaxyCoreServer.Api.NetEntityManager.CreateNetEntity(GalaxyCoreServer.NetEntity)">
             <summary>
             Создание сетевой сущности со стороны сервера
@@ -889,34 +877,34 @@
             Максимальная сетевая видимость
             </summary>
         </member>
-        <member name="T:GalaxyCoreServer.InstanceStandard">
+        <member name="T:GalaxyCoreServer.Instances.InstanceStandard">
             <summary>
             Стандартная реализация инстанса 
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandard.OutgoingClient(GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.OutgoingClient(GalaxyCoreServer.BaseClient)">
             <summary>
             Клиент вышел из инстанса
             </summary>
             <param name="baseClientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandard.Close">
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.Close">
             <summary>
             Инстанс был закрыт
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandard.IncomingClient(GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.IncomingClient(GalaxyCoreServer.BaseClient)">
             <summary>
             В инстанс вошел новый клиент
             </summary>
             <param name="baseClientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandard.Start">
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.Start">
             <summary>
             Инстанс запустился
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandard.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
             <summary>
             Пришло новое сообщение в инстанс
             </summary>
@@ -1036,6 +1024,42 @@
             Серверная реализация сетевой сущности
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnRemotePosition(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Called when the client tries to change the Position
+            </summary>
+            <param name="remotePosition"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnRemoteScale(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Called when the client tries to change the Scale
+            </summary>
+            <param name="remoteScale"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnRemoteRotation(GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>
+            Called when the client tries to change the Rotation
+            </summary>
+            <param name="remoteRotation"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Start">
+            <summary>
+            Called when the object is fully initialized
+            Вызывается при полной инициализации объекта
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Update">
+            <summary>
+            Network frame tick
+            Тик сетевого кадра
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnDestroy">
+            <summary>
+            Called when an entity is deleted
+            Вызывается при удалении сущности
+            </summary>
+        </member>
         <member name="P:GalaxyCoreServer.NetEntity.IsStatic">
             <summary>
             Is the object static
@@ -1104,7 +1128,7 @@
              Synchronizing Variables
             </summary>
         </member>
-        <member name="F:GalaxyCoreServer.NetEntity.IgnoreNetVisible">
+        <member name="F:GalaxyCoreServer.NetEntity.AlwaysVisible">
             <summary>
             The entity ignores network visibility (always visible)
             Сущность игнорирует сетевую видимость (виден всегда)
@@ -1122,7 +1146,7 @@
             Порог дальности вызывающий обновлении координат в древе поиска
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreServer.NetEntityAutoSync)">
+        <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion)">
             <summary>
             Creating a network entity
             Создание сетевой сущности
@@ -1142,28 +1166,15 @@
             Замена владельца на клиента с наименьшим числом активных сущностей
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.Start">
-            <summary>
-            Called when the object is fully initialized
-            Вызывается при полной инициализации объекта
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.NetEntity.OnDestroy">
-            <summary>
-            Called when an entity is deleted
-            Вызывается при удалении сущности
-            </summary>
-        </member>
         <member name="M:GalaxyCoreServer.NetEntity.Destory">
             <summary>
             Delete network object
             Удалить сетевой объект
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.Update">
+        <member name="M:GalaxyCoreServer.NetEntity.CallUpdate">
             <summary>
-            Network frame tick
-            Тик сетевого кадра
+            Внутренний вызов
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
@@ -1276,34 +1287,14 @@
             Transfer to a random client
             </summary>
         </member>
+        <member name="T:GalaxyCoreServer.NetEntities.NetTransform">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:GalaxyCoreServer.NetEntityStandard">
             <summary>
             default implementation of network entity
-            </summary>
-        </member>
-        <member name="T:GalaxyCoreServer.NetTransform">
-            <summary>
-            Transform
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.NetTransform.AutoApplyRemoteTransform">
-            <summary>
-            Automatically apply coordinates received from the client
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.NetTransform.SyncType">
-            <summary>
-            Auto sync mode
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.NetTransform.ApplyRemoteTransform">
-            <summary>
-            Apply transform values received from the client within the current frame
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.NetTransform.ForceSync">
-            <summary>
-            Forced sync transform
             </summary>
         </member>
         <member name="T:GalaxyCoreServer.Network.ClientStatistic">

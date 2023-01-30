@@ -41,6 +41,21 @@ namespace SimpleMmoServer.Examples.NetEntities
         public void Send()
         {
         }
+        
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+            transform.Position = remotePosition;
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            transform.Scale = remoteScale;
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+            transform.Rotation = remoteRotation;
+        }
 
         public void SendOcto()
         {
@@ -59,9 +74,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         //    Log.Info("Test", Hp.ToString());
         }
 
-        public ExampleVideo(Instance instance, vector position = default, GalaxyQuaternion rotation = default,
-            NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation,
-            syncType)
+        public ExampleVideo(Instance instance, vector position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             PrefabName = "ExampleVideo";
             Text = "hello";

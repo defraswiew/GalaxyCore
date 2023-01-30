@@ -15,7 +15,7 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         private Random _rnd;
 
-        public ExampleNetVars(Instance instance, GalaxyVector3 position = new GalaxyVector3(), GalaxyQuaternion rotation = new GalaxyQuaternion(), NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public ExampleNetVars(Instance instance, GalaxyVector3 position = new GalaxyVector3(), GalaxyQuaternion rotation = new GalaxyQuaternion()) : base(instance, position, rotation)
         {
             PrefabName = "ExampleVideo";
             _rnd = new Random();
@@ -34,7 +34,22 @@ namespace SimpleMmoServer.Examples.NetEntities
         {
           
         }
-        
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+            transform.Position = remotePosition;
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            transform.Scale = remoteScale;
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+            transform.Rotation = remoteRotation;
+        }
+
         protected override void Start()
         {
           

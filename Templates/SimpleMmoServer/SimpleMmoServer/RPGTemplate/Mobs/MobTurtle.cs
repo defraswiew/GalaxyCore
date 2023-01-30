@@ -6,10 +6,9 @@ namespace SimpleMmoServer.RPGTemplate
 {
     public class MobTurtle : Mob
     {
-        public MobTurtle(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public MobTurtle(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             PrefabName = "MobTurtle";
-            syncType = NetEntityAutoSync.position_and_rotation;
         }
 
         public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
@@ -37,6 +36,21 @@ namespace SimpleMmoServer.RPGTemplate
             Drop drop = new Drop(Instance, transform.Position);
             drop.Init();
             RemoveInSpawner();
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+            
         }
 
         protected override void Start()

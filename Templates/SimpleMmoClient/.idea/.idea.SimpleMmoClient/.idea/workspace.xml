@@ -6,25 +6,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1de93c65-72e3-41ad-b67d-f836e8449f37" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.deps.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Client/netstandard2.0/GalaxyCoreLib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/GalaxyCoreServer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.deps.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Core/Server/netstandard2.0/GalaxyCoreServer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SimpleMmoClient/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.pdb.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.pdb.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreCommon.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/GalaxyCoreLib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Plugins/netstandard2.0/SimpleMmoCommon.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Editor/TextureScale.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Editor/TextureScale.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/UI/GalaxyAtlas.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Core/UI/GalaxyAtlas.psd.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/Scenes/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TPM_Spawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TPM_Spawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleMmoClient.sln" beforeDir="false" afterPath="$PROJECT_DIR$/SimpleMmoClient.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Client.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/Instances/ExampleRoomMovers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/Instances/ExampleRoomMovers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleBox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleChangeOwner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleChangeOwner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleEntityTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleEntityTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleFollow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleForce.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleForce.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleMob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleMob.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleNavigationEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleNavigationEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleNetEntitySendMessages.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleNetEntitySendMessages.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleNetVars.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleNetVars.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExamplePet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExamplePet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExamplePhysBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExamplePhysBox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExamplePhysCapsule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExamplePhysCapsule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleRandomMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleRandomMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleSphere.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleSphere.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleVideo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/ExampleVideo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Server.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/NavigationMob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/Examples/NetEntities/NavigationMob.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/Drop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/Drop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/Mobs/Mob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/Mobs/Mob.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/Mobs/MobSlime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/Mobs/MobSlime.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/Mobs/MobSlimeBoss.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/Mobs/MobSlimeBoss.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/Mobs/MobTurtle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/Mobs/MobTurtle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/RPGTemplatePlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/RPGTemplate/RPGTemplatePlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/SimpleMmoServer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../SimpleMmoServer/SimpleMmoServer/SimpleMmoServer.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,37 +79,40 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/UnityNetEntity.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/NetEntity/AnimatorSync.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/NetEntity/ClientNetEntity.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/NetEntityManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/GalaxyChat.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/DebugLogger.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/TransformSerialization.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/GalaxyDragWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/DebugLogger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Editor/EditorNetworkController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/GalaxyAnimSync.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/GalaxyNetworkController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Extensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/GalaxyNetworkInstantiator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiClietsList.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIRoom.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIReg.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiRoomItem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/Instances.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUILogin.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/SimpleMmo/Scripts/ExampleRoomCreate.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatSystem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Scripts/ExampleNetVars2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/NetEntityTransform.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/NetEntity/UnityNetEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatChannel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIChatSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUILogin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIReg.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIRoom.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIRoomCreate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUIStatistic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiClietsList.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiRoomInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiRoomItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Examples/Scripts/ExampleNetVars2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/SimpleMmo/Scripts/ExampleRoomCreate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/_TMP/TPM_Spawn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/InternalMessages/ChatMessage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/NetEntities/NetTransformBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/TransformSerialization.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/GalaxyChat.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/Instances.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Api/NetEntityManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/GalaxyConnection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/NetEntity/AnimatorSync.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/NetEntity/ClientNetEntity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/NetEntity/NetTransform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Network/MessageSender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreLib/Network/NetworkCore.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../galaxycore/GalaxyCoreCommon/InternalMessages/ChatMessage.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/UI/GalaxyUiRoomInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GalaxyNetwork/Core/Scripts/Editor/EditorNetworkController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -92,47 +139,63 @@
       </list>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1kw6fPVya0saS8wMZLyKOT8Y3Yb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994525" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="XThreadsFramesViewSplitterKey" value="0.5007752" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RunManager" selected="Unity Executable.Standalone Player">
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../00000000000/SimpleMmoClient.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\repos\00000000000" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="USE_MONO" value="0" />
-      <option name="RUNTIME_ARGUMENTS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.0f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Repos\GalaxyCoreHub\Templates\SimpleMmoClient -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Repos\GalaxyCoreHub\Templates\SimpleMmoClient" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -209,12 +272,21 @@
       <workItem from="1657727192893" duration="714000" />
       <workItem from="1657892164106" duration="698000" />
       <workItem from="1659270635289" duration="312000" />
+      <workItem from="1668437360724" duration="1693000" />
+      <workItem from="1673344068926" duration="1926000" />
+      <workItem from="1673355001118" duration="1362000" />
+      <workItem from="1674658931712" duration="10082000" />
+      <workItem from="1674730610258" duration="294000" />
+      <workItem from="1674758131777" duration="2862000" />
+      <workItem from="1674805980324" duration="1022000" />
+      <workItem from="1675087942160" duration="594000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,19 +299,8 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="-988" y="-470" width="896" height="1696" key="VCS.FileHistoryDialog" timestamp="1657626503414">
-      <screen x="-1080" y="-562" width="1080" height="1880" />
-    </state>
-    <state x="-988" y="-470" width="896" height="1696" key="VCS.FileHistoryDialog/0.0.1920.1040/-1080.-562.1080.1880@-1080.-562.1080.1880" timestamp="1657626503414" />
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1653429286583">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1653429286583" />
   </component>
 </project>
