@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<material version="2.14.0.0" name="cube_mat" guid="856a527c0a972ae0b1a7012ba883608a786bfe78" base_material="mesh_base">
-	<texture name="normal" wrap="repeat" anisotropy="0">guid://b6674b045b8932059769ee326a8eb293037aeb19</texture>
+<material version="2.15.1.0" guid="856a527c0a972ae0b1a7012ba883608a786bfe78" base_material="4dfec30f491f753f6e89094db6d3d695e89f9d6f">
+	<texture name="normal" wrap="clamp_z" anisotropy="0">guid://b6674b045b8932059769ee326a8eb293037aeb19</texture>
 	<parameter name="albedo_color" expression="0">0.113725498 0.305882365 0.529411793 1</parameter>
 	<parameter name="roughness" expression="0">0.100000001</parameter>
 </material>

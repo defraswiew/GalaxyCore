@@ -1,61 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>80697983a5ff51064e4474ade14ace289d475b67</guid>
 	<type>fbx</type>
-	<hash>629d468d</hash>
+	<hash>23fb5984</hash>
 	<runtimes>
 		<runtime id="80697983a5ff51064e4474ade14ace289d475b67" name="cube.fbx" link="0"/>
 		<runtime id="4d4169f591e5f2d0fa2b27ef08e03482256f69f9" name="cube.node" link="1" type="3">
 			<parameters>
-				<parameter type="string" name="id">1f36c5c9</parameter>
+				<parameter type="string" name="id">65bb197e</parameter>
 			</parameters>
 		</runtime>
 		<runtime id="e0a18b04956a9a9364ca5ed63f65083d83cdac78" name="cube_mesh.mesh" link="2" type="1">
 			<parameters>
-				<parameter type="string" name="id">66cad6fa</parameter>
+				<parameter type="string" name="id">14537202</parameter>
 			</parameters>
 		</runtime>
 	</runtimes>
 	<parameters>
-		<parameter type="int" name="index_max_count_lods">1</parameter>
-		<parameter type="bool" name="need_triagulate">1</parameter>
-		<parameter type="bool" name="import_cameras">1</parameter>
-		<parameter type="int" name="import_materials_mode">0</parameter>
-		<parameter type="float" name="scale">1</parameter>
-		<parameter type="bool" name="import_textures">1</parameter>
-		<parameter type="float" name="bound_size">10000</parameter>
-		<parameter type="string" name="lods">_lod_0,-1e+09,_lod_1,3,_lod_2,9</parameter>
-		<parameter type="bool" name="combine_by_lods">0</parameter>
-		<parameter type="int" name="front_axis">0</parameter>
-		<parameter type="bool" name="import_tangent_space">0</parameter>
-		<parameter type="bool" name="need_split">0</parameter>
-		<parameter type="bool" name="merge_surfaces_by_materials">0</parameter>
-		<parameter type="bool" name="merge_similar_materials">0</parameter>
 		<parameter type="bool" name="merge_static_meshes">0</parameter>
-		<parameter type="bool" name="vertex_cache">1</parameter>
-		<parameter type="bool" name="joints_reorientation">1</parameter>
-		<parameter type="string" name="animations"/>
-		<parameter type="bool" name="skip_empty_nodes">0</parameter>
-		<parameter type="int" name="uv_resolution">512</parameter>
-		<parameter type="bool" name="import_lights">1</parameter>
-		<parameter type="int" name="up_axis">0</parameter>
-		<parameter type="bool" name="import_bones_without_skin">0</parameter>
-		<parameter type="bool" name="import_morph_targets">0</parameter>
-		<parameter type="int" name="uv_padding">0</parameter>
-		<parameter type="int" name="workflow">0</parameter>
-		<parameter type="bool" name="import_animations">1</parameter>
-		<parameter type="bool" name="import_materials">1</parameter>
-		<parameter type="float" name="angular_deflection">0.699999988</parameter>
-		<parameter type="bool" name="need_repivot">0</parameter>
-		<parameter type="float" name="fps">30</parameter>
+		<parameter type="bool" name="merge_surfaces_by_materials">0</parameter>
 		<parameter type="bool" name="use_instances">1</parameter>
-		<parameter type="bool" name="uv_high_quality">0</parameter>
-		<parameter type="bool" name="need_create_uv">0</parameter>
-		<parameter type="float" name="linear_deflection">0.200000003</parameter>
-		<parameter type="bool" name="create_transform_bones_for_joints">0</parameter>
+		<parameter type="bool" name="vertex_cache">1</parameter>
 		<parameter type="bool" name="import_meshes">1</parameter>
-		<parameter type="int" name="uv_channel">1</parameter>
+		<parameter type="bool" name="import_materials">1</parameter>
+		<parameter type="string" name="base_material_mode">inherit_mesh_base</parameter>
+		<parameter type="bool" name="merge_similar_materials">0</parameter>
+		<parameter type="bool" name="import_textures">1</parameter>
+		<parameter type="bool" name="import_animations">1</parameter>
+		<parameter type="bool" name="import_bones_without_skin">0</parameter>
+		<parameter type="bool" name="create_transform_bones_for_joints">0</parameter>
+		<parameter type="bool" name="joints_reorientation">1</parameter>
+		<parameter type="bool" name="import_lights">1</parameter>
+		<parameter type="bool" name="import_cameras">1</parameter>
+		<parameter type="bool" name="import_tangent_space">0</parameter>
+		<parameter type="bool" name="import_morph_targets">0</parameter>
+		<parameter type="float" name="scale">1</parameter>
+		<parameter type="float" name="fps">30</parameter>
+		<parameter type="bool" name="asset_name_as_prefix">0</parameter>
 		<parameter type="string" name="prefix_materials"/>
-		<parameter type="string" name="material_guids">mesh_base,401e90ccd85f4f2bb97c19ab9e1351325c4012eb</parameter>
+		<parameter type="int" name="import_materials_mode">0</parameter>
+		<parameter type="int" name="workflow">0</parameter>
+		<parameter type="int" name="up_axis">0</parameter>
+		<parameter type="int" name="front_axis">0</parameter>
+		<parameter type="bool" name="need_split">0</parameter>
+		<parameter type="bool" name="need_repivot">0</parameter>
+		<parameter type="bool" name="need_triagulate">1</parameter>
+		<parameter type="bool" name="skip_empty_nodes">0</parameter>
+		<parameter type="float" name="bound_size">10000</parameter>
+		<parameter type="float" name="linear_deflection">0.200000003</parameter>
+		<parameter type="float" name="angular_deflection">0.699999988</parameter>
+		<parameter type="string" name="lods_mode">off</parameter>
+		<parameter type="int" name="num_lods">3</parameter>
+		<parameter type="string" name="lods">_lod_0,-1e+09,3,0,0,100,0.01,0,60;_lod_1,3,9,0,0,20,0.01,1,60;_lod_2,9,1e+09,0,0,20,0.01,1,60</parameter>
+		<parameter type="string" name="animations"/>
+		<parameter type="int" name="uv_ch">1</parameter>
+		<parameter type="bool" name="unwrap_uv_ch_0">0</parameter>
+		<parameter type="bool" name="unwrap_uv_ch_1">0</parameter>
+		<parameter type="int" name="resolution">3</parameter>
+		<parameter type="string" name="lightmaps">{&quot;guid://e0a18b04956a9a9364ca5ed63f65083d83cdac78&quot;:{&quot;mesh_base&quot;:{&quot;use_custom_settings&quot;:0,&quot;uv_ch&quot;:1,&quot;unwrap_uv_ch_0&quot;:0,&quot;unwrap_uv_ch_1&quot;:0,&quot;resolution&quot;:3}}}</parameter>
+		<parameter type="int" name="smooth_animation_size">0</parameter>
+		<parameter type="string" name="material_guids">mesh_base,4dfec30f491f753f6e89094db6d3d695e89f9d6f</parameter>
 	</parameters>
 </asset>

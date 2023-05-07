@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>856a527c0a972ae0b1a7012ba883608a786bfe78</guid>
 	<type>material</type>
-	<hash>85580faf</hash>
+	<hash>5a0ccea3</hash>
 	<runtimes>
-		<runtime id="856a527c0a972ae0b1a7012ba883608a786bfe78" name="cube_mat" link="0"/>
+		<runtime id="856a527c0a972ae0b1a7012ba883608a786bfe78" name="cube_mat" link="0" type="5"/>
 	</runtimes>
 </asset>

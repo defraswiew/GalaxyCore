@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<settings version="2.14.0.0">
+<settings version="2.15.1.0">
 	<render>
 		<data/>
 		<shader_defines/>
@@ -45,9 +45,6 @@
 		</color_correction>
 		<pre_post_materials/>
 		<composite_material/>
-		<post_materials/>
-		<render_debug_materials/>
-		<render_composite_deferred_material/>
 		<sky_rotation>0 0 0 1</sky_rotation>
 		<albedo_cavity_texture_name>core/textures/common/white.dds</albedo_cavity_texture_name>
 		<shading_cavity_texture_name>core/textures/common/white.dds</shading_cavity_texture_name>
@@ -245,7 +242,7 @@
 		<render_field_height_resolution>2</render_field_height_resolution>
 		<render_field_precision>0</render_field_precision>
 		<render_field_shoreline_resolution>0</render_field_shoreline_resolution>
-		<render_filmic>1</render_filmic>
+		<render_tonemapper>1</render_tonemapper>
 		<render_filmic_linear_angle>0.100000001</render_filmic_linear_angle>
 		<render_filmic_linear_scale>0.300000012</render_filmic_linear_scale>
 		<render_filmic_saturation_recovery>0.600000024</render_filmic_saturation_recovery>
@@ -427,7 +424,7 @@
 		<render_ssr_color_clamping_intensity>0.200000003</render_ssr_color_clamping_intensity>
 		<render_ssr_color_clamping_velocity_threshold>100</render_ssr_color_clamping_velocity_threshold>
 		<render_ssr_denoise>0</render_ssr_denoise>
-		<render_ssr_denoise_gussian_sigma>10</render_ssr_denoise_gussian_sigma>
+		<render_ssr_denoise_gaussian_sigma>10</render_ssr_denoise_gaussian_sigma>
 		<render_ssr_denoise_intensity>0.5</render_ssr_denoise_intensity>
 		<render_ssr_denoise_quality>1</render_ssr_denoise_quality>
 		<render_ssr_denoise_radius>1</render_ssr_denoise_radius>
@@ -498,7 +495,7 @@
 		<render_streaming_particles_memory_limit>3</render_streaming_particles_memory_limit>
 		<render_streaming_textures_cache_resolution>1</render_streaming_textures_cache_resolution>
 		<render_streaming_textures_memory_limit>65</render_streaming_textures_memory_limit>
-		<render_streaming_upadte_limit>1.5</render_streaming_upadte_limit>
+		<render_streaming_update_limit>1.5</render_streaming_update_limit>
 		<render_streaming_use_memory_limit>1</render_streaming_use_memory_limit>
 		<render_supersampling>1</render_supersampling>
 		<render_taa>1</render_taa>
@@ -558,5 +555,8 @@
 		<render_wireframe_antialiasing>1</render_wireframe_antialiasing>
 		<render_wireframe_color>1 1 1 1</render_wireframe_color>
 		<render_refraction_warp_background_transparent_surfaces>1</render_refraction_warp_background_transparent_surfaces>
+		<scriptable_materials/>
+		<debug_materials/>
+		<composite_deferred_material_guid/>
 	</render>
 </settings>

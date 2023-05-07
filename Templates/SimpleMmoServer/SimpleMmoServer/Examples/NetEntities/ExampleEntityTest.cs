@@ -5,7 +5,7 @@ namespace SimpleMmoServer.Examples.NetEntities
 {
     public class ExampleEntityTest : NetEntity
     {
-        public ExampleEntityTest(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public ExampleEntityTest(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
          
         }
@@ -18,6 +18,21 @@ namespace SimpleMmoServer.Examples.NetEntities
         protected override void OnDestroy()
         {
              
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+            transform.Position = remotePosition;
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            transform.Scale = remoteScale;
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+            transform.Rotation = remoteRotation;
         }
 
         protected override void Start()

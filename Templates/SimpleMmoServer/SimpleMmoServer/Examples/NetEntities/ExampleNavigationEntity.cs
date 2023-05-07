@@ -25,7 +25,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         private scalar _lastDelta;
 
         public ExampleNavigationEntity(Instance instance, NetEntity target, GalaxyMap map) : base(instance, default,
-            default, NetEntityAutoSync.position_and_rotation)
+            default)
         {
             PrefabName = "NavBot";
             Target = target;
@@ -58,6 +58,21 @@ namespace SimpleMmoServer.Examples.NetEntities
             }
 
             SendMessage(1, message.Data, GalaxyDeliveryType.reliable);
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+             
         }
 
         protected override void Start()

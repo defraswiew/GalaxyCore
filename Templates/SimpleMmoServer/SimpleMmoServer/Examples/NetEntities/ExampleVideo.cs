@@ -11,6 +11,11 @@ namespace SimpleMmoServer.Examples.NetEntities
     {
         [GalaxyVar(1)] public string Text;
         [GalaxyVar(2)] public int Hp;
+        [GalaxyVar(3)] public float Time;
+        [GalaxyVar(4)]
+        public float TestUser;
+        [GalaxyVar(5,false,false)]
+        public float TestUserNotTake;
 
         public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
@@ -36,6 +41,21 @@ namespace SimpleMmoServer.Examples.NetEntities
         public void Send()
         {
         }
+        
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+            transform.Position = remotePosition;
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            transform.Scale = remoteScale;
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+            transform.Rotation = remoteRotation;
+        }
 
         public void SendOcto()
         {
@@ -50,17 +70,22 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         protected override void Update()
         {
-            Log.Info("Position", transform.Position.ToString());
+            Time = Instance.Time.Time;
+        //    Log.Info("Test", Hp.ToString());
         }
 
-        public ExampleVideo(Instance instance, vector position = default, GalaxyQuaternion rotation = default,
-            NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation,
-            syncType)
+        public ExampleVideo(Instance instance, vector position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             PrefabName = "ExampleVideo";
             Text = "hello";
             Hp = 666;
             GalaxyVars.RegistrationClass(this);
+            GalaxyVars.OnChangedValue+=OnChangedValue;
+        }
+
+        private void OnChangedValue(byte id)
+        {
+           Log.Info("OnChangedValue",id.ToString());
         }
     }
 }

@@ -87,9 +87,7 @@ namespace SimpleMmoServer.RPGTemplate.Mobs
         private float _lastAttack;
 
 
-        public Mob(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default,
-            NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation,
-            syncType)
+        public Mob(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
         }
 

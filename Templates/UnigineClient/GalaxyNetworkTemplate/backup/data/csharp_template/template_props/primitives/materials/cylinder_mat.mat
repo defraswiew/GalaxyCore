@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<material version="2.14.0.0" name="cylinder_mat" guid="7028881e5062b70f344d72d5bb1636962184330e" base_material="mesh_base">
+	<texture name="normal" wrap="repeat" anisotropy="0">guid://5c4cccedf7d047b63b9f6ff8e17f4d46bc703f86</texture>
+	<parameter name="albedo_color" expression="0">0.423529446 0.105882362 0.501960814 1</parameter>
+	<parameter name="roughness" expression="0">0.100000001</parameter>
+</material>

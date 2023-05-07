@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>ebff47daf35075711e58f01ca95a4ccb5070bbae</guid>
 	<type>mesh</type>
-	<hash>5fee9524</hash>
+	<hash>8fcb128c</hash>
 	<runtimes>
-		<runtime id="ebff47daf35075711e58f01ca95a4ccb5070bbae" name="sphere.mesh" link="0"/>
+		<runtime id="ebff47daf35075711e58f01ca95a4ccb5070bbae" name="sphere.mesh" link="0" type="1"/>
 	</runtimes>
 	<parameters>
 		<parameter type="bool" name="unchanged">1</parameter>

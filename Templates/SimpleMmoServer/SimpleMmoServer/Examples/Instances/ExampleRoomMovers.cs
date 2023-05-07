@@ -4,16 +4,17 @@ using SimpleMmoServer.Examples.NetEntities;
 
 namespace SimpleMmoServer.Examples.Instances
 {
-    public class ExampleRoomMovers : Instance
+    public class ExampleRoomMovers : InstanceOpenWorldOctree
     {
         private int _moverCount;
-        private int _moverMax = 1000;
+        private int _moverMax = 1;
 
         public override void Start()
         {
             Log.Debug("ExampleRoomMovers","Start");
             SetFrameRate(5);
             InvokeRepeating("Spawn", 1, 0.2f);
+         //   VisibleDistance = 15;
         }
         public override void InMessage(byte code, byte[] data, BaseClient client)
         {

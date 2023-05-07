@@ -77,7 +77,7 @@
             Called when creating a new instance to override logic
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyInstanceCreate(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyInstanceCreate(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient,System.Boolean@)">
             <summary>
             Вызов события переопределения инстанса
             </summary>
@@ -218,18 +218,6 @@
             <param name="distance">Радиус</param>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreServer.Api.NetEntityManager.AddIgnoreList(GalaxyCoreServer.NetEntity)">
-            <summary>
-            добавляем энтити в список игнора сетевой видимости
-            </summary>
-            <param name="netEntity"></param>
-        </member>
-        <member name="M:GalaxyCoreServer.Api.NetEntityManager.RemoveIgnoreList(GalaxyCoreServer.NetEntity)">
-            <summary>
-            Удаляем энтити из списка игнора сетевой видимости
-            </summary>
-            <param name="netEntity"></param>
-        </member>
         <member name="M:GalaxyCoreServer.Api.NetEntityManager.CreateNetEntity(GalaxyCoreServer.NetEntity)">
             <summary>
             Создание сетевой сущности со стороны сервера
@@ -248,7 +236,7 @@
             </summary>
             <param name="entity">целевая сущность</param>
         </member>
-        <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient,System.Byte)">
             <summary>
             Входящее сообщение для сетевого объекта
             </summary>
@@ -380,7 +368,7 @@
             <param name="message">Сообщение (наследник BaseMessage)</param>
             <param name="deliveryType">Delivery Type</param>
         </member>
-        <member name="M:GalaxyCoreServer.BaseClient.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.BaseClient.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send data to user
             Отправить данные пользователю
@@ -607,6 +595,24 @@
             The base class of the instance, serves as the basis for creating rooms, locations, and the like
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.Start">
+            <summary>
+            Called when an instance is created
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Update">
+            <summary>
+            Network frame tick
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+            <summary>
+            Custom forwarding a message to an instance
+            </summary>
+            <param name="code"></param>
+            <param name="data"></param>
+            <param name="baseClientConnection"></param>
+        </member>
         <member name="F:GalaxyCoreServer.Instance.Time">
             <summary>
             Time
@@ -705,11 +711,6 @@
             </summary>
             <param name="methodName">имя метода</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.Close">
-            <summary>
-            Called when the instance is closed
-            </summary>
-        </member>
         <member name="M:GalaxyCoreServer.Instance.GetClientById(System.Int32)">
             <summary>
             Getting a client in an instance by Id
@@ -728,11 +729,6 @@
             Вызывает обвновление всех сетевых сущностей в комнате
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.Update">
-            <summary>
-            Network frame tick
-            </summary>
-        </member>
         <member name="M:GalaxyCoreServer.Instance.AddClient(GalaxyCoreServer.BaseClient,System.Object)">
             <summary>
             Add client
@@ -743,23 +739,6 @@
         <member name="M:GalaxyCoreServer.Instance.SussesIncoming(GalaxyCoreServer.BaseClient)">
             <summary>
             Отправка клиенту сообщения об успешном входе в инстанс
-            </summary>
-            <param name="baseClientConnection"></param>
-        </member>
-        <member name="M:GalaxyCoreServer.Instance.Start">
-            <summary>
-            Called when an instance is created
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.Instance.IncomingClient(GalaxyCoreServer.BaseClient)">
-            <summary>
-            Called when a player enters an instance
-            </summary>
-            <param name="baseClientConnection">Client</param>
-        </member>
-        <member name="M:GalaxyCoreServer.Instance.OutgoingClient(GalaxyCoreServer.BaseClient)">
-            <summary>
-            The client left the room
             </summary>
             <param name="baseClientConnection"></param>
         </member>
@@ -792,14 +771,6 @@
             </summary>
             <param name="baseClientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
-            <summary>
-            Custom forwarding a message to an instance
-            </summary>
-            <param name="code"></param>
-            <param name="data"></param>
-            <param name="baseClientConnection"></param>
-        </member>
         <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
             <summary>
             Send a message to all users in the room
@@ -808,7 +779,7 @@
             <param name="message"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all users in the room
             </summary>
@@ -816,7 +787,7 @@
             <param name="data"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAll(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAll(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Внутреннаяя отправка сообщения
             </summary>
@@ -825,7 +796,7 @@
             <param name="data"></param>
             <param name="deliveryType"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAllExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAllExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Внутреннаяя отправка сообщения всем кроме
             </summary>
@@ -835,7 +806,7 @@
             <param name="data"></param>
             <param name="deliveryType"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SendMessageToAllExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAllExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all users in the room except the selected one
             </summary>
@@ -844,17 +815,42 @@
             <param name="data">данные</param>
             <param name="deliveryType">способ доставки</param>
         </member>
+        <member name="M:GalaxyCoreServer.Instance.SyncWorld(GalaxyCoreServer.BaseClient)">
+            <summary>
+            отправить клиенту полное текущее состояние инстанса
+            </summary>
+            <param name="baseClientConnection"></param>
+        </member>
         <member name="M:GalaxyCoreServer.Instance.InstanceInfo">
             <summary>
             Getting user data for a request (list of instances)
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SyncWorld(GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Instance.IncomingClient(GalaxyCoreServer.BaseClient)">
             <summary>
-            отправить клиенту полное текущее состояние инстанса
+            Called when a player enters an instance
+            </summary>
+            <param name="baseClientConnection">Client</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.OutgoingClient(GalaxyCoreServer.BaseClient)">
+            <summary>
+            The client left the room
             </summary>
             <param name="baseClientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.ValidateIncomingClient(GalaxyCoreServer.BaseClient,System.Byte[])">
+            <summary>
+            manually check the user's access to the instance
+            </summary>
+            <param name="baseClientConnection"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Close">
+            <summary>
+            Called when the instance is closed
+            </summary>
         </member>
         <member name="M:GalaxyCoreServer.InstanceFramerOctree.GenerateTransformMessageByIgnoreVisible(System.UInt32)">
             <summary>
@@ -881,34 +877,34 @@
             Максимальная сетевая видимость
             </summary>
         </member>
-        <member name="T:GalaxyCoreServer.InstanceStandard">
+        <member name="T:GalaxyCoreServer.Instances.InstanceStandard">
             <summary>
             Стандартная реализация инстанса 
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandard.OutgoingClient(GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.OutgoingClient(GalaxyCoreServer.BaseClient)">
             <summary>
             Клиент вышел из инстанса
             </summary>
             <param name="baseClientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandard.Close">
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.Close">
             <summary>
             Инстанс был закрыт
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandard.IncomingClient(GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.IncomingClient(GalaxyCoreServer.BaseClient)">
             <summary>
             В инстанс вошел новый клиент
             </summary>
             <param name="baseClientConnection"></param>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandard.Start">
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.Start">
             <summary>
             Инстанс запустился
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.InstanceStandard.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
             <summary>
             Пришло новое сообщение в инстанс
             </summary>
@@ -1028,6 +1024,42 @@
             Серверная реализация сетевой сущности
             </summary>
         </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnRemotePosition(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Called when the client tries to change the Position
+            </summary>
+            <param name="remotePosition"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnRemoteScale(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Called when the client tries to change the Scale
+            </summary>
+            <param name="remoteScale"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnRemoteRotation(GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>
+            Called when the client tries to change the Rotation
+            </summary>
+            <param name="remoteRotation"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Start">
+            <summary>
+            Called when the object is fully initialized
+            Вызывается при полной инициализации объекта
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Update">
+            <summary>
+            Network frame tick
+            Тик сетевого кадра
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnDestroy">
+            <summary>
+            Called when an entity is deleted
+            Вызывается при удалении сущности
+            </summary>
+        </member>
         <member name="P:GalaxyCoreServer.NetEntity.IsStatic">
             <summary>
             Is the object static
@@ -1096,7 +1128,7 @@
              Synchronizing Variables
             </summary>
         </member>
-        <member name="F:GalaxyCoreServer.NetEntity.IgnoreNetVisible">
+        <member name="F:GalaxyCoreServer.NetEntity.AlwaysVisible">
             <summary>
             The entity ignores network visibility (always visible)
             Сущность игнорирует сетевую видимость (виден всегда)
@@ -1114,7 +1146,7 @@
             Порог дальности вызывающий обновлении координат в древе поиска
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion,GalaxyCoreServer.NetEntityAutoSync)">
+        <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion)">
             <summary>
             Creating a network entity
             Создание сетевой сущности
@@ -1134,28 +1166,15 @@
             Замена владельца на клиента с наименьшим числом активных сущностей
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.Start">
-            <summary>
-            Called when the object is fully initialized
-            Вызывается при полной инициализации объекта
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.NetEntity.OnDestroy">
-            <summary>
-            Called when an entity is deleted
-            Вызывается при удалении сущности
-            </summary>
-        </member>
         <member name="M:GalaxyCoreServer.NetEntity.Destory">
             <summary>
             Delete network object
             Удалить сетевой объект
             </summary>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.Update">
+        <member name="M:GalaxyCoreServer.NetEntity.CallUpdate">
             <summary>
-            Network frame tick
-            Тик сетевого кадра
+            Внутренний вызов
             </summary>
         </member>
         <member name="M:GalaxyCoreServer.NetEntity.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
@@ -1167,7 +1186,7 @@
             <param name="data"></param>
             <param name="baseClientSender">message sender</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Sending a message to all instances of a given object
             </summary>
@@ -1175,7 +1194,7 @@
             <param name="message"></param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Sending a message to all instances of a given object
             </summary>
@@ -1183,7 +1202,7 @@
             <param name="data"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all instances of this object except for the specified client
             </summary>
@@ -1192,7 +1211,7 @@
             <param name="message"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all instances of this object except for the specified client
             </summary>
@@ -1201,7 +1220,7 @@
             <param name="data"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendToOwner(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendToOwner(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to the owner of the entity
             </summary>
@@ -1209,7 +1228,7 @@
             <param name="data"></param>
             <param name="deliveryType"></param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all users who see this entity
             </summary>
@@ -1217,7 +1236,7 @@
             <param name="message"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all users who see this entity
             </summary>
@@ -1268,34 +1287,14 @@
             Transfer to a random client
             </summary>
         </member>
+        <member name="T:GalaxyCoreServer.NetEntities.NetTransform">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:GalaxyCoreServer.NetEntityStandard">
             <summary>
             default implementation of network entity
-            </summary>
-        </member>
-        <member name="T:GalaxyCoreServer.NetTransform">
-            <summary>
-            Transform
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.NetTransform.AutoApplyRemoteTransform">
-            <summary>
-            Automatically apply coordinates received from the client
-            </summary>
-        </member>
-        <member name="F:GalaxyCoreServer.NetTransform.SyncType">
-            <summary>
-            Auto sync mode
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.NetTransform.ApplyRemoteTransform">
-            <summary>
-            Apply transform values received from the client within the current frame
-            </summary>
-        </member>
-        <member name="M:GalaxyCoreServer.NetTransform.ForceSync">
-            <summary>
-            Forced sync transform
             </summary>
         </member>
         <member name="T:GalaxyCoreServer.Network.ClientStatistic">
@@ -1447,7 +1446,7 @@
             </summary>
             <param name="message"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Network.IncomingMessage.InternalMessage(System.Byte,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Network.IncomingMessage.InternalMessage(System.Byte,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient,Lidgren.Network.NetIncomingMessage)">
             <summary>
             Пришло внутреннее сообщение
             </summary>

@@ -16,8 +16,8 @@ namespace SimpleMmoServer.Examples.NetEntities
 
 
         public ExampleRandomMove(Instance instance, GalaxyVector3 position = default,
-            GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) :
-            base(instance, position, rotation, syncType)
+            GalaxyQuaternion rotation = default) :
+            base(instance, position, rotation)
         {
             PrefabName = "Move";
         }
@@ -30,9 +30,24 @@ namespace SimpleMmoServer.Examples.NetEntities
         {
         }
 
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+          
+        }
+
         protected override void Start()
         {
-            transform.SyncType = NetEntityAutoSync.position_and_rotation;
+         
         }
 
         protected override void Update()
@@ -42,11 +57,11 @@ namespace SimpleMmoServer.Examples.NetEntities
             {
                 _timer = 0;
                 _randTime = GRand.NextInt(20, 45);
-                _target.X = GRand.NextInt(-180, 180);
-                _target.Y = GRand.NextInt(-180, 180);
-                _target.Z = GRand.NextInt(-180, 180);
+                _target.X = GRand.NextInt(-50, 50);
+                _target.Y = GRand.NextInt(-50, 50);
+                _target.Z = GRand.NextInt(-50, 50);
                 
-                _targetRotation.X = GRand.NextInt(-100, 100) * 0.01f;
+                _targetRotation.X = GRand.NextInt(-10, 100) * 0.01f;
                 _targetRotation.Y = GRand.NextInt(-100, 100) * 0.01f;
                 _targetRotation.Z = GRand.NextInt(-100, 100) * 0.01f;
                 _targetRotation.W = GRand.NextInt(-100, 100) * 0.01f;

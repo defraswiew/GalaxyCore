@@ -261,6 +261,11 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="T:GalaxyCoreCommon.DebugNetwork">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:GalaxyCoreCommon.GalaxyDeliveryType">
             <summary>
             Message delivery method
@@ -306,7 +311,7 @@
             Custom logic message sent to the current instance
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.InternalMessageCodes.routeNetEntity">
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.RouteNetEntity">
             <summary>
             Custom logic message sent to network entity
             </summary>
@@ -324,6 +329,11 @@
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.chat">
             <summary>
             Chat message
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.ConfirmEnterInInstance">
+            <summary>
+            
             </summary>
         </member>
         <member name="F:GalaxyCoreCommon.InternalMessageCodes.instanceCreate">
@@ -434,6 +444,11 @@
         <member name="F:GalaxyCoreCommon.ErrorCodes.Instance_password_not_correct">
             <summary>
             Instance password does not match
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.ErrorCodes.Instance_creation_is_prohibited">
+            <summary>
+            The creation of an instance was prohibited by the server
             </summary>
         </member>
         <member name="T:GalaxyCoreCommon.ChatMessageType">
@@ -1317,12 +1332,18 @@
             Variable ID within the entity
             </summary>
         </member>
-        <member name="M:GalaxyCoreCommon.GalaxyVar.#ctor(System.Byte,System.Boolean)">
+        <member name="F:GalaxyCoreCommon.GalaxyVar.AcceptChanges">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.GalaxyVar.#ctor(System.Byte,System.Boolean,System.Boolean)">
             <summary>
             Synchronized variable attribute
             </summary>
             <param name="id">unique variable id for the entity</param>
             <param name="sendChanges">Whether to send changes to a variable</param>
+            <param name="acceptChanges"></param>
         </member>
         <member name="T:GalaxyCoreCommon.GalaxyVersion">
             <summary>
@@ -2467,6 +2488,50 @@
             <summary>
             Sell size
             </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.NetEntities.NetTransformBase.POSITION_TOLERANCE">
+            <summary>
+            Threshold after which the position is considered changed
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreCommon.NetEntities.NetTransformBase.ROTATION_TOLERANCE">
+            <summary>
+            Threshold after which the rotation is considered changed
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntities.NetTransformBase.GetFrameData(System.Int32)">
+            <summary>
+            returns the delta from the last change
+            </summary>
+            <param name="netID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntities.NetTransformBase.ReadChanges(GalaxyCoreCommon.NetEntities.EntityFrameData)">
+            <summary>
+            ReadChanges
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntities.NetTransformBase.ResolvePosition(GalaxyCoreCommon.NetEntities.EntityFrameData)">
+            <summary>
+            Read position
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntities.NetTransformBase.ResolveRotation(GalaxyCoreCommon.NetEntities.EntityFrameData)">
+            <summary>
+            Read Rotation
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreCommon.NetEntities.NetTransformBase.ResolveScale(GalaxyCoreCommon.NetEntities.EntityFrameData)">
+            <summary>
+            Read Scale
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
         </member>
         <member name="T:GalaxyCoreCommon.NetVars">
             <summary>

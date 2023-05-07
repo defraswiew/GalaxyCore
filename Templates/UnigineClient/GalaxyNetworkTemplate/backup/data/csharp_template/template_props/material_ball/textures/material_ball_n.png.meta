@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.14.0.0">
+	<guid>2af385897c625154ab088ca30fd209a6ab2794cd</guid>
+	<type>texture</type>
+	<hash>c1cb604c</hash>
+	<runtimes>
+		<runtime id="2af385897c625154ab088ca30fd209a6ab2794cd" name="material_ball_n.png" link="0"/>
+		<runtime id="3ac02fc875c310878d1b943add8e9651fa79db7c" name="material_ball_n.dds" link="1"/>
+	</runtimes>
+	<parameters>
+		<parameter type="string" name="mipmap_type">box</parameter>
+		<parameter type="string" name="image_format">ATI2</parameter>
+		<parameter type="bool" name="invert_g">0</parameter>
+		<parameter type="string" name="image_type">2d</parameter>
+		<parameter type="string" name="width">auto</parameter>
+		<parameter type="string" name="height">auto</parameter>
+		<parameter type="bool" name="srgb_correction">0</parameter>
+		<parameter type="bool" name="unchanged">0</parameter>
+		<parameter type="string" name="preset_name">normal map (rg)</parameter>
+	</parameters>
+</asset>

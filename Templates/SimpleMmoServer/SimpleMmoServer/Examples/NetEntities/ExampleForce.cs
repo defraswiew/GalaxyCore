@@ -15,9 +15,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         public ExampleRoomPhys Room;
         private scalar _distance;
 
-        public ExampleForce(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default,
-            NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation,
-            syncType)
+        public ExampleForce(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             PrefabName = "ExampleSphere";
         }
@@ -31,9 +29,23 @@ namespace SimpleMmoServer.Examples.NetEntities
         {
         }
 
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+             
+        }
+
         protected override void Start()
         {
-            transform.SyncType = NetEntityAutoSync.position_and_rotation;
             Physics.Activate(new GalaxyCoreServer.Physics.ColliderSphere(0.5f));
             Physics.useGravity = false;
         }

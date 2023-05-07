@@ -12,10 +12,9 @@ namespace SimpleMmoServer.RPGTemplate
     {
         private int _skill1Count = 0;
         
-        public MobSlimeBoss(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public MobSlimeBoss(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             PrefabName = "MobSlimeBoss";
-            syncType = NetEntityAutoSync.position;
             Heal = 1000;
             MaxHeal = 1000;
             attackDistanse = 5;
@@ -81,6 +80,21 @@ namespace SimpleMmoServer.RPGTemplate
             RemoveInSpawner();
             Drop drop = new Drop(Instance, transform.Position);
             drop.Init();
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+           
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+             
         }
 
         protected override void Start()

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp5.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <Configurations>Debug;Release;FLOAT;DOUBLE</Configurations>
     <Platforms>AnyCPU</Platforms>
     <LangVersion>8</LangVersion>
@@ -26,6 +26,9 @@
     </Reference>
     <Reference Include="protobuf-net">
       <HintPath>..\..\..\Core\Server\netstandard2.0\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>D:\Repos\GalaxyCloud\dependencies\GalaxyNetwork\Quartz.dll</HintPath>
     </Reference>
   </ItemGroup>
 

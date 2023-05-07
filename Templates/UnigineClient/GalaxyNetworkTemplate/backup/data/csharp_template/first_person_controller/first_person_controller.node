@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodes version="2.14.0.0">
+	<node type="ObjectDummy" id="2040186137" trigger_interaction_enabled="1" name="first_person_controller">
+		<body type="BodyDummy" id="1768093777" frozen="0">
+			<shape type="ShapeCapsule" id="1990856091" transform="0.99999994 0 0 0 0 1 0 0 0 0 0.999999762 0 0 0 0.875 1">
+				<radius>0.300000012</radius>
+				<height>1.14999998</height>
+			</shape>
+		</body>
+		<properties>
+			<property parent="7abd3d1dd6399bd8498bed57e699aacada031ba1" guid="80c516b48510d28340f4d606fcba35ad812b9b28">
+				<parameter name="useObjectBody">1</parameter>
+			</property>
+		</properties>
+		<transform>0.99999994 0 0 0.0 0 0.99999994 0 0.0 0 0 0.99999994 0.0 0 0 0 1.0</transform>
+	</node>
+</nodes>

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using GalaxyCoreCommon;
 using GalaxyCoreLib;
-using GalaxyCoreLib.Api;
 using GalaxyCoreLib.NetEntity;
 using UnityEngine;
 
@@ -18,12 +18,18 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         {
             _connection = GalaxyNetworkController.Api.MainConnection;
             _connection.Events.OnGalaxyNetEntityInstantiate += OnGalaxyNetEntityInstantiate;
+            _connection.Events.OnGalaxyEnterInInstance += EventsOnOnGalaxyEnterInInstance;
             foreach (var item in Resources.LoadAll<UnityNetEntity>(""))
             {
                 _entityPrefabs.Add(item.name, item);
             }
 
             Resources.UnloadUnusedAssets();
+        }
+
+        private void EventsOnOnGalaxyEnterInInstance(InstanceInfo info)
+        {
+            Debug.Log("Instance " + info.Name);
         }
 
         private void OnDisable()

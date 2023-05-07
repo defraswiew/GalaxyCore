@@ -32,7 +32,7 @@ namespace SimpleMmoServer.Examples.NetEntities
             new GalaxyVector3(35,10.8f,-17),
         };
         
-        public NavigationMob(ExampleNavigation instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = new GalaxyQuaternion(), NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public NavigationMob(ExampleNavigation instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = new GalaxyQuaternion()) : base(instance, position, rotation)
         {
             _map = instance.Map;
             PrefabName = "Move";
@@ -49,6 +49,21 @@ namespace SimpleMmoServer.Examples.NetEntities
             _currentPoint = transform.Position;
             _points = new Queue<vector>();
             _rnd = new Random();
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+             
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+             
         }
 
         protected override void Start()

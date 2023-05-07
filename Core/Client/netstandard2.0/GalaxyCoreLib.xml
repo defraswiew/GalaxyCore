@@ -395,7 +395,7 @@
             Sending messages
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to the server
             </summary>
@@ -404,7 +404,7 @@
             <param name="deliveryType">Delivery method</param>
             <param name="encrypt">Whether to encrypt the message</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToServer(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to the server
             </summary>
@@ -421,7 +421,7 @@
             <param name="data">Array of bytes</param>
             <param name="deliveryType">Delivery method</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToInstance(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToInstance(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to the current instance
             </summary>
@@ -429,7 +429,7 @@
             <param name="message">message (inherited from BaseMessage)</param>
             <param name="deliveryType">Delivery method</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send message to network object
             </summary>
@@ -438,7 +438,7 @@
             <param name="message">message (inherited from BaseMessage)</param>
             <param name="deliveryType">Delivery method</param>
         </member>
-        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.Api.Sender.SendMessageToNetEntity(System.Int32,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send message to network object
             </summary>
@@ -924,7 +924,7 @@
             Object deletion request
             </summary>
         </member>
-        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendMessage(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendMessage(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Sending a message to all instances of a given object
             </summary>
@@ -932,7 +932,7 @@
             <param name="message">Message (inherited from BaseMessage)</param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreLib.NetEntity.ClientNetEntity.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Sending a message to all instances of a given object
             </summary>
@@ -971,17 +971,77 @@
         </member>
         <member name="T:GalaxyCoreLib.NetEntity.NetTransform">
             <summary>
+            Network equivalent of transform
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.NetTransform.InterpolatePosition">
+            <summary>
+            Interpolated value, works only if the corresponding methods are called. 
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.NetTransform.InterpolateScale">
+            <summary>
+            Interpolated value, works only if the corresponding methods are called. 
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.NetTransform.InterpolateRotation">
+            <summary>
+            Interpolated value, works only if the corresponding methods are called. 
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.NetTransform.FramesHistory">
+            <summary>
+            Stores the set number of the last snapshots of the transform state.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.NetEntity.EntityFrameArchive">
+            <summary>
+            Network frame imprint for a specific entity
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.EntityFrameArchive.Position">
+            <summary>
+            Position
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.EntityFrameArchive.Rotation">
+            <summary>
+            Rotation
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreLib.NetEntity.EntityFrameArchive.Scale">
+            <summary>
+            Scale
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreLib.NetEntity.FrameArchive">
+            <summary>
+            Stores the set number of the last snapshots of the transform state.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreLib.NetEntity.FrameArchive.#ctor(System.Int32)">
+            <summary>
             
             </summary>
+            <param name="maxSize"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:GalaxyCoreLib.NetEntity.NetTransform.SendPosition(GalaxyCoreCommon.GalaxyVector3)">
+        <member name="M:GalaxyCoreLib.NetEntity.FrameArchive.SetSize(System.Int32)">
             <summary>
-            Send the position of the object to the server with the nearest frame
+            set the maximum capacity of the frames archive
             </summary>
+            <param name="maxSize"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:GalaxyCoreLib.NetEntity.NetTransform.SendRotation(GalaxyCoreCommon.GalaxyQuaternion)">
+        <member name="P:GalaxyCoreLib.NetEntity.FrameArchive.Item(System.Int32)">
             <summary>
-            Send object rotation to the server with the nearest frame
+            Get the frame (from 0 to _maxSize) where 0 is the most recent frame.
+            </summary>
+            <param name="i"></param>
+        </member>
+        <member name="T:GalaxyCoreLib.NetEntity.NetTransform_old">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:GalaxyCoreLib.Network.MessageSender">
@@ -999,7 +1059,7 @@
             <param name="externalCode">Custom message code, for easy separation</param>
             <param name="data"> </param>
             <param name="deliveryType">Delivery method</param>
-            <param name="chennal">канал доставки</param>
+            <param name="channel">канал доставки</param>
             <param name="encrypt">Шифровать ли сообщение</param>
         </member>
         <member name="T:GalaxyCoreLib.Network.NetworkCore">

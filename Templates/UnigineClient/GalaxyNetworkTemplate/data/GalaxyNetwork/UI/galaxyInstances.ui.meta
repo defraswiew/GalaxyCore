@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>42d82e0041bd495f288e8732496bbce956ed6134</guid>
 	<type>file</type>
-	<hash>5501c05d</hash>
+	<hash>37a42366</hash>
 	<runtimes>
 		<runtime id="42d82e0041bd495f288e8732496bbce956ed6134" name="galaxyInstances.ui" link="0"/>
 	</runtimes>

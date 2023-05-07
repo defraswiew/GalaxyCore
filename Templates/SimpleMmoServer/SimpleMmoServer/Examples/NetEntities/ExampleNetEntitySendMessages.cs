@@ -6,8 +6,23 @@ namespace SimpleMmoServer.Examples.NetEntities
 {
     public class ExampleNetEntitySendMessages: NetEntity
     {
-        public ExampleNetEntitySendMessages(Instance instance, GalaxyVector3 position = new GalaxyVector3(), GalaxyQuaternion rotation = new GalaxyQuaternion(), NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation, syncType)
+        public ExampleNetEntitySendMessages(Instance instance, GalaxyVector3 position = new GalaxyVector3(), GalaxyQuaternion rotation = new GalaxyQuaternion()) : base(instance, position, rotation)
         {
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+           
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+            
         }
 
         protected override void Start()
@@ -29,7 +44,7 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         public override void InMessage(byte externalCode, byte[] data, BaseClient baseClientSender)
         {
-          
+           SendMessage(externalCode,data,GalaxyDeliveryType.reliableOrdered,false,10);
         }
 
         public void TestSendToOwner()

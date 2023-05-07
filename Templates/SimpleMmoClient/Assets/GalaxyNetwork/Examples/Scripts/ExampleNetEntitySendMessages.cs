@@ -8,37 +8,31 @@ namespace GalaxyNetwork.Examples.Scripts
     public class ExampleNetEntitySendMessages : MonoBehaviour
     {
         public float InstanceLiveTime;
+        public int chennal;
+        public GalaxyDeliveryType deliveryType;
         private ClientNetEntity _netEntity;
         private void Start()
         {
             _netEntity = GetComponent<UnityNetEntity>().NetEntity;
             _netEntity.OnInMessage += InMessage;
+            InvokeRepeating("SendToServer",1,0.1f);
         }
 
         private void OnDestroy()
         {
             _netEntity.OnInMessage -= InMessage;
         }
+        public void SendToServer()
+        {
+            var message = new BitGalaxy();
+            message.WriteValue("Hello from client");
+            _netEntity.SendMessage(5, message, deliveryType, false, chennal);
+        }
 
         private void InMessage(byte code, byte[] data)
         {
-            switch (code)
-            {
-                case 1:
-                {
-                    var message = new BitGalaxy(data);
-                    Debug.Log("Send to Owner: Server Date " + message.ReadString());
-                }
-                    break;
-                case 2:
-                {
-                    var message = new BitGalaxy(data);
-                    InstanceLiveTime = message.ReadFloat();
-                }
-                    break;
-            }
+            if(code == 5)
+            Debug.Log("InMessage: " + code);
         }
-
- 
     }
 }

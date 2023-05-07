@@ -7,8 +7,8 @@ namespace SimpleMmoServer.Examples.NetEntities
     public class ExamplePhysCapsule : NetEntity
     {
         public ExamplePhysCapsule(Instance instance, GalaxyVector3 position = default,
-            GalaxyQuaternion rotation = default, NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) :
-            base(instance, position, rotation, syncType)
+            GalaxyQuaternion rotation = default) :
+            base(instance, position, rotation)
         {
             PrefabName = "ExampleCapsule";
         }
@@ -21,12 +21,26 @@ namespace SimpleMmoServer.Examples.NetEntities
         {
         }
 
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+           
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+             
+        }
+
         protected override void Start()
         {
             ColliderCapsule collider = new ColliderCapsule(2, 0.5f);
             Physics.Activate(collider); // активируем физику     
             Physics.Mass = 1f; // устанавливае вес объекта в кг
-            transform.SyncType = NetEntityAutoSync.position_and_rotation; // указываем способ синхронизации 
         }
 
         protected override void Update()

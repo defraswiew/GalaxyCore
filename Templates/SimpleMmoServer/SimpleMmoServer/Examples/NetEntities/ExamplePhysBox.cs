@@ -9,12 +9,25 @@ namespace SimpleMmoServer.Examples.NetEntities
     /// </summary>
     public class ExamplePhysBox : NetEntity
     {
-        public ExamplePhysBox(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default,
-            NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation,
-            syncType)
+        public ExamplePhysBox(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             //Задаем имя префаба соответствующего данному объекту
             PrefabName = "ExampleBox";
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+          
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+            
         }
 
         protected override void Start()
@@ -23,7 +36,6 @@ namespace SimpleMmoServer.Examples.NetEntities
             ColliderBox collider = new ColliderBox(new GalaxyVector3(0.4f, 0.4f, 0.4f));
             Physics.Activate(collider); // активируем физику     
             Physics.Mass = 1f; // устанавливае вес объекта в кг
-            transform.SyncType = NetEntityAutoSync.position_and_rotation; // указываем способ синхронизации 
         }
 
 

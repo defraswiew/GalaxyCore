@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.14.0.0">
+	<guid>aa480c17309a5a3ef84a1e147ac713a71e4727c1</guid>
+	<type>texture</type>
+	<hash>f04f36d7</hash>
+	<runtimes>
+		<runtime id="aa480c17309a5a3ef84a1e147ac713a71e4727c1" name="cone_n.png" link="0"/>
+		<runtime id="f225c61ccb2a78ee75153c32ff600758eeffa623" name="cone_n.dds" link="1"/>
+	</runtimes>
+	<parameters>
+		<parameter type="string" name="mipmap_type">box</parameter>
+		<parameter type="string" name="image_format">ATI2</parameter>
+		<parameter type="bool" name="invert_g">0</parameter>
+		<parameter type="string" name="image_type">2d</parameter>
+		<parameter type="int" name="width">0</parameter>
+		<parameter type="int" name="height">0</parameter>
+		<parameter type="bool" name="srgb_correction">0</parameter>
+		<parameter type="bool" name="unchanged">0</parameter>
+		<parameter type="string" name="preset_name">normal map (rg)</parameter>
+	</parameters>
+</asset>

@@ -10,6 +10,7 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
     [RequireComponent(typeof(UnityNetEntity))]
     public class NetEntityTransform : MonoBehaviour
     {
+        
         /// <summary>
         ///  Link to a network entity in the kernel
         /// </summary>
@@ -24,6 +25,12 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         /// Whether to send a turn
         /// </summary>
         public bool SendMyRotation;
+        /// <summary>
+        /// Whether to send a turn
+        /// </summary>
+        public bool SendMyScale;
+        
+        public bool UseExtrapolation;
 
         /// <summary>
         /// interpolation method
@@ -59,9 +66,10 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
             // в прочем если их отправить, сервер все равно их отбросит
             if (!_netEntity.IsMy) return;
             // записываем в сетевую сущность новые координаты
-            if (SendMyPosition) _netEntity.transform.SendPosition(transform.position.NetworkVector3());
+            if (SendMyPosition) _netEntity.transform.Position = transform.position.NetworkVector3();
             // записываем в сетевую сущность новый ротейшен
-            if (SendMyRotation) _netEntity.transform.SendRotation(transform.rotation.NetworkQuaternion());
+            if (SendMyRotation) _netEntity.transform.Rotation = transform.rotation.NetworkQuaternion();
+            if (SendMyScale) _netEntity.transform.Scale = transform.localScale.NetworkVector3();
 
             // Не обязательно делать это в сетевом тике, как часто бы мы не обновляли данные в сущности,
             // они не уйдут раньше наступления клиентского сетевого фрейма
@@ -73,10 +81,11 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
             if (!_netEntity.IsInit) return;
             if (!_netEntity.IsMy)
             {
-                _remotePosition = _netEntity.transform.RemotePosition.Vector3();
+                _netEntity.transform.UseExtrapolation = UseExtrapolation;
+                _remotePosition = _netEntity.transform.Position.Vector3();
+                transform.localScale = _netEntity.transform.Scale.Vector3();
                 if ((_remotePosition - transform.position).sqrMagnitude > TeleportDistance)
                 {
-                    _netEntity.transform.ApplyRemoteData();
                     transform.position = _netEntity.transform.Position.Vector3();
                     transform.rotation = _netEntity.transform.Rotation.Quaternion();
                     return;
@@ -84,27 +93,31 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
                 switch (Interpolation)
                 {
                     case InterpolationType.None:
-                        _netEntity.transform.ApplyRemoteData();
-                        break;
+                        transform.position = _netEntity.transform.Position.Vector3();
+                        transform.rotation = _netEntity.transform.Rotation.Quaternion();
+                        return;
+                       
                     case InterpolationType.Soft:
-                        _netEntity.transform.InterpolateEndPoint();
+                        _netEntity.transform.InterpolateSoft();
                         break;
                     case InterpolationType.EndPont:
                         _netEntity.transform.InterpolateEndPoint();
                         break;
                 }
-                
-                
-                transform.position = _netEntity.transform.Position.Vector3();
-                transform.rotation = _netEntity.transform.Rotation.Quaternion();
+              
+                transform.position = _netEntity.transform.InterpolatePosition.Vector3();
+                transform.rotation = _netEntity.transform.InterpolateRotation.Quaternion();
+              //  Vector3.MoveTowards(transform.position, _netEntity.transform.Position.Vector3(), delta);
             }
         }
+
+      
 
         public enum InterpolationType
         {
             None,
             Soft,
-            EndPont,
+            EndPont
         }
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>5fd39a4079e3489f136ffd72983c3e290a437174</guid>
 	<type>render_settings</type>
-	<hash>0d84f721</hash>
+	<hash>c126520d</hash>
 	<runtimes>
 		<runtime id="5fd39a4079e3489f136ffd72983c3e290a437174" name="template_ultra.render" link="0"/>
 	</runtimes>

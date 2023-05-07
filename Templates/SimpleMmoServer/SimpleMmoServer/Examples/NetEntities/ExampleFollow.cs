@@ -12,9 +12,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         public NetEntity Target;
         private bool _isRed;
 
-        public ExampleFollow(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default,
-            NetEntityAutoSync syncType = NetEntityAutoSync.position_and_rotation) : base(instance, position, rotation,
-            syncType)
+        public ExampleFollow(Instance instance, GalaxyVector3 position = default) : base(instance, position)
         {
             PrefabName = "ExampleFollow";
         }
@@ -25,6 +23,21 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         protected override void OnDestroy()
         {
+        }
+
+        protected override void OnRemotePosition(GalaxyVector3 remotePosition)
+        {
+             
+        }
+
+        protected override void OnRemoteScale(GalaxyVector3 remoteScale)
+        {
+            
+        }
+
+        protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
+        {
+           
         }
 
         protected override void Start()

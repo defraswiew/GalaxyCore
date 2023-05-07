@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<asset version="2.14.0.0">
+<asset version="2.15.1.0">
 	<guid>60586bbbe11bedde064e7ba5e6cbf8c084a7151f</guid>
 	<type>world</type>
-	<hash>d487d997</hash>
+	<hash>419b2863</hash>
 	<runtimes>
 		<runtime id="60586bbbe11bedde064e7ba5e6cbf8c084a7151f" name="GalaxyNetworkTemplate.world" link="0"/>
 	</runtimes>
@@ -11,5 +11,45 @@
 		<parameter type="string" name="sound_settings_path"/>
 		<parameter type="string" name="physics_settings_path"/>
 		<parameter type="string" name="script_name"/>
+		<parameter type="xml" name="viewports"><viewport_list>
+	<1>
+		<flashlight>
+			<enabled>0</enabled>
+			<color>1 1 1 1</color>
+			<intensity>1</intensity>
+			<attenuation>1</attenuation>
+			<radius>300</radius>
+			<fov>160</fov>
+		</flashlight>
+		<speed_presets>
+			<speed_0>5</speed_0>
+			<speed_1>50</speed_1>
+			<speed_2>500</speed_2>
+			<current_preset>0</current_preset>
+		</speed_presets>
+		<scene_camera>
+			<transform>0.8499220609664917 -0.52690845727920532 4.41074053014745e-06 0 0.029426977038383484 0.047475405037403107 0.99843847751617432 0 -0.52608603239059448 -0.84859472513198853 0.055855762213468552 0 7.2903823852539063 2.9846076965332031 5.9992671012878418 1</transform>
+			<fov_mode>0</fov_mode>
+			<fov>60</fov>
+			<focal_length>30</focal_length>
+			<film_gate>35</film_gate>
+			<znear>0.100000001</znear>
+			<zfar>100000</zfar>
+			<viewport_mask>-1</viewport_mask>
+			<reflection_mask>-1</reflection_mask>
+			<source_mask>-1</source_mask>
+			<reverb_mask>-1</reverb_mask>
+			<ortho_enabled>0</ortho_enabled>
+			<ortho_height>16</ortho_height>
+			<projection>1.7320509 0 0 0 0 1.7320509 0 0 0 0 -1.00000203 -1 0 0 -0.200000197 0</projection>
+		</scene_camera>
+		<render_debug>
+			<mode>-1</mode>
+			<ligth_meter_max_intensity>500</ligth_meter_max_intensity>
+		</render_debug>
+		<selected_camera_id>-1</selected_camera_id>
+	</1>
+</viewport_list>
+</parameter>
 	</parameters>
 </asset>
