@@ -44,7 +44,7 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         public override void InMessage(byte externalCode, byte[] data, BaseClient baseClientSender)
         {
-          
+           SendMessage(externalCode,data,GalaxyDeliveryType.reliableOrdered,false,10);
         }
 
         public void TestSendToOwner()

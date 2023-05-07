@@ -311,7 +311,7 @@
             Custom logic message sent to the current instance
             </summary>
         </member>
-        <member name="F:GalaxyCoreCommon.InternalMessageCodes.routeNetEntity">
+        <member name="F:GalaxyCoreCommon.InternalMessageCodes.RouteNetEntity">
             <summary>
             Custom logic message sent to network entity
             </summary>

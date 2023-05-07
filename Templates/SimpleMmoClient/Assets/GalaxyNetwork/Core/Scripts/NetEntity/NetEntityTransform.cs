@@ -10,6 +10,7 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
     [RequireComponent(typeof(UnityNetEntity))]
     public class NetEntityTransform : MonoBehaviour
     {
+        
         /// <summary>
         ///  Link to a network entity in the kernel
         /// </summary>
@@ -28,6 +29,8 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         /// Whether to send a turn
         /// </summary>
         public bool SendMyScale;
+        
+        public bool UseExtrapolation;
 
         /// <summary>
         /// interpolation method
@@ -78,6 +81,7 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
             if (!_netEntity.IsInit) return;
             if (!_netEntity.IsMy)
             {
+                _netEntity.transform.UseExtrapolation = UseExtrapolation;
                 _remotePosition = _netEntity.transform.Position.Vector3();
                 transform.localScale = _netEntity.transform.Scale.Vector3();
                 if ((_remotePosition - transform.position).sqrMagnitude > TeleportDistance)
@@ -100,18 +104,20 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
                         _netEntity.transform.InterpolateEndPoint();
                         break;
                 }
-                
+              
                 transform.position = _netEntity.transform.InterpolatePosition.Vector3();
                 transform.rotation = _netEntity.transform.InterpolateRotation.Quaternion();
-                
+              //  Vector3.MoveTowards(transform.position, _netEntity.transform.Position.Vector3(), delta);
             }
         }
+
+      
 
         public enum InterpolationType
         {
             None,
             Soft,
-            EndPont,
+            EndPont
         }
     }
 }

@@ -236,7 +236,7 @@
             </summary>
             <param name="entity">целевая сущность</param>
         </member>
-        <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient,System.Byte)">
             <summary>
             Входящее сообщение для сетевого объекта
             </summary>
@@ -368,7 +368,7 @@
             <param name="message">Сообщение (наследник BaseMessage)</param>
             <param name="deliveryType">Delivery Type</param>
         </member>
-        <member name="M:GalaxyCoreServer.BaseClient.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.BaseClient.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send data to user
             Отправить данные пользователю
@@ -779,7 +779,7 @@
             <param name="message"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all users in the room
             </summary>
@@ -787,7 +787,7 @@
             <param name="data"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAll(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAll(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Внутреннаяя отправка сообщения
             </summary>
@@ -796,7 +796,7 @@
             <param name="data"></param>
             <param name="deliveryType"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAllExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAllExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Внутреннаяя отправка сообщения всем кроме
             </summary>
@@ -806,7 +806,7 @@
             <param name="data"></param>
             <param name="deliveryType"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Instance.SendMessageToAllExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAllExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all users in the room except the selected one
             </summary>
@@ -1186,7 +1186,7 @@
             <param name="data"></param>
             <param name="baseClientSender">message sender</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Sending a message to all instances of a given object
             </summary>
@@ -1194,7 +1194,7 @@
             <param name="message"></param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Sending a message to all instances of a given object
             </summary>
@@ -1202,7 +1202,7 @@
             <param name="data"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all instances of this object except for the specified client
             </summary>
@@ -1211,7 +1211,7 @@
             <param name="message"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all instances of this object except for the specified client
             </summary>
@@ -1220,7 +1220,7 @@
             <param name="data"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendToOwner(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendToOwner(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to the owner of the entity
             </summary>
@@ -1228,7 +1228,7 @@
             <param name="data"></param>
             <param name="deliveryType"></param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all users who see this entity
             </summary>
@@ -1236,7 +1236,7 @@
             <param name="message"> </param>
             <param name="deliveryType">delivery method</param>
         </member>
-        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType)">
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
             <summary>
             Send a message to all users who see this entity
             </summary>
@@ -1446,7 +1446,7 @@
             </summary>
             <param name="message"></param>
         </member>
-        <member name="M:GalaxyCoreServer.Network.IncomingMessage.InternalMessage(System.Byte,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+        <member name="M:GalaxyCoreServer.Network.IncomingMessage.InternalMessage(System.Byte,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient,Lidgren.Network.NetIncomingMessage)">
             <summary>
             Пришло внутреннее сообщение
             </summary>

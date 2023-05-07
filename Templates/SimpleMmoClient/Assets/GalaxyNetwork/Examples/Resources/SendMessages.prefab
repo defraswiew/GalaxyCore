@@ -32,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.4043126, y: 3.209301, z: 40.12596}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -126,6 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SendMyPosition: 1
   SendMyRotation: 1
+  SendMyScale: 0
+  UseExtrapolation: 0
   Interpolation: 1
   TeleportDistance: 20
 --- !u!114 &-8094241307232955593
@@ -140,3 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 319fd745e999202459eaf0d03dfb0084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InstanceLiveTime: 0
+  chennal: 0
+  deliveryType: 40
