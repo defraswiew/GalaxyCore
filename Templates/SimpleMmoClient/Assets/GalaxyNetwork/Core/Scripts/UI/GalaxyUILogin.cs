@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using GalaxyCoreCommon;
 using GalaxyNetwork.Core.Scripts;
 using SimpleMmoCommon.Messages;
@@ -56,24 +56,24 @@ namespace GalaxyCoreLib
         {
             StartCoroutine(Enabled());
         }
-      
+
         private IEnumerator Enabled()
         {
             while (true)
             {
-                yield return null;   
+                yield return null;
                 if(GalaxyNetworkController.Api == null)
                     continue;
-                
+
                 _connection = GalaxyNetworkController.Api.MainConnection;
                 //подписка на событие об ошибках авторизации
                 _connection.Events.OnGalaxyApprovalResponse += OnGalaxyApprovalResponse;
-                // событие успешного коннекта      
+                // событие успешного коннекта
                 _connection.Events.OnGalaxyConnect += OnGalaxyConnect;
                 progress.SetActive(false);
                 break;
             }
-            
+
         }
 
         private void OnGalaxyConnect(byte[] message)
@@ -94,7 +94,7 @@ namespace GalaxyCoreLib
             }
             // А это делать не обязательно, это просто пример чтения ответа на авторизацию
             MessageApproval messageApproval = new MessageApproval();
-            messageApproval = BaseMessage.Deserialize<MessageApproval>(message);
+            messageApproval = GalaxyMessage.Deserialize<MessageApproval>(message);
             Debug.Log("Наше имя " + messageApproval.Name);
             // прячем окно
             gameObject.SetActive(false);
@@ -102,6 +102,9 @@ namespace GalaxyCoreLib
 
         private void OnDisable()
         {
+            StopAllCoroutines();
+            CancelInvoke();
+            if (_connection == null) return;
             // отписываемся от всего на что подписались
             _connection.Events.OnGalaxyApprovalResponse -= OnGalaxyApprovalResponse;
             _connection.Events.OnGalaxyConnect -= OnGalaxyConnect;

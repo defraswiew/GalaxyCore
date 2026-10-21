@@ -1,14 +1,15 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 using GalaxyCoreCommon.Navigation;
 using GalaxyCoreServer;
 using System;
- 
+
 #if GALAXY_DOUBLE
-using scalar = System.Double;
-using vector = GalaxyCoreCommon.GalaxyVectorD3;
+using Scalar = System.Double;
+using Vector = GalaxyCoreCommon.GalaxyVectorD3;
 #else
-using scalar = System.Single;
-using vector = GalaxyCoreCommon.GalaxyVector3;
+using Scalar = System.Single;
+using Vector = GalaxyCoreCommon.GalaxyVector3;
 #endif
 namespace SimpleMmoServer.Examples.NetEntities
 {
@@ -16,13 +17,13 @@ namespace SimpleMmoServer.Examples.NetEntities
     {
         public readonly NetEntity Target;
         public readonly float Speed = 10;
-        private vector _lastTargetPosition;
+        private Vector _lastTargetPosition;
         private GalaxyPath _path;
         private readonly GalaxyMap _map;
         private readonly NavigationMask _mask;
         private int _currentNodeIndex;
-        private vector _targetPoint;
-        private scalar _lastDelta;
+        private Vector _targetPoint;
+        private Scalar _lastDelta;
 
         public ExampleNavigationEntity(Instance instance, NetEntity target, GalaxyMap map) : base(instance, default,
             default)
@@ -40,7 +41,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         {
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
         }
 
@@ -50,29 +51,29 @@ namespace SimpleMmoServer.Examples.NetEntities
             if (path.Status != PathStatus.Complete) return;
             if (path.Nodes == null) return;
             _lastDelta = float.MaxValue;
-            _targetPoint = new vector(path.Nodes[0].X, path.Nodes[0].Y, path.Nodes[0].Z);
-            var message = new BitGalaxy();
+            _targetPoint = new Vector(path.Nodes[0].X, path.Nodes[0].Y, path.Nodes[0].Z);
+            var message = new GalaxyBitWriter(new byte[path.Nodes.Count * 12]);
             foreach (var node in path.Nodes)
             {
-                message.WriteValue(new vector(node.X, node.Y, node.Z));
+                message.WriteVector3(new GalaxyVector3(node.X, node.Y, node.Z));
             }
 
-            SendMessage(1, message.Data, GalaxyDeliveryType.reliable);
+            SendMessage(1, message.WrittenSpan.ToArray(), GalaxyDeliveryType.reliable);
         }
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-            
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-             
+
         }
 
         protected override void Start()
@@ -82,7 +83,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         protected override void Update()
         {
             if (Target == null) return;
-            if (vector.Distance(Target.transform.Position, _lastTargetPosition) > 3)
+            if (Vector.Distance(Target.transform.Position, _lastTargetPosition) > 3)
             {
                 _lastTargetPosition = Target.transform.Position;
                 _map.GetPath(transform.Position, Target.transform.Position, this, _mask);
@@ -91,14 +92,14 @@ namespace SimpleMmoServer.Examples.NetEntities
 
             if (_path.Nodes == null) return;
             if (_currentNodeIndex >= _path.Nodes.Count) return;
-            _targetPoint = new vector(_path.Nodes[_currentNodeIndex].X, _path.Nodes[_currentNodeIndex].Y,
+            _targetPoint = new Vector(_path.Nodes[_currentNodeIndex].X, _path.Nodes[_currentNodeIndex].Y,
                 _path.Nodes[_currentNodeIndex].Z);
-            var delta = Math.Abs((_targetPoint - transform.Position).Summ());
+            var delta = (_targetPoint - transform.Position).SqrMagnitude;
             if (delta < _lastDelta)
             {
                 _lastDelta = delta;
                 transform.Position =
-                    vector.Move(transform.Position, _targetPoint, Speed, Instance.Time.DeltaTime);
+                    Vector.Move(transform.Position, _targetPoint, Speed, Instance.Time.DeltaTime);
             }
             else
             {

@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 using GalaxyCoreServer;
 
 namespace SimpleMmoServer.Examples.NetEntities
@@ -12,17 +13,17 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-           
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-            
+
         }
 
         protected override void Start()
@@ -30,16 +31,16 @@ namespace SimpleMmoServer.Examples.NetEntities
              InvokeRepeating(nameof(TestSendToOwner),1,1);
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
-            
+
         }
 
         protected override void Update()
         {
-            var message = new BitGalaxy();
-            message.WriteValue(Instance.Time.Time);
-            SendMessage(2,message.Data,GalaxyDeliveryType.reliable);
+            var message = new GalaxyBitWriter(new byte[128]);
+            message.WriteSingle(Instance.Time.Time);
+            SendMessage(2,message.WrittenSpan.ToArray(),GalaxyDeliveryType.reliable);
         }
 
         public override void InMessage(byte externalCode, byte[] data, BaseClient baseClientSender)
@@ -49,9 +50,9 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         public void TestSendToOwner()
         {
-            var message = new BitGalaxy();
-            message.WriteValue(DateTime.Now.ToString());
-            SendToOwner(1,message.Data,GalaxyDeliveryType.reliable);
+            var message = new GalaxyBitWriter(new byte[128]);
+            message.WriteString(DateTime.UtcNow.ToString("O"));
+            SendToOwner(1,message.WrittenSpan.ToArray(),GalaxyDeliveryType.reliable);
         }
     }
 }

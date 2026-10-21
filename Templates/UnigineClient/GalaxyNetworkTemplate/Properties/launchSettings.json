@@ -2,7 +2,8 @@
   "profiles": {
     "main": {
       "commandName": "Project",
-      "commandLineArgs": "-data_path ../ -console_command \"world_load \\\"GalaxyNetworkTemplate\\\"\""
+      "workingDirectory": "bin",
+      "commandLineArgs": "-data_path ../data/ -console_command \"world_load \\\"GalaxyNetworkTemplate\\\"\""
     }
   }
 }

@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreServer;
 
 namespace SimpleMmoServer.Examples.NetEntities
@@ -13,23 +13,23 @@ namespace SimpleMmoServer.Examples.NetEntities
         {
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
         }
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-            
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-             
+
         }
 
         protected override void Start()

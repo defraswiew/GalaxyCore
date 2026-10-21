@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using SimpleMmoServer.Examples.NetEntities;
 using System;
@@ -13,13 +13,14 @@ namespace SimpleMmoServer.Examples.Instances
         {
             Log.Info("ExampleRoomPhys2", "instance id:" + Id);
             SetFrameRate(20);
-            Physics.Activate("phys/ExamplePhys2.phys");
+            Physics.Start("jitter2");
+            PhysicsScene.LoadOrCreateFloor(this);
         }
 
         public void CreateCube()
         {
             var box = new Examples.NetEntities.ExampleSphere(this, new GalaxyVector3(4, 10, 5),
-                new GalaxyQuaternion(4, 10, 20, 0.5f));
+                GalaxyQuaternion.Identity);
             box.transform.Position = new GalaxyVector3(4, 10, 5);
             box.Init();
             _max--;

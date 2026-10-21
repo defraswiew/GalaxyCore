@@ -1,5 +1,5 @@
-﻿using GalaxyCoreCommon;
-using ProtoBuf;
+using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 using System.Collections.Generic;
 
 namespace SimpleMmoCommon.RPGTemplate
@@ -7,13 +7,13 @@ namespace SimpleMmoCommon.RPGTemplate
     /// <summary>
     /// Пример отправки списка ид итемов
     /// </summary>
-    [ProtoContract]
-    public class DropList:BaseMessage
+    [GalaxySerializable]
+    public class DropList:GalaxyMessage
     {
         /// <summary>
         /// список ид итемов
         /// </summary>
-        [ProtoMember(1)]
+        [GalaxyField(0)]
         public List<int> Items;
     }
 }

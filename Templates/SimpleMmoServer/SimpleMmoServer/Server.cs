@@ -1,4 +1,6 @@
-﻿using GalaxyCoreServer;
+using GalaxyCoreServer;
+using GalaxyCoreServer.Physics;
+using GalaxyCoreServer.Physics.Jitter2;
 using GalaxyCoreServer.Api;
 using SimpleMmoServer.Connecting;
 using SimpleMmoServer.Examples.Instances;
@@ -51,7 +53,7 @@ namespace SimpleMmoServer
         /// </summary>
         internal static bool debugLog = true;
 
-        public Server()
+        public Server(int port = 30200)
         {
             // Registering an incoming message handler
             // Регистрируем обработчик входящих сообщений
@@ -64,20 +66,21 @@ namespace SimpleMmoServer
             _config.ServerName = "SimpleMmoServer";
             // Указываем рабочий порт
             // Specify the working port
-            _config.ListenPort = 30200;
+            _config.ListenPort = port;
             // enable auto control of the message sending buffer
             // включаем авто управление буфером отправки сообщений
             _config.AutoFlushSend = true;
-          
+
             _config.NetFrameRate = 20;
             _config.DebugMode = true;
             // We start the server
-            // Запускаем сервер      
+            // Запускаем сервер
             //GalaxyCore.Instances.Create(new RPGTemplate.Location());
+            GalaxyPhysics.RegisterBackend("jitter2", Jitter2PhysicsBackend.Create());
             GalaxyCore.Start(_config);
          //    GalaxyCore.Instances.Create(new ExampleEmptyInstance());
-            
-            
+
+
         }
 
         /// <summary>

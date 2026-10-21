@@ -1,22 +1,24 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreServer;
+using GalaxyCoreServer.Physics;
 using SimpleMmoServer.Examples.Instances;
 #if GALAXY_DOUBLE
-using scalar = System.Double;
-using vector = GalaxyCoreCommon.GalaxyVectorD3;
+using Scalar = System.Double;
+using Vector = GalaxyCoreCommon.GalaxyVectorD3;
 #else
-using scalar = System.Single;
-using vector = GalaxyCoreCommon.GalaxyVector3;
+using Scalar = System.Single;
+using Vector = GalaxyCoreCommon.GalaxyVector3;
 #endif
 namespace SimpleMmoServer.Examples.NetEntities
 {
     class ExampleForce : NetEntity
     {
         public ExampleRoomPhys Room;
-        private scalar _distance;
+        private Scalar _distance;
 
         public ExampleForce(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
+            TransformAuthority = NetEntityTransformAuthority.Server;
             PrefabName = "ExampleSphere";
         }
 
@@ -25,35 +27,35 @@ namespace SimpleMmoServer.Examples.NetEntities
         {
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
         }
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-            
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-             
+
         }
 
         protected override void Start()
         {
-            Physics.Activate(new GalaxyCoreServer.Physics.ColliderSphere(0.5f));
-            Physics.useGravity = false;
+            Physics.Create(new PhysicsBodyOptions { Shape = PhysicsShape.Sphere(0.5f), AffectedByGravity = false });
+
         }
 
         protected override void Update()
         {
-            Physics.ApplyPhys();
-            _distance = vector.Distance(Room.ForceTarget, transform.Position);
+            // Physics snapshots are applied automatically by the owning Instance.
+            _distance = Vector.Distance(Room.ForceTarget, transform.Position);
             if (_distance > 20)
             {
                 Physics.AddForce((Room.ForceTarget - transform.Position) * 2f);

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GalaxyCoreCommon;
@@ -38,17 +38,17 @@ namespace GalaxyNetwork.Core.Scripts.UI
             _submit.onClick.AddListener(OnSubmit);
             _close.onClick.AddListener(OnClose);
         }
-        
+
         private void OnEnable()
         {
             StartCoroutine(Enabled());
         }
-      
+
         private IEnumerator Enabled()
         {
             while (true)
             {
-                yield return null;   
+                yield return null;
                 if(GalaxyNetworkController.Api == null)
                     continue;
                 OnEnableInit();
@@ -63,6 +63,8 @@ namespace GalaxyNetwork.Core.Scripts.UI
 
         private void OnDisable()
         {
+            StopAllCoroutines();
+            if (_connection == null) return;
             _connection.Api.Chat.OnChatMessage -= OnChatMessage;
             _connection.Events.OnGalaxyConnect -= OnGalaxyConnect;
             _submit.onClick.RemoveListener(OnSubmit);
@@ -161,7 +163,7 @@ namespace GalaxyNetwork.Core.Scripts.UI
                     ChatChannelType = message.ChannelType,
                     ChannelId = message.ChannelId
                 };
-                if (message.ChannelInfo != null && string.IsNullOrEmpty(message.ChannelInfo.ChannelName))
+                if (message.ChannelInfo != null && !string.IsNullOrEmpty(message.ChannelInfo.ChannelName))
                 {
                     model.Name = message.ChannelInfo.ChannelName;
                 }

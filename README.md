@@ -1,170 +1,55 @@
-Galaxy Network это сетевое решение предназначенное в первую очередь, для применения в игровых движках таких как Unity, Unigine, Stride (Xenko). Однако возможно использование в любых других средах поддерживающих c# net Standart 2.0+.  
-Решение состоит из клиентской и серверной части, обе представлены в виде подключаемого к проекту набора библиотек.  Galaxy network способен работать как в авторитарном режиме, так и в режиме ретранслятора.  Ниже представлен набор поддерживаемого на данный момент функционала.
+# Galaxy Network
 
-Инструкция по установке https://youtu.be/eo6nW2DM0TE
+Сетевая библиотека и примеры для игровых клиентов и серверов: готовые комплекты SDK, Unity-проект, сервер на .NET 8 и интеграция с UNIGINE.
 
-Сеть:
-Авторизация / регистрация.
-Учет сетевых соединений.
-Автоматическая работа с NAT.
-Автоматическое восстановление соединения.
-Поддержка шифрования трафика.
-Защита от подмены пакетов.
-Поддержка сообщений с гарантией доставки и без, с сортировкой, с очередностью.
-Поддержка автоматического дропа устаревших сообщений.
-Роутинг ( сервер, клиент, инстанс, сущность).
+## Быстрый старт
 
-Инстансы (комнаты, миры, локации):
-Создание. 
-Получение списка . 
-Менеджер инстансов.
-Вход / выход.
-Рассылка сообщения всем клиентам инстанса.
-Поддержка управление клиентом.
-Автоматическая и ручная передача хоста для не авторитарной или частично авторитарной логики.
-Полная поддержка авторитарной логики.
-Поддержка физики.
-Поддержка сетевых фреймов от (1 до 120 сетевых фпс).
-Возможность установить пароль на вход.
-Возможность создавать невидимые инстансы.
+**Требования:** .NET 8 SDK и Unity **6.3 LTS / 6000.3.24f1**. Для UNIGINE отдельно требуется совместимый SDK движка.
 
+```powershell
+dotnet run --project Templates/SimpleMmoServer/SimpleMmoServer -c Release
+```
 
-Физика:
-поддержка примитивных коллайдеров.
-поддержка террейн коллайдера.
-инструментарий по запеканию коллайдеров сцены для сервера.
-ray cast с поддержкой тегов и динамических объектов.
-поддержка работы с линейным и угловым ускорением.
+Откройте `Templates/SimpleMmoClient` в Unity, загрузите `Assets/GalaxyNetwork/Scenes/Main.unity` и включите Play Mode. Адрес — `127.0.0.1:30200`. Демонстрационная авторизация разрешает логины, содержащие `test`.
 
-Сетевые сущности (сетевые объекты):
-Создание / удаление.
-Поддержка серверной физикой.
-Поддержка управления клиентом.
-Возможность передачи объекта другому игроку, или перевод на авторитарную модель.
-Возможность балансировки объектов между клиентами.
-Поддержка Авторитарного управления сервером.
-Возможность прямого обмена сообщений между экземплярами сущности.
-Функционал создания и удаления сущности (+ go).
-Встроенный функционал синхронизации положения и ориентации в пространстве.
+Через интерфейс можно создавать комнаты и запускать примеры синхронизации объектов, пространственной видимости, сетевых переменных, физики и навигации.
 
-Прочий функционал:
-Встроенная поддержка protobuf.
-Встроенный Bit сериализатор.
+## Возможности
 
-Поддерживаемый бекенд:
-Поддержка mono.
-Поддержка il2cpp.
-Соответствует спецификации net standart 2.0.
-Поддержка ECS, Jobs, Dots.
-Возможно использование вне Unity.
-Поддержка Stride (Xenko).
-Экспериментальная поддержка движка Unigine.
+- UDP-транспорт, гарантированная и негарантированная доставка, каналы и маршрутизация.
+- Инстансы, участники и владельцы, сетевые сущности и полная синхронизация мира.
+- Иерархические transform, сглаживание и серверное или клиентское управление движением.
+- GalaxyVars, типизированные сообщения, битовый сериализатор, RPC и сетевое время.
+- Опциональная физика Jitter2: raycast, triggers, joints и геометрия GPHB.
+- Пространственные индексы и встроенные модели выбора алгоритмов в рантайме.
+- Виртуальные подключения, повторы, диагностика и наблюдение за соединением.
+- HTTP API администрирования сервера.
 
-Поддерживаемые сервером платформы:
-Windows.
-Linux.
-MacOS.
+[Подробный патчноут](CHANGELOG.md) · [Производительность](PERFORMANCE.md)
 
- Поддерживаемые и протестированные платформы (для клиента):
-Windows.
-Linux.
-MaxOS.
-Android.
-iOS.
- В теории должны поддерживаться и иные платформы за исключением WebGL.
+## Структура
 
-В альфе:
-Синхронизация параметров аниматора.
+| Каталог | Содержимое |
+|---|---|
+| [Core](Core/README.md) | SDK для Unity, обычного .NET-клиента и сервера |
+| [Templates/SimpleMmoClient](Templates/SimpleMmoClient) | Unity 6: адаптер, UI, сцены, префабы и примеры |
+| [Templates/SimpleMmoServer](Templates/SimpleMmoServer/README.md) | Сервер .NET 8 и общие сообщения |
+| [Templates/UnigineClient](Templates/UnigineClient/README.md) | .NET 8 и интеграция с UNIGINE |
+| [Documentation](Documentation/README.md) | Установка, сериализация, физика и проверки |
+| [build](build) | Обновление SDK и проверка поставки |
 
-Общее:
+Клиентские DLL используют .NET Standard 2.1 и AOT-профиль для Unity/IL2CPP. Исполняемые C#-примеры используют .NET 8. Обновляйте клиент и сервер согласованным комплектом.
 
-Решение распространяется в виде Шаблона с открытым кодом, и набором закрытых библиотек.
-Отсутствует прямая зависимость к типу базы данных, можно использовать любую поддерживаемую .net
+## Проверка сервера
 
+```powershell
+dotnet run --project Templates/SimpleMmoServer/SimpleMmoServer -c Release -- --port 30420 --smoke-test
+```
 
+Исходники ядра для готовых примеров не требуются. Если они доступны локально, обновите поставку через `build/update-sdk.ps1 -SourcePath <путь-к-исходникам>`.
 
-Installation Instructions 
-https://youtu.be/sDxyENBw77E
+## English quick start
 
-Galaxy Network is a network solution designed primarily for use in game engines such as Unity, Unigine, Stride (Xenko). However, it is possible to use in any other environment supporting c # net Standart 2.0+.
-The solution consists of client and server parts, both are presented as a set of libraries connected to the project. Galaxy network is able to work both in authoritarian mode and in repeater mode. Below is a set of currently supported features.
+Install .NET 8 SDK and Unity 6.3 LTS (`6000.3.24f1`). Run the server command above, open `Templates/SimpleMmoClient`, and play `Assets/GalaxyNetwork/Scenes/Main.unity`. The default endpoint is `127.0.0.1:30200`; demo authentication accepts a login containing `test`.
 
-
-
-Net:
-Authorization / registration.
-Accounting for network connections.
-Automatic work with NAT.
-Auto reconnect.
-Support traffic encryption.
-Protection against packet spoofing.
-Support for messages with and without delivery guarantee, with sorting, with priority.
-Support for automatic drop outdated messages.
-Routing (server, client, instance, entity).
-
-Instances (rooms, worlds, locations):
-Creature.
-Getting the list.
-Instance manager.
-Enter exit.
-Sending a message to all instance clients.
-Support customer management.
-Automatic and manual host transfer for non-authoritarian or partially authoritarian logic.
-Full support for authoritarian logic.
-Physics support.
-Support for network frames from (1 to 120 network FPS).
-Ability to set a password for entry.
-Ability to create invisible instances.
-
-
-Physics:
-support for primitive colliders.
-terrane collider support.
-tools for baking scene colliders for the server.
-ray cast with support for tags and dynamic objects.
-support for linear and angular acceleration.
-
-Network entities (network objects):
-Create / delete.
-Support for server physics.
-Customer Management Support.
-The ability to transfer the object to another player, or transfer to an authoritarian model.
-The ability to balance objects between customers.
-Support for Authoritarian server management.
-The ability to directly exchange messages between instances of the entity.
-Functionality for creating and deleting an entity (+ go).
-Built-in functionality for synchronizing position and orientation in space.
-
-Other functionality:
-Native protobuf support.
-Built-in Bit serializer.
-
-Supported backend:
-Mono support.
-Support for il2cpp.
-Complies with net standart 2.0 specification.
-Support ECS, Jobs, Dots.
-Use outside Unity is possible.
-Support for Stride (Xenko).
-Experimental support for the Unigine engine.
-
-Platforms supported by the server:
-Windows
-Linux
-MacOS
-
- Supported and tested platforms (for the client):
-Windows
-Linux
-MaxOS.
-Android
-iOS
- In theory, other platforms other than WebGL should be supported.
-
-In alpha:
-Sync animator settings.
-
-General:
-
-The solution is distributed in the form of an open source template, and a set of private libraries.
-There is no direct dependence on the type of database, you can use any supported .net
+The SDK includes a Unity AOT client, a managed .NET client, the server core, and an optional Jitter2 backend. Keep client/server binaries in sync. UNIGINE requires its engine SDK and native deployment; see its template README for validation requirements.

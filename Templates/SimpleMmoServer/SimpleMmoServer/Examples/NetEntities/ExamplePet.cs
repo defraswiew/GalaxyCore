@@ -1,9 +1,9 @@
-﻿using GalaxyCoreServer;
+using GalaxyCoreServer;
 using GalaxyCoreCommon;
 #if GALAXY_DOUBLE
-using vector = GalaxyCoreCommon.GalaxyVectorD3;
+using Vector = GalaxyCoreCommon.GalaxyVectorD3;
 #else
-using vector = GalaxyCoreCommon.GalaxyVector3;
+using Vector = GalaxyCoreCommon.GalaxyVector3;
 #endif
 namespace SimpleMmoServer.Examples.NetEntities
 {
@@ -20,34 +20,34 @@ namespace SimpleMmoServer.Examples.NetEntities
         {
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
         }
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-             
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-             
+
         }
 
         protected override void Start()
         {
-           
+
         }
 
         protected override void Update()
         {
-            if (vector.Distance(transform.Position, Player.transform.Position) < 2) return;
-            transform.Position = vector.Lerp(transform.Position, Player.transform.Position,
+            if (Vector.Distance(transform.Position, Player.transform.Position) < 2) return;
+            transform.Position = Vector.Lerp(transform.Position, Player.transform.Position,
                 Instance.Time.DeltaTime * 0.7f);
         }
     }

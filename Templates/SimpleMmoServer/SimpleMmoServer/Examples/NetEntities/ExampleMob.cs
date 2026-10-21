@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using GalaxyCoreCommon;
@@ -14,11 +14,11 @@ namespace SimpleMmoServer.Examples.NetEntities
         private float _speed = 1;
         private bool _move = true;
 
-       
-        
+
+
         public ExampleMob(Instance instance, GalaxyVector3 position = new GalaxyVector3(), GalaxyQuaternion rotation = new GalaxyQuaternion()) : base(instance, position, rotation)
         {
-           
+
         }
 
         private void LoadPoints(IEnumerable<(float x, float y)> sourcePoints)
@@ -69,37 +69,37 @@ namespace SimpleMmoServer.Examples.NetEntities
             {
                 SetNextPoint();
             }
-            
+
         }
 
         public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
-             
+
         }
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-            
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-            
+
         }
 
         protected override void Start()
         {
-             
+
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
-          
+
         }
     }
 }

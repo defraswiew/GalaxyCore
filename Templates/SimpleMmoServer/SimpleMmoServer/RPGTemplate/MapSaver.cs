@@ -1,24 +1,24 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreServer;
-using ProtoBuf;
+using GalaxyCoreCommon.Serialization;
 using System;
 using System.Collections.Generic;
-using System.IO; 
+using System.IO;
 #if GALAXY_DOUBLE
-using vector = GalaxyCoreCommon.GalaxyVectorD3;
+using Vector = GalaxyCoreCommon.GalaxyVectorD3;
 #else
-using vector = GalaxyCoreCommon.GalaxyVector3;
+using Vector = GalaxyCoreCommon.GalaxyVector3;
 #endif
 namespace SimpleMmoServer.RPGTemplate
 {
     /// <summary>
-    /// Очень грубый пример сохранения статических сущностей 
+    /// Очень грубый пример сохранения статических сущностей
     /// в бинарный файлик, и загрузки обратно.
     /// </summary>
-    [ProtoContract]
-    public class MapSaver:BaseMessage
+    [GalaxySerializable]
+    public class MapSaver:GalaxyMessage
     {
-        [ProtoMember(1)]
+        [GalaxyField(0)]
         public List<MapSaverItem> Items;
 
         public void SaveInstance(Instance instance, string saveName)
@@ -29,8 +29,8 @@ namespace SimpleMmoServer.RPGTemplate
                 if (!item.IsStatic) continue;
                 MapSaverItem saverItem = new MapSaverItem
                 {
-                    Position = item.transform.Position, 
-                    Rotation = item.transform.Rotation, 
+                    Position = item.transform.Position,
+                    Rotation = item.transform.Rotation,
                     PrefabName = item.PrefabName
                 };
                 Items.Add(saverItem);
@@ -47,13 +47,13 @@ namespace SimpleMmoServer.RPGTemplate
         {
             try
             {
-                Items = BaseMessage.Deserialize<MapSaver>(File.ReadAllBytes("Maps/" + saveName)).Items;
+                Items = GalaxyMessage.Deserialize<MapSaver>(File.ReadAllBytes("Maps/" + saveName)).Items;
                 if (Items == null) return;
                 foreach (var item in Items)
                 {
                     var netEntity = new NetEntityStandard(instance, item.Position, item.Rotation)
                     {
-                        IsStatic = true, 
+                        IsStatic = true,
                         PrefabName = item.PrefabName
                     };
                     netEntity.Init();
@@ -65,15 +65,15 @@ namespace SimpleMmoServer.RPGTemplate
             }
         }
     }
-    
-    [ProtoContract]
-    public class MapSaverItem : BaseMessage
+
+    [GalaxySerializable]
+    public class MapSaverItem : GalaxyMessage
     {
-        [ProtoMember(1)]
-        public vector Position;
-        [ProtoMember(2)]
+        [GalaxyField(0)]
+        public Vector Position;
+        [GalaxyField(1)]
         public GalaxyQuaternion Rotation;
-        [ProtoMember(3)]
+        [GalaxyField(2)]
         public string PrefabName;
     }
 }

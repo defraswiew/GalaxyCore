@@ -4,3 +4,9 @@
 /.vscode/
 /bin/
 /obj/
+/backup/
+*.DotSettings.user
+*.modified
+/migration.log.html
+/data/.editor2/
+/data/.thumbnails/

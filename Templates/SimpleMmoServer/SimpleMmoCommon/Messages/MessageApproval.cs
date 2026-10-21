@@ -1,19 +1,19 @@
-﻿using GalaxyCoreCommon;
-using ProtoBuf; 
+using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 
 namespace SimpleMmoCommon.Messages
 {
     /// <summary>
     /// Сообщение успешной авторизации
     /// </summary>
-    [ProtoContract]
-    public class MessageApproval:BaseMessage
+    [GalaxySerializable]
+    public class MessageApproval:GalaxyMessage
     {
         /// <summary>
         /// Ид клиента
         /// </summary>
-        [ProtoMember(1)]
-        public string Name; 
+        [GalaxyField(0)]
+        public string Name;
         /// <summary>
         /// Базовый конструктор
         /// </summary>

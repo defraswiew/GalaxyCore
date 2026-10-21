@@ -1,27 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Configurations>Debug;Release;FLOAT;DOUBLE</Configurations>
-    <Platforms>AnyCPU</Platforms>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\..\..\Templates\SimpleMmoClient\Assets\GalaxyNetwork\Core\Plugins\</OutputPath>
-    <DocumentationFile>..\..\..\Templates\SimpleMmoClient\Assets\GalaxyNetwork\Core\Plugins\netstandard2.0\SimpleMmoCommon.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DOUBLE|AnyCPU'">
-    <Optimize>false</Optimize>
-  </PropertyGroup>
-
   <ItemGroup>
-    <Reference Include="GalaxyCoreCommon">
-      <HintPath>..\..\..\Core\Server\netstandard2.0\GalaxyCoreCommon.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>..\..\..\Core\Server\netstandard2.0\protobuf-net.dll</HintPath>
-    </Reference>
+    <Reference Include="GalaxyCoreCommon"><HintPath>..\..\..\Core\Server\netstandard2.1\GalaxyCoreCommon.dll</HintPath></Reference>
   </ItemGroup>
-
 </Project>

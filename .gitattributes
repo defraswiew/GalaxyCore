@@ -1,0 +1,23 @@
+* text=auto
+*.cs text eol=lf
+*.csproj text eol=lf
+*.ps1 text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.pubxml text eol=lf
+*.md text eol=lf
+*.sln text eol=lf
+*.bat text eol=crlf
+.gitignore text eol=lf
+*.meta text eol=lf
+*.unity text eol=lf
+*.prefab text eol=lf
+*.mat text eol=lf
+*.controller text eol=lf
+*.anim text eol=lf
+*.dll binary
+*.gnm binary
+*.gphb binary
+# Generated SDK documentation is covered by SHA-256; preserve its exact bytes.
+Core/**/*.xml -text -whitespace
+Templates/SimpleMmoClient/Assets/GalaxyNetwork/Core/Plugins/**/*.xml -text -whitespace

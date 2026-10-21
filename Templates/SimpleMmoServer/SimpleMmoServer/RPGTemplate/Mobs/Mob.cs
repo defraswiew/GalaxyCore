@@ -1,10 +1,11 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 using GalaxyCoreServer;
 using SimpleMmoCommon.RPGTemplate;
 #if GALAXY_DOUBLE
-using vector = GalaxyCoreCommon.GalaxyVectorD3;
+using Vector = GalaxyCoreCommon.GalaxyVectorD3;
 #else
-using vector = GalaxyCoreCommon.GalaxyVector3;
+using Vector = GalaxyCoreCommon.GalaxyVector3;
 #endif
 namespace SimpleMmoServer.RPGTemplate.Mobs
 {
@@ -16,19 +17,19 @@ namespace SimpleMmoServer.RPGTemplate.Mobs
         /// <summary>
         /// здоровье
         /// </summary>
-        [GalaxyVar(1)] 
+        [GalaxyVar(1)]
         public int Heal = 100;
 
         /// <summary>
         /// текущее состояние
         /// </summary>
-        [GalaxyVar(2)] 
+        [GalaxyVar(2)]
         public byte State;
 
         /// <summary>
         /// Максимальное здоровье
         /// </summary>
-        [GalaxyVar(3)] 
+        [GalaxyVar(3)]
         public int MaxHeal = 100;
 
         /// <summary>
@@ -117,7 +118,7 @@ namespace SimpleMmoServer.RPGTemplate.Mobs
                 State = (byte) MobState.move;
 
                 //      transform.position = GalaxyVector3.Lerp(transform.position, movePoint, instance.Time.deltaTime * moveSpeed);
-                transform.Position = vector.Move(transform.Position, MovePoint, 1, Instance.Time.DeltaTime);
+                transform.Position = Vector.Move(transform.Position, MovePoint, 1, Instance.Time.DeltaTime);
             }
             else
             {
@@ -147,15 +148,15 @@ namespace SimpleMmoServer.RPGTemplate.Mobs
             {
                 target = null;
                 State = 0;
-                return;
                 attackCount = 0;
+                return;
             }
 
             //Если игрок далеко, идем к нему
             if (sqrDis > attackDistanse)
             {
                 State = (byte) MobState.follow;
-                transform.Position = vector.Lerp(transform.Position, target.transform.Position,
+                transform.Position = Vector.Lerp(transform.Position, target.transform.Position,
                     Instance.Time.DeltaTime * MoveSpeed * 2);
                 return;
             }
@@ -169,10 +170,10 @@ namespace SimpleMmoServer.RPGTemplate.Mobs
             State = (byte) MobState.attack;
             // рандомим дамаг
             int damage = GRand.NextInt(minDamage, maxDamage);
-            BitGalaxy message = new BitGalaxy();
-            message.WriteValue(damage);
-            // отправляем сообщение о том что мы наносим кому то дамаг. 
-            SendMessage((byte) MobState.attack, message.Data, GalaxyDeliveryType.reliable);
+            var message = new GalaxyBitWriter(new byte[sizeof(int)]);
+            message.WriteInt32(damage);
+            // отправляем сообщение о том что мы наносим кому то дамаг.
+            SendMessage((byte) MobState.attack, message.WrittenSpan.ToArray(), GalaxyDeliveryType.reliable);
             // сообщяем игроку о уроне
             target.SetDamage(damage);
         }
@@ -187,7 +188,7 @@ namespace SimpleMmoServer.RPGTemplate.Mobs
 
         public void Remove()
         {
-            Destory();
+            Destroy();
         }
 
         public void RemoveInSpawner()

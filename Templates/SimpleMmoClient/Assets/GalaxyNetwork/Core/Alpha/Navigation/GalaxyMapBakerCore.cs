@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using GalaxyCoreCommon.Navigation;
 using UnityEngine;
@@ -48,6 +49,7 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
                         if (node.Layer != 0)
                         {
                             mapLayer = baker.Map.Layers.GetById(node.Layer);
+                            if (mapLayer == null) throw new InvalidOperationException("Navigation layer " + node.Layer + " has no definition. Define the layer before baking.");
                             if (mapLayer.ProjectionLower)
                             {
                                 projection = node.Layer;
@@ -55,8 +57,8 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
                             }
                             if (mapLayer.Cut) break;
                             if (mapLayer.ExcludeGraph) continue;
-                            
-                            
+
+
                             if (projection > 0 && !mapLayer.IgnoreProjection)
                             {
                                 node.Layer = projection;
@@ -66,9 +68,9 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
                         {
                             node.Layer = projection;
                         }
-                        
-                       
-                  
+
+
+
                         points.Add(node);
                         if (!transparent[node.Layer]) break;
                     }
@@ -125,7 +127,7 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
                     size);
             }
         }
-        
+
         public static void DrawCells(WorkNode[] nodes, float cellSize, GalaxyMapLayerManager layers, Vector3 pos)
         {
             float sizeIndex = cellSize;
@@ -150,7 +152,7 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
             }
         }
         public static void DrawLinks(List<GalaxyNode> nodes, float cellSize, GalaxyMapLayerManager layers)
-        {         
+        {
             if (nodes == null) return;
 
             foreach (var node in nodes)
@@ -162,7 +164,7 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
                 {
                     Gizmos.color = new Color32(layer.R, layer.G, layer.B, 250);
                 }
-          
+
                 foreach (var item in node.Links)
                 {
                     Gizmos.DrawLine(new Vector3(node.X, node.Y + 0.2f, node.Z), new Vector3(item.X, item.Y + 0.2f, item.Z));
@@ -170,9 +172,9 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
 
             }
         }
-        
+
         public static void DrawLinks(WorkNode[] nodes, float cellSize, GalaxyMapLayerManager layers)
-        {         
+        {
             if (nodes == null) return;
 
             foreach (var node in nodes)

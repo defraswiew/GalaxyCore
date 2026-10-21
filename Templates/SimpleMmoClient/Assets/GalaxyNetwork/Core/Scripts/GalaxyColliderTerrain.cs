@@ -1,158 +1,60 @@
-﻿#if UNITY_EDITOR
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using GalaxyCoreCommon;
+using GalaxyCoreCommon.Physics;
 using UnityEngine;
 
 namespace GalaxyNetwork.Core.Scripts
 {
-    /// <summary>
-    /// Сетевой коллайдер для террейна
-    /// </summary>
+    [RequireComponent(typeof(Terrain), typeof(TerrainCollider))]
     public class GalaxyColliderTerrain : MonoBehaviour
     {
-        private Terrain _terrain;
         public BakeTerrainQuality Quality = BakeTerrainQuality.normal;
         public string PhysTag = "";
-        private Texture2D _img;
 
-        public PhysTerrain Bake()
+        public GalaxyPhysicsBake Bake()
         {
-            PhysTerrain bake = new PhysTerrain();
-            _terrain = GetComponent<Terrain>();
-            var data = _terrain.terrainData;
-            int resolusion = data.heightmapResolution;
-            var heights = data.GetHeights(0, 0, resolusion, resolusion);
-            float verticalScale = data.size.y;
-            for (int x = 0; x < resolusion; x++)
-            {
-                for (int z = 0; z < resolusion; z++)
-                    heights[x, z] *= verticalScale;
-            }
-
-            for (int x = 0; x < resolusion - 1; x++)
-            {
-                for (int z = x; z < resolusion; z++)
-                {
-                    float h1 = heights[x, z];
-                    float h2 = heights[z, x];
-                    heights[x, z] = h2;
-                    heights[z, x] = h1;
-                }
-            }
-
-            BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream();
-            bf.Serialize(ms, heights);
-            bake.heights = ms.ToArray();
-            bake.z = data.size.z;
-            bake.x = data.size.x;
-            bake.resolusion = resolusion;
+            var bake = GalaxyPhysicsBakeUtility.CreateBake();
+            Bake(bake);
             return bake;
         }
 
-        public PhysTerrain Bake(Texture2D map)
+        public void Bake(GalaxyPhysicsBake bake)
         {
-            PhysTerrain bake = new PhysTerrain();
-            _terrain = GetComponent<Terrain>();
-            var data = _terrain.terrainData;
-            int resolusion = map.width;
-            float[,] heights = new float[map.width, map.height];
-            float verticalScale = data.size.y;
-            for (int x = 0; x < map.width; x++)
-            {
-                for (int y = 0; y < map.height; y++)
-                {
-                    heights[x, y] = map.GetPixel(x, y).r * verticalScale;
-                }
-            }
-
-            for (int x = 0; x < resolusion - 1; x++)
-            {
-                for (int z = x; z < resolusion; z++)
-                {
-                    float h1 = heights[x, z];
-                    float h2 = heights[z, x];
-                    heights[x, z] = h2;
-                    heights[z, x] = h1;
-                }
-            }
-
-            BinaryFormatter bf = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream();
-            bf.Serialize(ms, heights);
-            bake.heights = ms.ToArray();
-            bake.z = data.size.z;
-            bake.x = data.size.x;
-            bake.resolusion = map.width;
-            bake.tag = PhysTag;
-            if (PhysTag == "") bake.tag = transform.name;
-            bake.position = transform.position.NetworkVector3();
-            return bake;
+            var terrain = GetComponent<Terrain>();
+            var data = terrain.terrainData;
+            var source = GetComponent<TerrainCollider>();
+            var scale = GalaxyPhysicsBakeUtility.AbsoluteScale(transform);
+            int resolution = Mathf.Max(2, (int)Quality);
+            var heights = new float[resolution * resolution];
+            for (int z = 0; z < resolution; z++)
+                for (int x = 0; x < resolution; x++)
+                    heights[z * resolution + x] = data.GetInterpolatedHeight(
+                        x / (float)(resolution - 1), z / (float)(resolution - 1)) * scale.y;
+            uint id = (uint)bake.Shapes.Count + 1;
+            GalaxyPhysicsGeometryCodec.AddHeightField(bake, id, resolution, resolution, heights,
+                Vector3.Scale(data.size, scale).NetworkVector3());
+            GalaxyPhysicsBakeUtility.AddCollider(bake, source, id, transform.position,
+                transform.rotation, PhysTag, source.isTrigger);
         }
 
+        // Retained for callers that preview the terrain height image in editor tools.
         public Texture GetImage()
         {
-            if (!_terrain) _terrain = GetComponent<Terrain>();
-            var data = _terrain.terrainData;
-            int resolusion = data.heightmapResolution;
-            var heights = data.GetHeights(0, 0, resolusion, resolusion);
-            _img = new Texture2D(_terrain.terrainData.heightmapResolution, _terrain.terrainData.heightmapResolution,
-                TextureFormat.RGBA32, false);
-            float verticalScale = data.size.y;
-
-            for (int x = 0; x < _img.width; x++)
-            {
-                for (int y = 0; y < _img.height; y++)
+            var data = GetComponent<Terrain>().terrainData;
+            int resolution = Mathf.Max(2, (int)Quality);
+            var image = new Texture2D(resolution, resolution, TextureFormat.RFloat, false);
+            for (int z = 0; z < resolution; z++)
+                for (int x = 0; x < resolution; x++)
                 {
-                    _img.SetPixel(x, y, new Color(heights[x, y], heights[x, y], heights[x, y], 1));
+                    float h = data.GetInterpolatedHeight(x / (float)(resolution - 1),
+                        z / (float)(resolution - 1)) / Mathf.Max(data.size.y, Mathf.Epsilon);
+                    image.SetPixel(x, z, new Color(h, h, h, 1));
                 }
-            }
-
-            _img.Apply();
-            return _img;
-        }
-
-        public static Texture2D TextureFromColourMap(Color[] colourMap, int width, int height)
-        {
-            Texture2D texture = new Texture2D(width, height);
-            texture.filterMode = FilterMode.Point;
-            texture.wrapMode = TextureWrapMode.Clamp;
-            texture.SetPixels(colourMap);
-            texture.Apply();
-            return texture;
-        }
-
-        public static Texture2D TextureFromHeightMap(float[,] heightMap)
-        {
-            int width = heightMap.GetLength(0);
-            int height = heightMap.GetLength(1);
-            Color[] colourMap = new Color[width * height];
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    colourMap[y * width + x] = Color.Lerp(Color.black, Color.white, heightMap[x, y] * 5);
-                }
-            }
-
-            return TextureFromColourMap(colourMap, width, height);
+            image.Apply();
+            return image;
         }
     }
 
-    /// <summary>
-    /// Качество запекания
-    /// </summary>
     public enum BakeTerrainQuality
     {
-        shit = 28,
-        veryLow = 32,
-        low = 48,
-        normal = 64,
-        good = 80,
-        great = 100,
-        perfect = 128
+        shit = 28, veryLow = 32, low = 48, normal = 64, good = 80, great = 100, perfect = 128
     }
- 
 }
-#endif

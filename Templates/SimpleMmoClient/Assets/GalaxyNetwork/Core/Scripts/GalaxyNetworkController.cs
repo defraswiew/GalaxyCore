@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using GalaxyCoreLib;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +8,7 @@ namespace GalaxyNetwork.Core.Scripts
     /// <summary>
     /// Main network controller
     /// </summary>
+    [DefaultExecutionOrder(-1000)]
     public class GalaxyNetworkController : MonoBehaviour
     {
         /// <summary>
@@ -53,9 +54,6 @@ namespace GalaxyNetwork.Core.Scripts
             _config.AppName = "SimpleMmoServer";
             _config.FrameRate = 25;
             MainConnection = new GalaxyConnection(_config);
-            var slaveConnect = new GalaxyConnection(_config);
-            slaveConnect.EngineCalls.Awake();
-            SlaveConnections.Add("test",slaveConnect);
             MainConnection.EngineCalls.Awake();
             DontDestroyOnLoad(gameObject);
         }
@@ -111,13 +109,16 @@ namespace GalaxyNetwork.Core.Scripts
         {
             if (GalaxyNetworkController.Api == this)
             {
+                SceneManager.activeSceneChanged -= SceneChanged;
+                SceneManager.sceneLoaded -= SceneLoaded;
                 MainConnection.Disconnect();
                 foreach (var connection in SlaveConnections)
                 {
                     connection.Value.Disconnect();
                 }
+                Api = null;
             }
-            
+
         }
     }
 }

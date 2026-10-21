@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreLib.NetEntity;
 using GalaxyNetwork.Core.Scripts.NetEntity;
 using UnityEngine;
@@ -25,9 +25,15 @@ namespace GalaxyNetwork.Examples.Scripts
         /// Пример синхронизации внутри любых других классах
         /// </summary>
         public Test test = new Test();
+        private ClientNetEntity _netEntity;
+        void OnDestroy()
+        {
+            if (_netEntity != null) _netEntity.OnInMessage -= OnInMessage;
+        }
+
         void Start()
         {
-            ClientNetEntity netEntity = GetComponent<UnityNetEntity>().NetEntity;
+            ClientNetEntity netEntity = _netEntity = GetComponent<UnityNetEntity>().NetEntity;
             // регистрируем внешний класс в galaxyVars
             netEntity.GalaxyVars.RegistrationClass(test);
             netEntity.OnInMessage += OnInMessage;

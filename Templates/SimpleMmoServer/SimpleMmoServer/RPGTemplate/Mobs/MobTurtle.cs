@@ -1,4 +1,5 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 using GalaxyCoreServer;
 using SimpleMmoServer.RPGTemplate.Mobs;
 
@@ -17,8 +18,8 @@ namespace SimpleMmoServer.RPGTemplate
             {
                 case 200:
                     {
-                        BitGalaxy message = new BitGalaxy(data);
-                        int damage = message.ReadInt();
+                        var message = new GalaxyBitReader(data);
+                        if (!message.TryReadInt32(out int damage)) return;
                         Heal -= damage;
                         if (Heal <= 0) Death();
                     }
@@ -31,7 +32,7 @@ namespace SimpleMmoServer.RPGTemplate
             return true;
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
             Drop drop = new Drop(Instance, transform.Position);
             drop.Init();
@@ -40,17 +41,17 @@ namespace SimpleMmoServer.RPGTemplate
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-            
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-            
+
         }
 
         protected override void Start()

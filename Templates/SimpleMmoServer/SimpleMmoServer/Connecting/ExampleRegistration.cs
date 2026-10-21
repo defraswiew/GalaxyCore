@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using SimpleMmoCommon.Messages;
@@ -18,13 +18,17 @@ namespace SimpleMmoServer.Connecting
 
         private void OnGalaxyRegistration(ApprovalConnection approvalConnection, byte[] data)
         {
-            Log.Debug("OnGalaxyRegistration", data.Length.ToString());
-            // преобразовывем массив байт в читабельное сообщение      
+            Log.Debug("OnGalaxyRegistration", (data?.Length ?? 0).ToString());
+            // преобразовывем массив байт в читабельное сообщение
             // converting the byte array into a readable message
-            var message = BaseMessage.Deserialize<MessageAuth>(data);
-            // here it is worth doing a check in the database, for the presence of the same account, and similar checks, (instead of if (true))
-            // тут стоит делать проверку в базу, на наличие такого же аккаунта, и тому подобные проверки, (вместо  if (true))
-            if (true)
+            if (!GalaxyMessage.TryDeserialize<MessageAuth>(data, out var message) || string.IsNullOrWhiteSpace(message.Login))
+            {
+                approvalConnection.Deny(1, "Invalid authentication payload");
+                return;
+            }
+            // Replace this demo condition with account lookup and credential validation.
+            // Замените условие проверкой аккаунта и учётных данных в базе.
+            if (!string.IsNullOrWhiteSpace(message.Password))
             {
                 // Let's create a package that we will send to the client along with the connection permission
                 // Создадим пакет который мы отправим клиенту вместе с разрешением коннекта

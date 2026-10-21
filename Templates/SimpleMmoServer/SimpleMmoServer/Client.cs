@@ -1,4 +1,4 @@
-﻿using GalaxyCoreServer;
+using GalaxyCoreServer;
 
 namespace SimpleMmoServer
 {
@@ -14,9 +14,9 @@ namespace SimpleMmoServer
         /// <summary>
         /// Вызывается когда игрок отключился
         /// </summary>
-        protected override void OnDisconnected()
+        protected override void OnDisconnected(string reason)
         {
-        
+
         }
 
         protected override void OnConnected()

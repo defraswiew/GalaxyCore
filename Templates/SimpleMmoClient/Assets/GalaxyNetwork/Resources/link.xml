@@ -1,7 +1,13 @@
 <linker>
-    <assembly fullname="ProtoBuf" preserve="all"/>
-    <assembly fullname="DataModelBindings" preserve="all"/>
-    <assembly fullname="GalaxyCoreCommon" preserve="all"/>
-	<assembly fullname="GalaxyCoreLib" preserve="all"/>
-    <assembly fullname="SimpleMmoCommon" preserve="all"/>
+  <!-- SDK serialization and GalaxyVars use reflection, including IL2CPP builds. -->
+  <assembly fullname="protobuf-net" preserve="all" />
+  <assembly fullname="YamlDotNet" preserve="all" />
+  <assembly fullname="GalaxyCoreCommon" preserve="all" />
+  <assembly fullname="GalaxyCoreLib" preserve="all" />
+  <assembly fullname="SimpleMmoCommon" preserve="all" />
+  <assembly fullname="Assembly-CSharp">
+    <type fullname="GalaxyNetwork.Examples.Scripts.ExampleGalaxyVars" preserve="fields" />
+    <type fullname="GalaxyNetwork.Examples.Scripts.Test" preserve="fields" />
+    <type fullname="ExampleNetVars2" preserve="fields" />
+  </assembly>
 </linker>

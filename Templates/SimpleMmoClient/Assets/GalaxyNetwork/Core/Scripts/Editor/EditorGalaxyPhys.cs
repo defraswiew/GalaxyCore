@@ -1,7 +1,7 @@
-﻿#if UNITY_EDITOR
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using System.IO;
-using GalaxyCoreCommon;
+using GalaxyCoreCommon.Physics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -42,7 +42,7 @@ namespace GalaxyNetwork.Core.Scripts.Editor
             _showTerrains = EditorGUILayout.Foldout(_showTerrains, "Terrains", EditorStyles.foldoutHeader);
             if (_showTerrains)
             {
-                foreach (var item in FindObjectsOfType<GalaxyColliderTerrain>())
+                foreach (var item in FindObjectsByType<GalaxyColliderTerrain>(FindObjectsSortMode.InstanceID))
                 {
                     GUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField(item.name);
@@ -58,12 +58,12 @@ namespace GalaxyNetwork.Core.Scripts.Editor
 
         static void AddBoxColliders(bool triggers)
         {
-            foreach (var item in FindObjectsOfType<BoxCollider>())
+            foreach (var item in FindObjectsByType<BoxCollider>(FindObjectsSortMode.InstanceID))
             {
                 if (item.GetComponent<GalaxyColliderBox>()) continue;
                 if (!item.gameObject.isStatic) continue;
                 if (item.isTrigger != triggers) continue;
-                GalaxyColliderBox box = item.gameObject.AddComponent<GalaxyColliderBox>();
+                GalaxyColliderBox box = Undo.AddComponent<GalaxyColliderBox>(item.gameObject);
                 if (item.isTrigger) box.IsTrigger = true;
             }
         }
@@ -71,29 +71,29 @@ namespace GalaxyNetwork.Core.Scripts.Editor
 
         static void AddSphereColliders(bool triggers)
         {
-            foreach (var item in FindObjectsOfType<SphereCollider>())
+            foreach (var item in FindObjectsByType<SphereCollider>(FindObjectsSortMode.InstanceID))
             {
                 if (item.GetComponent<GalaxyColliderSphere>()) continue;
                 if (!item.gameObject.isStatic) continue;
                 if (item.isTrigger != triggers) continue;
-                item.gameObject.AddComponent<GalaxyColliderSphere>();
+                Undo.AddComponent<GalaxyColliderSphere>(item.gameObject);
             }
         }
 
 
         static void RemoveBoxColliders(bool triggers)
         {
-            foreach (var item in FindObjectsOfType<GalaxyColliderBox>())
+            foreach (var item in FindObjectsByType<GalaxyColliderBox>(FindObjectsSortMode.InstanceID))
             {
                 if (item.IsTrigger != triggers) continue;
-                DestroyImmediate(item);
+                Undo.DestroyObjectImmediate(item);
             }
         }
         static void RemoveSphereColliders()
         {
-            foreach (var item in FindObjectsOfType<GalaxyColliderSphere>())
+            foreach (var item in FindObjectsByType<GalaxyColliderSphere>(FindObjectsSortMode.InstanceID))
             {
-                DestroyImmediate(item);
+                Undo.DestroyObjectImmediate(item);
             }
 
         }
@@ -105,33 +105,25 @@ namespace GalaxyNetwork.Core.Scripts.Editor
                 "Bake colliders",
                 "",
                 name,
-                "phys");
+                "gphb");
             if (path.Length == 0) return;
 
 
-            PhysBake bakeData = new PhysBake();
-            bakeData.BoxColliders = new List<PhysBakeBoxCollider>();
-            foreach (var item in FindObjectsOfType<GalaxyColliderBox>())
-            {
-                bakeData.BoxColliders.Add(item.Bake());
-            }
-            bakeData.SphereColliders = new List<PhysSphereCollider>();
-            foreach (var item in FindObjectsOfType<GalaxyColliderSphere>())
-            {
-                bakeData.SphereColliders.Add(item.Bake());
-            }
+            var bake = BakeLoadedScenes();
+            File.WriteAllBytes(path, GalaxyPhysicsBakeFormat.Save(bake));
+            Debug.Log("Galaxy GPHB bake saved: " + path + " (" + bake.Colliders.Count + " colliders)");
+        }
 
-            bakeData.TerrainColliders = new List<PhysTerrain>();
-            foreach (var item in FindObjectsOfType<GalaxyColliderTerrain>())
-            {
-                Texture2D map = (Texture2D)item.GetImage();
-                TextureScale.Bilinear(map, (int)item.Quality, (int)item.Quality);
-                bakeData.TerrainColliders.Add(item.Bake(map));
-            }
-
-
-            File.WriteAllBytes(path, bakeData.Serialize());
-
+        public static GalaxyPhysicsBake BakeLoadedScenes()
+        {
+            var bake = GalaxyPhysicsBakeUtility.CreateBake();
+            foreach (var item in FindObjectsByType<GalaxyColliderBox>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID))
+                item.Bake(bake);
+            foreach (var item in FindObjectsByType<GalaxyColliderSphere>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID))
+                item.Bake(bake);
+            foreach (var item in FindObjectsByType<GalaxyColliderTerrain>(FindObjectsInactive.Include, FindObjectsSortMode.InstanceID))
+                item.Bake(bake);
+            return bake;
         }
 
     }
