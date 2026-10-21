@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using SimpleMmoCommon.Messages;
@@ -26,9 +26,13 @@ namespace SimpleMmoServer.Connecting
         /// <param name="data">Array of bytes, data sent along with the authorization request</param>
         private void OnGalaxyConnect(ApprovalConnection approvalConnection, byte[] data)
         {
-            // converting the byte array into a readable message          
-            // преобразовывем массив байт в читабельное сообщение          
-            var message = BaseMessage.Deserialize<MessageAuth>(data);
+            // converting the byte array into a readable message
+            // преобразовывем массив байт в читабельное сообщение
+            if (!GalaxyMessage.TryDeserialize<MessageAuth>(data, out var message) || string.IsNullOrWhiteSpace(message.Login))
+            {
+                approvalConnection.Deny(1, "Invalid authentication payload");
+                return;
+            }
             // here we should carry out some kind of verification of the correctness of the login and password
             // But now we will not do this, and just allow the connection to everyone whose logins contain test
             // тут нам следовало бы провести какую либо проверку правильности логина и пароля
@@ -43,7 +47,7 @@ namespace SimpleMmoServer.Connecting
                 // Получаем ид, сюда следует подставить реальный ид клиента по базе
                 int clientID = Tools.GetNewID();
 
-                // ClientConnection connection;  
+                // ClientConnection connection;
                 // Create your own client implementation
                 var client = new ExampleClient
                 {
@@ -51,7 +55,7 @@ namespace SimpleMmoServer.Connecting
                 };
                 // we return the data along with the permission, we will also get a working copy of the authorized connection
                 // we also rivet our own client implementation, so that in the future, you can quickly get it from the connection
-                // возвращяем данные вместе с разрешением, так же мы получим уже рабочий экземпляр авторизированного соеденения 
+                // возвращяем данные вместе с разрешением, так же мы получим уже рабочий экземпляр авторизированного соеденения
                 // так же приклепляем собственную реализацию клиента, для того что бы в бущем, можно было её оперативно получить из коннекшена
                 approvalConnection.Approve(response, clientID, client);
                 Log.Debug("OnGalaxyConnect", "Client " + clientID + " connected");

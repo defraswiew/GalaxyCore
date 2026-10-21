@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreServer;
 
 namespace SimpleMmoServer.Examples.Instances
@@ -22,8 +22,8 @@ namespace SimpleMmoServer.Examples.Instances
         {
             Log.Info("ExampleRoomPhys", "instance id:" + Id); // выводим в консоль тип комнаты
             SetFrameRate(20); // устанавливаем подходящий врейм рейт
-            //   physics.Activate("phys/ExamplePhys.phys"); // активизуем физику c указанием пути на файл запеченой сцены    
-            Physics.Activate();
+
+            Physics.Start("jitter2");
         }
 
         public override void Update()
@@ -48,7 +48,7 @@ namespace SimpleMmoServer.Examples.Instances
         {
             var entity = new Examples.NetEntities.ExampleForce(this,
                 new GalaxyVector3(GRand.NextInt(5, 10), GRand.NextInt(5, 10), GRand.NextInt(5, 10)),
-                new GalaxyQuaternion(0, 0, 0, 0)) {Room = this};
+                GalaxyQuaternion.Identity) {Room = this};
             entity.Init();
             _bodyForceCount++;
         }

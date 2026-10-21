@@ -1,9 +1,9 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreServer;
 #if GALAXY_DOUBLE
-using vector = GalaxyCoreCommon.GalaxyVectorD3;
+using Vector = GalaxyCoreCommon.GalaxyVectorD3;
 #else
-using vector = GalaxyCoreCommon.GalaxyVector3;
+using Vector = GalaxyCoreCommon.GalaxyVector3;
 #endif
 namespace SimpleMmoServer.Examples.NetEntities
 {
@@ -28,10 +28,10 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         public void Kill()
         {
-            Destory();
+            Destroy();
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
             var newNetEntity = new ExampleVideo(Instance, transform.Position);
             newNetEntity.ChangeOwner();
@@ -41,7 +41,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         public void Send()
         {
         }
-        
+
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
             transform.Position = remotePosition;
@@ -74,7 +74,7 @@ namespace SimpleMmoServer.Examples.NetEntities
         //    Log.Info("Test", Hp.ToString());
         }
 
-        public ExampleVideo(Instance instance, vector position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
+        public ExampleVideo(Instance instance, Vector position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             PrefabName = "ExampleVideo";
             Text = "hello";

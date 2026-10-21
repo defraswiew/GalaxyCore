@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using GalaxyCoreCommon;
 using GalaxyCoreCommon.Navigation;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Tools = GalaxyCoreCommon.Navigation.Tools;
 
 namespace GalaxyNetwork.Core.Alpha.Navigation
@@ -11,18 +12,49 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
     public class GalaxyMapBaker : MonoBehaviour
     {
         public static GalaxyMap MainMap;
+        [FormerlySerializedAs("mapSize")]
         public Vector3 MapSize;
+        [FormerlySerializedAs("cellSize")]
         public float CellSize;
+        [FormerlySerializedAs("minHeight")]
         public float MinHeight = 2;
+        [FormerlySerializedAs("maxHeightLink")]
         public float MaxHeightLink = 0.1f;
+        [FormerlySerializedAs("drawCell")]
         public bool DrawCell = true;
+        [FormerlySerializedAs("drawLinks")]
         public bool DrawLinks;
         public GalaxyMap Map = new GalaxyMap();
+        [FormerlySerializedAs("path")]
         public string Path;
+        [Tooltip("Baked map embedded in the player; external Path is used only when this is unassigned.")]
+        public TextAsset BakedMap;
+        [Tooltip("Small layer definitions for the authoring scene; contains no geometry.")]
+        public TextAsset LayerConfiguration;
+        [Tooltip("Editor only: bake a missing authoring cache on first Play.")]
+        public bool BakeInEditorOnPlay;
+
+        public string ResolveBakePath()
+        {
+            if (string.IsNullOrEmpty(Path)) return string.Empty;
+            return System.IO.Path.IsPathRooted(Path) ? Path :
+                System.IO.Path.GetFullPath(System.IO.Path.Combine(Application.dataPath, "..", Path));
+        }
+
+        private void Awake() => LoadLayerConfiguration();
+
+        private void LoadLayerConfiguration()
+        {
+            if (LayerConfiguration == null) return;
+            var configuration = BaseMessage.Deserialize<GalaxyMap>(LayerConfiguration.bytes);
+            Map.Layers = configuration.Layers;
+        }
 
         [SerializeField]
+        [FormerlySerializedAs("objects")]
         public GameObject[] Objects;
         [SerializeField]
+        [FormerlySerializedAs("layers")]
         public byte[] Layers;
         public bool IsNotLayerAssigned => CheckLayers();
         private float _sectorSize;
@@ -157,13 +189,13 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
             float mapZ = (MapSize.z / _sectorSize);
             float step = (mapX * mapZ) * 0.01f;
             int count = 0;
-        
+
             for (int x = 0; x < mapX; x++)
             {
                 for (int z = 0; z < mapZ; z++)
                 {
                     var mapSegment = new List<GalaxyNode>();
-                
+
                     Vector3 pos = transform.position;
                     pos.x = pos.x + ((MapSize.x / mapX) * x);
                     pos.z = pos.z + ((MapSize.z / mapZ) * z);
@@ -182,7 +214,10 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
             tmpMap = Tools.Linked(tmpMap, CellSize, Map.Layers.List);
             Map.SetBakeNodes(tmpMap);
             tmpMap.Clear();
-            Map.Save(Path);
+            string output = ResolveBakePath();
+            if (string.IsNullOrEmpty(output)) throw new InvalidOperationException("Choose a navigation bake output file first.");
+            Directory.CreateDirectory(System.IO.Path.GetDirectoryName(output));
+            Map.Save(output);
             Debug.Log(count);
         }
 
@@ -198,7 +233,7 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
             {
                 GalaxyMapBakerCore.DrawLinks(Map.Nodes, CellSize, Map.Layers);
             }
-            
+
             if (DrawCell && Map.NodesArray != null && (Map.Nodes == null || Map.Nodes.Count == 0))
             {
                 GalaxyMapBakerCore.DrawCells(Map.NodesArray, CellSize, Map.Layers, transform.position);
@@ -210,6 +245,11 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
             }
         }
 
+        private void OnDestroy()
+        {
+            if (ReferenceEquals(MainMap, Map)) MainMap = null;
+        }
+
         private void Start()
         {
             Load();
@@ -217,32 +257,49 @@ namespace GalaxyNetwork.Core.Alpha.Navigation
 
         public void Save()
         {
-            Map.Save(Path);
+            string output = ResolveBakePath();
+            if (string.IsNullOrEmpty(output)) throw new InvalidOperationException("Choose a navigation bake output file first.");
+            Directory.CreateDirectory(System.IO.Path.GetDirectoryName(output));
+            Map.Save(output);
         }
-    
+
         public void Load()
         {
-            Load(Path);
+            LoadLayerConfiguration();
+#if UNITY_EDITOR
+            if (LayerConfiguration != null && !Application.isPlaying) return;
+            if (BakeInEditorOnPlay && Application.isPlaying && !File.Exists(ResolveBakePath())) Baked();
+#endif
+            if (BakedMap != null) LoadBytes(BakedMap.bytes);
+            else if (!string.IsNullOrEmpty(Path)) Load(Path);
         }
 
         public void Load(string loadPath)
         {
             Path = loadPath;
-            if (Path == "")
+            if (string.IsNullOrEmpty(Path))
             {
                 return;
             }
-            Map = BaseMessage.Deserialize<GalaxyMap>(File.ReadAllBytes(Path));
+            string resolved = ResolveBakePath();
+            if (!File.Exists(resolved))
+            {
+                Debug.LogWarning("Galaxy navigation bake not found: " + Path + ". Assign BakedMap or choose a valid file in the navigation editor.", this);
+                return;
+            }
+            LoadBytes(File.ReadAllBytes(resolved));
+        }
+
+        private void LoadBytes(byte[] bytes)
+        {
+            Map = BaseMessage.Deserialize<GalaxyMap>(bytes);
             Map?.Init(new NavigationConfig
             {
                 ParallelWorkerCount = 2,
                 QueueLimit = 500,
                 UseJumping = false
             });
-            if (MainMap == null)
-            {
-                MainMap = Map;
-            }
+            MainMap = Map;
         }
     }
 }

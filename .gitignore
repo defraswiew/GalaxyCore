@@ -1,1 +1,28 @@
-/TemplatesSimpleMmoClient/
+# Local build output and editor state
+.artifacts/
+.vs/
+.idea/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.sln.DotSettings.user
+*.log
+
+# Unity generates these from Assets, Packages and ProjectSettings.
+Templates/SimpleMmoClient/Library/
+Templates/SimpleMmoClient/Temp/
+Templates/SimpleMmoClient/Logs/
+Templates/SimpleMmoClient/UserSettings/
+Templates/SimpleMmoClient/Build/
+Templates/SimpleMmoClient/Builds/
+Templates/SimpleMmoClient/MemoryCaptures/
+Templates/SimpleMmoClient/Recordings/
+Templates/SimpleMmoClient/*.csproj
+Templates/SimpleMmoClient/*.sln
+Templates/SimpleMmoClient/*.slnx
+Templates/SimpleMmoClient/*.pidb
+
+# OS files
+.DS_Store
+Thumbs.db

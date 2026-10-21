@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreLib;
 using GalaxyCoreLib.Api;
 using Unigine;
@@ -15,10 +15,11 @@ namespace UnigineApp.source.GalaxyNetwork
         readonly GalaxyCoreLib.Config _config = new GalaxyCoreLib.Config();
 
         #region UI
-        private readonly UILogin _uILogin = new UILogin();
-        private readonly UIInstances _uiInstances = new UIInstances();
-        private readonly UIStatistics _uIStatistics = new UIStatistics();
-        private readonly UIChat _uIChat = new UIChat();
+        private GalaxyConnection _connection;
+        private UILogin _uILogin;
+        private UIInstances _uiInstances;
+        private UIStatistics _uIStatistics;
+        private UIChat _uIChat;
         #endregion
 
 
@@ -36,20 +37,25 @@ namespace UnigineApp.source.GalaxyNetwork
             _config.AppName = "SimpleMmoServer";
             // The network frame is the default rate. (automatically regulated by the server)
             // Сетевой фрейм рейт по уполчанию. (автоматически регулируется сервером)
-            _config.FrameRate = 25; 
+            _config.FrameRate = 25;
 
             // initialize the network core
-            // инициализируем сетевое ядро       
-            GalaxyClientCore.Initialize(_config);           
-            GalaxyClientCore.EngineCalls.Awake();
+            // инициализируем сетевое ядро
+            _connection = new GalaxyConnection(_config);
+            _uILogin = new UILogin(_connection);
+            _uiInstances = new UIInstances(_connection);
+            _uIStatistics = new UIStatistics(_connection);
+            _uIChat = new UIChat(_connection);
+            _connection.EngineCalls.Awake();
 
             // subscribe to the event of a successful connection
             // подписываемся на событие удачного коннекта
-            GalaxyEvents.OnGalaxyConnect += OnGalaxyConnect;
+            _connection.Events.OnGalaxyConnect += OnGalaxyConnect;
+            _connection.Events.OnGalaxyDisconnect += OnGalaxyDisconnect;
 
             // subscribe to the instance(room) enter event
             // подписываемся на событие входа в инстанс
-            GalaxyEvents.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
+            _connection.Events.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
             // Show login window
             // Вызываем окно входа
             _uILogin.Show();
@@ -63,7 +69,7 @@ namespace UnigineApp.source.GalaxyNetwork
         private void OnGalaxyEnterInInstance(InstanceInfo info)
         {
            _uiInstances.Close();
-           GalaxyApi.Instances.SyncInstance();
+           _connection.Api.Instances.SyncInstance();
         }
         /// <summary>
         /// Called upon successful connection to the server
@@ -80,14 +86,30 @@ namespace UnigineApp.source.GalaxyNetwork
 
         public override void Update()
         {
-            GalaxyClientCore.EngineCalls.Update(Game.IFps);  
+            _connection?.EngineCalls.Update(Game.IFps);
         }
 
+        private void OnGalaxyDisconnect(string reason)
+        {
+            _uiInstances.Close();
+            _uIStatistics.Close();
+            _uIChat.Close();
+            Log.Message("Galaxy disconnected: " + reason + "\n");
+            _uILogin.Show();
+        }
 
         public override bool Shutdown()
         {
-            GalaxyApi.Connection.Disconnect();
-            GalaxyClientCore.EngineCalls.OnApplicationQuit();
+            if (_connection == null) return true;
+            _connection.Events.OnGalaxyConnect -= OnGalaxyConnect;
+            _connection.Events.OnGalaxyDisconnect -= OnGalaxyDisconnect;
+            _connection.Events.OnGalaxyEnterInInstance -= OnGalaxyEnterInInstance;
+            _uILogin.Close();
+            _uiInstances.Close();
+            _uIStatistics.Close();
+            _uIChat.Close();
+            _connection.EngineCalls.OnApplicationQuit();
+            _connection = null;
             return true;
         }
     }

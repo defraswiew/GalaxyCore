@@ -1,4 +1,4 @@
-﻿using GalaxyNetwork.Core.Scripts.NetEntity;
+using GalaxyNetwork.Core.Scripts.NetEntity;
 using UnityEditor;
 using UnityEngine;
 
@@ -22,8 +22,13 @@ namespace GalaxyNetwork.Core.Scripts.Editor
             _mainBox.height = 200;
 
             UnityNetEntity item = (UnityNetEntity)target;
-            GUILayout.Label("", _skin.GetStyle("MiniLogo"));
+            if (_skin != null) GUILayout.Label("", _skin.GetStyle("MiniLogo"));
             GUILayout.Label("Galaxy Net Object", EditorStyles.boldLabel);
+            if (item.NetEntity == null)
+            {
+                EditorGUILayout.HelpBox("Network entity is bound in Play Mode.", MessageType.Info);
+                return;
+            }
             GUILayout.Label("Net ID: " + item.NetEntity.NetID, EditorStyles.largeLabel);
             if (item.NetEntity.IsInit)
             {

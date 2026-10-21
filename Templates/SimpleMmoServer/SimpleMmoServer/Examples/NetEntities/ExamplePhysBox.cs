@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using GalaxyCoreServer.Physics;
 
@@ -12,30 +12,31 @@ namespace SimpleMmoServer.Examples.NetEntities
         public ExamplePhysBox(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             //Задаем имя префаба соответствующего данному объекту
+            TransformAuthority = NetEntityTransformAuthority.Server;
             PrefabName = "ExampleBox";
         }
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-          
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-            
+
         }
 
         protected override void Start()
         {
             // создаем рабочий коллайдер. Без коллайдера объект не может учавствовать в физическом представлении
-            ColliderBox collider = new ColliderBox(new GalaxyVector3(0.4f, 0.4f, 0.4f));
-            Physics.Activate(collider); // активируем физику     
-            Physics.Mass = 1f; // устанавливае вес объекта в кг
+            var collider = PhysicsShape.Box(new GalaxyVector3(0.4f, 0.4f, 0.4f));
+            Physics.Create(new PhysicsBodyOptions { Shape = collider, Mass = 1f }); // активируем физику
+
         }
 
 
@@ -46,11 +47,11 @@ namespace SimpleMmoServer.Examples.NetEntities
         protected override void Update()
         {
             // применяем физические расчеты к объекту
-            Physics.ApplyPhys();
+            // Physics snapshots are applied automatically by the owning Instance.
         }
 
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
         }
     }

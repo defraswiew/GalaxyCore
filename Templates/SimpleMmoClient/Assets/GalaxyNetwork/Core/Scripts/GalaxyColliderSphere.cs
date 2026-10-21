@@ -1,59 +1,40 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon.Physics;
 using UnityEngine;
 
 namespace GalaxyNetwork.Core.Scripts
 {
-    /// <summary>
-    /// Сетевой коллайдер (сфера)
-    /// </summary>
+    [RequireComponent(typeof(SphereCollider))]
     public class GalaxyColliderSphere : MonoBehaviour
     {
-        /// <summary>
-        /// Текущий коллайдер
-        /// </summary>
-        private SphereCollider _collider;
-
-        /// <summary>
-        /// размер коллайдера
-        /// </summary>
-        private float _size = 1;
-
-        /// <summary>
-        /// Физический тег (можно получить на сервере при коллизии)
-        /// </summary>
         public string PhysTag = "";
 
-#if UNITY_EDITOR
-        /// <summary>
-        /// Рисуем коллайдер
-        /// </summary>
-        private void OnDrawGizmos()
+        public GalaxyPhysicsBake Bake()
         {
-            if (_collider == null) _collider = GetComponent<SphereCollider>();
-            GetSize();
-            Gizmos.color = new Color(1f, 0.8f, 0f, 0.4f);
-            Gizmos.DrawSphere(transform.position, _size + 0.3f);
-        }
-#endif
-        /// <summary>
-        /// Запекание коллайдера
-        /// </summary>
-        /// <returns></returns>
-        public PhysSphereCollider Bake()
-        {
-            PhysSphereCollider bake = new PhysSphereCollider();
-            bake.position = transform.position.NetworkVector3();
-            bake.radius = _size;
-            bake.tag = PhysTag;
-            if (PhysTag == "") bake.tag = transform.name;
+            var bake = GalaxyPhysicsBakeUtility.CreateBake();
+            Bake(bake);
             return bake;
         }
 
-        private float GetSize()
+        public void Bake(GalaxyPhysicsBake bake)
         {
-            _size = _collider.radius;
-            _size = _size * transform.localScale.x + 0.1f;
-            return _size;
+            var source = GetComponent<SphereCollider>();
+            var scale = GalaxyPhysicsBakeUtility.AbsoluteScale(transform);
+            float radius = source.radius * Mathf.Max(scale.x, scale.y, scale.z);
+            uint id = (uint)bake.Shapes.Count + 1;
+            bake.Shapes.Add(GalaxyPhysicsShapeBake.Sphere(id, radius));
+            GalaxyPhysicsBakeUtility.AddCollider(bake, source, id,
+                transform.TransformPoint(source.center), Quaternion.identity, PhysTag, source.isTrigger);
         }
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            var source = GetComponent<SphereCollider>();
+            if (source == null) return;
+            var scale = transform.lossyScale;
+            float radius = source.radius * Mathf.Max(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z));
+            Gizmos.color = new Color(1f, 0.8f, 0f, 0.4f);
+            Gizmos.DrawSphere(transform.TransformPoint(source.center), radius);
+        }
+#endif
     }
 }

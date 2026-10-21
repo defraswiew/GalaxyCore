@@ -1,23 +1,23 @@
-﻿using GalaxyCoreCommon;
-using ProtoBuf; 
+using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 
 namespace SimpleMmoCommon.Messages
 {
     /// <summary>
     ///  Сообщение авторизации
     /// </summary>
-    [ProtoContract]
-    public class MessageAuth : BaseMessage
+    [GalaxySerializable]
+    public class MessageAuth : GalaxyMessage
     {
         /// <summary>
         /// Логин пользователя
         /// </summary>
-        [ProtoMember(1)]
+        [GalaxyField(0, MaxLength = 256)]
         public string Login { get; set; }
         /// <summary>
         /// Пароль пользователя
         /// </summary>
-        [ProtoMember(2)]
+        [GalaxyField(1, MaxLength = 1024)]
         public string Password { get; set; }
     }
 }

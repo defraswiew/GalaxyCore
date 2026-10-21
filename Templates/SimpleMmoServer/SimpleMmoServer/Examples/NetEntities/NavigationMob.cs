@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using GalaxyCoreCommon;
 using GalaxyCoreCommon.Navigation;
 using GalaxyCoreServer;
 using SimpleMmoServer.Examples.Instances;
 #if GALAXY_DOUBLE
-using vector = GalaxyCoreCommon.GalaxyVectorD3;
+using Vector = GalaxyCoreCommon.GalaxyVectorD3;
 #else
-using vector = GalaxyCoreCommon.GalaxyVector3;
+using Vector = GalaxyCoreCommon.GalaxyVector3;
 #endif
 namespace SimpleMmoServer.Examples.NetEntities
 {
@@ -15,8 +15,8 @@ namespace SimpleMmoServer.Examples.NetEntities
     {
         private readonly GalaxyMap _map;
         private readonly  NavigationMask _navigationMask;
-        private Queue<vector> _points;
-        private vector _currentPoint;
+        private Queue<Vector> _points;
+        private Vector _currentPoint;
         private float _speed = 3;
         private Random _rnd;
         private GalaxyVector3[] _spawnPoints = new[]
@@ -31,15 +31,15 @@ namespace SimpleMmoServer.Examples.NetEntities
             new GalaxyVector3(24,10.8f,10),
             new GalaxyVector3(35,10.8f,-17),
         };
-        
+
         public NavigationMob(ExampleNavigation instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = new GalaxyQuaternion()) : base(instance, position, rotation)
         {
             _map = instance.Map;
             PrefabName = "Move";
             _navigationMask = new NavigationMask
             {
-                Lianer = false, 
-                PreLiner = PreLinerType.OneLayer, 
+                Lianer = false,
+                PreLiner = PreLinerType.OneLayer,
                 IgnoreCash = true,
                 MaxLiftAngle = 50
             };
@@ -47,40 +47,40 @@ namespace SimpleMmoServer.Examples.NetEntities
             _navigationMask.AddLayer(2);
             _navigationMask.AddLayer(3);
             _currentPoint = transform.Position;
-            _points = new Queue<vector>();
+            _points = new Queue<Vector>();
             _rnd = new Random();
         }
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-             
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-             
+
         }
 
         protected override void Start()
         {
-            
+
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
-           
+
         }
 
         protected override void Update()
         {
             if ((_currentPoint - transform.Position).SqrMagnitude > 0.5f)
             {
-                transform.Position = vector.Move(transform.Position,_currentPoint + vector.Up*0.5f,_speed, Instance.Time.DeltaTime);
+                transform.Position = Vector.Move(transform.Position,_currentPoint + Vector.Up*0.5f,_speed, Instance.Time.DeltaTime);
             }
             else
             {
@@ -97,12 +97,12 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
-            
+
         }
-        
+
         private void PathRequest()
         {
-            var endPoint = _spawnPoints[_rnd.Next(0, _spawnPoints.Length - 1)];
+            var endPoint = _spawnPoints[_rnd.Next(_spawnPoints.Length)];
 
           _map.GetPath(transform.Position,endPoint,this,_navigationMask);
         }
@@ -114,7 +114,7 @@ namespace SimpleMmoServer.Examples.NetEntities
             {
                 foreach (var node in path.Nodes)
                 {
-                    var point = new vector(node.X, node.Y, node.Z);
+                    var point = new Vector(node.X, node.Y, node.Z);
                     _points.Enqueue(point);
                 }
             }

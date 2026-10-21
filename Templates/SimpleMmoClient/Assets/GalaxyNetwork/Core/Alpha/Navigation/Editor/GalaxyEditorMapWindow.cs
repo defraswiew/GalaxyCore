@@ -24,7 +24,7 @@ namespace GalaxyCoreCommon.Navigation
         private VisualElement leftButtonObjects;
         private VisualElement leftButtonSettings;
         private VisualElement bakeButton;
-       
+
         private bool _loaded;
 
         [MenuItem("Galaxy Network/Navigation")]
@@ -61,7 +61,7 @@ namespace GalaxyCoreCommon.Navigation
             OnGUI();
             EditorApplication.playModeStateChanged += change => { _loaded = false; };
         }
-       
+
 
         public void ReDrawSettings()
         {
@@ -75,7 +75,7 @@ namespace GalaxyCoreCommon.Navigation
             var leftPanel = root.Q<VisualElement>("LeftPanel");
             leftButtonScene = GalaxyEditopMapCommon.AddButton(resources.SceneImage, Loc.Get("scene"), OnClickScene);
             leftPanel.Add(leftButtonScene);
-            
+
             leftButtonLayers = GalaxyEditopMapCommon.AddButton(resources.LayerImage, Loc.Get("layers"), OnClickLayers);
             leftPanel.Add(leftButtonLayers);
 
@@ -134,7 +134,7 @@ namespace GalaxyCoreCommon.Navigation
         public void StartBake()
         {
             EditorGUI.ProgressBar(new Rect(3, 45, position.width - 6, 20), 1, "Baked");
-            baker.Baked(); 
+            baker.Baked();
             EditorGUI.ProgressBar(new Rect(3, 45, position.width - 6, 20), 0, "Baked");
         }
 
@@ -147,14 +147,14 @@ namespace GalaxyCoreCommon.Navigation
                 _loaded = true;
             }
         }
-        
+
         private void OnGUI()
         {
             rootVisualElement.Q<VisualElement>("Container").style.height = new
                 StyleLength(position.height);
             if (baker == null)
             {
-                baker = FindObjectOfType<GalaxyMapBaker>();
+                baker = FindFirstObjectByType<GalaxyMapBaker>();
                 if (baker == null)
                 {
                     state = State.notBacker;
@@ -173,7 +173,7 @@ namespace GalaxyCoreCommon.Navigation
                 return;
             }
 
-            if (!File.Exists(baker.Path))
+            if (!File.Exists(baker.ResolveBakePath()) && baker.LayerConfiguration == null && baker.BakedMap == null)
             {
                 state = State.notFile;
                 UpdateState();
@@ -209,7 +209,7 @@ namespace GalaxyCoreCommon.Navigation
             SetVisible("BackerEdit", false);
             SetVisible("NotFile", false);
             SetVisible("Layers", false);
-            SetVisible("Objects", false);  
+            SetVisible("Objects", false);
             SetVisible("Settings", false);
             rootVisualElement.Q<VisualElement>("Layers").Clear();
             rootVisualElement.Q<VisualElement>("Settings").Clear();

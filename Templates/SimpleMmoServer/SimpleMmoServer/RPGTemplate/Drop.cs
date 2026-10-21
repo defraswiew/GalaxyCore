@@ -1,11 +1,12 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 using GalaxyCoreServer;
-using SimpleMmoCommon.RPGTemplate; 
+using SimpleMmoCommon.RPGTemplate;
 using System.Collections.Generic;
 #if GALAXY_DOUBLE
-using vector = GalaxyCoreCommon.GalaxyVectorD3;
+using Vector = GalaxyCoreCommon.GalaxyVectorD3;
 #else
-using vector = GalaxyCoreCommon.GalaxyVector3;
+using Vector = GalaxyCoreCommon.GalaxyVector3;
 #endif
 
 namespace SimpleMmoServer.RPGTemplate
@@ -17,7 +18,7 @@ namespace SimpleMmoServer.RPGTemplate
     {
         //список итемов хранящихся в дропе
         DropList dropList = new DropList();
-        public Drop(Instance instance, vector position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
+        public Drop(Instance instance, Vector position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             PrefabName = "Drop";
         }
@@ -33,8 +34,8 @@ namespace SimpleMmoServer.RPGTemplate
                 // кто то пытается что то взять
                 case 2:
                     {
-                        BitGalaxy message = new BitGalaxy(data);
-                        int itemID = message.ReadInt();
+                        var message = new GalaxyBitReader(data);
+                        if (!message.TryReadInt32(out int itemID)) return;
                         // проверяем есть ли у нас такой итем
                         if (dropList.Items.Contains(itemID))
                         {
@@ -43,7 +44,7 @@ namespace SimpleMmoServer.RPGTemplate
                             // если итемы закончились удаляемся
                             if (dropList.Items.Count == 0)
                             {
-                                Destory();
+                                Destroy();
                             }
                         }
                         else
@@ -55,24 +56,24 @@ namespace SimpleMmoServer.RPGTemplate
             }
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
 
         }
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-            
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-            
+
         }
 
         protected override void Start()
@@ -89,7 +90,7 @@ namespace SimpleMmoServer.RPGTemplate
 
         public void DestroyByTime()
         {
-            Destory();
+            Destroy();
         }
 
         protected override void Update()

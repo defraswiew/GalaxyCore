@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 using GalaxyCoreLib.NetEntity;
 using GalaxyNetwork.Core.Scripts;
 using GalaxyNetwork.Core.Scripts.NetEntity;
@@ -18,21 +19,26 @@ namespace GalaxyNetwork.Examples.Scripts
             entity.OnInMessage+= EntityOnOnInMessage;
         }
 
+        void OnDestroy()
+        {
+            if (entity != null) entity.OnInMessage -= EntityOnOnInMessage;
+        }
+
         private void EntityOnOnInMessage(byte code, byte[] data)
         {
             if (code == 1)
             {
-                var message = new BitGalaxy(data);
+                var message = GalaxyBitBuffer.From(data);
                 points.Clear();
-                while (message.Position<message.Data.Length)
+                while (message.BitsRemaining >= 96)
                 {
-                    points.Add(message.ReadGalaxyVector3().Vector3());
+                    points.Add(message.ReadVector3().Vector3());
                 }
                 transform.LookAt(transform.position);
             }
         }
 
-   
+
         void Update()
         {
             var lastPosition = transform.position;

@@ -1,0 +1,114 @@
+{
+  "sourceCommit": "05457725d339f68401ae9fde92b10ae91b7c4bf7",
+  "numericModel": "float",
+  "unityProfile": "UnityRelease (GALAXY_AOT)",
+  "managedProfile": "Release",
+  "serverProfile": "Release",
+  "physicsTarget": "net8.0",
+  "files": [
+    {
+      "path": "Core/Client/netstandard2.1/GalaxyCoreCommon.dll",
+      "sha256": "3890ffac213399feb842cce5d8f1db4ffdb8bc762087081afd208df857b466be"
+    },
+    {
+      "path": "Core/Client/netstandard2.1/GalaxyCoreCommon.xml",
+      "sha256": "2eb2aeb77cf26cb6ae04719905dbe8c90526e17bf0e967fbef1610fbbc4e4c53"
+    },
+    {
+      "path": "Core/Client/netstandard2.1/GalaxyCoreLib.dll",
+      "sha256": "39a53a325844d5ac9e3e246750559e87c2cc14d2cb5f2d35d9fb1a2c68bb91e2"
+    },
+    {
+      "path": "Core/Client/netstandard2.1/GalaxyCoreLib.xml",
+      "sha256": "e270fb8c7965f136fe755f474a3642753d53eb69887445a74e473c3d99bbcfdf"
+    },
+    {
+      "path": "Core/Client/netstandard2.1/Newtonsoft.Json.dll",
+      "sha256": "8c1dd5c184b4e2e7ead06971ff3ebcb46783be972292d1deb1061744369b4d80"
+    },
+    {
+      "path": "Core/Client/netstandard2.1/protobuf-net.dll",
+      "sha256": "d9cb0f385c841d9866555f08142f4008f39ed26a94a2b9cb9f46dccea0aaa0b4"
+    },
+    {
+      "path": "Core/Client/netstandard2.1/protobuf-net.xml",
+      "sha256": "2f1851bd2717440b80d495668d107db69834afa5844a82c60dad3dd2a381d882"
+    },
+    {
+      "path": "Core/Client/netstandard2.1/YamlDotNet.dll",
+      "sha256": "21ee312a0e5cccf8f46dfa883bf7a2eb80f5e08dd4e218db2bff161fac2ec214"
+    },
+    {
+      "path": "Core/Client/Managed/netstandard2.1/GalaxyCoreCommon.dll",
+      "sha256": "59be58dafd601247e7ad2dbd5078ed224434a2b07d9d08127a002a3955f083f5"
+    },
+    {
+      "path": "Core/Client/Managed/netstandard2.1/GalaxyCoreCommon.xml",
+      "sha256": "2eb2aeb77cf26cb6ae04719905dbe8c90526e17bf0e967fbef1610fbbc4e4c53"
+    },
+    {
+      "path": "Core/Client/Managed/netstandard2.1/GalaxyCoreLib.dll",
+      "sha256": "71025aeb7a0fab85c7d328920a54ecd823b09daf722e9abaf0ef3987ae909c15"
+    },
+    {
+      "path": "Core/Client/Managed/netstandard2.1/GalaxyCoreLib.xml",
+      "sha256": "e270fb8c7965f136fe755f474a3642753d53eb69887445a74e473c3d99bbcfdf"
+    },
+    {
+      "path": "Core/Client/Managed/netstandard2.1/Newtonsoft.Json.dll",
+      "sha256": "8c1dd5c184b4e2e7ead06971ff3ebcb46783be972292d1deb1061744369b4d80"
+    },
+    {
+      "path": "Core/Client/Managed/netstandard2.1/protobuf-net.dll",
+      "sha256": "d9cb0f385c841d9866555f08142f4008f39ed26a94a2b9cb9f46dccea0aaa0b4"
+    },
+    {
+      "path": "Core/Client/Managed/netstandard2.1/protobuf-net.xml",
+      "sha256": "2f1851bd2717440b80d495668d107db69834afa5844a82c60dad3dd2a381d882"
+    },
+    {
+      "path": "Core/Client/Managed/netstandard2.1/YamlDotNet.dll",
+      "sha256": "21ee312a0e5cccf8f46dfa883bf7a2eb80f5e08dd4e218db2bff161fac2ec214"
+    },
+    {
+      "path": "Core/Server/netstandard2.1/GalaxyCoreCommon.dll",
+      "sha256": "59be58dafd601247e7ad2dbd5078ed224434a2b07d9d08127a002a3955f083f5"
+    },
+    {
+      "path": "Core/Server/netstandard2.1/GalaxyCoreCommon.xml",
+      "sha256": "2eb2aeb77cf26cb6ae04719905dbe8c90526e17bf0e967fbef1610fbbc4e4c53"
+    },
+    {
+      "path": "Core/Server/netstandard2.1/GalaxyCoreServer.dll",
+      "sha256": "8cb4bb19356fd18fdf69a6206b460a011c4bb26426e64620c984dcd9db148657"
+    },
+    {
+      "path": "Core/Server/netstandard2.1/GalaxyCoreServer.xml",
+      "sha256": "9823331115aef22ebe8fabed561e5647065eeb0068d262e05ab5732bdba320b1"
+    },
+    {
+      "path": "Core/Server/netstandard2.1/Newtonsoft.Json.dll",
+      "sha256": "8c1dd5c184b4e2e7ead06971ff3ebcb46783be972292d1deb1061744369b4d80"
+    },
+    {
+      "path": "Core/Server/netstandard2.1/protobuf-net.dll",
+      "sha256": "d9cb0f385c841d9866555f08142f4008f39ed26a94a2b9cb9f46dccea0aaa0b4"
+    },
+    {
+      "path": "Core/Server/netstandard2.1/protobuf-net.xml",
+      "sha256": "2f1851bd2717440b80d495668d107db69834afa5844a82c60dad3dd2a381d882"
+    },
+    {
+      "path": "Core/Server/netstandard2.1/YamlDotNet.dll",
+      "sha256": "21ee312a0e5cccf8f46dfa883bf7a2eb80f5e08dd4e218db2bff161fac2ec214"
+    },
+    {
+      "path": "Core/Server/Physics/net8.0/GalaxyCore.Physics.Jitter2.dll",
+      "sha256": "e68c7a9a467218ad4b0c0ab3d0c004be3b10fff52da93f7ec59b93d78b663d84"
+    },
+    {
+      "path": "Core/Server/Physics/net8.0/GalaxyCore.Physics.Jitter2.xml",
+      "sha256": "328ed4d5598f5b1c3b994d92d0858afe894766db8ada3ff4caf757f60f9693e3"
+    }
+  ]
+}

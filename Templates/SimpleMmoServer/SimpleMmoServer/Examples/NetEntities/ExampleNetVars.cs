@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using GalaxyCoreCommon;
 using GalaxyCoreServer;
 
@@ -6,11 +6,11 @@ namespace SimpleMmoServer.Examples.NetEntities
 {
     public class ExampleNetVars:NetEntity
     {
-        [GalaxyVar(1,false)]
+        [GalaxyVar(1, sendChanges: true, acceptChanges: false)]
         public string Name;
         [GalaxyVar(2)]
         public int Hp;
-        [GalaxyVar(3)]
+        [GalaxyVar(3, sendChanges: true, acceptChanges: false)]
         public float ServerTime;
 
         private Random _rnd;
@@ -24,7 +24,7 @@ namespace SimpleMmoServer.Examples.NetEntities
             Hp = 100;
         }
 
-        
+
         protected override void Update()
         {
             ServerTime = Instance.Time.Time;
@@ -32,7 +32,7 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         public override void InMessage(byte externalCode, byte[] data, BaseClient clientSender)
         {
-          
+
         }
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
@@ -52,12 +52,12 @@ namespace SimpleMmoServer.Examples.NetEntities
 
         protected override void Start()
         {
-          
+
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
-           
+
         }
 
     }

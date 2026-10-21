@@ -1,4 +1,5 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 using GalaxyCoreServer;
 using SimpleMmoCommon.RPGTemplate;
 using SimpleMmoServer.RPGTemplate.Mobs;
@@ -11,7 +12,7 @@ namespace SimpleMmoServer.RPGTemplate
     public class MobSlimeBoss : Mob
     {
         private int _skill1Count = 0;
-        
+
         public MobSlimeBoss(Instance instance, GalaxyVector3 position = default, GalaxyQuaternion rotation = default) : base(instance, position, rotation)
         {
             PrefabName = "MobSlimeBoss";
@@ -29,8 +30,8 @@ namespace SimpleMmoServer.RPGTemplate
             {
                 case 200:
                     {
-                        BitGalaxy message = new BitGalaxy(data);
-                        int damage = message.ReadInt();
+                        var message = new GalaxyBitReader(data);
+                        if (!message.TryReadInt32(out int damage)) return;
                         Heal -= damage;
                         if (Heal <= 0) Death();
                     }
@@ -44,10 +45,10 @@ namespace SimpleMmoServer.RPGTemplate
             if (attackCount % 8 != 0) return true;
             State = (byte)MobState.attack;
             int damage = GRand.NextInt(minDamage * 2, maxDamage * 3);
-            BitGalaxy message = new BitGalaxy();
-            message.WriteValue(damage);
-            // отправляем сообщение о том что мы наносим кому то дамаг. 
-            SendMessage(200, message.Data, GalaxyDeliveryType.reliable);
+            var message = new GalaxyBitWriter(new byte[sizeof(int)]);
+            message.WriteInt32(damage);
+            // отправляем сообщение о том что мы наносим кому то дамаг.
+            SendMessage(200, message.WrittenSpan.ToArray(), GalaxyDeliveryType.reliable);
             InvokeRepeating("SkillDamage", 0.5f, 1, damage);
             return false;
         }
@@ -75,7 +76,7 @@ namespace SimpleMmoServer.RPGTemplate
 
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
             RemoveInSpawner();
             Drop drop = new Drop(Instance, transform.Position);
@@ -84,17 +85,17 @@ namespace SimpleMmoServer.RPGTemplate
 
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
-             
+
         }
 
         protected override void OnRemoteScale(GalaxyVector3 remoteScale)
         {
-           
+
         }
 
         protected override void OnRemoteRotation(GalaxyQuaternion remoteRotation)
         {
-             
+
         }
 
         protected override void Start()

@@ -1,6 +1,7 @@
-﻿using GalaxyCoreLib.Api;
+using GalaxyCoreLib.Api;
 using GalaxyCoreLib.NetEntity;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GalaxyNetwork.Core.Scripts.NetEntity
 {
@@ -10,7 +11,7 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
     [RequireComponent(typeof(UnityNetEntity))]
     public class NetEntityTransform : MonoBehaviour
     {
-        
+
         /// <summary>
         ///  Link to a network entity in the kernel
         /// </summary>
@@ -19,27 +20,29 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         /// <summary>
         /// whether to send a position
         /// </summary>
+        [FormerlySerializedAs("sendMyPosition")]
         public bool SendMyPosition;
 
         /// <summary>
         /// Whether to send a turn
         /// </summary>
+        [FormerlySerializedAs("sendMyRotation")]
         public bool SendMyRotation;
         /// <summary>
         /// Whether to send a turn
         /// </summary>
         public bool SendMyScale;
-        
+
         public bool UseExtrapolation;
 
         /// <summary>
         /// interpolation method
         /// </summary>
         public InterpolationType Interpolation;
-     
+
         public float TeleportDistance = 20;
         private Vector3 _remotePosition;
-        
+
         private void Awake()
         {
             // получаем ссылку на сетевую сущность
@@ -64,7 +67,7 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         {
             // если объект пренадлежит не нам, не отправляем данные
             // в прочем если их отправить, сервер все равно их отбросит
-            if (!_netEntity.IsMy) return;
+            if (!_netEntity.IsInit || !_netEntity.IsMy || _netEntity.TransformAuthority == GalaxyCoreCommon.NetEntityTransformAuthority.Server) return;
             // записываем в сетевую сущность новые координаты
             if (SendMyPosition) _netEntity.transform.Position = transform.position.NetworkVector3();
             // записываем в сетевую сущность новый ротейшен
@@ -79,12 +82,12 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
         private void SoftUpdate(float delta)
         {
             if (!_netEntity.IsInit) return;
-            if (!_netEntity.IsMy)
+            if (!_netEntity.IsMy || _netEntity.TransformAuthority == GalaxyCoreCommon.NetEntityTransformAuthority.Server)
             {
                 _netEntity.transform.UseExtrapolation = UseExtrapolation;
                 _remotePosition = _netEntity.transform.Position.Vector3();
-                transform.localScale = _netEntity.transform.Scale.Vector3();
-                if ((_remotePosition - transform.position).sqrMagnitude > TeleportDistance)
+                transform.localScale = _netEntity.transform.LossyScale.Vector3();
+                if ((_remotePosition - transform.position).sqrMagnitude > TeleportDistance * TeleportDistance)
                 {
                     transform.position = _netEntity.transform.Position.Vector3();
                     transform.rotation = _netEntity.transform.Rotation.Quaternion();
@@ -96,7 +99,7 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
                         transform.position = _netEntity.transform.Position.Vector3();
                         transform.rotation = _netEntity.transform.Rotation.Quaternion();
                         return;
-                       
+
                     case InterpolationType.Soft:
                         _netEntity.transform.InterpolateSoft();
                         break;
@@ -104,14 +107,14 @@ namespace GalaxyNetwork.Core.Scripts.NetEntity
                         _netEntity.transform.InterpolateEndPoint();
                         break;
                 }
-              
+
                 transform.position = _netEntity.transform.InterpolatePosition.Vector3();
                 transform.rotation = _netEntity.transform.InterpolateRotation.Quaternion();
               //  Vector3.MoveTowards(transform.position, _netEntity.transform.Position.Vector3(), delta);
             }
         }
 
-      
+
 
         public enum InterpolationType
         {

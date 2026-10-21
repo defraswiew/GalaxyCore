@@ -1,0 +1,2462 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GalaxyCoreServer</name>
+    </assembly>
+    <members>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdmin">
+            <summary>
+            Optional dependency-free HTTP administration API. It performs no periodic collection,
+            exposes best-effort runtime snapshots and gates mutations behind Write permission.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.GalaxyAdmin.#ctor">
+            <summary>Creates a stopped administration listener with platform telemetry probes.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdmin.IsRunning">
+            <summary>Whether the HTTP listener is accepting requests.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdmin.BoundPort">
+            <summary>Actual bound TCP port, useful when options requested port zero.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.GalaxyAdmin.RegisterAuthorizationResolver(GalaxyCoreServer.Admin.IGalaxyAdminAuthorizationResolver)">
+            <summary>
+            Registers application-owned authorization. Registration is mandatory and can only be
+            changed while the listener is stopped.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.GalaxyAdmin.RegisterAuthorizationResolver(System.Func{GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext,GalaxyCoreServer.Admin.GalaxyAdminPermissions})">
+            <summary>Convenience overload for registering authorization as a delegate.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.GalaxyAdmin.RegisterAuthorizationResolver(System.Func{GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext,System.Threading.CancellationToken,System.Threading.Tasks.Task{GalaxyCoreServer.Admin.GalaxyAdminPermissions}})">
+            <summary>Async overload for an authorization service, database or distributed cache.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.GalaxyAdmin.Start(GalaxyCoreServer.Admin.GalaxyAdminOptions)">
+            <summary>Starts the optional administration listener.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.GalaxyAdmin.Stop">
+            <summary>Stops the listener and closes in-flight request sockets.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.GalaxyAdmin.Dispose">
+            <summary>Stops the listener.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminPermissions">
+            <summary>Permissions granted to one administration HTTP request.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Admin.GalaxyAdminPermissions.None">
+            <summary>Rejects the request.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Admin.GalaxyAdminPermissions.ReadOnly">
+            <summary>Allows read-only administration endpoints.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Admin.GalaxyAdminPermissions.Write">
+            <summary>Allows mutation endpoints and always includes read access.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext">
+            <summary>Immutable request information passed to application-owned authorization code.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext.Method">
+            <summary>HTTP method of the request.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext.Path">
+            <summary>Absolute request path without the query string.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext.RequiredPermissions">
+            <summary>Permission required by the requested route.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext.Headers">
+            <summary>Read-only, case-insensitive HTTP request headers.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext.RemoteAddress">
+            <summary>Address of the direct TCP peer.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext.RemotePort">
+            <summary>Port of the direct TCP peer.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext.ConnectionId">
+            <summary>
+            Listener-assigned identifier of this physical admin TCP connection. It is intended for
+            tracing, not authentication, and changes when a new HTTP connection is opened.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext.GetHeader(System.String)">
+            <summary>Returns a request header value, or null when it is absent.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext.GetBearerToken">
+            <summary>Returns the unvalidated bearer credential, or null when none was supplied.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.IGalaxyAdminAuthorizationResolver">
+            <summary>
+            Implemented by the host application. Galaxy deliberately does not prescribe users,
+            passwords, tokens, certificates or any other authentication scheme.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.IGalaxyAdminAuthorizationResolver.ResolveAsync(GalaxyCoreServer.Admin.GalaxyAdminAuthorizationContext,System.Threading.CancellationToken)">
+            <summary>Returns permissions granted to this individual request.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminDataAccessLevel">
+            <summary>Effective permission required before an entry may be observed.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminDataValueType">
+            <summary>The only primitive JSON value kinds supported by declarative admin data.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminDataDisplayKind">
+            <summary>
+            Transport-neutral formatting hint. Bytes are bytes, Duration is seconds, Percentage is 0..100,
+            Timestamp is an RFC3339 instant with an explicit offset, and Number uses Unit literally.
+            Text may render any declared primitive without changing its value.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminDataDeclaration">
+            <summary>Immutable presentation and access metadata for one admin-data value.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Admin.GalaxyAdminDataDeclaration.#ctor(System.String,GalaxyCoreServer.Admin.GalaxyAdminDataValueType,GalaxyCoreServer.Admin.GalaxyAdminDataDisplayKind,GalaxyCoreServer.Admin.GalaxyAdminDataAccessLevel,System.String,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.String)">
+            <summary>Creates validated immutable metadata. All flags are orthogonal.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminDataDeclaration.ShowInTable">
+            <summary>Shows the entry in the natural table of its owning subject type.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminDataDeclaration.Searchable">
+            <summary>Includes the non-null value in the eager global search index.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminDataDeclaration.IsTag">
+            <summary>Marks a non-null value as a facet and includes it in the eager index.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminDataEntry">
+            <summary>Immutable, bounded primitive admin-data entry.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminDataEntry.Value">
+            <summary>Null, string, boxed finite double, or boxed boolean.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminDataSet">
+            <summary>Thread-safe copy-on-write collection. Reads never lock the game loop.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminCustomDataLimits">
+            <summary>Hard response and global search-index limits.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminMethodExecutor">
+            <summary>
+            Generation-scoped, bounded execution lanes for application-owned admin methods. Lanes are
+            created only after the first accepted item and never inspect subjects or method metadata.
+            A stable subject key always selects one lane, providing at most one invocation per subject.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminMethodOperationStore">
+            <summary>Bounded newest-first operation model; it stores metadata only, never results.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminMetrics">
+            <summary>
+            Fixed-size cumulative counters used by the on-demand admin API. No event payloads,
+            addresses or credentials are retained here.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminNetworkMode">
+            <summary>Controls whether the administration listener is restricted to this machine.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Admin.GalaxyAdminNetworkMode.Local">
+            <summary>Only an IPv4 or IPv6 loopback address is accepted.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Admin.GalaxyAdminNetworkMode.Remote">
+            <summary>
+            Allows binding any configured address. GalaxyAdmin does not provide TLS, so this mode
+            must normally be placed behind an HTTPS reverse proxy, VPN or SSH tunnel.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Admin.GalaxyAdminNetworkMode.RemoteAllowList">
+            <summary>
+            Allows remote binding but accepts TCP clients only from AllowedRemoteAddresses.
+            This filters callers but does not encrypt HTTP traffic.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Admin.GalaxyAdminOptions">
+            <summary>Configuration for the optional dependency-free Galaxy administration HTTP API.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.NetworkMode">
+            <summary>
+            Network exposure mode. Local is the safe default and rejects non-loopback addresses.
+            Remote always emits a security warning when the listener starts.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.AllowedRemoteAddresses">
+            <summary>
+            Exact IPv4 or IPv6 client addresses accepted in RemoteAllowList mode. CIDR ranges and
+            host names are intentionally not supported.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.BindAddress">
+            <summary>IP address to bind. Loopback is the safe default.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.Port">
+            <summary>TCP port. Zero asks the operating system to select a free port.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.MaxRequestHeaderBytes">
+            <summary>Maximum accepted HTTP request-header size.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.MaxRequestBodyBytes">
+            <summary>
+            Maximum accepted JSON body size for a mutation request. GalaxyAdmin actions contain
+            only three short coordination strings, so a small hard limit is intentional.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.MaxConcurrentRequests">
+            <summary>Maximum number of requests processed concurrently.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.RequestTimeout">
+            <summary>Per-request socket timeout.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.AdminData">
+            <summary>
+            Optional thread-safe declarative primitive server data exposed by GalaxyAdmin.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.AdminMethods">
+            <summary>Optional thread-safe declarative server methods exposed by GalaxyAdmin.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.AdminMethodConcurrency">
+            <summary>Lazy admin-method worker lanes. No lane exists until the first invocation.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.AdminMethodQueueCapacity">
+            <summary>Maximum accepted admin-method invocations waiting for a worker lane.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.AdminDataVersion">
+            <summary>
+            Application-defined schema version shared by every server, client and instance custom-data
+            response from this listener. The value is snapshotted by Start and changes only after restart.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.CustomDataLimits">
+            <summary>Hard safety limits for custom-data responses and the on-demand search index.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Admin.GalaxyAdminOptions.AllowedOrigins">
+            <summary>
+            Origins allowed to call the API from a browser. Add "null" for a local-file WebView2 UI.
+            Empty by default, which disables cross-origin access.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.ApprovalConnection">
+            <summary>
+            Unauthorized connection
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.ApprovalConnection.netConnection">
+            <summary>
+            Реальное соеденение
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Approve(GalaxyCoreCommon.BaseMessage,System.Int32,GalaxyCoreServer.BaseClient,System.Object)">
+            <summary>
+            Allow server connection
+            </summary>
+            <param name="baseMessage">message (BaseMessage)</param>
+            <param name="id">User ID</param>
+            <param name="baseClient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Approve(GalaxyCoreCommon.INetworkSerrializeble,System.Int32,GalaxyCoreServer.BaseClient,System.Object)">
+            <summary>Approves a connection with any self-serializing response message.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Approve(System.Int32,System.Byte[],GalaxyCoreServer.BaseClient,System.Object)">
+            <summary>
+            Allow server connection
+            </summary>
+            <param name="data">Message (optional)</param>
+            <param name="id">Client ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.ApprovalConnection.Deny(System.Byte,System.String)">
+            <summary>
+            Deny authorization
+            </summary>
+            <param name="err">error code (custom)</param>
+            <param name="mes">the message sent to the client</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.GalaxyChat">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyChat.SendToInstance(GalaxyCoreServer.Instance,System.String,System.Int32)">
+            <summary>
+            Отправить сообщение чата всем в инстансе
+            </summary>
+            <param name="instance"></param>
+            <param name="text"></param>
+            <param name="sender"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.GalaxyCoreConnectionRejection">
+            <summary>
+            Read-only diagnostic information about a connection rejected by Galaxy before user
+            authorization code was invoked. Observing this object cannot approve the connection.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.GalaxyCoreConnectionRejection.Code">
+            <summary>Built-in deny code returned to the client.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.GalaxyCoreConnectionRejection.Message">
+            <summary>Human-readable reason returned to the client.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.GalaxyCoreConnectionRejection.AuthorizationData">
+            <summary>A defensive copy of the user's original authorization payload.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.GalaxyCoreConnectionRejection.Ip">
+            <summary>Remote IP address without a port.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.GalaxyCoreConnectionRejection.IpPort">
+            <summary>Remote IP address and UDP port.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.GalaxyCoreConnectionRejection.Purpose">
+            <summary>Whether this was a connect or registration request.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.GalaxyCoreConnectionRejection.ClientVersion">
+            <summary>Null when the supplied version trailer could not be decoded.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.GalaxyCoreConnectionRejection.MinimumSupportedClientVersion">
+            <summary>The server threshold used for the decision.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.GalaxyConnectionRequestPurpose">
+            <summary>Purpose encoded in the connection approval request.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.GalaxyConnectionRequestPurpose.Connect">
+            <summary>Ordinary client connection and authorization.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.GalaxyConnectionRequestPurpose.Registration">
+            <summary>Standalone registration request.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.GalaxyConnectionRequestPurpose.Unknown">
+            <summary>Malformed or unknown request purpose.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.GalaxyEvents">
+            <summary>
+            Core public events
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyConnect">
+            <summary>
+            Client connected and requests authorization
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyRegistration">
+            <summary>
+            Client requests registration
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyCoreConnectionRejected">
+            <summary>
+            Raised after Galaxy rejects a malformed or unsupported connection request before it
+            reaches <see cref="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyConnect"/> or <see cref="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyRegistration"/>.
+            Intended for metrics, audit logs and diagnostics only.
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyDisconnect">
+            <summary>
+            Client disconnected
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyDisconnect(GalaxyCoreServer.BaseClient)">
+             <summary>
+            Client disconnected
+             </summary>
+             <param name="baseClientConnection">Client</param>
+        </member>
+        <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnGalaxyInstanceCreate">
+            <summary>
+            Called when creating a new instance to override logic
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyEvents.CallOnGalaxyInstanceCreate(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient,System.Boolean@)">
+            <summary>
+             
+            </summary>
+            <param name="type"></param>
+            <param name="data"></param>
+            <param name="baseClientConnection"></param>
+            <returns></returns>
+        </member>
+        <member name="E:GalaxyCoreServer.Api.GalaxyEvents.OnNetEntityInstantiate">
+            <summary>
+            Called when any network entity is created
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.GalaxyOctree">
+            <summary>
+            Октодрево для быстрого поиска ближайших объектов
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Api.GalaxyOctree.inited">
+            <summary>
+            инициализированно ли древо
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyOctree.Init(System.Single,System.Single)">
+            <summary>
+            Инициализация древа
+            </summary>
+            <param name="startSize">Стартовый размер древа</param>
+            <param name="minNodeSize">Минимальный размер нода</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyOctree.GetNearby(GalaxyCoreCommon.GalaxyVector3,System.Single)">
+            <summary>
+            Получить NetEntity в пределах указанной дистанции от точки
+            </summary>
+            <param name="pos">точка поиска</param>
+            <param name="distance">дистанция</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyOctree.AddEntity(GalaxyCoreServer.NetEntity)">
+            <summary>
+            Добавить сущность
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.GalaxyOctree.RemoveEntity(GalaxyCoreServer.NetEntity)">
+            <summary>
+            Добавить сущность
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.InstanceManager">
+            <summary>
+            Менеджер инстансов
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.Create(System.String,System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient,System.String,System.Boolean)">
+            <summary>
+            Creating a new instance
+            </summary>
+            <param name="name">Instance name</param>
+            <param name="maxClients">Maximum clients (0 if unlimited)</param>
+            <param name="type">Custom type (can be from 0 to 255)</param>
+            <param name="data">User data</param>
+            <param name="baseClient">The client that requested the creation of the instance may be null if the request was not created by the client but, for example, by the server</param>
+            <param name="password">Login Password</param>
+            <param name="visible">is visible to other users</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.Create(GalaxyCoreServer.Instance)">
+            <summary>
+            Direct instantiation
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.InstancesList(GalaxyCoreServer.BaseClient)">
+            <summary>
+            Запрос информации о всех активных инстансах
+            </summary>
+            <param name="baseClient"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.CloseInstance(GalaxyCoreServer.Instance)">
+            <summary>
+            Closing an instance
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.Add(GalaxyCoreServer.Instance)">
+            <summary>
+            добавление инстанса в память
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.Remove(GalaxyCoreServer.Instance)">
+            <summary>
+            удаление инстанса из памяти
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.GetInstanceByID(System.Int32)">
+            <summary>
+            Get an instance by id
+            </summary>
+            <param name="id">ид инстанса</param>
+            <returns>Вернет Instance или null если ничего нет</returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.InstanceManager.GetAllInstances">
+            <summary>
+            Get All Instances
+            Получить все инстансы
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.NetEntityRaycastHit">
+            <summary>Nearest entity hit returned by the server spatial raycast.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.NetEntityManager">
+            <summary>
+            Network Entity Manager
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.NetEntityManager.List">
+            <summary>
+            List of network objects
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.NetEntityManager.Count">
+            <summary>
+            Number of network entities in an instance
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.EnsureSpatialCapacity(System.Int32)">
+            <summary>Preallocates the spatial index for a planned bulk entity spawn.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.#ctor(GalaxyCoreServer.Instance)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.GetNearby(GalaxyCoreCommon.GalaxyVector3,System.Single)">
+            <summary>
+            Getting a NetEntity array in a radius from a specified point
+            </summary>
+            <param name="pos">точка поиска</param>
+            <param name="distance">Радиус</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.Raycast(GalaxyCoreCommon.GalaxyRay,System.Single,GalaxyCoreServer.Api.NetEntityRaycastHit@)">
+            <summary>Returns the nearest indexed entity intersected by a finite float-precision ray.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.CreateNetEntity(GalaxyCoreServer.NetEntity)">
+            <summary>
+            Создание сетевой сущности со стороны сервера
+            </summary>
+            <param name="netEntity"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.RemoveNetEntity(System.Int32)">
+            <summary>
+            Удаление сетевой сущности
+            </summary>
+            <param name="netId"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.RemoveNetEntity(GalaxyCoreServer.NetEntity)">
+            <summary>
+            Удаление сетевой сущности
+            </summary>
+            <param name="entity">целевая сущность</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.NetEntityManager.InMessage(System.Int32,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient,System.Byte)">
+            <summary>
+            Входящее сообщение для сетевого объекта
+            </summary>
+            <param name="netId"></param>
+            <param name="externalCode"></param>
+            <param name="data"></param>
+            <param name="baseClient"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.GalaxyLogicalTrafficSnapshot">
+            <summary>Atomic snapshot of logical Galaxy payload traffic for one server run.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Api.Statistic">
+            <summary>
+            Server-side logical Galaxy payload statistics. These counters do not include transport
+            framing, retransmissions, or IP/UDP headers.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Api.Statistic.UserOnline">
+            <summary>Number of users online, equivalent to GalaxyCore.Clients.Count.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Api.Statistic.GetSnapshot">
+            <summary>Returns one atomic-per-field snapshot of the current server-run counters.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.BaseClient">
+            <summary>
+            Client connection class
+            Класс подключения клиента
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.BaseClient._adminData">
+            <summary>
+            Optional thread-safe declarative primitive data exposed by GalaxyAdmin.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.BaseClient._adminMethods">
+            <summary>Optional thread-safe declarative methods exposed by GalaxyAdmin.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.BaseClient.Id">
+            <summary>
+            Client ID, set in Approval
+            Ид клиента, задается в Approval
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.BaseClient.Name">
+            <summary>
+            Client's public name
+            Публичное имя клиента
+            </summary>             
+        </member>
+        <member name="F:GalaxyCoreServer.BaseClient.netConnection">
+            <summary>
+            Реальное соеденение
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.BaseClient.NetworkTime">
+            <summary>
+            Server-side estimate of this remote client's monotonic clock. Client-reported values
+            are telemetry and must never replace authoritative server time.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.BaseClient._netPeer">
+            <summary>
+            Дополнительная ссылка на пир
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.BaseClient.TimeConnected">
+            <summary>
+            Online in seconds
+            Онлайн в секундах
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.BaseClient.ConnectedAtUtc">
+            <summary>UTC time at which this client object was created.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.BaseClient.CoreVersion">
+            <summary>Galaxy core version reported by the client during approval.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.BaseClient.Instanse">
+            <summary>
+            Link to the current client instance
+            Ссылка на текущий инстант клиента
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.BaseClient.Statistic">
+            <summary>
+            Статистика
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.BaseClient.key">
+            <summary>
+            Сетевой ключик
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.BaseClient.synk">
+            <summary>
+            Синхронизировал ли клиент картину мира в текущем инстансе
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.BaseClient.Entities">
+            <summary>
+            Client-managed entity list
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.BaseClient.visibleEntitiesLastFrame">
+            <summary>
+            видимые энтити в данный момент
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.BaseClient.DisableNetEntitySync">
+            <summary>
+            Disables sending data about network entities
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.SetNetConnection(Lidgren.Network.NetConnection)">
+            <summary>
+            Internet connection installation
+            Установка интернет соеденения
+            </summary>
+            <param name="netConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.IsVisibleEntity(System.Int32)">
+            <summary>
+            Does the client see this entity
+            </summary>
+            <param name="netID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.SendMessage(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Send data to user
+            Отправить сообщение пользователю
+            </summary>
+            <param name="code">Custom message code, for easy separation</param>
+            <param name="message">Сообщение (наследник BaseMessage)</param>
+            <param name="deliveryType">Delivery Type</param>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.SendMessage(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>Sends any self-serializing message, including GalaxyMessage contracts.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Send data to user
+            Отправить данные пользователю
+            </summary>
+            <param name="code">Custom message code, for easy separation</param>
+            <param name="data">byte array</param>
+            <param name="deliveryType">Delivery Type</param>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.SendError(System.Byte,System.Byte[])">
+            <summary>
+            Send an error message to the client
+            </summary>
+            <param name="code">error code</param>
+            <param name="data"></param>    
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.Disconnect(System.String)">
+            <summary>
+            Disable user
+            Отключить пользователя
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.GetUserEntities">
+            <summary>
+            Get all client network entities
+            Получить все сетевые сущности клиента
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.GetBaseData">
+            <summary>
+            Additional data in baseInfoClient
+            Дополнительные данные в baseInfoClient
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClient.OnDisconnected(System.String)">
+            <summary>
+            Called when the client disconnects
+            Вызывается при отключении клиента
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.BaseClientStandard">
+            <summary>
+            Standard client
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.BaseClientStandard.OnDisconnected(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Chat.ChatChannel">
+            <summary>
+            Chat channel class. Used to manage chat channels, send messages to clients and keep chat history. Each channel has its own history and list of clients. Channel can be read only, then only server can send messages to it. Channel can be private, then only members of channel can send messages to it and receive messages from it. Channel can be enabled or disabled, if channel is disabled, messages will not be sent to clients and not added to history.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Chat.ChatChannel.Listeners">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Chat.ChatChannel.SetPostProcesing(System.Func{GalaxyCoreCommon.InternalMessages.ChatMessage,GalaxyCoreCommon.InternalMessages.ChatMessage})">
+            <summary>
+            Set post processing function for messages. Post processing is used to modify message before sending to clients and adding to history. For example, it can be used to filter bad words or add some info to message.
+            </summary>
+            <param name="postProcessing"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Chat.ChatChannel.SetEnable(System.Boolean)">
+            <summary>
+            Enable or disable channel. If channel is disabled, messages will not be sent to clients and not added to history
+            </summary>
+            <param name="enable"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Chat.ChatChannel.AddClient(GalaxyCoreServer.BaseClient,System.Boolean)">
+            <summary>
+            Add client to channel and send join message if send is true
+            </summary>
+            <param name="client"></param>
+            <param name="send"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Chat.ChatChannel.RemoveClient(GalaxyCoreServer.BaseClient,System.Boolean)">
+            <summary>
+            Remove client from channel and send close message if send is true
+            </summary>
+            <param name="client"></param>
+            <param name="send"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Chat.ChatManager">
+            <summary>
+            Manager managing chat channels. 
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Chat.ChatManager.WorldChannel">
+            <summary>
+            Link to the global chat channel (all clients are in it)
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Chat.ChatManager.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Chat.ChatManager.CreateChannel(GalaxyCoreCommon.ChatChannelType,System.Boolean)">
+            <summary>
+            Creates a new chat channel with the specified type. 
+            </summary>
+            <param name="type">Required channel type</param>
+            <param name="readOnly"> Should the channel be in read-only mode</param>
+            <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreServer.Config">
+            <summary>
+            Server configuration class
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.IncomingMessage">
+            <summary>
+            You must specify a class that implements the processing of incoming messages
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.ServerName">
+            <summary>
+            Server name
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.ListenPort">
+            <summary>
+            Client connection port
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.SendBufferSize">
+            <summary>
+            Send buffer size
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.ReceiveBufferSize">
+            <summary>
+            Receive buffer size
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.PingInterval">
+            <summary>
+            Ping interval
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.ConnectionTimeout">
+            <summary>
+            Connection timeout (sec.)
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.AutoFlushSend">
+            <summary>
+            Automatic dispatch of message queue
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.TransmissionUnitMax">
+            <summary>
+            Maximum number of bytes to send in one packet, excluding ip, udp headers.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.MtuAutoExpand">
+            <summary>
+            Enable if the server needs to send large messages to try to increase the maximum transmission block size
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.NetFrameRate">
+            <summary>
+            default frame rate
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.MaxEntitiesInSyncWorldMessage">
+            <summary>
+            Maximum number of network entities sent in a single world synchronization message.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.MinimumSupportedClientVersion">
+            <summary>
+            Oldest Galaxy client core version accepted by this server.
+            The default establishes Galaxy 1.0.0 as the compatibility baseline.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.TransformFrameDelivery">
+            <summary>
+            Transform synchronization mode
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Config.IncomingWorkerCount">
+            <summary>
+            Number of dedicated workers that execute incoming server messages.
+            Each connected client is pinned to one worker to preserve its message order.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.GalaxyCore">
+            <summary>
+            Сетевое ядро
+            Network Kernel
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.Version">
+            <summary>
+            Core version
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.config">
+            <summary>
+            Base server config
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.networkCore">
+            <summary>
+            Основной экземпляр ядра
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.Statistic">
+            <summary>
+            Общая статистика
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.Clients">
+            <summary>
+            Менеджер клиентов
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.Instances">
+            <summary>
+            Менеджер по работе с инстансами
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyCore.NetworkTime">
+            <summary>
+            Authoritative monotonic server clock shared by all instances and transports.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.GalaxyCore.StartedAtUtc">
+            <summary>UTC time of the current server start.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.GalaxyCore.ServerRunIdentity">
+            <summary>Opaque identity of the current successful Galaxy server run.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.GalaxyCore.ProcessIdentity">
+            <summary>Opaque identity that changes when the hosting process restarts.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.GalaxyCore.ProcessMonotonicSeconds">
+            <summary>Monotonic seconds in the current process, suitable for telemetry deltas.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.GalaxyCore.IsRunning">
+            <summary>Whether the Galaxy network core is currently running.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.GalaxyCore.UptimeSeconds">
+            <summary>Elapsed wall-clock seconds since the current server start.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyCore.Start(GalaxyCoreServer.Config)">
+            <summary>
+            Запуск сетевого ядра
+            Network Kernel Launch
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyCore.Stop">
+            <summary>
+            Остановка сетевого ядра
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.GalaxyVars">
+            <summary>
+            Synchronizing Variables
+            Класс синхронизации переменных
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.GalaxyVars.AutoApplyRemoteData">
+            <summary>
+            Автоматически доверять данным от клиента
+            </summary>
+        </member>
+        <member name="E:GalaxyCoreServer.GalaxyVars.OnChangedValue">
+            <summary>
+            Variable value changed
+            Изменилось значение переменной
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyVars.GetData(System.Byte)">
+            <summary>
+            Get a variable by id
+            Получить переменную по ид
+            </summary>
+            <param name="varID">variable id</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyVars.GetAllVars(System.Boolean)">
+            <summary>
+            Получить полный список переменных для отправки
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyVars.RegistrationClass(System.Object)">
+            <summary>
+            Registering a class to work with GalaxyVars
+            Регистрация класса для работы с GalaxyVars
+            </summary>
+            <param name="target">class</param>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyVars.Update">
+            <summary>
+            проверка на изменение переменных со стороны сервера
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxyVars.ForceSync">
+            <summary>
+            Force full data upload
+            Принудительная отправка данных
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.IIncomingMessage">
+            <summary>
+            Интерфейс для работы с входящими сообщениями
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.IIncomingMessage.IncomingMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+            <summary>
+            Входящее сообщение
+            </summary>
+            <param name="code">код сообщения</param>
+            <param name="data">данные от клиента</param>
+            <param name="baseClientConnection">подключение</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Instance">
+            <summary>
+            The base class of the instance, serves as the basis for creating rooms, locations, and the like
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Start">
+            <summary>
+            Called when an instance is created
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Update">
+            <summary>
+            Network frame tick
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+            <summary>
+            Custom forwarding a message to an instance
+            </summary>
+            <param name="code"></param>
+            <param name="data"></param>
+            <param name="baseClientConnection"></param>
+        </member>
+        <member name="P:GalaxyCoreServer.Instance.InstanceConnectionHealth">
+            <summary>Enables server-side connection-health detection for this instance.</summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Instance.ConnectionHealthChanged">
+            <summary>Raised on the instance frame thread when a client's health state changes.</summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Instance.ConnectionHealthDeliveryAnomaly">
+            <summary>Raised on the instance frame thread for a late marker or reliable backlog burst.</summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Instance.ConnectionHealthEpisodeCompleted">
+            <summary>Raised on the instance frame thread when an alarm episode is completed.</summary>
+        </member>
+        <member name="E:GalaxyCoreServer.Instance.ConnectionHealthSessionCompleted">
+            <summary>
+            Raised once with the cumulative report for a monitored client entry when it ends.
+            Runs synchronously on the thread removing the client or closing the instance.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.GetConnectionHealth(GalaxyCoreServer.BaseClient)">
+            <summary>Returns the current detector snapshot for a client.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance._adminData">
+            <summary>
+            Optional thread-safe declarative primitive data exposed by GalaxyAdmin.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance._adminMethods">
+            <summary>Optional thread-safe declarative methods exposed by GalaxyAdmin.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.Time">
+            <summary>
+            Time
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Instance.CreatedAtUtc">
+            <summary>UTC time at which this instance object was created.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Instance.LifetimeSeconds">
+            <summary>Elapsed wall-clock seconds since this instance object was created.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.Physics">
+            <summary>
+            Physical representation
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.AutoUpdateClientsInfo">
+            <summary>
+            Automatic updating of information on clients about other clients
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Instance.FrameRate">
+            <summary>
+            Frame rate (ticks per second)
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.AutoChangeOwner">
+            <summary>
+            Automatic owner assignment
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Instance.Clients">
+            <summary>
+            List of clients
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.Entities">
+            <summary>
+            network entity manager
+            </summary>      
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.Type">
+            <summary>
+            Instance type
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.Name">
+            <summary>
+            Instance name
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Instance.Id">
+            <summary>
+            Lies on the server
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Instance.Owner">
+            <summary>
+            instance owner
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.MaxClients">
+            <summary>
+            Maximum players per instance
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.AutoClose">
+            <summary>
+            Whether to close the instance when there are no players in it
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.Password">
+            <summary>
+            Login Password
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.Visible">
+            <summary>
+            Whether to display an instance in client lists
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.ChatChannel">
+            <summary>
+            The main chat channel for the instance
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Invoke(System.String,System.Single,System.Object[])">
+            <summary>
+            Calling a public method after a specified time
+            </summary>
+            <param name="methodName">method name</param>
+            <param name="time">time</param>
+            <param name="list">parameters</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.InvokeRepeating(System.String,System.Single,System.Single,System.Object[])">
+            <summary>
+            Calling a method after a specified time with a specified repetition
+            </summary>
+            <param name="methodName">method name</param>
+            <param name="time">time</param>
+            <param name="repeat">repetition time</param>
+            <param name="list">parameters</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.CancelInvoke(System.String)">
+            <summary>
+            Delete the task of calling a method by name
+            </summary>
+            <param name="methodName">имя метода</param>
+        </member>
+        <member name="P:GalaxyCoreServer.Instance.SpatialIndex">
+            <summary>Production spatial index. The legacy Octree remains available separately.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.GalaxyVars">
+            <summary>
+            Variables owned by this instance. They use the same attributes, scopes and codecs as
+            entity GalaxyVars, but are routed to the current-instance endpoint without an id.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Instance.OnNotResponding">
+            <summary>
+            Called when an instance fails to report its status on time
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.GetClientById(System.Int32)">
+            <summary>
+            Getting a client in an instance by Id
+            </summary>
+            <param name="clientId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Sleep">
+            <summary>
+            Send the instance to sleep. Only SendMessage will still work
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.WakeUp">
+            <summary>
+            Restore full functionality after sleep
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Instance initialization
+            </summary>
+            <param name="enableThread">Starting in active mode</param>
+            <param name="framerEnable">technical parameter</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SetFrameRate(System.Int32)">
+            <summary>
+            Set frame rate
+            </summary>
+            <param name="currentFrameRate">ticks per second</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.CallOnUpdate">
+            <summary>
+            Вызывает обновление всех сетевых сущностей в комнате
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.CaptureAndFlushGalaxyVars">
+            <summary>
+            Captures the final authoritative state after entity and instance gameplay updates, then
+            sends one shared GalaxyVars envelope for the frame.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.AddClient(GalaxyCoreServer.BaseClient,System.Object)">
+            <summary>
+            Add client
+            </summary>
+            <param name="baseClientConnection">client</param>
+            <param name="obj"> </param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SussesIncoming(GalaxyCoreServer.BaseClient)">
+            <summary>
+            Отправка клиенту сообщения об успешном входе в инстанс
+            </summary>
+            <param name="baseClientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.RemoveClient(GalaxyCoreServer.BaseClient)">
+            <summary>
+            Removing a client
+            </summary>
+            <param name="baseClientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.ChangeOwner">
+            <summary>
+            Changing the owner of an instance to a random one
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.ChangeOwner(GalaxyCoreServer.BaseClient)">
+            <summary>
+            Transfer owner rights
+            </summary>
+            <param name="baseClient"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.GetUsersBaseInfo(GalaxyCoreServer.BaseClient)">
+            <summary>
+            Ответ на запрос списка пользователей в инстансе
+            </summary>
+            <param name="baseClient"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.RemoveClientEntities(GalaxyCoreServer.BaseClient)">
+            <summary>
+            Remove all client network entities
+            </summary>
+            <param name="baseClientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,GalaxyCoreCommon.BaseMessage,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>
+            Send a message to all users in the room
+            </summary>
+            <param name="code">message code</param>
+            <param name="message"> </param>
+            <param name="deliveryType">delivery method</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType)">
+            <summary>Sends any self-serializing message, including GalaxyMessage contracts.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAll(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Send a message to all users in the room
+            </summary>
+            <param name="code">message code</param>
+            <param name="data"> </param>
+            <param name="deliveryType">delivery method</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAll(System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32,System.Boolean)">
+            <summary>
+            Внутреннаяя отправка сообщения
+            </summary>
+            <param name="internalCode"></param>
+            <param name="externalCode"></param>
+            <param name="data"></param>
+            <param name="deliveryType"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SendInternalMessageToAllExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32,System.Boolean)">
+            <summary>
+            Внутреннаяя отправка сообщения всем кроме
+            </summary>
+            <param name="baseClientConnection"></param>
+            <param name="internalCode"></param>
+            <param name="externalCode"></param>
+            <param name="data"></param>
+            <param name="deliveryType"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SendMessageToAllExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Send a message to all users in the room except the selected one
+            </summary>
+            <param name="baseClientConnection">The connection that we exclude from the mailing list</param>
+            <param name="code">код сообщения</param>
+            <param name="data">данные</param>
+            <param name="deliveryType">способ доставки</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.SyncWorld(GalaxyCoreServer.BaseClient)">
+            <summary>
+            отправить клиенту полное текущее состояние инстанса
+            </summary>
+            <param name="baseClientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.InstanceInfo">
+            <summary>
+            Getting user data for a request (list of instances)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.IncomingClient(GalaxyCoreServer.BaseClient)">
+            <summary>
+            Called when a player enters an instance
+            </summary>
+            <param name="baseClientConnection">Client</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.OutgoingClient(GalaxyCoreServer.BaseClient)">
+            <summary>
+            The client left the room
+            </summary>
+            <param name="baseClientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.ValidateIncomingClient(GalaxyCoreServer.BaseClient,System.Byte[])">
+            <summary>
+            manually check the user's access to the instance
+            </summary>
+            <param name="baseClientConnection"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Instance.Close">
+            <summary>
+            Called when the instance is closed
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.InstanceFramer.StopAndWait">
+            <summary>
+            Cancels the loop and waits until an in-flight frame has left user code.
+            A frame may close its own instance, so waiting is skipped when called by that frame.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.InstanceFramerOctree.GenerateTransformMessageByIgnoreVisible(System.UInt32,System.UInt32)">
+            <summary>
+            генерация фрейма для объектов игнорирующих сетевую видимость
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.InstanceOpenWorld">
+            <summary>
+            Реализация инстанса для больших миров
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.InstanceOpenWorld.#ctor">
+            <summary>
+            базовый конструктор
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.InstanceOpenWorldOctree">
+            <summary>
+            Инстанс с сетевой видимостью
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.InstanceOpenWorldOctree.VisibleDistance">
+            <summary>
+            Максимальная сетевая видимость
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.InstanceOpenWorldOctree.#ctor(System.Boolean)">
+            <summary>
+            Base constructor
+            </summary>
+            <param name="enableThread"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Instances.InstanceStandard">
+            <summary>
+            Стандартная реализация инстанса 
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.OutgoingClient(GalaxyCoreServer.BaseClient)">
+            <summary>
+            Клиент вышел из инстанса
+            </summary>
+            <param name="baseClientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.Close">
+            <summary>
+            Инстанс был закрыт
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.IncomingClient(GalaxyCoreServer.BaseClient)">
+            <summary>
+            В инстанс вошел новый клиент
+            </summary>
+            <param name="baseClientConnection"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.Start">
+            <summary>
+            Инстанс запустился
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Instances.InstanceStandard.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+            <summary>
+            Пришло новое сообщение в инстанс
+            </summary>
+            <param name="code"></param>
+            <param name="data"></param>
+            <param name="baseClientConnection"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.InstanceTime">
+            <summary>
+            Instance Times View
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.InstanceTime.DeltaTime">
+            <summary>
+            Elapsed time since the last tick (Update) (in seconds)
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.InstanceTime.Time">
+            <summary>
+            Time in seconds since instance launch
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Log">
+            <summary>
+            Логирование
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Log.DelegateOnLogDebug">
+            <summary>
+            
+            </summary>
+            <param name="publisher"></param>
+            <param name="message"></param>
+        </member>
+        <member name="E:GalaxyCoreServer.Log.OnLogDebug">
+            <summary>
+            Лог Debug
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Log.Debug(System.String,System.String)">
+            <summary>
+            Debug
+            </summary>
+            <param name="publisher">Кто вызвал</param>
+            <param name="message">Сообщение</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Log.DelegateOnLogInfo">
+            <summary>
+            
+            </summary>
+            <param name="publisher"></param>
+            <param name="message"></param>
+        </member>
+        <member name="E:GalaxyCoreServer.Log.OnLogInfo">
+            <summary>
+            Лог Info
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Log.Info(System.String,System.String)">
+            <summary>
+            Info
+            </summary>
+            <param name="publisher">Кто вызвал</param>
+            <param name="message">Сообщение</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Log.DelegateOnLogWarning">
+            <summary>
+            
+            </summary>
+            <param name="publisher"></param>
+            <param name="message"></param>
+        </member>
+        <member name="E:GalaxyCoreServer.Log.OnLogWarning">
+            <summary>
+            Лог предупреждение
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Log.Warning(System.String,System.String)">
+            <summary>
+            Warning
+            </summary>
+            <param name="publisher">Кто вызвал</param>
+            <param name="message">Сообщение</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Log.DelegateOnLogError">
+            <summary>
+            
+            </summary>
+            <param name="publisher"></param>
+            <param name="message"></param>
+        </member>
+        <member name="E:GalaxyCoreServer.Log.OnLogError">
+            <summary>
+            Лог предупреждение
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Log.Error(System.String,System.String)">
+            <summary>
+            Error
+            </summary>
+            <param name="publisher">Кто вызвал</param>
+            <param name="message">Сообщение</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Managers.InvokeManager">
+            <summary>
+            Deferred Task Manager
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Managers.InvokeManager._tasks">
+            <summary>
+            task list
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.NetEntities.NetTransform">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntities.NetTransform.LastRemoteFrameServerTimeMs">
+            <summary>
+            Server-clock timestamp claimed by the newest accepted owner frame.
+            Client-provided values must be clamped before authoritative lag compensation.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntities.NetTransform.SetParent(GalaxyCoreServer.NetEntity,System.Boolean)">
+            <summary>Attaches this entity to another entity in the same instance.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.NetEntities.ServerNetEntityRpc">
+            <summary>Attribute-driven RPC endpoint attached to a server network entity.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.NetEntity">
+            <summary>
+            Server-side implementation of a network entity
+            Серверная реализация сетевой сущности
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.InMessage(System.Byte,System.Byte[],GalaxyCoreServer.BaseClient)">
+            <summary>
+            New incoming message
+            Новое входящее сообщение
+            </summary>
+            <param name="externalCode">custom code</param>
+            <param name="data"></param>
+            <param name="baseClientSender">message sender</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnRemotePosition(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Called when the client tries to change the Position
+            </summary>
+            <param name="remotePosition"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnRemoteScale(GalaxyCoreCommon.GalaxyVector3)">
+            <summary>
+            Called when the client tries to change the Scale
+            </summary>
+            <param name="remoteScale"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnRemoteRotation(GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>
+            Called when the client tries to change the Rotation
+            </summary>
+            <param name="remoteRotation"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnRemoteParent(GalaxyCoreServer.NetEntity)">
+            <summary>
+            Called when the owning client requests an attach or detach. Return true to accept.
+            The default rejects topology changes; server-authoritative code can override it.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Start">
+            <summary>
+            Called when the object is fully initialized
+            Вызывается при полной инициализации объекта
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Update">
+            <summary>
+            Network frame tick
+            Тик сетевого кадра
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnDestroy(System.Byte[])">
+            <summary>
+            Called when an entity is deleted
+            Вызывается при удалении сущности
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.IsStatic">
+            <summary>
+            Is the object static
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.OwnerBaseClient">
+            <summary>
+            Owner's client class reference (can be null)
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.LossOwner">
+            <summary>
+            Loss of owner logic
+            Логика при потере владельца
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.PrefabName">
+            <summary>
+            Network entity name (usually used to match with a prefab)
+            Имя сетевой сущности (как правило служит для сопоставления с префабом)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.localId">
+            <summary>
+            Local id (assigned automatically and serves only for correct initialization)
+            Локальный ид (назначается автоматически и служит только для корректности инициализации)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.NetId">
+            <summary>
+            Network ID (assigned automatically)
+            Сетевой ид (назначается автоматически)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.OwnerClientId">
+            <summary>
+            Entity owner id (if 0 then this is a server entity)
+            Ид владельца сущьности (если 0 то это серверная сущность)
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.TransformAuthority">
+            <summary>
+            Selects who publishes this entity's transform. The legacy default is Owner.
+            Set this before <see cref="M:GalaxyCoreServer.NetEntity.Init(System.Byte[])"/>; authority is part of the instantiate snapshot.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.Instance">
+            <summary>
+            Link to the current instance
+            Ссылка на текущий инстанс
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity._physics">
+            <summary>
+            Physical representation
+            Физическое представление
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.transform">
+            <summary>
+            Transform
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.initData">
+            <summary>
+            Extended initialization data
+            Расширенные данные инициализации
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.GalaxyVars">
+            <summary>
+             Synchronizing Variables
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.AlwaysVisible">
+            <summary>
+            The entity ignores network visibility (always visible)
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.SearchRangeVisible">
+            <summary>
+            search range of visible objects
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.SpatialRadius">
+            <summary>
+            Radius used by the spatial broad phase and entity raycasts. Radius visibility remains
+            center-based for compatibility with the legacy octree; zero gives point ray semantics.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.NetEntity.OctreeThreshold">
+            <summary>
+            Legacy octree compatibility setting. The production spatial index tracks every
+            position change so all visibility plans observe the same coordinates.
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntity.ExcludeSyncWorld">
+            <summary>
+            Determines whether the entity is excluded from the synchronization process within the world state updates.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.#ctor(GalaxyCoreServer.Instance,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>
+            Creating a network entity
+            Создание сетевой сущности
+            </summary>
+            <param name="instance">target instance</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Init(System.Byte[])">
+            <summary>
+            Activating a network entity
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.ChangeOwner(GalaxyCoreServer.BaseClient,System.Byte[])">
+            <summary>
+            Change entity owner
+            Сменить владельца сущности
+            </summary>
+            <param name="baseClient">new owner (if null, the server becomes the owner)</param>
+            <param name="customData">additional data transferred with a change of ownership. will only be sent if the entity is already activated</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.ChangeOwnerRandom">
+            <summary>
+            Replacing the owner with the client with the fewest active entities
+            Замена владельца на клиента с наименьшим числом активных сущностей
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Destroy(System.Byte[])">
+            <summary>
+            Delete network object
+            </summary>
+            <param name="customData"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.CallUpdate">
+            <summary>
+            Внутренний вызов
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.CaptureGalaxyVars">
+            <summary>
+            Captures outbound GalaxyVar changes after the instance has completed its gameplay tick.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Sending a message to all instances of a given object
+            </summary>
+            <param name="code">custom code</param>
+            <param name="message"></param>
+            <param name="deliveryType">delivery method</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessage(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Sending a message to all instances of a given object
+            </summary>
+            <param name="code">custom cod</param>
+            <param name="data"> </param>
+            <param name="deliveryType">delivery method</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Send a message to all instances of this object except for the specified client
+            </summary>
+            <param name="baseClient">excluded client</param>
+            <param name="code">custom code</param>
+            <param name="message"> </param>
+            <param name="deliveryType">delivery method</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageExcept(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Send a message to all instances of this object except for the specified client
+            </summary>
+            <param name="baseClient">excluded client</param>
+            <param name="code">custom code</param>
+            <param name="data"> </param>
+            <param name="deliveryType">delivery method</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendToOwner(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Send a message to the owner of the entity
+            </summary>
+            <param name="code"></param>
+            <param name="data"></param>
+            <param name="deliveryType"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendToOwner(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+             
+            </summary>
+            <param name="code"></param>
+            <param name="message"></param>
+            <param name="deliveryType"></param>
+            <param name="encrypt"></param>
+            <param name="channel"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendToParticular(GalaxyCoreServer.BaseClient,System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Send a message to a network entity only on the specified client.
+            </summary>
+            <param name="targetClient"></param>
+            <param name="code"></param>
+            <param name="data"></param>
+            <param name="deliveryType"></param>
+            <param name="encrypt"></param>
+            <param name="channel"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendToParticular(GalaxyCoreServer.BaseClient,System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Send a message to a network entity only on the specified client.
+            </summary>
+            <param name="targetClient"></param>
+            <param name="code"></param>
+            <param name="message"></param>
+            <param name="deliveryType"></param>
+            <param name="encrypt"></param>
+            <param name="channel"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,GalaxyCoreCommon.INetworkSerrializeble,GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Send a message to all users who see this entity
+            </summary>
+            <param name="code">message code</param>
+            <param name="message"> </param>
+            <param name="deliveryType">delivery method</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.SendMessageByOctoVisible(System.Byte,System.Byte[],GalaxyCoreCommon.GalaxyDeliveryType,System.Boolean,System.Int32)">
+            <summary>
+            Send a message to all users who see this entity
+            </summary>
+            <param name="code">message code</param>
+            <param name="data"> </param>
+            <param name="deliveryType">delivery method</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.Invoke(System.String,System.Single,System.Object[])">
+            <summary>
+            Вызов публичного метода через указанное время
+            </summary>
+            <param name="name">Имя метода</param>
+            <param name="time">время</param>
+            <param name="list">набор параметров</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.InvokeRepeating(System.String,System.Single,System.Single,System.Object[])">
+            <summary>
+            Вызов метода через указанное время с указанным повторением
+            </summary>
+            <param name="name">Имя метода</param>
+            <param name="time">время</param>
+            <param name="repeat">время повторения</param>
+            <param name="list">набор параметров</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.CancelInvoke(System.String)">
+            <summary>
+            Удалить задачу вызова метода по имени
+            </summary>
+            <param name="name">имя метода</param>
+        </member>
+        <member name="M:GalaxyCoreServer.NetEntity.OnLossOwner">
+            <summary>
+            Called in case of owner loss, provided that “LossOwner == NetEntityLossOwnerLogic.CallOnLossOwner”
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.NetEntityLossOwnerLogic">
+            <summary>
+            Loss of owner logic
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntityLossOwnerLogic.Destroy">
+            <summary>
+            Destroy on loss of owner
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntityLossOwnerLogic.SetServer">
+            <summary>
+            Change owner to server
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntityLossOwnerLogic.SetRandomClient">
+            <summary>
+            Transfer to a random client
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.NetEntityLossOwnerLogic.CallOnLossOwner">
+            <summary>
+            Virtual method call OnLossOwner
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.NetEntityStandard">
+            <summary>
+            default implementation of network entity
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.ClientStatistic">
+            <summary>
+            Client statistics
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ClientStatistic.#ctor">
+            <summary>
+            базовый конструктор
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ClientStatistic.SetStatisticMessage(System.Byte,System.UInt32)">
+            <summary>
+            Add to statistics
+            </summary>
+            <param name="code">код сообщения</param>
+            <param name="lenght">размер сообщения</param>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ClientStatistic.GetCount(System.Byte)">
+            <summary>
+            Get the number of messages by code
+            </summary>
+            <param name="code">Custom message code</param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ClientStatistic.GetBytes(System.Byte)">
+            <summary>
+            Get the number of bytes transferred 
+            </summary>
+            <param name="code">Custom message code</param>
+            <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.ConnectionApproval">
+            <summary>
+            Класс отвечающий за пакеты авторизации и регистрации
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.ConnectionManager">
+            <summary>
+            Account manager
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Network.ConnectionManager.Count">
+            <summary>
+            Number of customers online
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Network.ConnectionManager.ActiveConnectionCount">
+            <summary>Number of registered clients whose transport is currently alive.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Network.ConnectionManager.ActivePlayerClientCount">
+            <summary>Number of alive, non-virtual, non-spectator registered clients.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ConnectionManager.#ctor">
+            <summary>
+             
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ConnectionManager.Add(GalaxyCoreServer.BaseClient,System.Object)">
+            <summary>
+            Add custom connection
+            </summary>
+            <param name="connection"></param>
+            <param name="customData"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ConnectionManager.Remove(GalaxyCoreServer.BaseClient)">
+            <summary>
+            Delete user connection
+            </summary>
+            <param name="connection"></param>      
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ConnectionManager.TryGetClientById(System.Int32,GalaxyCoreServer.BaseClient@)">
+            <summary>
+            Get client bu id
+            </summary>
+            <param name="clientId"></param>
+            <param name="baseClient"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ConnectionManager.GetAllClients">
+            <summary>
+            Get all online clients
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.ConnectionManager.GetAllClients``1">
+            <summary>
+            Get all online clients by type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.ConnectionsManager">
+            <summary>
+            Менеджер учета клиентских соеденений
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates">
+            <summary>
+            Server delegates
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnGalaxyConnect">
+            <summary>
+            Authorization request
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnGalaxyRegistration">
+            <summary>
+            Registration request
+            </summary>
+            <param name="approvalConnection"></param>
+            <param name="data"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnGalaxyCoreConnectionRejected">
+            <summary>
+            A connection request rejected by Galaxy itself before user authorization was invoked.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnGalaxyDisconnect">
+            <summary>
+            Disconnect
+            </summary>
+            <param name="baseClientConnection">подключение клиента</param>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnGalaxyInstanceCreate">
+            <summary>
+            Instance creation
+            </summary>
+            <param name="type"></param>      
+            <param name="data"></param>
+            <param name="baseClientConnection">подключение клиента</param>
+            <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnNetEntityInstantiate">
+            <summary>
+            Creating a network entity
+            </summary>
+            <param name="name"></param>
+            <param name="data"></param>
+            <param name="baseClientConnection"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.Delegates.DelegateOnClientDisconnected">
+            <summary>
+            Client disconnected;
+            </summary>
+            <param name="baseClient"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.IncomingMessage.DataMessage(Lidgren.Network.NetIncomingMessage)">
+            <summary>
+            Пользовательское сообщение
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.IncomingMessage.InternalMessage(System.Byte,System.Byte,System.Byte[],GalaxyCoreServer.BaseClient,Lidgren.Network.NetIncomingMessage)">
+            <summary>
+            Пришло внутреннее сообщение
+            </summary>
+            <param name="internalCode"></param>
+            <param name="externalCode"></param>
+            <param name="data"></param>
+            <param name="baseClient"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.NetworkCore">
+            <summary>
+            Класс сетевого ядра
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkCore._netServer">
+            <summary>
+            Экземпляр лидгрен сервера
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkCore._netConfig">
+            <summary>
+            Базовый лидгрен конфигуратор
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkCore._incomingDispatcher">
+            <summary>
+            Основной поток входящих сообщений
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkCore._streamWork">
+            <summary>
+            Продолжать ли работу потока
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkCore._networkStream">
+            <summary>
+            экземпляр основного сепаратора
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.NetworkCore.SendGroupMessage(Lidgren.Network.NetBuffer,System.Collections.Generic.IList{Lidgren.Network.NetConnection},GalaxyCoreCommon.GalaxyDeliveryType,System.Int32)">
+            <summary>
+            Отправка группового сообщения
+            </summary>
+            <param name="buffer"></param>
+            <param name="clients"></param>
+            <param name="deliveryMethod"></param>
+            <param name="chennal"></param>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.NetworkCore.Flush">
+            <summary>
+            ПРинудительная отправка буфера
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.NetworkCore.Stop">
+            <summary>
+            Остановка сетевого потока
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Network.NetworkStream">
+            <summary>
+            Класс входящего потока
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkStream.approval">
+            <summary>
+            Обработчик авторизации / регистрации
+            </summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Network.NetworkStream.incomingMessage">
+            <summary>
+            Обработчик входящих пользовательских сообщений
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Network.NetworkStream.IncomingMessage(Lidgren.Network.NetIncomingMessage,GalaxyCoreServer.Network.IncomingWorker)">
+            <summary>
+            Первичная обработка входящих пакетов
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.EntityPhysics">
+            <summary>
+            Engine-neutral physics facade for one network entity. Body creation and commands are
+            intentionally added by the neutral body API; merely reading this property starts nothing.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.EntityPhysics.BodyId">
+            <summary>Stable numeric identity of the currently created body.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.EntityPhysics.Generation">
+            <summary>Generation paired with <see cref="P:GalaxyCoreServer.Physics.EntityPhysics.BodyId"/> for the currently created body.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.GalaxyPhysics">
+            <summary>Process-wide registry for explicitly installed physics engine backends.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsShape">
+            <summary>Engine-neutral primitive collider description.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsShape.Height">
+            <summary>Total capsule height, including both hemispheres.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsShape.HeightSamples">
+            <summary>Row-major height samples. Sample (row,column) is at (column*CellSizeX, height, row*CellSizeZ).</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysicsShape.Cylinder(System.Single,System.Single)">
+            <summary>Cylinder aligned to local Y; totalHeight is the full end-to-end height.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysicsShape.ConvexHull(System.Collections.Generic.IReadOnlyList{GalaxyCoreCommon.GalaxyVector3})">
+            <summary>Preferred convex-hull path; the backend constructs a hull from the point cloud.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysicsShape.ConvexHull(System.Collections.Generic.IReadOnlyList{GalaxyCoreCommon.GalaxyVector3},System.Collections.Generic.IReadOnlyList{System.Int32})">
+            <summary>
+            Indexed convex hull path for baked data. Every referenced triangle vertex must lie on the
+            hull surface; use the point-cloud overload when topology is not already trustworthy.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysicsShape.TriangleMesh(System.Collections.Generic.IReadOnlyList{GalaxyCoreCommon.GalaxyVector3},System.Collections.Generic.IReadOnlyList{System.Int32})">
+            <summary>
+            Static concave triangle mesh. Triangle triples define their front face counter-clockwise
+            when viewed from that face. The bundled Jitter2 runtime treats the mesh as one-sided;
+            reverse the index winding when the collidable face points the wrong way.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysicsShape.HeightField(System.Int32,System.Int32,System.Collections.Generic.IReadOnlyList{System.Single},System.Single,System.Single)">
+            <summary>
+            Static height field sampled row-major. The bundled Jitter2 adapter tessellates its
+            one-sided triangles with front faces pointing towards local +Y.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsCollider">
+            <summary>A primitive collider and its local pose relative to the owning physics body.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsBodyOptions.Colliders">
+            <summary>
+            Primary collider API. A body must have at least one collider; each collider may have a
+            local pose, allowing engine-neutral compound bodies without nested compound shapes.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsBodyOptions.Shape">
+            <summary>
+            Compatibility shortcut for a single collider at the body origin. Setting this property
+            replaces <see cref="P:GalaxyCoreServer.Physics.PhysicsBodyOptions.Colliders"/>. Reading it from a compound body is intentionally rejected.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsBodyOptions.Layer">
+            <summary>Compatibility filter for the single-collider Shape shortcut.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsBodyOptions.CollisionMask">
+            <summary>
+            Layers this body is allowed to contact. A pair is accepted only when each body's mask
+            contains the other body's layer.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsBodyOptions.IsTrigger">
+            <summary>Compatibility trigger flag for the single-collider Shape shortcut.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsCollisionEvent">
+            <summary>Engine-neutral collision transition produced by a backend.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsCollisionEvent.FirstColliderIndex">
+            <summary>Collider index in the first body's PhysicsBodyOptions.Colliders; -1 when unavailable.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsCollisionEvent.SecondColliderIndex">
+            <summary>Collider index in the second body's PhysicsBodyOptions.Colliders; -1 when unavailable.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsCollisionEvent.Point">
+            <summary>Representative contact point; Exit carries the last known point.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsCollisionEvent.Normal">
+            <summary>
+            Representative contact normal pointing from FirstBodyId towards SecondBodyId;
+            Exit carries the last known normal.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsCollisionEvent.Penetration">
+            <summary>Representative (normally deepest) contact penetration.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsCollisionEvent.Impulse">
+            <summary>Representative scalar contact impulse magnitude reported by the backend.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsCollision">
+            <summary>Collision information delivered to one entity on the Instance thread.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsCollision.OtherBodyId">
+            <summary>Remains available when the other body was destroyed before Exit was delivered.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsCollision.Normal">
+            <summary>Contact normal pointing from Self towards Other.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsRaycastFilter">
+            <summary>Data-only raycast filter safe to pass to a dedicated physics thread.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysicsRaycastFilter.Ignore(GalaxyCoreServer.Physics.EntityPhysics,System.UInt32,GalaxyCoreServer.Physics.PhysicsQueryTriggerPolicy)">
+            <summary>Creates a filter which ignores the currently created generation of one body.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsRaycastQuery.Direction">
+            <summary>Normalized direction.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsRaycastHit.ColliderIndex">
+            <summary>Index in PhysicsBodyOptions.Colliders; -1 when the backend cannot provide it.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.EntityPhysicsRaycastHit">
+            <summary>Raycast result enriched with the matching Galaxy entity, when it still exists.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsBackendId">
+            <summary>Opaque identifier returned by a successful backend registration.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsWorldMode">
+            <summary>Defines where a world's fixed-step coordinator and solver run.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.PhysicsWorldMode.InstanceThread">
+            <summary>The fixed step runs synchronously inside the owning Instance frame.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.PhysicsWorldMode.DedicatedThread">
+            <summary>A stable dedicated thread owns this world and uses a single-threaded solver.</summary>
+        </member>
+        <member name="F:GalaxyCoreServer.Physics.PhysicsWorldMode.Parallel">
+            <summary>A stable dedicated thread owns this world and requests backend solver workers.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.IGalaxyPhysicsBackend">
+            <summary>Implemented by an optional engine adapter such as GalaxyCore.Physics.Jitter2.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.IGalaxyPhysicsWorld">
+            <summary>
+            Synchronous engine world owned exclusively by GalaxyCore's selected execution context.
+            Implementations must not invoke user callbacks directly.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.IGalaxyPhysicsWorld.DestroyBody(System.Int32,System.Int32)">
+            <summary>Must ignore an unknown or stale generation.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.IGalaxyPhysicsWorld.DestroyJoint(GalaxyCoreServer.Physics.PhysicsJointId)">
+            <summary>
+            Must be idempotent and ignore an unknown or stale identity. A create may be rejected
+            by core after its destroy was already queued.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsJointFrame">
+            <summary>
+            A body-local joint frame. PrimaryAxis is the hinge/slider axis; SecondaryAxis fixes
+            the remaining orientation required by fixed and angular constraints.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.PhysicsJointFrame.FromAxis(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3)">
+            <summary>Creates a deterministic local frame when only a hinge/slider axis matters.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsJointLimit">
+            <summary>Linear units for distance/slider joints; radians for hinge joints.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsJointMotor">
+            <summary>
+            Velocity motor. TargetVelocity is radians/second for hinge and linear units/second for
+            slider; MaxForce is torque for hinge and force for slider.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsJointOptions">
+            <summary>Immutable, engine-neutral joint description.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsJointId">
+            <summary>Stable identity passed across the core/backend boundary.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsJoint">
+            <summary>A generation-safe joint handle. Destroy is idempotent.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsTriggerOptions">
+            <summary>
+            Configuration for a standalone trigger volume. The supplied colliders are converted to
+            trigger colliders automatically; users do not need to set IsTrigger themselves.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsTriggerContact">
+            <summary>Contact delivered to a standalone <see cref="T:GalaxyCoreServer.Physics.PhysicsTrigger"/>.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsTriggerContact.Normal">
+            <summary>Normal pointing from this trigger towards the other body.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.PhysicsTrigger">
+            <summary>
+            Optional object-oriented wrapper for a server-side trigger volume. Derive from this class
+            and override <see cref="M:GalaxyCoreServer.Physics.PhysicsTrigger.OnEnter(GalaxyCoreServer.Physics.PhysicsTriggerContact)"/> / <see cref="M:GalaxyCoreServer.Physics.PhysicsTrigger.OnExit(GalaxyCoreServer.Physics.PhysicsTriggerContact)"/>, or subscribe to the public events.
+            Call <see cref="M:GalaxyCoreServer.Physics.InstancePhysics.AddTrigger``1(``0)"/> to attach it to one physics world.
+            </summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.PhysicsTrigger.Enabled">
+            <summary>Convenience switch equivalent to calling <see cref="M:GalaxyCoreServer.Physics.PhysicsTrigger.Enable"/> or <see cref="M:GalaxyCoreServer.Physics.PhysicsTrigger.Disable"/>.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Physics.InstancePhysics">
+            <summary>Optional physics world owned by one Instance.</summary>
+        </member>
+        <member name="P:GalaxyCoreServer.Physics.InstancePhysics.Mode">
+            <summary>Configured execution mode, or null while this instance has no physics world.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.InstancePhysics.RaycastBatchAsync(System.Collections.Generic.IReadOnlyList{GalaxyCoreServer.Physics.PhysicsRaycastQuery},System.Threading.CancellationToken)">
+            <summary>
+            Executes a group of queries as one physics command. This avoids one queued command and
+            one Task allocation per query when AI, weapons or suspension perform many casts per tick.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.InstancePhysics.TryRaycast(GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyVector3,System.Single,GalaxyCoreServer.Physics.EntityPhysicsRaycastHit@)">
+            <summary>
+            Allocation-free gameplay raycast for the InstanceThread mode. Use the asynchronous
+            variants for DedicatedThread and Parallel worlds.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.InstancePhysics.AddTrigger``1(``0)">
+            <summary>
+            Attaches and enables a standalone trigger object in this Instance. The trigger is not a
+            NetEntity and is never replicated; it is a lightweight server-side physics volume.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.InstancePhysics.AddTrigger``1(``0,GalaxyCoreCommon.GalaxyVector3,GalaxyCoreCommon.GalaxyQuaternion)">
+            <summary>Attaches and enables a standalone trigger at the supplied world transform.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Physics.InstancePhysics.CreateJoint(GalaxyCoreServer.Physics.EntityPhysics,GalaxyCoreServer.Physics.EntityPhysics,GalaxyCoreServer.Physics.PhysicsJointOptions)">
+            <summary>
+            Creates a constraint between two bodies in this world. Frames are local to their
+            respective bodies; creation is ordered with body commands in every execution mode.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Spatial.AdaptiveSpatialIndex`1">
+            <summary>
+            Single-owner adaptive facade. Call <c>PokeDirector()</c> at a safe tick boundary.
+            Model weights are shared static data; recurrent state belongs to this index instance.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Spatial.AdaptiveSpatialIndex`1.PokeDirector">
+            <summary>Closes the telemetry window and lets the shared internal model reconsider the backend.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Spatial.DynamicSpatialIndex`1">
+            <summary>
+            Allocation-free-after-warmup broad-phase index for moving spherical/point objects.
+            The implementation is an array-backed dynamic AABB tree with generational handles and
+            velocity-expanded ("fat") leaf bounds.
+            </summary>
+            <remarks>
+            This type is deliberately not thread-safe. Use one writer/reader owner or publish snapshots
+            at a higher level. Query result lists belong to the caller and are cleared before use.
+            </remarks>
+        </member>
+        <member name="M:GalaxyCoreServer.Spatial.DynamicSpatialIndex`1.Update(GalaxyCoreServer.Spatial.SpatialHandle,GalaxyCoreCommon.GalaxyVector3@)">
+            <summary>
+            Updates exact object data. Returns true only when the leaf had to be reinserted because
+            the new tight bounds escaped its fat bounds.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Spatial.DynamicSpatialIndex`1.QuerySphere(GalaxyCoreCommon.GalaxyVector3@,System.Single,System.Collections.Generic.List{GalaxyCoreServer.Spatial.SpatialDistanceHit{`0}},System.UInt32)">
+            <summary>Compact allocation-free-after-warmup radius query for production hot paths.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Spatial.DynamicSpatialIndex`1.Raycast(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@,System.Single,GalaxyCoreServer.Spatial.SpatialRayHit{`0}@,System.UInt32)">
+            <summary>Returns the nearest sphere hit on a finite ray segment.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Spatial.DynamicSpatialIndex`1.Rebuild">
+            <summary>
+            Rebuilds topology without invalidating handles. Intended for explicit maintenance after
+            extreme teleport churn, not for every frame.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Spatial.HybridSpatialIndex`1">
+            <summary>
+            Purpose-built composite: multi-level grid for variable-radius queries and a fat dynamic AABB
+            tree for finite nearest raycasts. It trades memory and update work for the best measured hot
+            query path of each backend while keeping one public handle. Optional deferred ray-tree updates
+            collapse repeated moves and are flushed explicitly or by the first raycast.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Spatial.MultiLevelSpatialIndex`1">
+            <summary>
+            A replicated hierarchy of sparse hash grids. Every object is linked into one cell at every
+            level; a query selects only the level closest to its scale. This avoids the cubic cell walk of
+            a conventional single-resolution spatial hash for radii ranging over several orders of magnitude.
+            </summary>
+            <remarks>This type is deliberately single-owner and not thread-safe.</remarks>
+        </member>
+        <member name="M:GalaxyCoreServer.Spatial.MultiLevelSpatialIndex`1.Update(GalaxyCoreServer.Spatial.SpatialHandle,GalaxyCoreCommon.GalaxyVector3@)">
+            <summary>Returns the number of grid levels whose cell membership changed.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Spatial.MultiLevelSpatialIndex`1.QuerySphere(GalaxyCoreCommon.GalaxyVector3@,System.Single,System.Collections.Generic.List{GalaxyCoreServer.Spatial.SpatialDistanceHit{`0}},System.UInt32)">
+            <summary>Compact allocation-free-after-warmup radius query for production hot paths.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.Spatial.MultiLevelSpatialIndex`1.Raycast(GalaxyCoreCommon.GalaxyVector3@,GalaxyCoreCommon.GalaxyVector3@,System.Single,GalaxyCoreServer.Spatial.SpatialRayHit{`0}@,System.UInt32)">
+            <summary>
+            Finite nearest raycast. A scale is selected from ray length, then a 3D DDA visits cells.
+            Neighbor cells are included conservatively for non-zero object radii.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Spatial.SpatialDirectorRnn">
+            <summary>One immutable model shared by every adaptive index in the process.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Spatial.SpatialHandle">
+            <summary>
+            Stable, generational reference to an entry in a <see cref="T:GalaxyCoreServer.Spatial.DynamicSpatialIndex`1"/>.
+            A stale handle cannot accidentally address a newly inserted object which reused its slot.
+            </summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Spatial.SpatialDistanceHit`1">
+            <summary>Compact radius-query result for hot paths which need only the item and distance.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Spatial.VisibilityDirectorObservation">
+            <summary>Fixed-size snapshot consumed by the embedded visibility search-plan model.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.Spatial.VisibilityDirectorMlp">
+            <summary>Immutable MLP-6 weights shared by every search instance in the process.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.GalaxySpatialIndex">
+            <summary>
+            Production spatial index used by a single Galaxy instance. The legacy GalaxyOctree remains
+            available beside it, but the server visibility path uses this handle-based adaptive index.
+            </summary>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxySpatialIndex.GetNearby(GalaxyCoreCommon.GalaxyVector3,System.Single)">
+            <summary>Compatibility API. The returned array is intentionally allocating.</summary>
+        </member>
+        <member name="M:GalaxyCoreServer.GalaxySpatialIndex.PokeDirector">
+            <summary>Closes the telemetry window. Call only at an instance frame boundary.</summary>
+        </member>
+        <member name="T:GalaxyCoreServer.VisibilityQueryBatch">
+            <summary>Reusable, allocation-free-after-warmup visibility query workspace owned by one client.</summary>
+        </member>
+    </members>
+</doc>

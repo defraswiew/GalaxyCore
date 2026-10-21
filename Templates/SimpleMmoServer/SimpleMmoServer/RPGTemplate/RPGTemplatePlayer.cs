@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using GalaxyCoreServer;
 using SimpleMmoServer.RPGTemplate.Mobs;
 
@@ -37,10 +37,10 @@ namespace SimpleMmoServer.RPGTemplate
             SendMessageByOctoVisible(externalCode, data, GalaxyDeliveryType.reliable);
         }
 
-        protected override void OnDestroy()
+        protected override void OnDestroy(byte[] customData)
         {
         }
-        
+
         protected override void OnRemotePosition(GalaxyVector3 remotePosition)
         {
             transform.Position = remotePosition;

@@ -1,4 +1,5 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 using GalaxyCoreLib.NetEntity;
 using GalaxyNetwork.Core.Scripts;
 using GalaxyNetwork.Core.Scripts.NetEntity;
@@ -7,7 +8,7 @@ using UnityEngine;
 namespace GalaxyNetwork.Examples.Scripts
 {
     /// <summary>
-    /// Пример работы с BitGalaxy
+    /// Пример работы с GalaxyBitBuffer (имя компонента сохранено для существующих сцен)
     /// </summary>
     public class ExampleBitGalaxy : MonoBehaviour
     {
@@ -58,19 +59,19 @@ namespace GalaxyNetwork.Examples.Scripts
                 case 1:
                 {
                     // создаем контейнер на основе имеющихся данных
-                    BitGalaxy buffer = new BitGalaxy(data);
+                    var buffer = GalaxyBitBuffer.From(data);
                     // читаем ожидаемый вектор и приводим его в юньковскому вектору
-                    transform.localScale = buffer.ReadGalaxyVector3().Vector3();
+                    transform.localScale = buffer.ReadVector3().Vector3();
                 }
                     break;
                 case 2:
-                {                     
-                    BitGalaxy buffer = new BitGalaxy(data);
+                {
+                    var buffer = GalaxyBitBuffer.From(data);
                     // читаем данные в той же последовательности что и записывали
-                    color.r = buffer.ReadFloat();
-                    color.g = buffer.ReadFloat();
-                    color.b = buffer.ReadFloat();
-                    color.a = buffer.ReadFloat();
+                    color.r = buffer.ReadSingle();
+                    color.g = buffer.ReadSingle();
+                    color.b = buffer.ReadSingle();
+                    color.a = buffer.ReadSingle();
                     mat.color = color;
                 }
                     break;
@@ -83,14 +84,14 @@ namespace GalaxyNetwork.Examples.Scripts
             if (!netEntity.IsMy) return;
             // проверяем изменился ли размер
             if (scale != transform.localScale)
-            {          
+            {
                 scale = transform.localScale;
                 // создаем пустой контейнер
-                BitGalaxy buffer = new BitGalaxy();
+                var buffer = GalaxyBitBuffer.Create(32);
                 // пишем в него вектор
-                buffer.WriteValue(new GalaxyVector3(scale.x, scale.y, scale.z));
+                buffer.WriteVector3(new GalaxyVector3(scale.x, scale.y, scale.z));
                 // отправляем сообщение
-                netEntity.SendMessage(1, buffer.Data);
+                netEntity.SendMessage(1, buffer.WrittenSpan.ToArray());
             }
 
             // проверяем цвет
@@ -98,13 +99,13 @@ namespace GalaxyNetwork.Examples.Scripts
             {
                 _color = color;
                 // создаем контейнер
-                BitGalaxy buffer = new BitGalaxy();      
-            
-                buffer.WriteValue(color.r);
-                buffer.WriteValue(color.g);
-                buffer.WriteValue(color.b);
-                buffer.WriteValue(color.a);
-                netEntity.SendMessage(2, buffer.Data);
+                var buffer = GalaxyBitBuffer.Create(32);
+
+                buffer.WriteSingle(color.r);
+                buffer.WriteSingle(color.g);
+                buffer.WriteSingle(color.b);
+                buffer.WriteSingle(color.a);
+                netEntity.SendMessage(2, buffer.WrittenSpan.ToArray());
                 mat.color = color;
             }
         }

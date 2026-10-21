@@ -1,35 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
-    <Configurations>Debug;Release;FLOAT;DOUBLE</Configurations>
-    <Platforms>AnyCPU</Platforms>
-    <LangVersion>8</LangVersion>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)' == 'DOUBLE' ">
-    <DefineConstants>TRACE;GALAXY_DOUBLE</DefineConstants>
-    <Optimize>false</Optimize>
-  </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\SimpleMmoCommon\SimpleMmoCommon.csproj" />
+    <Reference Include="GalaxyCoreCommon"><HintPath>..\..\..\Core\Server\netstandard2.1\GalaxyCoreCommon.dll</HintPath></Reference>
+    <Reference Include="GalaxyCoreServer"><HintPath>..\..\..\Core\Server\netstandard2.1\GalaxyCoreServer.dll</HintPath></Reference>
+    <Reference Include="GalaxyCore.Physics.Jitter2"><HintPath>..\..\..\Core\Server\Physics\net8.0\GalaxyCore.Physics.Jitter2.dll</HintPath></Reference>
+    <Reference Include="protobuf-net"><HintPath>..\..\..\Core\Server\netstandard2.1\protobuf-net.dll</HintPath></Reference>
+    <Reference Include="Newtonsoft.Json"><HintPath>..\..\..\Core\Server\netstandard2.1\Newtonsoft.Json.dll</HintPath></Reference>
+    <Reference Include="YamlDotNet"><HintPath>..\..\..\Core\Server\netstandard2.1\YamlDotNet.dll</HintPath></Reference>
+    <Content Include="Content\**\*" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="GalaxyCoreCommon">
-      <HintPath>..\..\..\Core\Server\netstandard2.0\GalaxyCoreCommon.dll</HintPath>
-    </Reference>
-    <Reference Include="GalaxyCoreServer">
-      <HintPath>..\..\..\Core\Server\netstandard2.0\GalaxyCoreServer.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>..\..\..\Core\Server\netstandard2.0\protobuf-net.dll</HintPath>
-    </Reference>
-    <Reference Include="Quartz">
-      <HintPath>D:\Repos\GalaxyCloud\dependencies\GalaxyNetwork\Quartz.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

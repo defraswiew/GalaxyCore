@@ -1,4 +1,4 @@
-﻿using GalaxyCoreServer;
+using GalaxyCoreServer;
 using GalaxyCoreServer.Api;
 using SimpleMmoServer.Examples.NetEntities;
 using SimpleMmoServer.RPGTemplate;
@@ -42,7 +42,7 @@ namespace SimpleMmoServer.NetEntities
                         var netEntity = new NetEntityStandard(client.Instanse)
                         {
                             IsStatic = true,
-                            LossOwner = NetEntityLossOwnerLogic.setServer
+                            LossOwner = NetEntityLossOwnerLogic.SetServer
                         };
 
                         return netEntity;

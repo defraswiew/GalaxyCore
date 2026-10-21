@@ -1,4 +1,6 @@
+using System;
 using GalaxyCoreCommon;
+using GalaxyCoreCommon.Serialization;
 using GalaxyCoreLib.NetEntity;
 using GalaxyNetwork.Core.Scripts.NetEntity;
 using UnityEngine;
@@ -20,13 +22,15 @@ namespace GalaxyNetwork.Examples.Scripts
 
         private void OnDestroy()
         {
-            _netEntity.OnInMessage -= InMessage;
+            CancelInvoke();
+            if (_netEntity != null) _netEntity.OnInMessage -= InMessage;
         }
         public void SendToServer()
         {
-            var message = new BitGalaxy();
-            message.WriteValue("Hello from client");
-            _netEntity.SendMessage(5, message, deliveryType, false, chennal);
+            if (_netEntity == null || !_netEntity.IsInit) return;
+            var message = GalaxyBitBuffer.Create();
+            message.WriteString("Hello from client".AsSpan());
+            _netEntity.SendMessage(5, message.WrittenSpan.ToArray(), deliveryType, false, chennal);
         }
 
         private void InMessage(byte code, byte[] data)

@@ -1,4 +1,4 @@
-﻿using GalaxyCoreCommon;
+using GalaxyCoreCommon;
 using System.Collections.Generic;
 using System.Linq;
 using GalaxyNetwork.Core.Scripts;
@@ -16,7 +16,7 @@ namespace GalaxyCoreLib
         /// Какую сцену загружать при выходе из комнаты
         /// может быть равным "" тогда ничего грузиться не будет
         /// </summary>
-        [Header("Какую сцену загружать при выходе из комнаты")]      
+        [Header("Какую сцену загружать при выходе из комнаты")]
         public string mainScene;
         /// <summary>
         /// Список комнат которые можно создавать
@@ -30,7 +30,7 @@ namespace GalaxyCoreLib
         /// <summary>
         /// Окошко списка комнат
         /// </summary>
-        [Header("Окна")]       
+        [Header("Окна")]
         [SerializeField]
         private GameObject roomList;
         /// <summary>
@@ -62,7 +62,7 @@ namespace GalaxyCoreLib
         /// <summary>
         /// текущий список бъектов
         /// </summary>
-        private List<GameObject> items = new List<GameObject>();      
+        private List<GameObject> items = new List<GameObject>();
         private bool visible = true;
         private GalaxyConnection _connection;
         void OnEnable()
@@ -76,23 +76,25 @@ namespace GalaxyCoreLib
             _connection.Events.OnGalaxyEnterInInstance += OnGalaxyEnterInInstance;
             // мы вышли из инстанса
             _connection.Events.OnExitInstance += OnExitInstance;
-           
+
         }
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            Debug.Log("OnSceneLoaded");         
+            Debug.Log("OnSceneLoaded");
             SceneManager.sceneLoaded -= OnSceneLoaded;
             _connection.Api.Instances.SyncInstance();
         }
-      
+
         void OnDisable()
         {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            if (_connection == null) return;
             _connection.Events.OnGalaxyConnect -= OnGalaxyConnect;
             _connection.Events.OnGalaxyInstancesList -= OnGalaxyInstancesList;
             _connection.Events.OnGalaxyEnterInInstance -= OnGalaxyEnterInInstance;
             _connection.Events.OnExitInstance -= OnExitInstance;
-          
+
         }
         /// <summary>
         /// Событие успешного коннекта
@@ -109,8 +111,8 @@ namespace GalaxyCoreLib
         private void OnExitInstance()
         {
             exitBtn.SetActive(false);
-            createBtn.SetActive(true);      
-            if(mainScene!="") SceneManager.LoadSceneAsync(mainScene);           
+            createBtn.SetActive(true);
+            if(!string.IsNullOrEmpty(mainScene)) SceneManager.LoadSceneAsync(mainScene);
         }
         /// <summary>
         /// Сервер подтвердил вход в инстанс
@@ -118,29 +120,29 @@ namespace GalaxyCoreLib
         /// <param name="info"></param>
         private void OnGalaxyEnterInInstance(InstanceInfo info)
         {
-            Debug.Log("Вход в " + info.Name);           
+            Debug.Log("Вход в " + info.Name);
             roomList.SetActive(false);
             exitBtn.SetActive(true);
             createBtn.SetActive(false);
             roomCreate.SetActive(false);
-            //смотрим была ли инфа об инстансе в  GalaxyInstanceInfoScriptable 
+            //смотрим была ли инфа об инстансе в  GalaxyInstanceInfoScriptable
             GalaxyInstanceInfoScriptable target = instancesInfo.FirstOrDefault(x => x.type == info.Type);
             if (target == null)
             {
                 _connection.Api.Instances.SyncInstance();
             } else
             {
-                if (target.sceneName != "")
+                if (!string.IsNullOrEmpty(target.sceneName))
                 {
+                    SceneManager.sceneLoaded += OnSceneLoaded;
                     SceneManager.LoadSceneAsync(target.sceneName);
-                    SceneManager.sceneLoaded += OnSceneLoaded;                
                 } else
                 {
                     _connection.Api.Instances.SyncInstance();
                 }
-               
+
             }
-            
+
         }
         /// <summary>
         /// Сервер вернул список инстансов
@@ -195,7 +197,7 @@ namespace GalaxyCoreLib
         public void GetRoomList()
         {
             _connection.Api.Instances.InstanceList();
-            
+
         }
         /// <summary>
         /// Выход из инстанса
