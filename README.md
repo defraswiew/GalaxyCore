@@ -25,7 +25,7 @@ dotnet run --project Templates/SimpleMmoServer/SimpleMmoServer -c Release
 - Виртуальные подключения, повторы, диагностика и наблюдение за соединением.
 - HTTP API администрирования сервера.
 
-[Подробный патчноут](CHANGELOG.md) · [Производительность](PERFORMANCE.md)
+[Патчноут — RU](CHANGELOG.md) · [Changelog — EN](CHANGELOG.en.md) · [Производительность](PERFORMANCE.md)
 
 ## Структура
 
